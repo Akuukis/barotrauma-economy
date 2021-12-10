@@ -4,12 +4,17 @@
 // import d3 from 'd3'
 // import { Item, Recipe } from './common'
 
-interface ItemFixed extends Item, d3.SimulationNodeDatum {
-    fy: number
+interface DisplayNode extends d3.SimulationNodeDatum {
+    id: string
+    type: 'item' | 'recipe' | 'category'
+}
+interface Link {
+    source: DisplayNode
+    target: DisplayNode
 }
 
 (async () => {
-    const priceToHeight = (price: number) => Math.max(2, Math.log2(price)) * 100
+    const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 100
 
     const recipes = (await (await fetch('./recipes.json')).json() as Recipe[])
     const itemsRaw = (await (await fetch('./items.json')).json() as Item[])
@@ -21,7 +26,7 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
         .map((item) => ({
             ...item,
             fy: height - priceToHeight(item.price)
-        }) as ItemFixed)
+        }))
 
     const linksOnce = recipes.flatMap((recipe) => recipe.parts.filter((part) => part.input > 0).map((part) => ({source: part.id, target: recipe.id})))
 
@@ -49,10 +54,12 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
     //         .on("drag", dragged)
     //         .on("end", dragended);
     // }
-    const types = Array.from(new Set(itemsOnce.map(d => d.id)))
+    const categoriesRaw = Array.from(new Set(itemsOnce.flatMap(d => d.categories)))
+    console.log(itemsOnce.flatMap(d => d.categories))
 
-    const linkColor = d3.scaleOrdinal(types, d3.schemeCategory10)
-    function linkArc(d: { source: ItemFixed; target: ItemFixed }) {
+    const linkColor = d3.scaleOrdinal(categoriesRaw, d3.schemeCategory10)
+
+    function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         const r = Math.hypot(d.target.x! - d.source.x!, d.target.y! - d.source.y!);
         return `
     M${d.source.x},${d.source.y}
@@ -61,14 +68,16 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
     }
 
     const chart = () => {
-        const items: ItemFixed[] = itemsOnce.map(d => Object.create(d));
-        const links = linksOnce
-            .map(d => ({source: items.find((item) => item.id === d.source)!, target: items.find((item) => item.id === d.target)!}))
+        const itemNodes: DisplayNode[] = itemsOnce.map(d => Object.create(d));
+        const categoryNodes: DisplayNode[] = categoriesRaw.map(d => Object.create({id: d, fy: height - priceToHeight(0, true), type: 'category'}));
+
+        const itemLinks = linksOnce
+            .map(d => ({source: itemNodes.find((item) => item.id === d.source)!, target: itemNodes.find((item) => item.id === d.target)!}))
             .filter(d => d.source && d.target);
 
 
-        const simulation = d3.forceSimulation(items)
-            .force("link", d3.forceLink<ItemFixed, {source: ItemFixed;target: ItemFixed;}>(links).id(d => d.id))
+        const simulation = d3.forceSimulation([...itemNodes, ...categoryNodes])
+            .force("link", d3.forceLink<DisplayNode, Link>(itemLinks).id(d => d.id))
             .force("charge", d3.forceManyBody().strength(-50))
             // .force("x", d3.forceX())
             // .force("y", d3.forceY());
@@ -82,7 +91,7 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
 
         // Per-type markers, as they don't inherit styles.
         // svg.append("defs").selectAll("marker")
-        //     .data(types)
+        //     .data(categories)
         //     .join("marker")
         //     .attr("id", d => `arrow-${d}`)
         //     .attr("viewBox", "0 -5 10 10")
@@ -99,7 +108,7 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
             .attr("fill", "none")
             .attr("stroke-width", 1.5)
             .selectAll("path")
-            .data(links)
+            .data(itemLinks)
             .join("path")
             .attr("stroke", d => linkColor(d.target.id))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
@@ -109,7 +118,7 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
             .selectAll("g")
-            .data(items)
+            .data([...itemNodes, ...categoryNodes])
             .join("g")
             // .call(drag(simulation));
 
@@ -133,15 +142,13 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
 
             const margin = 30
 
-            const minLeft = items.reduce((min, node) => Math.min(min, node.x ?? 0), 0) - margin
+            const minLeft = itemNodes.reduce((min, node) => Math.min(min, node.x ?? 0), 0) - margin
             const viewbox = [
                 minLeft,
                 -margin,
-                items.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + margin * 10 - minLeft,
+                itemNodes.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + margin * 10 - minLeft,
                 height + margin,
             ]
-
-            console.log(viewbox)
 
             svg
                 .attr("viewBox", viewbox)

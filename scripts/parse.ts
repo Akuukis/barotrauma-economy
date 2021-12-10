@@ -185,7 +185,7 @@ interface ItemRaw {
     "MeleeWeapon": any,
     "$name": "",
     "$identifier": IdItemString,
-    "$category": string,
+    "$category"?: string,
     "$Tags": StringsWithComma,
     "$maxstacksize": NumberString,
     "$cargocontaineridentifier": string,
@@ -231,8 +231,9 @@ const recipes: Record<string, Recipe> = {}
                     continue
                 }
                 items[raw.$identifier] = {
-                    id: raw.$identifier,
                     type: 'item',
+                    id: raw.$identifier,
+                    categories: (raw.$category || 'Uncategorized').split(','),
                     title,
                     price: Number(raw.Price.$baseprice)
                 }
@@ -247,9 +248,9 @@ const recipes: Record<string, Recipe> = {}
                     const allItems: IdItemString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
                     const id = `${raw.$identifier}${fabricate?.$displayname ? '-'+fabricate?.$displayname : ''}`
                     recipes[id] = {
+                        type: 'recipe',
                         id,
                         result: raw.$identifier,
-                        type: 'recipe',
                         parts: allItems.map((id) => {
                             const inputItemCount = inputItems.filter((item) => item.$identifier === id).length
                             const amount = (fabricate?.$amount ? Number(fabricate?.$amount) : 1)
