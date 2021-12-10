@@ -61,13 +61,13 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
     }
 
     const chart = () => {
-        const nodes: ItemFixed[] = itemsOnce.map(d => Object.create(d));
+        const items: ItemFixed[] = itemsOnce.map(d => Object.create(d));
         const links = linksOnce
-            .map(d => ({source: nodes.find((item) => item.id === d.source)!, target: nodes.find((item) => item.id === d.target)!}))
+            .map(d => ({source: items.find((item) => item.id === d.source)!, target: items.find((item) => item.id === d.target)!}))
             .filter(d => d.source && d.target);
 
 
-        const simulation = d3.forceSimulation(nodes)
+        const simulation = d3.forceSimulation(items)
             .force("link", d3.forceLink<ItemFixed, {source: ItemFixed;target: ItemFixed;}>(links).id(d => d.id))
             .force("charge", d3.forceManyBody().strength(-50))
             // .force("x", d3.forceX())
@@ -109,7 +109,7 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
             .selectAll("g")
-            .data(nodes)
+            .data(items)
             .join("g")
             // .call(drag(simulation));
 
@@ -133,11 +133,11 @@ interface ItemFixed extends Item, d3.SimulationNodeDatum {
 
             const margin = 30
 
-            const minLeft = nodes.reduce((min, node) => Math.min(min, node.x ?? 0), 0) - margin
+            const minLeft = items.reduce((min, node) => Math.min(min, node.x ?? 0), 0) - margin
             const viewbox = [
                 minLeft,
                 -margin,
-                nodes.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + margin * 10 - minLeft,
+                items.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + margin * 10 - minLeft,
                 height + margin,
             ]
 
