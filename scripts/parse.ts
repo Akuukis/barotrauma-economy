@@ -1,7 +1,11 @@
-import { rejects } from "assert";
-import { XMLParser, XMLBuilder, XMLValidator } from "fast-xml-parser";
-import { createReadStream, readFile, readFileSync, writeFileSync } from "fs";
+import { XMLParser } from "fast-xml-parser";
+import { readFile, writeFileSync } from "fs";
 import {join} from 'path'
+
+// import { BooleanString, IdString, Item, NumberString, NumbersWithComma, Recipe, StringsWithComma } from "./common";
+import '../src/common'
+
+
 const DIR = '/media/kalvis/DataMuch/GamesSteam/steamapps/common/Barotrauma/Content/Items'
 
 const files = [
@@ -126,12 +130,6 @@ const files = [
 
 const testpath = './Medical/medical.xml'
 
-type IdString = string
-type NumberString = string
-type BooleanString = string
-type NumbersWithComma = string
-type StringsWithComma = string
-
 interface ItemRaw {
     "Upgrade": {
         "$gameversion": "0.10.0.0",
@@ -202,21 +200,6 @@ const parser = new XMLParser({
     alwaysCreateTextNode: true,
 });
 
-interface Item {
-    id: IdString
-    title: string
-    price: number
-}
-
-interface Recipe {
-    id: IdString
-    parts: Array<{
-        id: IdString
-        input: number
-        output: number
-    }>,
-}
-
 const items: Record<IdString, Item> = {}
 const recipes: Record<string, Recipe> = {}
 
@@ -246,6 +229,7 @@ const recipes: Record<string, Recipe> = {}
                 }
                 items[raw.$identifier] = {
                     id: raw.$identifier,
+                    type: 'item',
                     title,
                     price: Number(raw.Price.$baseprice)
                 }
@@ -256,6 +240,7 @@ const recipes: Record<string, Recipe> = {}
                 const allItems: IdString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
                 recipes[raw.$identifier] = {
                     id: raw.$identifier,
+                    type: 'recipe',
                     parts: allItems.map((id) => {
                         const inputItemCount = inputItems.filter((item) => item.$identifier === id).length
                         const amount = (raw.Fabricate?.$amount ? Number(raw.Fabricate?.$amount) : 1)
@@ -280,8 +265,8 @@ const recipes: Record<string, Recipe> = {}
     // console.log(recipes)
     // for(const item of Object.values(items)) console.log(item)
     // for(const recipe of Object.values(recipes)) console.log(recipe)
-    writeFileSync(join(__dirname, '..', 'dist', 'items.json'), JSON.stringify(items))
-    writeFileSync(join(__dirname, '..', 'dist', 'recipes.json'), JSON.stringify(recipes))
+    writeFileSync(join(__dirname, '..', 'dist', 'items.json'), JSON.stringify(Object.values(items)))
+    writeFileSync(join(__dirname, '..', 'dist', 'recipes.json'), JSON.stringify(Object.values(recipes)))
 // console.log(JSON.stringify(parsed.Items.Plastiseal))
 })().catch((err: Error) => {
     console.error(err)

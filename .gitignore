@@ -1,2 +1,6 @@
-/node_modules
+/node_modules/
 yarn-error.log
+/dist/src/
+/dist/scripts/
+/dist/*.json
+/dist/*.json
