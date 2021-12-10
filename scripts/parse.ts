@@ -2,7 +2,7 @@ import { XMLParser } from "fast-xml-parser";
 import { readFile, writeFileSync } from "fs";
 import {join} from 'path'
 
-// import { BooleanString, IdString, Item, NumberString, NumbersWithComma, Recipe, StringsWithComma } from "./common";
+// import { BooleanString, IdItemString, Item, NumberString, NumbersWithComma, Recipe, StringsWithComma } from "./common";
 import '../src/common'
 
 
@@ -128,7 +128,27 @@ const files = [
     './Weapons/turrethardpoint.xml',
 ]
 
-const testpath = './Medical/medical.xml'
+interface RequiredItem {
+    "$identifier": IdItemString
+}
+
+interface Fabricate {
+    "RequiredSkill": {
+        "$identifier": string,
+        "$level": NumberString
+    },
+    "RequiredItem": RequiredItem | RequiredItem[],
+    "$suitablefabricators": string,
+    "$requiredtime": NumberString,
+    "$amount"?: NumberString,
+    "$displayname"?: string,
+}
+
+interface DeconstructItem {
+    "$identifier": IdItemString,
+    "$mincondition": NumberString,
+    "$outcondition"?: NumberString
+}
 
 interface ItemRaw {
     "Upgrade": {
@@ -149,26 +169,9 @@ interface ItemRaw {
         }>,
         "$baseprice": NumberString
     },
-    "Fabricate"?: {
-        "RequiredSkill": {
-            "$identifier": "medical",
-            "$level": NumberString
-        },
-        "RequiredItem": {
-            "$identifier": IdString
-        } | Array<{
-            "$identifier": IdString
-        }>,
-        "$suitablefabricators": "medicalfabricator",
-        "$requiredtime": NumberString,
-        "$amount"?: NumberString
-    },
+    "Fabricate"?: Fabricate | Fabricate[],
     "Deconstruct": {
-        "Item": Array<{
-            "$identifier": IdString,
-            "$mincondition": NumberString,
-            "$outcondition"?: NumberString
-        }>,
+        "Item": DeconstructItem[],
         "$time": NumberString
     },
     "InventoryIcon": {
@@ -181,7 +184,7 @@ interface ItemRaw {
     "SuitableTreatment"?: any,
     "MeleeWeapon": any,
     "$name": "",
-    "$identifier": IdString,
+    "$identifier": IdItemString,
     "$category": string,
     "$Tags": StringsWithComma,
     "$maxstacksize": NumberString,
@@ -200,7 +203,7 @@ const parser = new XMLParser({
     alwaysCreateTextNode: true,
 });
 
-const items: Record<IdString, Item> = {}
+const items: Record<IdItemString, Item> = {}
 const recipes: Record<string, Recipe> = {}
 
 ;
@@ -234,24 +237,31 @@ const recipes: Record<string, Recipe> = {}
                     price: Number(raw.Price.$baseprice)
                 }
 
-                const inputItems = !raw.Fabricate ? [] : Array.isArray(raw.Fabricate.RequiredItem) ? raw.Fabricate.RequiredItem : [raw.Fabricate.RequiredItem ?? []]
-                const outputItems = !raw.Deconstruct ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+                const fabricates: (Fabricate | undefined)[] = Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
+                if(raw.$identifier === 'chaingunammobox') console.log(fabricates)
 
-                const allItems: IdString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
-                recipes[raw.$identifier] = {
-                    id: raw.$identifier,
-                    type: 'recipe',
-                    parts: allItems.map((id) => {
-                        const inputItemCount = inputItems.filter((item) => item.$identifier === id).length
-                        const amount = (raw.Fabricate?.$amount ? Number(raw.Fabricate?.$amount) : 1)
-                        const outputItemCount = outputItems.filter((item) => item.$identifier === id).length
-                        const outputItemCondition = outputItems.find((item) => item.$identifier === id)?.$outcondition  // Assuming all copies are equal.
-                        return {
-                            id,
-                            input: inputItemCount / amount,
-                            output: outputItemCount * (outputItemCondition ? Number(outputItemCondition) : 1),
-                        }
-                    }),
+                for(const fabricate of fabricates) {
+                    const inputItems = !fabricate ? [] : Array.isArray(fabricate.RequiredItem) ? fabricate.RequiredItem : [fabricate.RequiredItem ?? []]
+                    const outputItems = !raw.Deconstruct ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+
+                    const allItems: IdItemString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
+                    const id = `${raw.$identifier}${fabricate?.$displayname ? '-'+fabricate?.$displayname : ''}`
+                    recipes[id] = {
+                        id,
+                        result: raw.$identifier,
+                        type: 'recipe',
+                        parts: allItems.map((id) => {
+                            const inputItemCount = inputItems.filter((item) => item.$identifier === id).length
+                            const amount = (fabricate?.$amount ? Number(fabricate?.$amount) : 1)
+                            const outputItemCount = outputItems.filter((item) => item.$identifier === id).length
+                            const outputItemCondition = outputItems.find((item) => item.$identifier === id)?.$outcondition  // Assuming all copies are equal.
+                            return {
+                                id,
+                                input: inputItemCount / amount,
+                                output: outputItemCount * (outputItemCondition ? Number(outputItemCondition) : 1),
+                            }
+                        }),
+                    }
                 }
             }
 

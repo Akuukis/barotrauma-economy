@@ -1,21 +1,23 @@
-declare type IdString = string
+declare type IdItemString = string
+declare type IdRecipeString = string
 declare type NumberString = string
 declare type BooleanString = string
 declare type NumbersWithComma = string
 declare type StringsWithComma = string
 
 declare interface Item {
-    id: IdString
+    id: IdItemString
     type: 'item'
     title: string
     price: number
 }
 
 declare interface Recipe {
-    id: IdString
+    id: IdRecipeString
+    result: IdItemString
     type: 'recipe'
     parts: Array<{
-        id: IdString
+        id: IdItemString
         input: number
         output: number
     }>,
