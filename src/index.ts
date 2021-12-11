@@ -8,7 +8,8 @@ interface DisplayNode extends d3.SimulationNodeDatum {
     id: string
     type: 'item' | 'recipe' | 'category'
 }
-interface Link {
+interface DisplayLink extends d3.SimulationNodeDatum {
+    type: 'item' | 'category'
     source: DisplayNode
     target: DisplayNode
 }
@@ -17,10 +18,9 @@ interface Link {
     const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 100
 
     const recipes = (await (await fetch('./recipes.json')).json() as Recipe[])
-    const itemsRaw = (await (await fetch('./items.json')).json() as Item[])
+    const items = (await (await fetch('./items.json')).json() as Item[])
 
-    const height = itemsRaw.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
-    const width = 10000
+    const height = items.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
 
     const itemsOnce = (await (await fetch('./items.json')).json() as Item[])
         .map((item) => ({
@@ -28,7 +28,8 @@ interface Link {
             fy: height - priceToHeight(item.price)
         }))
 
-    const linksOnce = recipes.flatMap((recipe) => recipe.parts.filter((part) => part.input > 0).map((part) => ({source: part.id, target: recipe.id})))
+    const itemLinksOnce = recipes.flatMap((recipe) => recipe.parts.filter((part) => part.input > 0).map((part) => ({source: part.id, target: recipe.id})))
+    const categoryLinksOnce = items.flatMap((item) => item.categories.map((category) => ({source: category, target: item.id})))
 
 
     // const drag = (simulation: d3.Simulation<any, undefined>) => {
@@ -71,22 +72,30 @@ interface Link {
         const itemNodes: DisplayNode[] = itemsOnce.map(d => Object.create(d));
         const categoryNodes: DisplayNode[] = categoriesRaw.map(d => Object.create({id: d, fy: height - priceToHeight(0, true), type: 'category'}));
 
-        const itemLinks = linksOnce
-            .map(d => ({source: itemNodes.find((item) => item.id === d.source)!, target: itemNodes.find((item) => item.id === d.target)!}))
+        const itemLinks = itemLinksOnce
+            .map<DisplayLink>(d => ({
+                type: 'item',
+                source: itemNodes.find((item) => item.id === d.source)!,
+                target: itemNodes.find((item) => item.id === d.target)!
+            }))
+            .filter(d => d.source && d.target);
+
+        const categoryLinks = categoryLinksOnce
+            .map<DisplayLink>(d => ({
+                type: 'category',
+                source: categoryNodes.find((item) => item.id === d.source)!,
+                target: itemNodes.find((item) => item.id === d.target)!
+            }))
             .filter(d => d.source && d.target);
 
 
         const simulation = d3.forceSimulation([...itemNodes, ...categoryNodes])
-            .force("link", d3.forceLink<DisplayNode, Link>(itemLinks).id(d => d.id))
-            .force("charge", d3.forceManyBody().strength(-50))
+            .force("link", d3.forceLink<DisplayNode, DisplayLink>([...itemLinks, ...categoryLinks]).id(d => d.id))
+            .force("charge", d3.forceManyBody().strength(-400))
             // .force("x", d3.forceX())
             // .force("y", d3.forceY());
 
         const svg = d3.select('body').append("svg")
-            .attr("viewBox", [-width / 2, -50, width / 2, height])
-            // .attr("preserveAspectRatio", "xMidYMax slice")
-            .attr("width", "100%")
-            .attr("height", "100%")
             .style("font", "12px sans-serif");
 
         // Per-type markers, as they don't inherit styles.
@@ -106,11 +115,11 @@ interface Link {
 
         const link = svg.append("g")
             .attr("fill", "none")
-            .attr("stroke-width", 1.5)
             .selectAll("path")
-            .data(itemLinks)
+            .data([...itemLinks, ...categoryLinks])
             .join("path")
-            .attr("stroke", d => linkColor(d.target.id))
+            .attr("stroke-width", d => d.type === 'category' ? 0.5 : 1.5)
+            .attr("stroke", d => linkColor(d.type === 'category' ? d.source.id : d.target.id))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
         const node = svg.append("g")
@@ -125,11 +134,12 @@ interface Link {
         node.append("circle")
             .attr("stroke", "white")
             .attr("stroke-width", 1.5)
-            .attr("r", 4);
+            .attr("r", (d) => d.type === 'category' ? 8 : 4);
 
         node.append("text")
-            .attr("x", 8)
+            .attr("x", 4)
             .attr("y", "0.31em")
+            .attr("transform", "translate(0, 0) rotate(-45)")
             .text(d => d.id)
             .clone(true).lower()
             .attr("fill", "none")
