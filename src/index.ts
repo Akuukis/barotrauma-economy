@@ -42,9 +42,9 @@ interface DisplayLink extends d3.SimulationNodeDatum {
     // ITEMS.splice(20)
     // RECIPES.splice(20)
     // CATEGORIES.splice(20)
-    // console.log(ITEMS)
-    // console.log(RECIPES)
-    // console.log(CATEGORIES)
+    console.log(ITEMS)
+    console.log(RECIPES)
+    console.log(CATEGORIES)
 
     const RECIPE2ITEM_LINKS = RECIPES.map((recipe) => ({source: recipe.id, target: recipe.result}))
     const ITEM2RECIPE_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.id})))
@@ -123,7 +123,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
         const simulation = d3.forceSimulation([...itemNodes, ...categoryNodes, ...recipeNodes])
             .force("link", d3.forceLink<DisplayNode, DisplayLink>([...recipe2itemLinks, ...item2recipeLinks, ...categoryLinks]).id(d => d.type + d.id))
-            .force("charge", d3.forceManyBody().strength(-400))
+            .force("charge", d3.forceManyBody<DisplayNode>().strength((d) => d.type !== 'recipe' ? -800 : 0))
             // .force("x", d3.forceX())
             // .force("y", d3.forceY());
 
@@ -154,24 +154,22 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke", d => linkColor(d.target.id.replace('recipe-', '')))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
-        const node = svg.append("g")
+        const containerSvg = svg.append("g")
             .attr("fill", "currentColor")
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
-            .selectAll("g")
-            .data([...itemNodes, ...recipeNodes])
-            .join("g")
-            // .call(drag(simulation));
-
-        // node.append("circle")
-        //     .attr("stroke", "white")
-        //     .attr("stroke-width", 1.5)
-        //     .attr("r", (d) => d.type === 'category' ? 8 : 4);
 
         const iconSize = 48
         const strokeWidth = 4
 
-        node
+
+        const itemSvg = containerSvg
+            .selectAll("g.item")
+            .data(itemNodes)
+            .join("g")
+            .classed('item', true)
+
+        itemSvg
             .append("rect")
             .attr("x", -iconSize/2 - strokeWidth/4)
             .attr("y", -iconSize/2 - strokeWidth/4)
@@ -181,7 +179,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke", d => linkColor(d.categories?.[0] ?? 'recipe'))
             .attr("stroke-width", strokeWidth);
 
-        node
+        itemSvg
             .append("image")
             .attr("href", (d) => d.icon?.path ? `img/${d.icon?.path}` : null)
             .attr("clip-path", (d) => {
@@ -194,7 +192,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("y", (d) => d.icon ? -d.icon.rect[1] : null)
             .attr("transform", (d) => d.icon ? `translate(-${iconSize/2} -${iconSize/2}) scale(${iconSize / Math.max(d.icon?.rect[2], d.icon?.rect[3])})` : null)
 
-        node.append("text")
+        itemSvg.append("text")
             .attr("x", 4)
             .attr("y", "0.31em")
             .attr("transform", "translate(0, 0) rotate(-45)")
@@ -204,9 +202,32 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke", "white")
             .attr("stroke-width", 3);
 
+
+        const recipeSvg = containerSvg
+            .selectAll("g.recipe")
+            .data(recipeNodes)
+            .join("g")
+            .classed('recipe', true)
+
+        recipeSvg
+            .append("rect")
+            .attr("x", -iconSize/2 - strokeWidth/4)
+            .attr("y", (-iconSize/2 - strokeWidth/4) / 2)
+            .attr("width", iconSize + strokeWidth/2)
+            .attr("height", (iconSize + strokeWidth/2) / 2)
+            .attr("fill", "#bbb")
+            .attr("stroke", d => linkColor(d.categories?.[0] ?? 'recipe'))
+            .attr("stroke-width", strokeWidth);
+
+        recipeSvg.append("text")
+            .text(d => d.id.replace('recipe-', ''))
+            .attr("text-anchor", "middle")
+
+
         simulation.on("tick", () => {
             link.attr("d", linkArc);
-            node.attr("transform", d => `translate(${d.x},${d.y})`);
+            itemSvg.attr("transform", d => `translate(${d.x},${d.y})`);
+            recipeSvg.attr("transform", d => `translate(${d.x},${d.y})`);
 
             const margin = 30
 

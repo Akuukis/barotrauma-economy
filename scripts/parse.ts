@@ -171,8 +171,8 @@ interface ItemRaw {
         "$baseprice": NumberString
     },
     "Fabricate"?: Fabricate | Fabricate[],
-    "Deconstruct": {
-        "Item": DeconstructItem[],
+    "Deconstruct"?: {
+        "Item"?: DeconstructItem[],
         "$time": NumberString
     },
     "InventoryIcon": {
@@ -245,7 +245,7 @@ const recipes: Record<string, Recipe> = {}
                 items[raw.$identifier] = {
                     type: 'item',
                     id: raw.$identifier,
-                    categories: (raw.$category || 'Uncategorized').split(','),
+                    categories: (raw.$category?.split(',') || []).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
                     title,
                     price: Number(raw.Price.$baseprice),
                     icon: {
@@ -259,7 +259,7 @@ const recipes: Record<string, Recipe> = {}
 
                 for(const fabricate of fabricates) {
                     const inputItems = !fabricate ? [] : Array.isArray(fabricate.RequiredItem) ? fabricate.RequiredItem : [fabricate.RequiredItem ?? []]
-                    const outputItems = !raw.Deconstruct ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+                    const outputItems = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
 
                     const allItems: IdItemString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
                     if(allItems.length === 0) continue
