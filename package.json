@@ -1,14 +1,16 @@
 {
-  "name": "@d3/mobile-patent-suits",
-  "main": "70f8856cb0e05d56@228.js",
-  "version": "228.0.0",
-  "homepage": "https://observablehq.com/@d3/mobile-patent-suits",
+  "name": "barotrauma-recipes",
+  "version": "0.0.1",
   "author": {
-    "name": "D3",
-    "url": "https://observablehq.com/@d3"
+    "name": "Akuukis",
+    "url": "https://github.com/Akuukis"
   },
-  "peerDependencies": {
-    "@observablehq/runtime": "4"
+  "scripts": {
+    "start": "yarn build && yarn serve",
+    "build": "yarn exec ts-node scripts/parse.ts",
+    "watch": "yarn concurrently \"yarn:watch:*\"",
+    "watch:dist": "yarn exec serve dist",
+    "watch:src": "yarn tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
     "@types/node": "12",
@@ -22,6 +24,8 @@
     "typescript": "^4.5.2"
   },
   "devDependencies": {
-    "@types/d3": "^7.1.0"
+    "@types/d3": "^7.1.0",
+    "concurrent": "^0.3.2",
+    "concurrently": "^6.4.0"
   }
 }
