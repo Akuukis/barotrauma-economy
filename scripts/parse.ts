@@ -246,10 +246,12 @@ const recipes: Record<string, Recipe> = {}
                     const outputItems = !raw.Deconstruct ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
 
                     const allItems: IdItemString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
-                    const id = `${raw.$identifier}${fabricate?.$displayname ? '-'+fabricate?.$displayname : ''}`
-                    recipes[id] = {
+                    if(allItems.length === 0) continue
+
+                    const recipeId = `recipe-${raw.$identifier}${fabricate?.$displayname ? '-'+fabricate?.$displayname : ''}`
+                    recipes[recipeId] = {
                         type: 'recipe',
-                        id,
+                        id: recipeId,
                         result: raw.$identifier,
                         parts: allItems.map((id) => {
                             const inputItemCount = inputItems.filter((item) => item.$identifier === id).length

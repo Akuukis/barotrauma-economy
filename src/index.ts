@@ -9,7 +9,7 @@ interface DisplayNode extends d3.SimulationNodeDatum {
     type: 'item' | 'recipe' | 'category'
 }
 interface DisplayLink extends d3.SimulationNodeDatum {
-    type: 'item' | 'category'
+    type: 'recipe2item' | 'item2recipe' | 'category2item'
     source: DisplayNode
     target: DisplayNode
 }
@@ -17,20 +17,39 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 (async () => {
     const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 100
 
-    const recipes = (await (await fetch('./recipes.json')).json() as Recipe[])
-    const items = (await (await fetch('./items.json')).json() as Item[])
+    const ITEMS_RAW = (await (await fetch('./items.json')).json() as Item[])
+    const TOTAL_HEIGHT = ITEMS_RAW.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
 
-    const height = items.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
-
-    const itemsOnce = (await (await fetch('./items.json')).json() as Item[])
+    const ITEMS = ITEMS_RAW
         .map((item) => ({
             ...item,
-            fy: height - priceToHeight(item.price)
+            fy: TOTAL_HEIGHT - priceToHeight(item.price)
         }))
+    const RECIPES = (await (await fetch('./recipes.json')).json() as Recipe[])
+        .map((recipe) => {
+            const itemPrice = ITEMS.find((item) => item.id === recipe.result)?.price ?? 0
+            const partPriceMax = Math.max(...recipe.parts.map((part) => ITEMS.find((item) => item.id === part.id)?.price ?? 0))
+            return {
+                ...recipe,
+                fy: TOTAL_HEIGHT - (priceToHeight(itemPrice) + priceToHeight(partPriceMax))/2
+            }
+        })
+    const CATEGORIES = Array.from(new Set(ITEMS_RAW.flatMap(d => d.categories)))
 
-    const itemLinksOnce = recipes.flatMap((recipe) => recipe.parts.filter((part) => part.input > 0).map((part) => ({source: part.id, target: recipe.id})))
-    const categoryLinksOnce = items.flatMap((item) => item.categories.map((category) => ({source: category, target: item.id})))
+    const RECIPE2ITEM_LINKS = RECIPES.map((recipe) => ({source: recipe.id, target: recipe.result}))
+    const ITEM2RECIPE_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.id})))
+    const CATEGORY2ITEM_LINKS = ITEMS_RAW.flatMap((item) => item.categories.map((category) => ({source: category, target: item.id})))
 
+    console.log('nodes:', {
+        categories: CATEGORIES.length,
+        items: ITEMS.length,
+        recipes: RECIPES.length,
+    })
+    console.log('links:', {
+        category2item: CATEGORY2ITEM_LINKS.length,
+        item2recipe: ITEM2RECIPE_LINKS.length,
+        recipe2item: RECIPE2ITEM_LINKS.length,
+    })
 
     // const drag = (simulation: d3.Simulation<any, undefined>) => {
     //     function dragstarted(event, d) {
@@ -55,42 +74,45 @@ interface DisplayLink extends d3.SimulationNodeDatum {
     //         .on("drag", dragged)
     //         .on("end", dragended);
     // }
-    const categoriesRaw = Array.from(new Set(itemsOnce.flatMap(d => d.categories)))
-    console.log(itemsOnce.flatMap(d => d.categories))
 
-    const linkColor = d3.scaleOrdinal(categoriesRaw, d3.schemeCategory10)
+    const linkColor = d3.scaleOrdinal(CATEGORIES, d3.schemeCategory10)
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
-        const r = Math.hypot(d.target.x! - d.source.x!, d.target.y! - d.source.y!);
-        return `
-    M${d.source.x},${d.source.y}
-    A${r},${r} 0 0,1 ${d.target.x},${d.target.y}
-  `;
+        return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
     }
 
     const chart = () => {
-        const itemNodes: DisplayNode[] = itemsOnce.map(d => Object.create(d));
-        const categoryNodes: DisplayNode[] = categoriesRaw.map(d => Object.create({id: d, fy: height - priceToHeight(0, true), type: 'category'}));
+        const itemNodes: DisplayNode[] = ITEMS.map(d => Object.create(d));
+        const recipeNodes: DisplayNode[] = RECIPES.map(d => Object.create(d));
+        const categoryNodes: DisplayNode[] = CATEGORIES.map(d => Object.create({id: d, fy: TOTAL_HEIGHT - priceToHeight(0, true), type: 'category'}));
 
-        const itemLinks = itemLinksOnce
+        const recipe2itemLinks = RECIPE2ITEM_LINKS
             .map<DisplayLink>(d => ({
-                type: 'item',
-                source: itemNodes.find((item) => item.id === d.source)!,
-                target: itemNodes.find((item) => item.id === d.target)!
+                type: 'recipe2item',
+                source: recipeNodes.find((recipe) => recipe.id === d.source)!,
+                target: itemNodes.find((item) => item.id === d.target)!,
             }))
             .filter(d => d.source && d.target);
 
-        const categoryLinks = categoryLinksOnce
+        const item2recipeLinks = ITEM2RECIPE_LINKS
             .map<DisplayLink>(d => ({
-                type: 'category',
+                type: 'item2recipe',
+                source: itemNodes.find((item) => item.id === d.source)!,
+                target: recipeNodes.find((recipe) => recipe.id === d.target)!,
+            }))
+            .filter(d => d.source && d.target);
+
+        const categoryLinks = CATEGORY2ITEM_LINKS
+            .map<DisplayLink>(d => ({
+                type: 'category2item',
                 source: categoryNodes.find((item) => item.id === d.source)!,
                 target: itemNodes.find((item) => item.id === d.target)!
             }))
             .filter(d => d.source && d.target);
 
 
-        const simulation = d3.forceSimulation([...itemNodes, ...categoryNodes])
-            .force("link", d3.forceLink<DisplayNode, DisplayLink>([...itemLinks, ...categoryLinks]).id(d => d.id))
+        const simulation = d3.forceSimulation([...itemNodes, ...categoryNodes, ...recipeNodes])
+            .force("link", d3.forceLink<DisplayNode, DisplayLink>([...recipe2itemLinks, ...item2recipeLinks, ...categoryLinks]).id(d => d.type + d.id))
             .force("charge", d3.forceManyBody().strength(-400))
             // .force("x", d3.forceX())
             // .force("y", d3.forceY());
@@ -116,10 +138,10 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         const link = svg.append("g")
             .attr("fill", "none")
             .selectAll("path")
-            .data([...itemLinks, ...categoryLinks])
+            .data([...recipe2itemLinks, ...item2recipeLinks, ...categoryLinks])
             .join("path")
-            .attr("stroke-width", d => d.type === 'category' ? 0.5 : 1.5)
-            .attr("stroke", d => linkColor(d.type === 'category' ? d.source.id : d.target.id))
+            .attr("stroke-width", d => d.type === 'category2item' ? 0.5 : 1.5)
+            .attr("stroke", d => linkColor(d.type === 'category2item' ? d.source.id : d.target.id))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
         const node = svg.append("g")
@@ -127,7 +149,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
             .selectAll("g")
-            .data([...itemNodes, ...categoryNodes])
+            .data([...itemNodes, ...categoryNodes, ...recipeNodes])
             .join("g")
             // .call(drag(simulation));
 
@@ -157,7 +179,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
                 minLeft,
                 -margin,
                 itemNodes.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + margin * 10 - minLeft,
-                height + margin,
+                TOTAL_HEIGHT + margin,
             ]
 
             svg
