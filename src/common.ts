@@ -12,6 +12,10 @@ declare interface Item {
     categories: IdCategoryString[]
     title: string
     price: number
+    icon: {
+        path: string,
+        rect: [number, number, number, number]
+    }
 }
 
 declare interface Recipe {

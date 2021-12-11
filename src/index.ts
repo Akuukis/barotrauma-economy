@@ -7,6 +7,8 @@
 interface DisplayNode extends d3.SimulationNodeDatum {
     id: string
     type: 'item' | 'recipe' | 'category'
+    icon?: Item['icon']
+    categories?: IdCategoryString[]
 }
 interface DisplayLink extends d3.SimulationNodeDatum {
     type: 'recipe2item' | 'item2recipe' | 'category2item'
@@ -35,6 +37,14 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             }
         })
     const CATEGORIES = Array.from(new Set(ITEMS_RAW.flatMap(d => d.categories)))
+
+    // Debug
+    // ITEMS.splice(20)
+    // RECIPES.splice(20)
+    // CATEGORIES.splice(20)
+    // console.log(ITEMS)
+    // console.log(RECIPES)
+    // console.log(CATEGORIES)
 
     const RECIPE2ITEM_LINKS = RECIPES.map((recipe) => ({source: recipe.id, target: recipe.result}))
     const ITEM2RECIPE_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.id})))
@@ -138,10 +148,10 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         const link = svg.append("g")
             .attr("fill", "none")
             .selectAll("path")
-            .data([...recipe2itemLinks, ...item2recipeLinks, ...categoryLinks])
+            .data([...recipe2itemLinks, ...item2recipeLinks])
             .join("path")
-            .attr("stroke-width", d => d.type === 'category2item' ? 0.5 : 1.5)
-            .attr("stroke", d => linkColor(d.type === 'category2item' ? d.source.id : d.target.id))
+            .attr("stroke-width", 1.5)
+            .attr("stroke", d => linkColor(d.target.id.replace('recipe-', '')))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
         const node = svg.append("g")
@@ -149,14 +159,40 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
             .selectAll("g")
-            .data([...itemNodes, ...categoryNodes, ...recipeNodes])
+            .data([...itemNodes, ...recipeNodes])
             .join("g")
             // .call(drag(simulation));
 
-        node.append("circle")
-            .attr("stroke", "white")
-            .attr("stroke-width", 1.5)
-            .attr("r", (d) => d.type === 'category' ? 8 : 4);
+        // node.append("circle")
+        //     .attr("stroke", "white")
+        //     .attr("stroke-width", 1.5)
+        //     .attr("r", (d) => d.type === 'category' ? 8 : 4);
+
+        const iconSize = 48
+        const strokeWidth = 4
+
+        node
+            .append("rect")
+            .attr("x", -iconSize/2 - strokeWidth/4)
+            .attr("y", -iconSize/2 - strokeWidth/4)
+            .attr("width", iconSize + strokeWidth/2)
+            .attr("height", iconSize + strokeWidth/2)
+            .attr("fill", "#bbb")
+            .attr("stroke", d => linkColor(d.categories?.[0] ?? 'recipe'))
+            .attr("stroke-width", strokeWidth);
+
+        node
+            .append("image")
+            .attr("href", (d) => d.icon?.path ? `img/${d.icon?.path}` : null)
+            .attr("clip-path", (d) => {
+                const rect = d.icon?.rect
+                if(!rect) return null
+                return `path('M 0 0 h ${rect[2]} v ${rect[3]} h -${rect[2]} v -${rect[3]}')`
+            })
+            .attr("preserveAspectRatio", "xMinYMin slice")
+            .attr("x", (d) => d.icon ? -d.icon.rect[0] : null)
+            .attr("y", (d) => d.icon ? -d.icon.rect[1] : null)
+            .attr("transform", (d) => d.icon ? `translate(-${iconSize/2} -${iconSize/2}) scale(${iconSize / Math.max(d.icon?.rect[2], d.icon?.rect[3])})` : null)
 
         node.append("text")
             .attr("x", 4)
@@ -192,7 +228,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
         return svg.node();
     }
-    
+
     chart()
 
 })().catch((err) => console.error(err))

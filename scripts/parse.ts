@@ -1,131 +1,132 @@
 import { XMLParser } from "fast-xml-parser";
-import { readFile, writeFileSync } from "fs";
-import {join} from 'path'
+import { copyFileSync, mkdirSync, readFile, writeFileSync } from "fs";
+import {join, dirname} from 'path'
 
 // import { BooleanString, IdItemString, Item, NumberString, NumbersWithComma, Recipe, StringsWithComma } from "./common";
 import '../src/common'
 
 
-const DIR = '/media/kalvis/DataMuch/GamesSteam/steamapps/common/Barotrauma/Content/Items'
+const BAROTRAUMA_DIR = '/media/kalvis/DataMuch/GamesSteam/steamapps/common/Barotrauma'
+const OUT_DIR = join(__dirname, '..', 'dist')
 
 const files = [
     // Barotrauma/Content/Items$ find -path '*.xml'
-    './Alien/alienitems.xml',
-    // './Assemblies/AlienGenericRoomAssembly4.xml',
-    // './Assemblies/airlock doors.xml',
-    // './Assemblies/Airlock Pump.xml',
-    // './Assemblies/Alien Turret Assembly.xml',
-    // './Assemblies/AlienArmoryAssembly1.xml',
-    // './Assemblies/AlienCellBottom.xml',
-    // './Assemblies/AlienCellTop.xml',
-    // './Assemblies/AlienChestLarge.xml',
-    // './Assemblies/AlienChestSmall.xml',
-    // './Assemblies/AlienDoorAssembly1.xml',
-    // './Assemblies/AlienDoorAssembly2.xml',
-    // './Assemblies/AlienDoorAssembly5.xml',
-    // './Assemblies/AlienFractalSpawnpoint.xml',
-    // './Assemblies/AlienGenericRoomAssembly1.xml',
-    // './Assemblies/AlienGenericRoomAssembly2.xml',
-    // './Assemblies/AlienGenericRoomAssembly3.xml',
-    // './Assemblies/AlienGenericRoomAssembly5.xml',
-    // './Assemblies/AlienGenericRoomAssembly6.xml',
-    // './Assemblies/AlienGenericRoomAssembly7.xml',
-    // './Assemblies/AlienGenericRoomAssembly8.xml',
-    // './Assemblies/AlienGenericRoomAssembly9.xml',
-    // './Assemblies/AlienHatchAssembly.xml',
-    // './Assemblies/AlienHatchAssembly2.xml',
-    // './Assemblies/AlienHorizontalAssembly1.xml',
-    // './Assemblies/AlienPumpAssembly.xml',
-    // './Assemblies/AlienPumpAssembly1.xml',
-    // './Assemblies/AlienPumpAssembly2.xml',
-    // './Assemblies/AlienVaultAssembly1.xml',
-    // './Assemblies/AlienVerticalAssembly1.xml',
-    // './Assemblies/AlienVerticalAssembly2.xml',
-    // './Assemblies/AlienVerticalAssembly3.xml',
-    // './Assemblies/AutoDoor.xml',
-    // './Assemblies/AutoHatch.xml',
-    // './Assemblies/Automated Docking Hatch.xml',
-    // './Assemblies/automatic airlock doors.xml',
-    // './Assemblies/Automatic Bilge Pump.xml',
-    // './Assemblies/ChargedAlienGenerator.xml',
-    // './Assemblies/Diving Suit Locker.xml',
-    // './Assemblies/Door.xml',
-    // './Assemblies/Gas Cloud Vent.xml',
-    // './Assemblies/Large Diving Gear Cabinet.xml',
-    // './Assemblies/Pet Spawner Vent.xml',
-    // './Assemblies/RuinAutoDoor.xml',
-    // './Assemblies/RuinAutoHatch.xml',
-    // './Assemblies/Small Diving Gear Cabinet.xml',
-    // './Assemblies/WindowedAutoDoor.xml',
-    './Button/button.xml',
-    './Command/command.xml',
-    './Containers/containers.xml',
-    './CreatureLoot/creatureloot.xml',
-    './Diving/divinggear.xml',
-    './Door/doors.xml',
-    './Electricity/lights.xml',
-    './Electricity/poweritems.xml',
-    './Electricity/signalitems.xml',
-    './Engine/engine.xml',
-    './Fabricators/fabricators.xml',
-    // './Gardening/ballastflora.xml',
-    './Gardening/gardeningtools.xml',
-    './Gardening/growableplants.xml',
-    './Gardening/plantproducts.xml',
-    './Genetic/genetic.xml',
-    './idcard.xml',
-    './Jobgear/Assistant/assistant_gear.xml',
-    './Jobgear/Assistant/assistant_talent_items.xml',
-    './Jobgear/Captain/captain_gear.xml',
-    './Jobgear/Captain/captain_talent_items.xml',
-    './Jobgear/Clown/clown.xml',
-    './Jobgear/Commoner/commoner_gear.xml',
-    './Jobgear/Engineer/engineer_gear.xml',
-    './Jobgear/Engineer/engineer_talent_items.xml',
-    './Jobgear/Mechanic/mechanic_gear.xml',
-    './Jobgear/Mechanic/mechanic_talent_items.xml',
-    './Jobgear/Medic/medic_gear.xml',
-    './Jobgear/Medic/medic_talent_items.xml',
-    './Jobgear/misc.xml',
-    './Jobgear/Security/securityofficer_gear.xml',
-    './Jobgear/Security/securityofficer_talent_items.xml',
-    './Jobgear/Watchman/watchman_gear.xml',
-    './Labels/labels.xml',
-    // './Ladder/ladder.xml',
-    './Legacy/legacycommand.xml',
-    './Legacy/legacycontainers.xml',
-    './Legacy/legacyengine.xml',
-    './Legacy/legacyfabricators.xml',
-    './Legacy/legacyoxygengenerator.xml',
-    './Legacy/legacypoweritems.xml',
-    './Legacy/legacypump.xml',
-    './Legacy/legacyrailgun.xml',
-    './Legacy/legacysearchlight.xml',
-    './Materials/materials.xml',
-    './Materials/medmaterials.xml',
-    './Materials/minerals.xml',
-    './Medical/buffs.xml',
-    './Medical/medical.xml',
-    './Medical/poisons.xml',
-    './Misc/misc.xml',
-    './OxygenGenerator/oxygengenerator.xml',
-    './Pets/PetEggs.xml',
-    './Pets/PetItems.xml',
-    './Pump/pump.xml',
-    './Reactor/reactor.xml',
-    './SearchLight/searchlight.xml',
-    // './Shipwrecks/StructurePrefabsWrecked.xml',
-    './Shipwrecks/wreckeditems.xml',
-    './Tools/tools.xml',
-    './Weapons/chaingun.xml',
-    './Weapons/coilgun.xml',
-    './Weapons/depthcharge.xml',
-    './Weapons/dischargecoil.xml',
-    './Weapons/explosives.xml',
-    './Weapons/pulselaser.xml',
-    './Weapons/railgun.xml',
-    './Weapons/weapons.xml',
-    './Weapons/turrethardpoint.xml',
+    'Content/Items/Alien/alienitems.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly4.xml',
+    // 'Content/Items/Assemblies/airlock doors.xml',
+    // 'Content/Items/Assemblies/Airlock Pump.xml',
+    // 'Content/Items/Assemblies/Alien Turret Assembly.xml',
+    // 'Content/Items/Assemblies/AlienArmoryAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienCellBottom.xml',
+    // 'Content/Items/Assemblies/AlienCellTop.xml',
+    // 'Content/Items/Assemblies/AlienChestLarge.xml',
+    // 'Content/Items/Assemblies/AlienChestSmall.xml',
+    // 'Content/Items/Assemblies/AlienDoorAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienDoorAssembly2.xml',
+    // 'Content/Items/Assemblies/AlienDoorAssembly5.xml',
+    // 'Content/Items/Assemblies/AlienFractalSpawnpoint.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly2.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly3.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly5.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly6.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly7.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly8.xml',
+    // 'Content/Items/Assemblies/AlienGenericRoomAssembly9.xml',
+    // 'Content/Items/Assemblies/AlienHatchAssembly.xml',
+    // 'Content/Items/Assemblies/AlienHatchAssembly2.xml',
+    // 'Content/Items/Assemblies/AlienHorizontalAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienPumpAssembly.xml',
+    // 'Content/Items/Assemblies/AlienPumpAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienPumpAssembly2.xml',
+    // 'Content/Items/Assemblies/AlienVaultAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienVerticalAssembly1.xml',
+    // 'Content/Items/Assemblies/AlienVerticalAssembly2.xml',
+    // 'Content/Items/Assemblies/AlienVerticalAssembly3.xml',
+    // 'Content/Items/Assemblies/AutoDoor.xml',
+    // 'Content/Items/Assemblies/AutoHatch.xml',
+    // 'Content/Items/Assemblies/Automated Docking Hatch.xml',
+    // 'Content/Items/Assemblies/automatic airlock doors.xml',
+    // 'Content/Items/Assemblies/Automatic Bilge Pump.xml',
+    // 'Content/Items/Assemblies/ChargedAlienGenerator.xml',
+    // 'Content/Items/Assemblies/Diving Suit Locker.xml',
+    // 'Content/Items/Assemblies/Door.xml',
+    // 'Content/Items/Assemblies/Gas Cloud Vent.xml',
+    // 'Content/Items/Assemblies/Large Diving Gear Cabinet.xml',
+    // 'Content/Items/Assemblies/Pet Spawner Vent.xml',
+    // 'Content/Items/Assemblies/RuinAutoDoor.xml',
+    // 'Content/Items/Assemblies/RuinAutoHatch.xml',
+    // 'Content/Items/Assemblies/Small Diving Gear Cabinet.xml',
+    // 'Content/Items/Assemblies/WindowedAutoDoor.xml',
+    'Content/Items/Button/button.xml',
+    'Content/Items/Command/command.xml',
+    'Content/Items/Containers/containers.xml',
+    'Content/Items/CreatureLoot/creatureloot.xml',
+    'Content/Items/Diving/divinggear.xml',
+    'Content/Items/Door/doors.xml',
+    'Content/Items/Electricity/lights.xml',
+    'Content/Items/Electricity/poweritems.xml',
+    'Content/Items/Electricity/signalitems.xml',
+    'Content/Items/Engine/engine.xml',
+    'Content/Items/Fabricators/fabricators.xml',
+    // 'Content/Items/Gardening/ballastflora.xml',
+    'Content/Items/Gardening/gardeningtools.xml',
+    'Content/Items/Gardening/growableplants.xml',
+    'Content/Items/Gardening/plantproducts.xml',
+    'Content/Items/Genetic/genetic.xml',
+    'Content/Items/idcard.xml',
+    'Content/Items/Jobgear/Assistant/assistant_gear.xml',
+    'Content/Items/Jobgear/Assistant/assistant_talent_items.xml',
+    'Content/Items/Jobgear/Captain/captain_gear.xml',
+    'Content/Items/Jobgear/Captain/captain_talent_items.xml',
+    'Content/Items/Jobgear/Clown/clown.xml',
+    'Content/Items/Jobgear/Commoner/commoner_gear.xml',
+    'Content/Items/Jobgear/Engineer/engineer_gear.xml',
+    'Content/Items/Jobgear/Engineer/engineer_talent_items.xml',
+    'Content/Items/Jobgear/Mechanic/mechanic_gear.xml',
+    'Content/Items/Jobgear/Mechanic/mechanic_talent_items.xml',
+    'Content/Items/Jobgear/Medic/medic_gear.xml',
+    'Content/Items/Jobgear/Medic/medic_talent_items.xml',
+    'Content/Items/Jobgear/misc.xml',
+    'Content/Items/Jobgear/Security/securityofficer_gear.xml',
+    'Content/Items/Jobgear/Security/securityofficer_talent_items.xml',
+    'Content/Items/Jobgear/Watchman/watchman_gear.xml',
+    'Content/Items/Labels/labels.xml',
+    // 'Content/Items/Ladder/ladder.xml',
+    'Content/Items/Legacy/legacycommand.xml',
+    'Content/Items/Legacy/legacycontainers.xml',
+    'Content/Items/Legacy/legacyengine.xml',
+    'Content/Items/Legacy/legacyfabricators.xml',
+    'Content/Items/Legacy/legacyoxygengenerator.xml',
+    'Content/Items/Legacy/legacypoweritems.xml',
+    'Content/Items/Legacy/legacypump.xml',
+    'Content/Items/Legacy/legacyrailgun.xml',
+    'Content/Items/Legacy/legacysearchlight.xml',
+    'Content/Items/Materials/materials.xml',
+    'Content/Items/Materials/medmaterials.xml',
+    'Content/Items/Materials/minerals.xml',
+    'Content/Items/Medical/buffs.xml',
+    'Content/Items/Medical/medical.xml',
+    'Content/Items/Medical/poisons.xml',
+    'Content/Items/Misc/misc.xml',
+    'Content/Items/OxygenGenerator/oxygengenerator.xml',
+    'Content/Items/Pets/PetEggs.xml',
+    'Content/Items/Pets/PetItems.xml',
+    'Content/Items/Pump/pump.xml',
+    'Content/Items/Reactor/reactor.xml',
+    'Content/Items/SearchLight/searchlight.xml',
+    // 'Content/Items/Shipwrecks/StructurePrefabsWrecked.xml',
+    'Content/Items/Shipwrecks/wreckeditems.xml',
+    'Content/Items/Tools/tools.xml',
+    'Content/Items/Weapons/chaingun.xml',
+    'Content/Items/Weapons/coilgun.xml',
+    'Content/Items/Weapons/depthcharge.xml',
+    'Content/Items/Weapons/dischargecoil.xml',
+    'Content/Items/Weapons/explosives.xml',
+    'Content/Items/Weapons/pulselaser.xml',
+    'Content/Items/Weapons/railgun.xml',
+    'Content/Items/Weapons/weapons.xml',
+    'Content/Items/Weapons/turrethardpoint.xml',
 ]
 
 interface RequiredItem {
@@ -179,12 +180,17 @@ interface ItemRaw {
         "$sourcerect": NumbersWithComma,
         "$origin": NumbersWithComma
     },
-    "Sprite": any,
+    "Sprite": {
+        "$texture": string,
+        "$sourcerect": NumbersWithComma,
+        "$origin": NumbersWithComma
+    },
     "Body": any,
     "SuitableTreatment"?: any,
     "MeleeWeapon": any,
     "$name": "",
     "$identifier": IdItemString,
+    "$variantof"?: IdItemString,
     "$category"?: string,
     "$Tags": StringsWithComma,
     "$maxstacksize": NumberString,
@@ -210,7 +216,7 @@ const recipes: Record<string, Recipe> = {}
 (async () => {
     for(const path of files) {
         try {
-            const xml = await new Promise<Buffer>((resolve, reject) => readFile(join(DIR, path), (err, buffer) => err ? reject(err) : resolve(buffer)))
+            const xml = await new Promise<Buffer>((resolve, reject) => readFile(join(BAROTRAUMA_DIR, path), (err, buffer) => err ? reject(err) : resolve(buffer)))
             const json = parser.parse(xml.toString())
 
             const {Item, ...namedRawItems} = json.Items
@@ -220,22 +226,32 @@ const recipes: Record<string, Recipe> = {}
                     .map((raw) => [raw.$identifier, raw] as const),
             ] as Array<[string, ItemRaw]>
 
-            // if(path === './Jobgear/Assistant/assistant_gear.xml') {
-            //     console.log(rawItems)
-            //     process.exit(1)
-            // }
-
             for(const [title, raw] of rawItems) {
                 if(!raw.Price) {
                     console.warn(`No Price for "${title} (${raw.$identifier})" within "${path}", skipping..`)
                     continue
                 }
+                if(raw.$variantof) {
+                    console.warn(`No variant handling. TODO. This was "${title} (${raw.$identifier})", variant of "${raw.$variantof}", skipping..`)
+                    continue
+                }
+
+                // Source have both relative and absolute paths, normalize to absolute.
+                // Also dev ofc codes on Windows, because few paths have messed up cases.
+                const texture = (raw.InventoryIcon ?? raw.Sprite).$texture
+                const iconPathNormalized = (texture.includes('/') ? texture : join(dirname(path), texture))
+                    .replace('JobGear/', 'Jobgear/')
+
                 items[raw.$identifier] = {
                     type: 'item',
                     id: raw.$identifier,
                     categories: (raw.$category || 'Uncategorized').split(','),
                     title,
-                    price: Number(raw.Price.$baseprice)
+                    price: Number(raw.Price.$baseprice),
+                    icon: {
+                        path: iconPathNormalized,
+                        rect: (raw.InventoryIcon ?? raw.Sprite).$sourcerect.split(',').map(Number) as [number, number, number, number],
+                    }
                 }
 
                 const fabricates: (Fabricate | undefined)[] = Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
@@ -278,8 +294,21 @@ const recipes: Record<string, Recipe> = {}
     // console.log(recipes)
     // for(const item of Object.values(items)) console.log(item)
     // for(const recipe of Object.values(recipes)) console.log(recipe)
-    writeFileSync(join(__dirname, '..', 'dist', 'items.json'), JSON.stringify(Object.values(items)))
-    writeFileSync(join(__dirname, '..', 'dist', 'recipes.json'), JSON.stringify(Object.values(recipes)))
+    const itemsArray = Object.values(items)
+    writeFileSync(join(OUT_DIR, 'items.json'), JSON.stringify(itemsArray))
+
+    writeFileSync(join(OUT_DIR, 'recipes.json'), JSON.stringify(Object.values(recipes)))
+
+    const iconPaths = new Set<string>()
+    for(const item of itemsArray) iconPaths.add(item.icon.path)
+    for(const icon of iconPaths.values()) {
+        const srcPath = join(BAROTRAUMA_DIR, icon)
+        const outPath = join(OUT_DIR, 'img', icon)
+        console.log(icon, srcPath, outPath)
+        mkdirSync(dirname(outPath), {recursive: true})
+        copyFileSync(join(BAROTRAUMA_DIR, icon), outPath)
+    }
+
 // console.log(JSON.stringify(parsed.Items.Plastiseal))
 })().catch((err: Error) => {
     console.error(err)
