@@ -50,9 +50,9 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         nodeLinkCountMap.set(itemLink.source, (nodeLinkCountMap.get(itemLink.source) ?? 0) + 1)
         nodeLinkCountMap.set(itemLink.target, (nodeLinkCountMap.get(itemLink.target) ?? 0) + 1)
     }
-    const ORPHAN_LINKS = [...nodeLinkCountMap.entries()]
-        .filter(([_, count]) => count === 0)
-        .map(([itemId, _]) => ({source: 'orphan', target: itemId}))
+    // const ORPHAN_LINKS = [...nodeLinkCountMap.entries()]
+    //     .filter(([_, count]) => count === 0)
+    //     .map(([itemId, _]) => ({source: 'orphan', target: itemId}))
     // for(const itemLink of ORPHAN_LINKS) {
     //     nodeLinkCountMap.set(itemLink.source, (nodeLinkCountMap.get(itemLink.source) ?? 0) + 1)
     //     nodeLinkCountMap.set(itemLink.target, (nodeLinkCountMap.get(itemLink.target) ?? 0) + 1)
@@ -70,7 +70,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
     const drag = (simulation: d3.Simulation<DisplayNode, DisplayLink>) => {
         function dragstarted(event: any, d: DisplayNode) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
+            if (!event.active) simulation.alpha(Math.max(0.1, simulation.alpha())).restart();
             d.fx = d.fx ?? d.x;
             d.fy = d.fy ?? d.y;
         }
@@ -81,7 +81,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         }
 
         function dragended(event: any, d: DisplayNode) {
-            if (!event.active) simulation.alphaTarget(0);
+            if (!event.active) simulation.alphaTarget(0.0);
             delete d.fx;  // if fy is set then it's on prototype up, so just delete it here.
             delete d.fy;  // if fy is set then it's on prototype up, so just delete it here.
         }
@@ -100,8 +100,8 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
     const chart = () => {
         const itemNodes: DisplayNode[] = ITEMS.map(d => Object.create(d));
-        const categoryNodes: DisplayNode[] = CATEGORIES.map(d => Object.create({id: d, fy: TOTAL_HEIGHT - priceToHeight(0, true), type: 'category'}));
-        const orphanNode: DisplayNode = Object.create(CATEGORY_ORPHAN)
+        // const categoryNodes: DisplayNode[] = CATEGORIES.map(d => Object.create({id: d, fy: TOTAL_HEIGHT - priceToHeight(0, true), type: 'category'}));
+        // const orphanNode: DisplayNode = Object.create(CATEGORY_ORPHAN)
 
         const itemLinks = ITEM_LINKS
             .map<DisplayLink>(d => ({
@@ -111,38 +111,41 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             }))
             .filter(d => d.source && d.target);
 
-        const orphanLinks = ORPHAN_LINKS
-            .map<DisplayLink>(d => ({
-                type: 'orphan',
-                source: orphanNode,
-                target: itemNodes.find((item) => item.id === d.target)!,
-            }))
-            .filter(d => d.source && d.target);
-        console.log(ORPHAN_LINKS)
+        // const orphanLinks = ORPHAN_LINKS
+        //     .map<DisplayLink>(d => ({
+        //         type: 'orphan',
+        //         source: orphanNode,
+        //         target: itemNodes.find((item) => item.id === d.target)!,
+        //     }))
+        //     .filter(d => d.source && d.target);
+        // console.log(ORPHAN_LINKS)
 
-        const categoryLinks = CATEGORY_LINKS
-            .map<DisplayLink>(d => ({
-                type: 'category',
-                source: categoryNodes.find((item) => item.id === d.source)!,
-                target: itemNodes.find((item) => item.id === d.target)!
-            }))
-            .filter(d => d.source && d.target);
+        // const categoryLinks = CATEGORY_LINKS
+        //     .map<DisplayLink>(d => ({
+        //         type: 'category',
+        //         source: categoryNodes.find((item) => item.id === d.source)!,
+        //         target: itemNodes.find((item) => item.id === d.target)!
+        //     }))
+        //     .filter(d => d.source && d.target);
 
-        const forceLink = d3.forceLink<DisplayNode, DisplayLink>([...itemLinks, ...orphanLinks])
-            .distance((link) => Math.max(iconSize * 1.5 + Math.abs(link.source.fy! - link.target.fy!)))
+        const forceLink = d3.forceLink<DisplayNode, DisplayLink>([...itemLinks])
+            .distance((link) => Math.max(iconSize * 1.5, Math.abs(link.source.fy! - link.target.fy!)))
             .strength((link) => 1 / Math.sqrt(Math.max(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1)))
-        const forceCollision = d3.forceCollide(iconSize/2 * 1)
-            .strength(.95)
+        const forceCollision = d3.forceCollide(iconSize/2 * 1.5)
+            .strength(.99)
         const forceX = d3.forceX()
             .strength(0.00001)
 
-        const simulation: d3.Simulation<DisplayNode, DisplayLink> = d3.forceSimulation([...itemNodes, orphanNode])
-            .alphaDecay(0.01)  // default is 0.0228
+        const simulation: d3.Simulation<DisplayNode, DisplayLink> = d3.forceSimulation([...itemNodes])
+            .alphaDecay(0.01)  // default is 0.0228\
+            .alphaMin(0.01)
+            .velocityDecay(0.2)  // default is 0.4
             .force("link", forceLink)
-            .force("collision", forceCollision)
+            .force("collision", null)
             .force("x", forceX)
+            .force("x-orphan", d3.forceX<DisplayNode>(900).strength((item) => (nodeLinkCountMap.get(item.id) ?? 0) === 0 ? 0.1 : 0))
             // .force("charge", d3.forceManyBody<DisplayNode>().strength(-800).distanceMax(iconSize * 100))
-            // .force("centering", d3.forceCenter(0, TOTAL_HEIGHT/2).strength(0.5))
+            .force("centering", d3.forceCenter(0, TOTAL_HEIGHT/2).strength(0.5))
             // .force("y", d3.forceY());
 
         const svg = d3.select('body').append("svg")
@@ -178,10 +181,19 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
 
+        const dashboardContainer = svg.append('g')
+            .attr("transform", `translate(0, ${TOTAL_HEIGHT - priceToHeight(1) + iconSize})`)
+
+        const dashboard = {
+            alpha: dashboardContainer.append('text')
+                .attr('text-anchor', 'middle')
+        }
+
+
 
         const itemSvg = containerSvg
             .selectAll<SVGGElement, never>("g.item")
-            .data([...itemNodes, orphanNode])
+            .data([...itemNodes])
             .join("g")
             .classed('item', true)
             .call(drag(simulation))
@@ -222,12 +234,17 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         // the default phyllotaxis arrangement is centered on <0,0> with a distance between nodes of ~10 pixels
         // once the arrangement is initialized, scale and translate it
         // https://observablehq.com/@d3/force-layout-phyllotaxis
-        for (const node of [...itemNodes, orphanNode]) {
+        for (const node of [...itemNodes]) {
             node.x = node.x! / 10 * iconSize * 2;
         }
         // Initial positions for nicier ordering\
-        orphanNode.x = 1400
+        // orphanNode.x = 1900
+
+        itemNodes.filter((item) => item.categories?.includes('Medic') || item.categories?.includes('Medical')).forEach((item) => item.x = 1400)
+
         itemNodes.find((item) => item.id === 'tin')!.x = -1400
+        itemNodes.find((item) => item.id === 'fpgacircuit')!.x = -1400
+        itemNodes.filter((item) => item.id.includes('component')).forEach((item) => item.x = -1400)
 
 
         let stickyWidth = 0
@@ -239,9 +256,12 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             link.attr("d", linkArc);
             itemSvg.attr("transform", d => `translate(${d.x},${d.y})`);
 
-            // if(simulation.alpha() < 0.5) {
-            //     simulation.force('collision', forceCollision)
-            // }
+            if(simulation.alpha() < 0.3 && !simulation.force('collision')) {
+                simulation.force('collision', forceCollision)
+            }
+            if(simulation.alpha() > 0.3 && simulation.force('collision')) {
+                simulation.force('collision', null)
+            }
 
             if(Math.random() < 0.05) {
                 minXItemCache = itemNodes.reduce((min, node) => (min.x ?? 0) < (node.x ?? 0) ? min : node, itemNodes[0])
@@ -255,6 +275,8 @@ interface DisplayLink extends d3.SimulationNodeDatum {
                 maxX - minX,
                 TOTAL_HEIGHT - priceToHeight(1) + 2 * iconSize,
             ]
+
+            dashboard.alpha.text(simulation.alpha())
 
             svg
                 .attr("viewBox", viewbox)
