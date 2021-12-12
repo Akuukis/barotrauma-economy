@@ -119,6 +119,103 @@ interface Group {
 
     const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
+    const callInfo = (event: any, d: DisplayNode) => {
+        const item = Object.getPrototypeOf(d) as Item
+        const info = d3.select('#info')
+
+        info.selectAll('*').remove()
+
+        const rect = d.icon?.rect
+        const svg = info.append('svg')
+            .attr("width", iconSize * 2 + strokeWidth/2)
+            .attr("height", iconSize * 2 + strokeWidth/2)
+            .style('float', 'left')
+            .style('margin-right', '1em')
+
+        svg
+            .append("rect")
+            .attr("width", iconSize * 2 + strokeWidth/2)
+            .attr("height", iconSize * 2 + strokeWidth/2)
+            .attr("fill", "#bbb")
+            .attr("stroke", linkColor(d.group ?? 'Other'))
+            .attr("stroke-width", strokeWidth);
+        svg
+            .append("image")
+            .attr("href", d.icon?.path ? `img/${d.icon?.path}` : null)
+            .attr("clip-path", rect ? `path('M 0 0 h ${rect[2]} v ${rect[3]} h -${rect[2]} v -${rect[3]}')` : null)
+            .attr("preserveAspectRatio", "xMinYMin slice")
+            .attr("x", d.icon ? -d.icon.rect[0] : null)
+            .attr("y", d.icon ? -d.icon.rect[1] : null)
+            .attr("transform", d.icon ? `scale(${iconSize * 2 / Math.max(d.icon?.rect[2], d.icon?.rect[3])})` : null)
+
+        const infobox = info.append("div")
+
+        infobox.append("h3")
+            .text(`${item.title}`)
+            .style('margin-bottom', 0)
+
+        infobox.append("div")
+            .text(`ID: ${item.id}`)
+        infobox.append("div")
+            .text(`Base price: ${item.price}`)
+
+
+        const recipe = RECIPES.find((recipe) => recipe.result === item.id)
+        if(recipe) {
+            if(recipe.parts.some((part) => part.output > 0)) {
+                info.append("h3")
+                    .text(`Deconstruct`)
+                let sum = 0
+                for(const part of recipe.parts) {
+                    if(part.output === 0) continue
+                    const partItem = ITEMS.find((item) => item.id === part.id)!
+                    sum += part.output * partItem.price
+                    info.append("div")
+                        .text(`${part.output * partItem.price}: ${part.output} x ${part.id} (${partItem.price})`)
+                }
+                info.append('hr')
+                    .style('width', '2em')
+                    .style('margin-left', 0)
+
+                const ratio = sum / item.price
+                info.append("div")
+                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - item.price})`)
+                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+            }
+            if(recipe.parts.some((part) => part.input > 0)) {
+                info.append("h3")
+                    .text(`Fabricate`)
+                let sum = 0
+                for(const part of recipe.parts) {
+                    if(part.input === 0) continue
+                    const partItem = ITEMS.find((item) => item.id === part.id)!
+                    sum += part.input * partItem.price
+                    info.append("div")
+                        .text(`${part.input * partItem.price}: ${part.input} x ${part.id} (${partItem.price})`)
+                }
+                info.append('hr')
+                    .style('width', '2em')
+                    .style('margin-left', 0)
+
+                const ratio = item.price / sum
+                info.append("div")
+                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${item.price - sum})`)
+                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+            }
+        }
+
+
+        info.append("h3")
+            .text(`Debug`)
+
+        info.append("pre")
+            .text(JSON.stringify(Object.getPrototypeOf(d), undefined, 2))
+
+        info.append("pre")
+            .text(JSON.stringify(d, undefined, 2))
+
+    }
+
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
     }
@@ -178,7 +275,7 @@ interface Group {
                 .force(`x-${group.id}`, d3.forceX<DisplayNode>(group.x).strength((item) => item.group === group.id ? 0.5 : 0))
         }
 
-        const svg = d3.select('body').append("svg")
+        const svg = d3.create('svg')
             .style("min-width", "110%")
             .style("font", "12px sans-serif")
 
@@ -202,7 +299,7 @@ interface Group {
             .selectAll("path")
             .data(itemLinks)
             .join("path")
-            .attr("stroke-width", 1.5)
+            .attr("stroke-width", 1)
             .attr("stroke", d => linkColor(d.target.id))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
@@ -243,6 +340,7 @@ interface Group {
             .join("g")
             .classed('item', true)
             .call(drag(simulation))
+            .on('click', callInfo)
 
         itemSvg
             .append("rect")
@@ -266,16 +364,6 @@ interface Group {
             .attr("x", (d) => d.icon ? -d.icon.rect[0] : null)
             .attr("y", (d) => d.icon ? -d.icon.rect[1] : null)
             .attr("transform", (d) => d.icon ? `translate(-${iconSize/2} -${iconSize/2}) scale(${iconSize / Math.max(d.icon?.rect[2], d.icon?.rect[3])})` : null)
-
-        itemSvg.append("text")
-            .attr("x", 4)
-            .attr("y", "0.31em")
-            .attr("transform", "translate(0, 0) rotate(-45)")
-            .text(d => d.id)
-            .clone(true).lower()
-            .attr("fill", "none")
-            .attr("stroke", "white")
-            .attr("stroke-width", 3);
 
         // the default phyllotaxis arrangement is centered on <0,0> with a distance between nodes of ~10 pixels
         // once the arrangement is initialized, scale and translate it
@@ -336,9 +424,9 @@ interface Group {
 
         // invalidation.then(() => simulation.stop());
 
-        return svg.node();
+        return svg;
     }
 
-    chart()
+    document.getElementById('chart')?.append(chart().node()!)
 
 })().catch((err) => console.error(err))
