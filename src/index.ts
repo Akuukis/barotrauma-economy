@@ -8,29 +8,50 @@ interface DisplayNode extends d3.SimulationNodeDatum {
     id: string
     type: 'item' | 'category'
     icon?: Item['icon']
-    categories?: IdCategoryString[]
+    group?: string
 }
 interface DisplayLink extends d3.SimulationNodeDatum {
-    type: 'item' | 'item' | 'category' | 'orphan'
+    type: 'item' | 'category' | 'orphan'
     source: DisplayNode
     target: DisplayNode
 }
+interface Group {
+    id: string
+    x: number
+    member: (item: Item) => boolean
+}
 
 (async () => {
-
     const iconSize = 36
     const strokeWidth = 4
     const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 140
+    const nodeLinkCountMap = new Map<IdItemString, number>()
 
+    const RECIPES = (await (await fetch('./recipes.json')).json() as Recipe[])
     const ITEMS_RAW = (await (await fetch('./items.json')).json() as Item[])
+    const ITEM_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.result})))
     const TOTAL_HEIGHT = ITEMS_RAW.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
+
+    for(const item of ITEMS_RAW) nodeLinkCountMap.set(item.id, 0)
+    for(const itemLink of ITEM_LINKS) {
+        nodeLinkCountMap.set(itemLink.source, (nodeLinkCountMap.get(itemLink.source) ?? 0) + 1)
+        nodeLinkCountMap.set(itemLink.target, (nodeLinkCountMap.get(itemLink.target) ?? 0) + 1)
+    }
+
+    // In order if priority
+    const groups: Group[] = [
+        {x: 3500, id: "Orphan", member: (item) => (nodeLinkCountMap.get(item.id) ?? 0) === 0},
+        {x: 2500, id: "Electrical", member: (item) => !['batterycell', 'fulguriumbatterycell'].includes(item.id) && ( item.categories?.includes('Electrical') || ['tin', 'copper', 'silicon'].includes(item.id))},
+        {x: -2000, id: "Alien / Egg", member: (item) => item.id.includes('egg') || ['adrenalinegland', 'alienblood', 'swimbladder', /* 'alientrinket1', 'alientrinket2',  */'mucusball', 'paralyxis'].includes(item.id)},
+        {x: -1500, id: "Medic", member: (item) => !['healthscanner', 'autoinjectorheadset'].includes(item.id) && (item.categories?.includes('Medic') || item.categories?.includes('Medical') || ['organicfiber', 'chlorine', 'tonicliquid', 'pomegrenadeextract'].includes(item.id))},
+    ]
 
     const ITEMS = ITEMS_RAW
         .map((item) => ({
             ...item,
-            fy: TOTAL_HEIGHT - priceToHeight(item.price)
+            fy: TOTAL_HEIGHT - priceToHeight(item.price),
+            group: groups.find((group) => group.member(item))?.id,
         }))
-    const RECIPES = (await (await fetch('./recipes.json')).json() as Recipe[])
     const CATEGORIES = Array.from(new Set(ITEMS_RAW.flatMap(d => d.categories)))
 
     // Debug
@@ -41,15 +62,8 @@ interface DisplayLink extends d3.SimulationNodeDatum {
     console.log(RECIPES)
     console.log(CATEGORIES)
 
-    const ITEM_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.result})))
     const CATEGORY_LINKS = ITEMS_RAW.flatMap((item) => item.categories.map((category) => ({source: category, target: item.id})))
 
-    const CATEGORY_ORPHAN: DisplayNode = {id: 'orphan', type: 'category', fy: TOTAL_HEIGHT / 2}
-    const nodeLinkCountMap = new Map<IdItemString, number>([...ITEMS, CATEGORY_ORPHAN].map((item) => [item.id, 0]))
-    for(const itemLink of ITEM_LINKS) {
-        nodeLinkCountMap.set(itemLink.source, (nodeLinkCountMap.get(itemLink.source) ?? 0) + 1)
-        nodeLinkCountMap.set(itemLink.target, (nodeLinkCountMap.get(itemLink.target) ?? 0) + 1)
-    }
     // const ORPHAN_LINKS = [...nodeLinkCountMap.entries()]
     //     .filter(([_, count]) => count === 0)
     //     .map(([itemId, _]) => ({source: 'orphan', target: itemId}))
@@ -70,7 +84,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
     const drag = (simulation: d3.Simulation<DisplayNode, DisplayLink>) => {
         function dragstarted(event: any, d: DisplayNode) {
-            if (!event.active) simulation.alpha(Math.max(0.1, simulation.alpha())).restart();
+            if (!event.active) simulation.alpha(Math.max(0.01, simulation.alpha())).restart();
             d.fx = d.fx ?? d.x;
             d.fy = d.fy ?? d.y;
         }
@@ -92,7 +106,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .on("end", dragended);
     }
 
-    const linkColor = d3.scaleOrdinal(CATEGORIES, d3.schemeCategory10)
+    const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
@@ -130,23 +144,28 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
         const forceLink = d3.forceLink<DisplayNode, DisplayLink>([...itemLinks])
             .distance((link) => Math.max(iconSize * 1.5, Math.abs(link.source.fy! - link.target.fy!)))
-            .strength((link) => 1 / Math.sqrt(Math.max(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1)))
+            .strength((link) => 1 / Math.min(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1) * (link.source.group === link.target.group ? 1 : 0.5))
+            // .strength((link) => 1 / Math.sqrt(Math.max(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1)))
         const forceCollision = d3.forceCollide(iconSize/2 * 1.5)
-            .strength(.99)
-        const forceX = d3.forceX()
-            .strength(0.00001)
+        // .strength(.99)
+        // const forceX = d3.forceX()
+        //     .strength(0.00001)
 
         const simulation: d3.Simulation<DisplayNode, DisplayLink> = d3.forceSimulation([...itemNodes])
             .alphaDecay(0.01)  // default is 0.0228\
-            .alphaMin(0.01)
             .velocityDecay(0.2)  // default is 0.4
             .force("link", forceLink)
-            .force("collision", null)
-            .force("x", forceX)
-            .force("x-orphan", d3.forceX<DisplayNode>(900).strength((item) => (nodeLinkCountMap.get(item.id) ?? 0) === 0 ? 0.1 : 0))
+            .force("collision", forceCollision)
+            // .force("x", forceX)
+            // .force("x-orphan", d3.forceX<DisplayNode>(900).strength((item) => (nodeLinkCountMap.get(item.id) ?? 0) === 0 ? 0.1 : 0))
             // .force("charge", d3.forceManyBody<DisplayNode>().strength(-800).distanceMax(iconSize * 100))
-            .force("centering", d3.forceCenter(0, TOTAL_HEIGHT/2).strength(0.5))
+            // .force("centering", d3.forceCenter(0, TOTAL_HEIGHT/2).strength(0.5))
             // .force("y", d3.forceY());
+
+        for(const group of groups) {
+            simulation
+                .force(`x-${group.id}`, d3.forceX<DisplayNode>(group.x).strength((item) => item.group === group.id ? 0.5 : 0))
+        }
 
         const svg = d3.select('body').append("svg")
             .style("min-width", "110%")
@@ -176,19 +195,35 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke", d => linkColor(d.target.id.replace('recipe-', '')))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
-        const containerSvg = svg.append("g")
-            .attr("fill", "currentColor")
-            .attr("stroke-linecap", "round")
-            .attr("stroke-linejoin", "round")
-
         const dashboardContainer = svg.append('g')
             .attr("transform", `translate(0, ${TOTAL_HEIGHT - priceToHeight(1) + iconSize})`)
-
         const dashboard = {
             alpha: dashboardContainer.append('text')
                 .attr('text-anchor', 'middle')
         }
 
+        const GROUP_WIDTH = 400
+        for(const group of groups) {
+            const groupContainer = svg.append('g')
+                .attr("transform", `translate(${group.x}, 0)`)
+
+            groupContainer.append('rect')
+                .attr("x", -GROUP_WIDTH/2)
+                .attr("y", -iconSize)
+                .attr("width", GROUP_WIDTH)
+                .attr("height", TOTAL_HEIGHT - priceToHeight(1) + iconSize * 2)
+                .attr("fill", `${linkColor(group.id)}40`)
+
+            groupContainer.append('text')
+                .attr("y", -iconSize/2)
+                .attr('text-anchor', 'middle')
+                .text(group.id)
+        }
+
+        const containerSvg = svg.append("g")
+            .attr("fill", "currentColor")
+            .attr("stroke-linecap", "round")
+            .attr("stroke-linejoin", "round")
 
 
         const itemSvg = containerSvg
@@ -205,7 +240,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("width", iconSize + strokeWidth/2)
             .attr("height", iconSize + strokeWidth/2)
             .attr("fill", "#bbb")
-            .attr("stroke", d => linkColor(d.categories?.[0] ?? 'recipe'))
+            .attr("stroke", d => linkColor(d.group ?? 'other'))
             .attr("stroke-width", strokeWidth);
 
         itemSvg
@@ -235,19 +270,23 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         // once the arrangement is initialized, scale and translate it
         // https://observablehq.com/@d3/force-layout-phyllotaxis
         for (const node of [...itemNodes]) {
-            node.x = node.x! / 10 * iconSize * 2;
+            if(node.group) {
+                node.x = groups.find((group) => group.id === node.group)?.x
+            } else {
+                node.x = node.x! / 10 * iconSize * 2;
+            }
         }
         // Initial positions for nicier ordering\
         // orphanNode.x = 1900
 
-        itemNodes.filter((item) => item.categories?.includes('Medic') || item.categories?.includes('Medical')).forEach((item) => item.x = 1400)
 
         itemNodes.find((item) => item.id === 'tin')!.x = -1400
         itemNodes.find((item) => item.id === 'fpgacircuit')!.x = -1400
         itemNodes.filter((item) => item.id.includes('component')).forEach((item) => item.x = -1400)
 
 
-        let stickyWidth = 0
+        let stickyMinX = 0
+        let stickyMaxX = 0
         let minXItemCache: DisplayNode
         let maxXItemCache: DisplayNode
         minXItemCache = itemNodes.reduce((min, node) => (min.x ?? 0) < (node.x ?? 0) ? min : node, itemNodes[0])
@@ -256,10 +295,10 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             link.attr("d", linkArc);
             itemSvg.attr("transform", d => `translate(${d.x},${d.y})`);
 
-            if(simulation.alpha() < 0.3 && !simulation.force('collision')) {
+            if(simulation.alpha() < 0.5 && !simulation.force('collision')) {
                 simulation.force('collision', forceCollision)
             }
-            if(simulation.alpha() > 0.3 && simulation.force('collision')) {
+            if(simulation.alpha() > 0.5 && simulation.force('collision')) {
                 simulation.force('collision', null)
             }
 
@@ -267,12 +306,12 @@ interface DisplayLink extends d3.SimulationNodeDatum {
                 minXItemCache = itemNodes.reduce((min, node) => (min.x ?? 0) < (node.x ?? 0) ? min : node, itemNodes[0])
                 maxXItemCache = itemNodes.reduce((max, node) => (max.x ?? 0) > (node.x ?? 0) ? max : node, itemNodes[0])
             }
-            const minX = minXItemCache.x ?? 0 - iconSize
-            const maxX = maxXItemCache.x ?? 0 + iconSize
+            stickyMinX = Math.min(stickyMinX, Math.floor((minXItemCache.x ?? 0 - iconSize) / 500) * 500 - 250)
+            stickyMaxX = Math.max(stickyMaxX, Math.ceil((maxXItemCache.x ?? 0 + iconSize) / 500) * 500 + 250)
             const viewbox = [
-                minX,
+                stickyMinX,
                 -iconSize,
-                maxX - minX,
+                stickyMaxX - stickyMinX,
                 TOTAL_HEIGHT - priceToHeight(1) + 2 * iconSize,
             ]
 
@@ -280,7 +319,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
             svg
                 .attr("viewBox", viewbox)
-                .attr("width", stickyWidth = Math.max(stickyWidth, Math.ceil(viewbox[2] / 1000) * 1000))
+                .attr("width", viewbox[2])
                 .attr("height", viewbox[3])
         });
 
