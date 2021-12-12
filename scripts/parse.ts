@@ -148,7 +148,8 @@ interface Fabricate {
 interface DeconstructItem {
     "$identifier": IdItemString,
     "$mincondition": NumberString,
-    "$outcondition"?: NumberString
+    "$outcondition"?: NumberString,
+    "$commonness"?: NumberString
 }
 
 interface ItemRaw {
@@ -170,19 +171,21 @@ interface ItemRaw {
         }>,
         "$baseprice": NumberString
     },
-    "Fabricate"?: Fabricate | Fabricate[],
+    "Fabricate"?: Fabricate | Fabricate[]
     "Deconstruct"?: {
-        "Item"?: DeconstructItem[],
+        "Item"?: DeconstructItem[]
         "$time": NumberString
+        "$chooserandom"?: BooleanString
+        "$amount"?: NumberString
     },
     "InventoryIcon": {
-        "$texture": string,
-        "$sourcerect": NumbersWithComma,
+        "$texture": string
+        "$sourcerect": NumbersWithComma
         "$origin": NumbersWithComma
     },
     "Sprite": {
-        "$texture": string,
-        "$sourcerect": NumbersWithComma,
+        "$texture": string
+        "$sourcerect": NumbersWithComma
         "$origin": NumbersWithComma
     },
     "Body": any,
@@ -192,7 +195,7 @@ interface ItemRaw {
     "$identifier": IdItemString,
     "$variantof"?: IdItemString,
     "$category"?: string,
-    "$Tags": StringsWithComma,
+    "$tags": StringsWithComma,
     "$maxstacksize": NumberString,
     "$cargocontaineridentifier": string,
     "$description": "",
@@ -245,7 +248,7 @@ const recipes: Record<string, Recipe> = {}
                 items[raw.$identifier] = {
                     type: 'item',
                     id: raw.$identifier,
-                    categories: (raw.$category?.split(',') || []).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
+                    categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
                     title,
                     price: Number(raw.Price.$baseprice),
                     icon: {
@@ -254,33 +257,46 @@ const recipes: Record<string, Recipe> = {}
                     }
                 }
 
-                const fabricates: (Fabricate | undefined)[] = Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
-                if(raw.$identifier === 'chaingunammobox') console.log(fabricates)
+                const fabricatesRaw: (Fabricate | undefined)[] = Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
+                if(raw.$identifier === 'chaingunammobox') console.log(fabricatesRaw)
 
-                for(const fabricate of fabricates) {
-                    const inputItems = !fabricate ? [] : Array.isArray(fabricate.RequiredItem) ? fabricate.RequiredItem : [fabricate.RequiredItem ?? []]
-                    const outputItems = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+                const deconstruct = {
+                    parts: {} as Record<IdItemString, number>
+                }
+                if(raw.Deconstruct?.Item) {
+                    const itemsRaw = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+                    const lotteryTotalWeight = raw.Deconstruct.$chooserandom ? itemsRaw.reduce((sum, item) => sum + Number(item.$commonness!), 0) / Number(raw.Deconstruct.$amount ?? 1) : 1
 
-                    const allItems: IdItemString[] = [...new Set([...inputItems, ...outputItems].map((item) => item.$identifier))]
-                    if(allItems.length === 0) continue
-
-                    const recipeId = `recipe-${raw.$identifier}${fabricate?.$displayname ? '-'+fabricate?.$displayname : ''}`
-                    recipes[recipeId] = {
-                        type: 'recipe',
-                        id: recipeId,
-                        result: raw.$identifier,
-                        parts: allItems.map((id) => {
-                            const inputItemCount = inputItems.filter((item) => item.$identifier === id).length
-                            const amount = (fabricate?.$amount ? Number(fabricate?.$amount) : 1)
-                            const outputItemCount = outputItems.filter((item) => item.$identifier === id).length
-                            const outputItemCondition = outputItems.find((item) => item.$identifier === id)?.$outcondition  // Assuming all copies are equal.
-                            return {
-                                id,
-                                input: inputItemCount / amount,
-                                output: outputItemCount * (outputItemCondition ? Number(outputItemCondition) : 1),
-                            }
-                        }),
+                    for(const itemRaw of itemsRaw) {
+                        const id = itemRaw.$identifier
+                        const condition = Number(itemRaw.$outcondition) || 1
+                        const lotteryWeight = Number(itemRaw.$commonness ?? 1) / lotteryTotalWeight
+                        deconstruct.parts[id] = Math.round(((deconstruct.parts[id] ?? 0) + condition * lotteryWeight) * 100) / 100
                     }
+                }
+
+                const fabricate: RecipeFabricate[] = []
+                for(const fabricateRaw of fabricatesRaw) {
+                    const itemsRaw = !fabricateRaw ? [] : Array.isArray(fabricateRaw.RequiredItem) ? fabricateRaw.RequiredItem : [fabricateRaw.RequiredItem ?? []]
+                    const fabricateInner = {
+                        parts: {} as Record<IdItemString, number>
+                    }
+                    for(const itemRaw of itemsRaw) {
+                        const id = itemRaw.$identifier
+                        const amount = (fabricateRaw?.$amount ? Number(fabricateRaw?.$amount) : 1)
+                        fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + 1 / amount
+                    }
+
+                    if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)
+                }
+
+                const recipeId = `recipe-${raw.$identifier}`
+                recipes[recipeId] = {
+                    type: 'recipe',
+                    id: recipeId,
+                    result: raw.$identifier,
+                    deconstruct: Object.keys(deconstruct.parts).length ? deconstruct : null,
+                    fabricate,
                 }
             }
 

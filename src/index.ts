@@ -29,7 +29,10 @@ interface Group {
 
     const RECIPES = (await (await fetch('./recipes.json')).json() as Recipe[])
     const ITEMS_RAW = (await (await fetch('./items.json')).json() as Item[])
-    const ITEM_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.result})))
+    const ITEM_LINKS = RECIPES.flatMap((recipe) => [
+        ...(Object.keys(recipe.deconstruct?.parts ?? {}).map((partId) => ({source: partId, target: recipe.result}))),
+        ...(recipe.fabricate?.flatMap((fab) => Object.keys(fab.parts).map((partId) => ({source: partId, target: recipe.result}))) ?? []),
+    ])
     const TOTAL_HEIGHT = ITEMS_RAW.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
 
     for(const item of ITEMS_RAW) nodeLinkCountMap.set(item.id, 0)
@@ -120,7 +123,7 @@ interface Group {
     const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
     const callInfo = (event: any, d: DisplayNode) => {
-        const item = Object.getPrototypeOf(d) as Item
+        const currentItem = Object.getPrototypeOf(d) as Item
         const info = d3.select('#info')
 
         info.selectAll('*').remove()
@@ -151,58 +154,138 @@ interface Group {
         const infobox = info.append("div")
 
         infobox.append("h3")
-            .text(`${item.title}`)
+            .text(`${currentItem.title}`)
             .style('margin-bottom', 0)
 
         infobox.append("div")
-            .text(`ID: ${item.id}`)
+            .text(`ID: ${currentItem.id}`)
         infobox.append("div")
-            .text(`Base price: ${item.price}`)
+            .text(`Base price: ${currentItem.price}`)
 
 
-        const recipe = RECIPES.find((recipe) => recipe.result === item.id)
-        if(recipe) {
-            if(recipe.parts.some((part) => part.output > 0)) {
-                info.append("h3")
-                    .text(`Deconstruct`)
-                let sum = 0
-                for(const part of recipe.parts) {
-                    if(part.output === 0) continue
-                    const partItem = ITEMS.find((item) => item.id === part.id)!
-                    sum += part.output * partItem.price
-                    info.append("div")
-                        .text(`${part.output * partItem.price}: ${part.output} x ${part.id} (${partItem.price})`)
-                }
-                info.append('hr')
-                    .style('width', '2em')
-                    .style('margin-left', 0)
-
-                const ratio = sum / item.price
+        const recipe = RECIPES.find((recipe) => recipe.result === currentItem.id)
+        if(recipe?.deconstruct) {
+            info.append("h3")
+                .text(`Deconstructs To`)
+            let sum = 0
+            for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
+                const partItem = ITEMS.find((item) => item.id === id)!
+                sum += amount * partItem.price
                 info.append("div")
-                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - item.price})`)
-                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+                    .text(`${amount * partItem.price}: ${amount} x ${id} (${partItem.price})`)
             }
-            if(recipe.parts.some((part) => part.input > 0)) {
+            info.append('hr')
+                .style('width', '2em')
+                .style('margin', 0)
+
+            const ratio = sum / currentItem.price
+            info.append("div")
+                .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItem.price})`)
+                .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+        }
+
+        const fabricatesTo = RECIPES.filter((recipe) => recipe.fabricate.some((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id)))
+        if(fabricatesTo.length) {
+            info.append("h3")
+                .text(`Used in Fabrication of`)
+
+            for(const recipe of fabricatesTo) {
+                for(const fab of recipe.fabricate) {
+                    if(!Object.keys(fab.parts).some((partId) => partId === currentItem.id)) continue
+                    const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
+                    const details = info.append('details')
+                    const summary = details.append('summary')
+                        .text(recipe.result)
+
+                    const more = details.append('text')
+                        .text(`${recipeItem.id} (${recipeItem.price})`)
+
+                    let sum = 0
+                    for(const [id, amount] of Object.entries(fab.parts)) {
+                        const price = ITEMS.find((item) => item.id === id)!.price
+                        sum += amount * price
+                        more.append("div")
+                            .text(`${amount * price}: ${amount} x ${id} (${price})`)
+                    }
+                    more.append('hr')
+                        .style('width', '2em')
+                        .style('margin', 0)
+
+                    const ratio = recipeItem.price / sum
+                    more.append("div")
+                        .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${recipeItem.price - sum})`)
+                        .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+
+                    summary
+                        .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10})`)
+                        .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+
+                }
+            }
+        }
+
+        if(recipe && recipe.fabricate.length > 0) {
+            for(const fab of recipe.fabricate) {
                 info.append("h3")
-                    .text(`Fabricate`)
+                    .text(`Fabricated by`)
                 let sum = 0
-                for(const part of recipe.parts) {
-                    if(part.input === 0) continue
-                    const partItem = ITEMS.find((item) => item.id === part.id)!
-                    sum += part.input * partItem.price
+                for(const [id, amount] of Object.entries(fab.parts)) {
+                    const price = ITEMS.find((item) => item.id === id)!.price
+                    sum += amount * price
                     info.append("div")
-                        .text(`${part.input * partItem.price}: ${part.input} x ${part.id} (${partItem.price})`)
+                        .text(`${amount * price}: ${amount} x ${id} (${price})`)
                 }
                 info.append('hr')
                     .style('width', '2em')
-                    .style('margin-left', 0)
+                    .style('margin', 0)
 
-                const ratio = item.price / sum
+                const ratio = currentItem.price / sum
                 info.append("div")
-                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${item.price - sum})`)
+                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItem.price - sum})`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
             }
         }
+
+        const deconstructsFrom = RECIPES.filter((recipe) => Object.keys(recipe.deconstruct?.parts ?? {}).some((partId) => partId === currentItem.id))
+        if(deconstructsFrom.length) {
+            info.append("h3")
+                .text(`Deconstructs from`)
+
+            for(const recipe of deconstructsFrom) {
+                const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
+                const details = info.append('details')
+                const summary = details.append('summary')
+                    .text(recipe.result)
+
+                const more = details.append('text')
+                    .text(`${recipeItem.id} (${recipeItem.price})`)
+
+                let sum = 0
+                for(const [id, amount] of Object.entries(recipe.deconstruct!.parts)) {
+                    const price = ITEMS.find((item) => item.id === id)!.price
+                    sum += amount * price
+                    more.append("div")
+                        .text(`${amount * price}: ${amount} x ${id} (${price})`)
+                }
+                more.append('hr')
+                    .style('width', '2em')
+                    .style('margin', 0)
+
+                const ratio = sum / recipeItem.price
+                more.append("div")
+                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - recipeItem.price})`)
+                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+
+                summary
+                    .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10})`)
+                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+
+            }
+
+            // info.append("pre")
+            //     .text(JSON.stringify(partElsewhere.map((recipe) => recipe.result), undefined, 2))
+        }
+
 
 
         info.append("h3")

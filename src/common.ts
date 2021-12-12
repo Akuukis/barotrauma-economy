@@ -18,13 +18,18 @@ declare interface Item {
     }
 }
 
+declare interface RecipeDeconstruct {
+    parts: Record<IdItemString, number>
+}
+
+declare interface RecipeFabricate {
+    parts: Record<IdItemString, number>
+}
+
 declare interface Recipe {
     type: 'recipe'
     id: IdRecipeString
     result: IdItemString
-    parts: Array<{
-        id: IdItemString
-        input: number
-        output: number
-    }>,
+    deconstruct: RecipeDeconstruct | null
+    fabricate: RecipeFabricate[]
 }
