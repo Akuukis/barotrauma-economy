@@ -44,14 +44,25 @@ interface Group {
         {x: 2500, id: "Electrical", member: (item) => !['batterycell', 'fulguriumbatterycell'].includes(item.id) && ( item.categories?.includes('Electrical') || ['tin', 'copper', 'silicon'].includes(item.id))},
         {x: -2000, id: "Alien / Egg", member: (item) => item.id.includes('egg') || ['adrenalinegland', 'alienblood', 'swimbladder', /* 'alientrinket1', 'alientrinket2',  */'mucusball', 'paralyxis'].includes(item.id)},
         {x: -1500, id: "Medic", member: (item) => !['healthscanner', 'autoinjectorheadset'].includes(item.id) && (item.categories?.includes('Medic') || item.categories?.includes('Medical') || ['organicfiber', 'chlorine', 'tonicliquid', 'pomegrenadeextract'].includes(item.id))},
+        {x: 0, id: 'Other', member: () => false}
     ]
 
+    // Also, merge 
+    const andComponent = ITEMS_RAW.find((innerItem) => innerItem.id === 'andcomponent')!
     const ITEMS = ITEMS_RAW
         .map((item) => ({
             ...item,
             fy: TOTAL_HEIGHT - priceToHeight(item.price),
             group: groups.find((group) => group.member(item))?.id,
         }))
+        .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
+        .filter((item) => !item.id.endsWith('component'))
+        .concat({
+            ...andComponent,
+            title: 'Wiring Component',
+            fy: TOTAL_HEIGHT - priceToHeight(andComponent.price),
+            group: groups.find((group) => group.member(andComponent))?.id,
+        })
     const CATEGORIES = Array.from(new Set(ITEMS_RAW.flatMap(d => d.categories)))
 
     // Debug
@@ -84,7 +95,7 @@ interface Group {
 
     const drag = (simulation: d3.Simulation<DisplayNode, DisplayLink>) => {
         function dragstarted(event: any, d: DisplayNode) {
-            if (!event.active) simulation.alpha(Math.max(0.01, simulation.alpha())).restart();
+            if (!event.active) simulation.alpha(Math.max(0.01, simulation.alpha())).alphaDecay(0).restart();
             d.fx = d.fx ?? d.x;
             d.fy = d.fy ?? d.y;
         }
@@ -95,7 +106,7 @@ interface Group {
         }
 
         function dragended(event: any, d: DisplayNode) {
-            if (!event.active) simulation.alphaTarget(0.0);
+            if (!event.active) simulation.alphaTarget(0.0).alphaDecay(0.01);
             delete d.fx;  // if fy is set then it's on prototype up, so just delete it here.
             delete d.fy;  // if fy is set then it's on prototype up, so just delete it here.
         }
@@ -144,7 +155,7 @@ interface Group {
 
         const forceLink = d3.forceLink<DisplayNode, DisplayLink>([...itemLinks])
             .distance((link) => Math.max(iconSize * 1.5, Math.abs(link.source.fy! - link.target.fy!)))
-            .strength((link) => 1 / Math.min(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1) * (link.source.group === link.target.group ? 1 : 0.5))
+            .strength((link) => 1 / Math.min(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1) * (link.source.group && link.source.group === link.target.group ? 1 : 0.5))
             // .strength((link) => 1 / Math.sqrt(Math.max(nodeLinkCountMap.get(link.source.id) || 1, nodeLinkCountMap.get(link.target.id) || 1)))
         const forceCollision = d3.forceCollide(iconSize/2 * 1.5)
         // .strength(.99)
@@ -192,7 +203,7 @@ interface Group {
             .data(itemLinks)
             .join("path")
             .attr("stroke-width", 1.5)
-            .attr("stroke", d => linkColor(d.target.id.replace('recipe-', '')))
+            .attr("stroke", d => linkColor(d.target.id))
             // .attr("marker-end", d => `url(${new URL(`#arrow-${d.target.id}`)})`);
 
         const dashboardContainer = svg.append('g')
@@ -240,7 +251,7 @@ interface Group {
             .attr("width", iconSize + strokeWidth/2)
             .attr("height", iconSize + strokeWidth/2)
             .attr("fill", "#bbb")
-            .attr("stroke", d => linkColor(d.group ?? 'other'))
+            .attr("stroke", d => linkColor(d.group ?? 'Other'))
             .attr("stroke-width", strokeWidth);
 
         itemSvg
