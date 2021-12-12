@@ -6,18 +6,21 @@
 
 interface DisplayNode extends d3.SimulationNodeDatum {
     id: string
-    type: 'item' | 'recipe' | 'category'
+    type: 'item' | 'category'
     icon?: Item['icon']
     categories?: IdCategoryString[]
 }
 interface DisplayLink extends d3.SimulationNodeDatum {
-    type: 'recipe2item' | 'item2recipe' | 'category2item'
+    type: 'item' | 'item' | 'category'
     source: DisplayNode
     target: DisplayNode
 }
 
 (async () => {
-    const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 100
+
+    const iconSize = 48
+    const strokeWidth = 4
+    const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 140
 
     const ITEMS_RAW = (await (await fetch('./items.json')).json() as Item[])
     const TOTAL_HEIGHT = ITEMS_RAW.reduce((max, item) => Math.max(max, priceToHeight(item.price)), 0)
@@ -28,14 +31,6 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             fy: TOTAL_HEIGHT - priceToHeight(item.price)
         }))
     const RECIPES = (await (await fetch('./recipes.json')).json() as Recipe[])
-        .map((recipe) => {
-            const itemPrice = ITEMS.find((item) => item.id === recipe.result)?.price ?? 0
-            const partPriceMax = Math.max(...recipe.parts.map((part) => ITEMS.find((item) => item.id === part.id)?.price ?? 0))
-            return {
-                ...recipe,
-                fy: TOTAL_HEIGHT - (priceToHeight(itemPrice) + priceToHeight(partPriceMax))/2
-            }
-        })
     const CATEGORIES = Array.from(new Set(ITEMS_RAW.flatMap(d => d.categories)))
 
     // Debug
@@ -46,9 +41,8 @@ interface DisplayLink extends d3.SimulationNodeDatum {
     console.log(RECIPES)
     console.log(CATEGORIES)
 
-    const RECIPE2ITEM_LINKS = RECIPES.map((recipe) => ({source: recipe.id, target: recipe.result}))
-    const ITEM2RECIPE_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.id})))
-    const CATEGORY2ITEM_LINKS = ITEMS_RAW.flatMap((item) => item.categories.map((category) => ({source: category, target: item.id})))
+    const ITEM_LINKS = RECIPES.flatMap((recipe) => recipe.parts.map((part) => ({source: part.id, target: recipe.result})))
+    const CATEGORY_LINKS = ITEMS_RAW.flatMap((item) => item.categories.map((category) => ({source: category, target: item.id})))
 
     console.log('nodes:', {
         categories: CATEGORIES.length,
@@ -56,34 +50,33 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         recipes: RECIPES.length,
     })
     console.log('links:', {
-        category2item: CATEGORY2ITEM_LINKS.length,
-        item2recipe: ITEM2RECIPE_LINKS.length,
-        recipe2item: RECIPE2ITEM_LINKS.length,
+        category: CATEGORY_LINKS.length,
+        item: ITEM_LINKS.length,
     })
 
-    // const drag = (simulation: d3.Simulation<any, undefined>) => {
-    //     function dragstarted(event, d) {
-    //         if (!event.active) simulation.alphaTarget(0.3).restart();
-    //         d.fx = d.x;
-    //         d.fy = d.y;
-    //     }
+    const drag = (simulation: d3.Simulation<DisplayNode, DisplayLink>) => {
+        function dragstarted(event: any, d: DisplayNode) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.fx ?? d.x;
+            d.fy = d.fy ?? d.y;
+        }
 
-    //     function dragged(event, d) {
-    //         d.fx = event.x;
-    //         d.fy = event.y;
-    //     }
+        function dragged(event: any, d: DisplayNode) {
+            d.fx = Object.getPrototypeOf(d).fx ?? event.x;
+            d.fy = Object.getPrototypeOf(d).fy ?? event.y;
+        }
 
-    //     function dragended(event, d) {
-    //         if (!event.active) simulation.alphaTarget(0);
-    //         d.fx = null;
-    //         d.fy = null;
-    //     }
+        function dragended(event: any, d: DisplayNode) {
+            if (!event.active) simulation.alphaTarget(0);
+            delete d.fx;  // if fy is set then it's on prototype up, so just delete it here.
+            delete d.fy;  // if fy is set then it's on prototype up, so just delete it here.
+        }
 
-    //     return d3.drag()
-    //         .on("start", dragstarted)
-    //         .on("drag", dragged)
-    //         .on("end", dragended);
-    // }
+        return d3.drag<SVGGElement, DisplayNode>()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended);
+    }
 
     const linkColor = d3.scaleOrdinal(CATEGORIES, d3.schemeCategory10)
 
@@ -93,42 +86,36 @@ interface DisplayLink extends d3.SimulationNodeDatum {
 
     const chart = () => {
         const itemNodes: DisplayNode[] = ITEMS.map(d => Object.create(d));
-        const recipeNodes: DisplayNode[] = RECIPES.map(d => Object.create(d));
         const categoryNodes: DisplayNode[] = CATEGORIES.map(d => Object.create({id: d, fy: TOTAL_HEIGHT - priceToHeight(0, true), type: 'category'}));
 
-        const recipe2itemLinks = RECIPE2ITEM_LINKS
+        const itemLinks = ITEM_LINKS
             .map<DisplayLink>(d => ({
-                type: 'recipe2item',
-                source: recipeNodes.find((recipe) => recipe.id === d.source)!,
+                type: 'item',
+                source: itemNodes.find((item) => item.id === d.source)!,
                 target: itemNodes.find((item) => item.id === d.target)!,
             }))
             .filter(d => d.source && d.target);
 
-        const item2recipeLinks = ITEM2RECIPE_LINKS
+        const categoryLinks = CATEGORY_LINKS
             .map<DisplayLink>(d => ({
-                type: 'item2recipe',
-                source: itemNodes.find((item) => item.id === d.source)!,
-                target: recipeNodes.find((recipe) => recipe.id === d.target)!,
-            }))
-            .filter(d => d.source && d.target);
-
-        const categoryLinks = CATEGORY2ITEM_LINKS
-            .map<DisplayLink>(d => ({
-                type: 'category2item',
+                type: 'category',
                 source: categoryNodes.find((item) => item.id === d.source)!,
                 target: itemNodes.find((item) => item.id === d.target)!
             }))
             .filter(d => d.source && d.target);
 
 
-        const simulation = d3.forceSimulation([...itemNodes, ...categoryNodes, ...recipeNodes])
-            .force("link", d3.forceLink<DisplayNode, DisplayLink>([...recipe2itemLinks, ...item2recipeLinks, ...categoryLinks]).id(d => d.type + d.id))
-            .force("charge", d3.forceManyBody<DisplayNode>().strength((d) => d.type !== 'recipe' ? -800 : 0))
+        const simulation: d3.Simulation<DisplayNode, DisplayLink> = d3.forceSimulation(itemNodes)
+            .force("link", d3.forceLink<DisplayNode, DisplayLink>([...itemLinks]).id(d => d.type + d.id))
+            // .force("charge", d3.forceManyBody<DisplayNode>().strength(-800).distanceMax(iconSize * 100))
+            .force("collision", d3.forceCollide(iconSize/2 * 1.5).strength(1))
+            .force("centering", d3.forceCenter(0, TOTAL_HEIGHT/2).strength(1))
             // .force("x", d3.forceX())
             // .force("y", d3.forceY());
 
         const svg = d3.select('body').append("svg")
-            .style("font", "12px sans-serif");
+            .style("min-width", "110%")
+            .style("font", "12px sans-serif")
 
         // Per-type markers, as they don't inherit styles.
         // svg.append("defs").selectAll("marker")
@@ -148,7 +135,7 @@ interface DisplayLink extends d3.SimulationNodeDatum {
         const link = svg.append("g")
             .attr("fill", "none")
             .selectAll("path")
-            .data([...recipe2itemLinks, ...item2recipeLinks])
+            .data(itemLinks)
             .join("path")
             .attr("stroke-width", 1.5)
             .attr("stroke", d => linkColor(d.target.id.replace('recipe-', '')))
@@ -159,15 +146,13 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke-linecap", "round")
             .attr("stroke-linejoin", "round")
 
-        const iconSize = 48
-        const strokeWidth = 4
-
 
         const itemSvg = containerSvg
-            .selectAll("g.item")
+            .selectAll<SVGGElement, never>("g.item")
             .data(itemNodes)
             .join("g")
             .classed('item', true)
+            .call(drag(simulation))
 
         itemSvg
             .append("rect")
@@ -203,46 +188,25 @@ interface DisplayLink extends d3.SimulationNodeDatum {
             .attr("stroke-width", 3);
 
 
-        const recipeSvg = containerSvg
-            .selectAll("g.recipe")
-            .data(recipeNodes)
-            .join("g")
-            .classed('recipe', true)
-
-        recipeSvg
-            .append("rect")
-            .attr("x", -iconSize/2 - strokeWidth/4)
-            .attr("y", (-iconSize/2 - strokeWidth/4) / 2)
-            .attr("width", iconSize + strokeWidth/2)
-            .attr("height", (iconSize + strokeWidth/2) / 2)
-            .attr("fill", "#bbb")
-            .attr("stroke", d => linkColor(d.categories?.[0] ?? 'recipe'))
-            .attr("stroke-width", strokeWidth);
-
-        recipeSvg.append("text")
-            .text(d => d.id.replace('recipe-', ''))
-            .attr("text-anchor", "middle")
-
 
         simulation.on("tick", () => {
             link.attr("d", linkArc);
             itemSvg.attr("transform", d => `translate(${d.x},${d.y})`);
-            recipeSvg.attr("transform", d => `translate(${d.x},${d.y})`);
 
-            const margin = 30
+            const minX = itemNodes.reduce((min, node) => Math.min(min, node.x ?? 0), 0) - iconSize
+            const maxX = itemNodes.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + iconSize
 
-            const minLeft = itemNodes.reduce((min, node) => Math.min(min, node.x ?? 0), 0) - margin
             const viewbox = [
-                minLeft,
-                -margin,
-                itemNodes.reduce((max, node) => Math.max(max, node.x ?? 0), 0) + margin * 10 - minLeft,
-                TOTAL_HEIGHT + margin,
+                minX,
+                -iconSize,
+                maxX - minX,
+                TOTAL_HEIGHT - priceToHeight(1) + 2 * iconSize,
             ]
 
             svg
                 .attr("viewBox", viewbox)
-                .attr("width", viewbox[2] - viewbox[0])
-                .attr("height", viewbox[3] - viewbox[1])
+                .attr("width", viewbox[2])
+                .attr("height", viewbox[3])
         });
 
         // invalidation.then(() => simulation.stop());
