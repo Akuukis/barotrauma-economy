@@ -162,16 +162,18 @@ interface Group {
 
         infobox.append("h3")
             .text(`${currentItem.title}`)
-            .style('margin-bottom', 0)
+            .style('margin', 0)
 
         infobox.append("div")
             .text(`ID: ${currentItem.id}`)
         infobox.append("div")
-            .text(`Base price: ${currentItem.price}`)
+            .text(`Base price: ${currentItem.price}mk`)
 
+        info.append("div")
+            .style('clear', 'both')
 
         info.append("h3")
-            .text(`Deconstructs To`)
+            .text(`Deconstruct to`)
         const recipe = RECIPES.find((recipe) => recipe.result === currentItem.id)
         if(recipe?.deconstruct) {
             let sum = 0
@@ -179,7 +181,7 @@ interface Group {
                 const partItem = ITEMS.find((item) => item.id === id)!
                 sum += amount * partItem.price
                 info.append("div")
-                    .text(`${amount * partItem.price}: ${amount} x ${id} (${partItem.price})`)
+                    .text(`${amount * partItem.price}mk: ${amount} x ${id} (${partItem.price}mk)`)
             }
             info.append('hr')
                 .style('width', '2em')
@@ -187,7 +189,7 @@ interface Group {
 
             const ratio = sum / currentItem.price
             info.append("div")
-                .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItem.price})`)
+                .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItem.price}mk)`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
         } else {
             info.append('span').append('em')
@@ -195,7 +197,7 @@ interface Group {
         }
 
         info.append("h3")
-            .text(`Used in Fabrication of`)
+            .text(`Use in Fabrication of`)
         const fabricatesTo = RECIPES.filter((recipe) => recipe.fabricate.some((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id)))
         if(fabricatesTo.length) {
 
@@ -215,7 +217,7 @@ interface Group {
                         const price = ITEMS.find((item) => item.id === id)!.price
                         sum += amount * price
                         more.append("div")
-                            .text(`${amount * price}: ${amount} x ${id} (${price})`)
+                            .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
                     }
                     more.append('hr')
                         .style('width', '2em')
@@ -223,11 +225,11 @@ interface Group {
 
                     const ratio = recipeItem.price / sum
                     more.append("div")
-                        .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${recipeItem.price - sum})`)
+                        .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${recipeItem.price - sum}mk)`)
                         .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                     summary
-                        .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10})`)
+                        .text(`${recipeItem.title}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
                         .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                 }
@@ -237,8 +239,11 @@ interface Group {
                 .text('Nothing')
         }
 
+        info.append('hr')
+            .style('margin', '1em 0em')
+
         info.append("h3")
-            .text(`Fabricated by`)
+            .text(`Fabricate from`)
         if(recipe && recipe.fabricate.length > 0) {
             for(const fab of recipe.fabricate) {
                 let sum = 0
@@ -247,7 +252,7 @@ interface Group {
                     const price = ITEMS.find((item) => item.id === id)!.price
                     sum += amount * price
                     info.append("div")
-                        .text(`${amount * price}: ${amount} x ${id} (${price})`)
+                        .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
                 }
                 info.append('hr')
                     .style('width', '2em')
@@ -255,7 +260,7 @@ interface Group {
 
                 const ratio = currentItem.price / sum
                 info.append("div")
-                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItem.price - sum})`)
+                    .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItem.price - sum}mk)`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
             }
         } else {
@@ -264,7 +269,7 @@ interface Group {
         }
 
         info.append("h3")
-            .text(`Deconstructs from`)
+            .text(`Deconstruct from`)
         const deconstructsFrom = RECIPES.filter((recipe) => Object.keys(recipe.deconstruct?.parts ?? {}).some((partId) => partId === currentItem.id))
         if(deconstructsFrom.length) {
 
@@ -282,7 +287,7 @@ interface Group {
                     const price = ITEMS.find((item) => item.id === id)!.price
                     sum += amount * price
                     more.append("div")
-                        .text(`${amount * price}: ${amount} x ${id} (${price})`)
+                        .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
                 }
                 more.append('hr')
                     .style('width', '2em')
@@ -290,11 +295,11 @@ interface Group {
 
                 const ratio = sum / recipeItem.price
                 more.append("div")
-                    .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - recipeItem.price})`)
+                    .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - recipeItem.price}mk)`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                 summary
-                    .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10})`)
+                    .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
             }
@@ -308,14 +313,14 @@ interface Group {
 
 
 
-        info.append("h3")
-            .text(`Debug`)
+        // info.append("h3")
+        //     .text(`Debug`)
 
-        info.append("pre")
-            .text(JSON.stringify(Object.getPrototypeOf(d), undefined, 2))
+        // info.append("pre")
+        //     .text(JSON.stringify(Object.getPrototypeOf(d), undefined, 2))
 
-        info.append("pre")
-            .text(JSON.stringify(d, undefined, 2))
+        // info.append("pre")
+        //     .text(JSON.stringify(d, undefined, 2))
 
     }
 
