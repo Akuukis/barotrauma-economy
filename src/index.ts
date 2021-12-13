@@ -229,7 +229,7 @@ interface Group {
                         .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                     summary
-                        .text(`${recipeItem.title}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
+                        .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
                         .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                 }
@@ -268,44 +268,19 @@ interface Group {
                 .text('Nothing')
         }
 
-        info.append("h3")
+        const deconstructsFromNode = info.append('div')
+            .style('margin-top', '1em')
+        deconstructsFromNode.append("h3")
             .text(`Deconstruct from`)
         const deconstructsFrom = RECIPES.filter((recipe) => Object.keys(recipe.deconstruct?.parts ?? {}).some((partId) => partId === currentItem.id))
         if(deconstructsFrom.length) {
+            const ul = deconstructsFromNode.append('ul')
 
             for(const recipe of deconstructsFrom) {
                 const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
-                const details = info.append('details')
-                const summary = details.append('summary')
-                    .text(recipe.result)
-
-                const more = details.append('text')
-                    .text(`${recipeItem.id} (${recipeItem.price})`)
-
-                let sum = 0
-                for(const [id, amount] of Object.entries(recipe.deconstruct!.parts)) {
-                    const price = ITEMS.find((item) => item.id === id)!.price
-                    sum += amount * price
-                    more.append("div")
-                        .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
-                }
-                more.append('hr')
-                    .style('width', '2em')
-                    .style('margin', 0)
-
-                const ratio = sum / recipeItem.price
-                more.append("div")
-                    .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - recipeItem.price}mk)`)
-                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
-
-                summary
-                    .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
-                    .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
-
+                ul.append('li')
+                    .text(recipeItem.title)
             }
-
-            // info.append("pre")
-            //     .text(JSON.stringify(partElsewhere.map((recipe) => recipe.result), undefined, 2))
         } else {
             info.append('span').append('em')
                 .text('Nothing')
