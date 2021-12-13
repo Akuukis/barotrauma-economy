@@ -51,21 +51,21 @@ interface Group {
     ]
 
     // Also, merge 
-    const andComponent = ITEMS_RAW.find((innerItem) => innerItem.id === 'andcomponent')!
+    // const andComponent = ITEMS_RAW.find((innerItem) => innerItem.id === 'andcomponent')!
     const ITEMS = ITEMS_RAW
         .map((item) => ({
             ...item,
             fy: TOTAL_HEIGHT - priceToHeight(item.price),
             group: groups.find((group) => group.member(item))?.id,
         }))
-        .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
-        .filter((item) => !item.id.endsWith('component'))
-        .concat({
-            ...andComponent,
-            title: 'Wiring Component',
-            fy: TOTAL_HEIGHT - priceToHeight(andComponent.price),
-            group: groups.find((group) => group.member(andComponent))?.id,
-        })
+        // .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
+        // .filter((item) => !item.id.endsWith('component'))
+        // .concat({
+        //     ...andComponent,
+        //     title: 'Wiring Component',
+        //     fy: TOTAL_HEIGHT - priceToHeight(andComponent.price),
+        //     group: groups.find((group) => group.member(andComponent))?.id,
+        // })
     const CATEGORIES = Array.from(new Set(ITEMS_RAW.flatMap(d => d.categories)))
 
     // Debug
@@ -97,18 +97,25 @@ interface Group {
     })
 
     const drag = (simulation: d3.Simulation<DisplayNode, DisplayLink>) => {
+
         function dragstarted(event: any, d: DisplayNode) {
+            if(!(document.getElementById('drag') as HTMLInputElement).checked) return () => null
+
             if (!event.active) simulation.alpha(Math.max(0.01, simulation.alpha())).alphaDecay(0).restart();
             d.fx = d.fx ?? d.x;
             d.fy = d.fy ?? d.y;
         }
 
         function dragged(event: any, d: DisplayNode) {
+            if(!(document.getElementById('drag') as HTMLInputElement).checked) return () => null
+
             d.fx = Object.getPrototypeOf(d).fx ?? event.x;
             d.fy = Object.getPrototypeOf(d).fy ?? event.y;
         }
 
         function dragended(event: any, d: DisplayNode) {
+            if(!(document.getElementById('drag') as HTMLInputElement).checked) return () => null
+
             if (!event.active) simulation.alphaTarget(0.0).alphaDecay(0.01);
             delete d.fx;  // if fy is set then it's on prototype up, so just delete it here.
             delete d.fy;  // if fy is set then it's on prototype up, so just delete it here.
