@@ -130,15 +130,17 @@ const files = [
 ]
 
 interface RequiredItem {
-    "$identifier": IdItemString
+    "$identifier"?: IdItemString
+    "$tag"?: string,
 }
 
 interface Fabricate {
     "RequiredSkill": {
-        "$identifier": string,
+        "$identifier"?: string,
         "$level": NumberString
     },
-    "RequiredItem": RequiredItem | RequiredItem[],
+    "RequiredItem"?: RequiredItem | RequiredItem[],
+    "Item"?: RequiredItem | RequiredItem[],
     "$suitablefabricators": string,
     "$requiredtime": NumberString,
     "$amount"?: NumberString,
@@ -231,7 +233,7 @@ const recipes: Record<string, Recipe> = {}
 
             for(const [title, raw] of rawItems) {
                 if(!raw.Price) {
-                    console.warn(`No Price for "${title} (${raw.$identifier})" within "${path}", skipping..`)
+                    // console.warn(`No Price for "${title} (${raw.$identifier})" within "${path}", skipping..`)
                     continue
                 }
                 if(raw.$variantof) {
@@ -257,8 +259,7 @@ const recipes: Record<string, Recipe> = {}
                     }
                 }
 
-                const fabricatesRaw: (Fabricate | undefined)[] = Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
-                if(raw.$identifier === 'chaingunammobox') console.log(fabricatesRaw)
+                const fabricatesRaw: (Fabricate | undefined)[] = !raw.Fabricate ? [] : Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
 
                 const deconstruct = {
                     parts: {} as Record<IdItemString, number>
@@ -277,12 +278,16 @@ const recipes: Record<string, Recipe> = {}
 
                 const fabricate: RecipeFabricate[] = []
                 for(const fabricateRaw of fabricatesRaw) {
-                    const itemsRaw = !fabricateRaw ? [] : Array.isArray(fabricateRaw.RequiredItem) ? fabricateRaw.RequiredItem : [fabricateRaw.RequiredItem ?? []]
+                    if(!fabricateRaw) continue
+                    const normalizedItem = (fabricateRaw.RequiredItem ?? fabricateRaw.Item)!
+                    const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
+                    if(itemsRaw.length === 0) continue
+
                     const fabricateInner = {
                         parts: {} as Record<IdItemString, number>
                     }
                     for(const itemRaw of itemsRaw) {
-                        const id = itemRaw.$identifier
+                        const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
                         const amount = (fabricateRaw?.$amount ? Number(fabricateRaw?.$amount) : 1)
                         fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + 1 / amount
                     }
@@ -320,9 +325,8 @@ const recipes: Record<string, Recipe> = {}
     for(const icon of iconPaths.values()) {
         const srcPath = join(BAROTRAUMA_DIR, icon)
         const outPath = join(OUT_DIR, 'img', icon)
-        console.log(icon, srcPath, outPath)
         mkdirSync(dirname(outPath), {recursive: true})
-        copyFileSync(join(BAROTRAUMA_DIR, icon), outPath)
+        copyFileSync(srcPath, outPath)
     }
 
 // console.log(JSON.stringify(parsed.Items.Plastiseal))
