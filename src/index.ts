@@ -129,13 +129,15 @@ interface Group {
 
     const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
-    const callInfo = (event: any, d: DisplayNode) => {
-        const currentItem = Object.getPrototypeOf(d) as Item
+    let currentItem: Item
+    const callInfo = (event?: any, d?: DisplayNode) => {
+        const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
+        if(d) currentItem = Object.getPrototypeOf(d) as Item
         const info = d3.select<HTMLDivElement, never>('#info')
 
         info.selectAll('*').remove()
 
-        const rect = d.icon?.rect
+        const rect = currentItem.icon?.rect
         const svg = info.append('svg')
             .attr("width", iconSize * 2 + strokeWidth/2)
             .attr("height", iconSize * 2 + strokeWidth/2)
@@ -147,16 +149,16 @@ interface Group {
             .attr("width", iconSize * 2 + strokeWidth/2)
             .attr("height", iconSize * 2 + strokeWidth/2)
             .attr("fill", "#bbb")
-            .attr("stroke", linkColor(d.group ?? 'Other'))
+            .attr("stroke", linkColor((currentItem as any).group ?? 'Other'))
             .attr("stroke-width", strokeWidth);
         svg
             .append("image")
-            .attr("href", d.icon?.path ? `img/${d.icon?.path}` : null)
+            .attr("href", currentItem.icon?.path ? `img/${currentItem.icon?.path}` : null)
             .attr("clip-path", rect ? `path('M 0 0 h ${rect[2]} v ${rect[3]} h -${rect[2]} v -${rect[3]}')` : null)
             .attr("preserveAspectRatio", "xMinYMin slice")
-            .attr("x", d.icon ? -d.icon.rect[0] : null)
-            .attr("y", d.icon ? -d.icon.rect[1] : null)
-            .attr("transform", d.icon ? `scale(${iconSize * 2 / Math.max(d.icon?.rect[2], d.icon?.rect[3])})` : null)
+            .attr("x", -rect[0])
+            .attr("y", -rect[1])
+            .attr("transform", `scale(${iconSize * 2 / Math.max(rect[2], rect[3])})`)
 
         const infobox = info.append("div")
 
@@ -182,6 +184,11 @@ interface Group {
                 sum += amount * partItem.price
                 info.append("div")
                     .text(`${amount * partItem.price}mk: ${amount} x ${id} (${partItem.price}mk)`)
+            }
+            if(hassle) {
+                sum -= hassle
+                info.append("div")
+                    .text(`-${hassle}mk: hassle`)
             }
             info.append('hr')
                 .style('width', '2em')
@@ -220,6 +227,11 @@ interface Group {
                                 sum += amount * price
                                 more.append("div")
                                     .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
+                            }
+                            if(hassle) {
+                                sum += hassle
+                                more.append("div")
+                                    .text(`${hassle}mk: hassle`)
                             }
                             more.append('hr')
                                 .style('width', '2em')
@@ -262,6 +274,11 @@ interface Group {
                     sum += amount * price
                     info.append("div")
                         .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
+                }
+                if(hassle) {
+                    sum += hassle
+                    info.append("div")
+                        .text(`${hassle}mk: hassle`)
                 }
                 info.append('hr')
                     .style('width', '2em')
@@ -307,6 +324,7 @@ interface Group {
         //     .text(JSON.stringify(d, undefined, 2))
 
     }
+    document.getElementById('hassle')!.addEventListener('click', () => callInfo())
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
