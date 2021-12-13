@@ -131,7 +131,7 @@ interface Group {
 
     const callInfo = (event: any, d: DisplayNode) => {
         const currentItem = Object.getPrototypeOf(d) as Item
-        const info = d3.select('#info')
+        const info = d3.select<HTMLDivElement, never>('#info')
 
         info.selectAll('*').remove()
 
@@ -201,39 +201,48 @@ interface Group {
         const fabricatesTo = RECIPES.filter((recipe) => recipe.fabricate.some((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id)))
         if(fabricatesTo.length) {
 
-            for(const recipe of fabricatesTo) {
-                for(const fab of recipe.fabricate) {
-                    if(!Object.keys(fab.parts).some((partId) => partId === currentItem.id)) continue
-                    const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
-                    const details = info.append('details')
-                    const summary = details.append('summary')
-                        .text(recipe.result)
+            const outputs: [number, d3.Selection<HTMLDetailsElement, undefined, null, undefined>][] = fabricatesTo
+                .flatMap((recipe) => {
+                    return recipe.fabricate
+                        .filter((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id))
+                        .map((fab) => {
+                            const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
+                            const details = d3.create<HTMLDetailsElement>('details')
+                            const summary = details.append('summary')
+                                .text(recipe.result)
 
-                    const more = details.append('text')
-                        .text(`${recipeItem.id} (${recipeItem.price})`)
+                            const more = details.append('text')
+                                .text(`${recipeItem.id} (${recipeItem.price})`)
 
-                    let sum = 0
-                    for(const [id, amount] of Object.entries(fab.parts)) {
-                        const price = ITEMS.find((item) => item.id === id)!.price
-                        sum += amount * price
-                        more.append("div")
-                            .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
-                    }
-                    more.append('hr')
-                        .style('width', '2em')
-                        .style('margin', 0)
+                            let sum = 0
+                            for(const [id, amount] of Object.entries(fab.parts)) {
+                                const price = ITEMS.find((item) => item.id === id)!.price
+                                sum += amount * price
+                                more.append("div")
+                                    .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
+                            }
+                            more.append('hr')
+                                .style('width', '2em')
+                                .style('margin', 0)
 
-                    const ratio = recipeItem.price / sum
-                    more.append("div")
-                        .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${recipeItem.price - sum}mk)`)
-                        .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+                            const ratio = recipeItem.price / sum
+                            more.append("div")
+                                .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${recipeItem.price - sum}mk)`)
+                                .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
-                    summary
-                        .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
-                        .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+                            summary
+                                .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
+                                .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
-                }
+                            return [ratio, details] as [number, d3.Selection<HTMLDetailsElement, undefined, null, undefined>]
+                        })
+                })
+                .sort((a, b) => b[0] - a[0])
+
+            for(const [_, output] of outputs) {
+                info.node()!.append(output.node()!)
             }
+
         } else {
             info.append('span').append('em')
                 .text('Nothing')
