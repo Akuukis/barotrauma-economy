@@ -170,10 +170,10 @@ interface Group {
             .text(`Base price: ${currentItem.price}`)
 
 
+        info.append("h3")
+            .text(`Deconstructs To`)
         const recipe = RECIPES.find((recipe) => recipe.result === currentItem.id)
         if(recipe?.deconstruct) {
-            info.append("h3")
-                .text(`Deconstructs To`)
             let sum = 0
             for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
                 const partItem = ITEMS.find((item) => item.id === id)!
@@ -189,12 +189,15 @@ interface Group {
             info.append("div")
                 .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItem.price})`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
+        } else {
+            info.append('span').append('em')
+                .text('Nothing')
         }
 
+        info.append("h3")
+            .text(`Used in Fabrication of`)
         const fabricatesTo = RECIPES.filter((recipe) => recipe.fabricate.some((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id)))
         if(fabricatesTo.length) {
-            info.append("h3")
-                .text(`Used in Fabrication of`)
 
             for(const recipe of fabricatesTo) {
                 for(const fab of recipe.fabricate) {
@@ -229,14 +232,18 @@ interface Group {
 
                 }
             }
+        } else {
+            info.append('span').append('em')
+                .text('Nothing')
         }
 
+        info.append("h3")
+            .text(`Fabricated by`)
         if(recipe && recipe.fabricate.length > 0) {
             for(const fab of recipe.fabricate) {
-                info.append("h3")
-                    .text(`Fabricated by`)
                 let sum = 0
                 for(const [id, amount] of Object.entries(fab.parts)) {
+                    console.log(fab.parts)
                     const price = ITEMS.find((item) => item.id === id)!.price
                     sum += amount * price
                     info.append("div")
@@ -251,12 +258,15 @@ interface Group {
                     .text(`${sum} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItem.price - sum})`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
             }
+        } else {
+            info.append('span').append('em')
+                .text('Nothing')
         }
 
+        info.append("h3")
+            .text(`Deconstructs from`)
         const deconstructsFrom = RECIPES.filter((recipe) => Object.keys(recipe.deconstruct?.parts ?? {}).some((partId) => partId === currentItem.id))
         if(deconstructsFrom.length) {
-            info.append("h3")
-                .text(`Deconstructs from`)
 
             for(const recipe of deconstructsFrom) {
                 const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
@@ -291,6 +301,9 @@ interface Group {
 
             // info.append("pre")
             //     .text(JSON.stringify(partElsewhere.map((recipe) => recipe.result), undefined, 2))
+        } else {
+            info.append('span').append('em')
+                .text('Nothing')
         }
 
 
