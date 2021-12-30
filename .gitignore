@@ -4,3 +4,4 @@ yarn-error.log
 /dist/scripts/
 /dist/*.json
 /dist/img/
+.env

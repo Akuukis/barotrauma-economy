@@ -8,6 +8,7 @@
   "scripts": {
     "start": "yarn build && yarn serve",
     "build": "yarn exec ts-node scripts/parse.ts",
+    "deploy": "bash -c 'source .env; scp -r dist/* @$FTP_HOSTNAME:$FTP_PATH'",
     "watch": "yarn concurrently \"yarn:watch:*\"",
     "watch:dist": "yarn exec serve dist",
     "watch:src": "yarn tsc --watch --preserveWatchOutput"
