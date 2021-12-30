@@ -232,76 +232,82 @@ const recipes: Record<string, Recipe> = {}
             ] as Array<[string, ItemRaw]>
 
             for(const [title, raw] of rawItems) {
-                if(!raw.Price) {
+                try {
+                    if(!raw.Price) {
                     // console.warn(`No Price for "${title} (${raw.$identifier})" within "${path}", skipping..`)
-                    continue
-                }
-                if(raw.$variantof) {
-                    console.warn(`No variant handling. TODO. This was "${title} (${raw.$identifier})", variant of "${raw.$variantof}", skipping..`)
-                    continue
-                }
-
-                // Source have both relative and absolute paths, normalize to absolute.
-                // Also dev ofc codes on Windows, because few paths have messed up cases.
-                const texture = (raw.InventoryIcon ?? raw.Sprite).$texture
-                const iconPathNormalized = (texture.includes('/') ? texture : join(dirname(path), texture))
-                    .replace('JobGear/', 'Jobgear/')
-
-                items[raw.$identifier] = {
-                    type: 'item',
-                    id: raw.$identifier,
-                    categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
-                    title,
-                    price: Number(raw.Price.$baseprice),
-                    icon: {
-                        path: iconPathNormalized,
-                        rect: (raw.InventoryIcon ?? raw.Sprite).$sourcerect.split(',').map(Number) as [number, number, number, number],
+                        continue
                     }
-                }
-
-                const fabricatesRaw: (Fabricate | undefined)[] = !raw.Fabricate ? [] : Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
-
-                const deconstruct = {
-                    parts: {} as Record<IdItemString, number>
-                }
-                if(raw.Deconstruct?.Item) {
-                    const itemsRaw = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
-                    const lotteryTotalWeight = raw.Deconstruct.$chooserandom ? itemsRaw.reduce((sum, item) => sum + Number(item.$commonness!), 0) / Number(raw.Deconstruct.$amount ?? 1) : 1
-
-                    for(const itemRaw of itemsRaw) {
-                        const id = itemRaw.$identifier
-                        const condition = Number(itemRaw.$outcondition) || 1
-                        const lotteryWeight = Number(itemRaw.$commonness ?? 1) / lotteryTotalWeight
-                        deconstruct.parts[id] = Math.round(((deconstruct.parts[id] ?? 0) + condition * lotteryWeight) * 100) / 100
+                    if(raw.$variantof) {
+                        console.warn(`No variant handling. TODO. This was "${title} (${raw.$identifier})", variant of "${raw.$variantof}", skipping..`)
+                        continue
                     }
-                }
 
-                const fabricate: RecipeFabricate[] = []
-                for(const fabricateRaw of fabricatesRaw) {
-                    if(!fabricateRaw) continue
-                    const normalizedItem = (fabricateRaw.RequiredItem ?? fabricateRaw.Item)!
-                    const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
-                    if(itemsRaw.length === 0) continue
+                    // Source have both relative and absolute paths, normalize to absolute.
+                    // Also dev ofc codes on Windows, because few paths have messed up cases.
+                    const texture = (raw.InventoryIcon ?? raw.Sprite).$texture
+                    const iconPathNormalized = (texture.includes('/') ? texture : join(dirname(path), texture))
+                        .replace('JobGear/', 'Jobgear/')
 
-                    const fabricateInner = {
+                    items[raw.$identifier] = {
+                        type: 'item',
+                        id: raw.$identifier,
+                        categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
+                        title,
+                        price: Number(raw.Price.$baseprice),
+                        icon: {
+                            path: iconPathNormalized,
+                            rect: (raw.InventoryIcon ?? raw.Sprite).$sourcerect.split(',').map(Number) as [number, number, number, number],
+                        }
+                    }
+
+                    const fabricatesRaw: (Fabricate | undefined)[] = !raw.Fabricate ? [] : Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
+
+                    const deconstruct = {
                         parts: {} as Record<IdItemString, number>
                     }
-                    for(const itemRaw of itemsRaw) {
-                        const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
-                        const amount = (fabricateRaw?.$amount ? Number(fabricateRaw?.$amount) : 1)
-                        fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + 1 / amount
+                    if(raw.Deconstruct?.Item) {
+                        const itemsRaw = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+                        const lotteryTotalWeight = raw.Deconstruct.$chooserandom ? itemsRaw.reduce((sum, item) => sum + Number(item.$commonness!), 0) / Number(raw.Deconstruct.$amount ?? 1) : 1
+
+                        for(const itemRaw of itemsRaw) {
+                            const id = itemRaw.$identifier
+                            const condition = Number(itemRaw.$outcondition) || 1
+                            const lotteryWeight = Number(itemRaw.$commonness ?? 1) / lotteryTotalWeight
+                            deconstruct.parts[id] = Math.round(((deconstruct.parts[id] ?? 0) + condition * lotteryWeight) * 100) / 100
+                        }
                     }
 
-                    if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)
-                }
+                    const fabricate: RecipeFabricate[] = []
+                    for(const fabricateRaw of fabricatesRaw) {
+                        if(!fabricateRaw) continue
+                        const normalizedItem = (fabricateRaw.RequiredItem ?? fabricateRaw.Item)!
+                        const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
+                        if(itemsRaw.length === 0) continue
 
-                const recipeId = `recipe-${raw.$identifier}`
-                recipes[recipeId] = {
-                    type: 'recipe',
-                    id: recipeId,
-                    result: raw.$identifier,
-                    deconstruct: Object.keys(deconstruct.parts).length ? deconstruct : null,
-                    fabricate,
+                        const fabricateInner = {
+                            parts: {} as Record<IdItemString, number>
+                        }
+                        for(const itemRaw of itemsRaw) {
+                            const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
+                            const amount = (fabricateRaw?.$amount ? Number(fabricateRaw?.$amount) : 1)
+                            fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + 1 / amount
+                        }
+
+                        if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)
+                    }
+
+                    const recipeId = `recipe-${raw.$identifier}`
+                    recipes[recipeId] = {
+                        type: 'recipe',
+                        id: recipeId,
+                        result: raw.$identifier,
+                        deconstruct: Object.keys(deconstruct.parts).length ? deconstruct : null,
+                        fabricate,
+                    }
+
+                } catch(err) {
+                    (err as Error).message = (err as Error).message + ` [${title}]`
+                    throw err
                 }
             }
 
