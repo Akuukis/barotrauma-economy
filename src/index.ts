@@ -24,7 +24,7 @@ interface Group {
 (async () => {
     const iconSize = 36
     const strokeWidth = 4
-    const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 140
+    const priceToHeight = (price: number, category = false) => Math.max(category ? 1 : 2, Math.log2(price)) * 100  // TODO: dynamic height based on window height
     const nodeLinkCountMap = new Map<IdItemString, number>()
 
     const RECIPES = (await (await fetch('./recipes.json')).json() as Recipe[])
