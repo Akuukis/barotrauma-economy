@@ -6,7 +6,7 @@
     "url": "https://github.com/Akuukis"
   },
   "scripts": {
-    "start": "yarn build && yarn serve",
+    "start": "yarn build && yarn watch:dist",
     "build": "yarn exec ts-node scripts/parse.ts",
     "deploy": "bash -c 'source .env; scp -r dist/* @$SFTP_HOSTNAME:$SFTP_PATH'",
     "watch": "yarn concurrently \"yarn:watch:*\"",

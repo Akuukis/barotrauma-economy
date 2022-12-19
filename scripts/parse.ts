@@ -154,6 +154,23 @@ interface DeconstructItem {
     "$commonness"?: NumberString
 }
 
+type Sprite =
+    | Sprite.Rect
+    | Sprite.Sheet
+namespace Sprite {
+    export interface Basis {
+        "$texture": string
+        "$origin": NumbersWithComma
+    }
+    export interface Rect extends Basis {
+        "$sourcerect": NumbersWithComma
+    }
+    export interface Sheet extends Basis {
+        "$sheetindex": NumbersWithComma
+        "$sheetelementsize": NumbersWithComma
+    }
+}
+
 interface ItemRaw {
     "Upgrade": {
         "$gameversion": "0.10.0.0",
@@ -180,16 +197,9 @@ interface ItemRaw {
         "$chooserandom"?: BooleanString
         "$amount"?: NumberString
     },
-    "InventoryIcon": {
-        "$texture": string
-        "$sourcerect": NumbersWithComma
-        "$origin": NumbersWithComma
-    },
-    "Sprite": {
-        "$texture": string
-        "$sourcerect": NumbersWithComma
-        "$origin": NumbersWithComma
-    },
+    "InventoryIcon"?: Sprite,
+    "Sprite"?: Sprite,
+    "sprite"?: Sprite,
     "Body": any,
     "SuitableTreatment"?: any,
     "MeleeWeapon": any,
@@ -217,7 +227,81 @@ const parser = new XMLParser({
 const items: Record<IdItemString, Item> = {}
 const recipes: Record<string, Recipe> = {}
 
-;
+function getIconRectFromSheet(icon: Sprite.Sheet): [number, number, number, number] {
+    const size = icon.$sheetelementsize.split(',').map(Number) as [number, number]
+    const topLeft = icon.$sheetindex.split(',').map(Number).map((coord, i) => coord * size[i]) as [number, number]
+    return [
+        ...topLeft,
+        ...size,
+    ]
+}
+/**
+ * Source have both relative and absolute paths, normalize to absolute.
+ * Also dev ofc codes on Windows, because few paths have messed up cases.
+ * 
+ * ```xml
+ * <InventoryIcon texture="Content/Items/Genetic/Genetic.png" sourcerect="244,62,76,65" origin="0.5,0.5" />
+ * <Sprite name="Headset" texture="Content/Items/Genetic/Genetic.png" depth="0.6" sourcerect="67,85,73,35" origin="0.5,0.5" />
+ * ```
+ * or
+ * ```xml
+ * <InventoryIcon texture="Content/Items/Genetic/Genetic.png" sheetindex="0,3" sheetelementsize="64,64" origin="0.5,0.5" />
+ * <Sprite texture="Content/Items/Genetic/Genetic.png" sheetindex="11,0" sheetelementsize="32,32" depth="0.6" origin="0.5,0.5"/>
+ * ```
+ * 
+ */
+function getIcon(raw: ItemRaw, path: string) {
+    const icon = (raw.InventoryIcon ?? raw.Sprite ?? raw.sprite)!
+    const texture = icon.$texture
+    const iconPathNormalized = (texture.includes('/') ? texture : join(dirname(path), texture))
+        .replace('JobGear/', 'Jobgear/')
+        .replace('Defensebot.png', 'DefenseBot.png')
+
+    const rectNormalized = '$sourcerect' in icon
+        ? icon.$sourcerect.split(',').map(Number) as [number, number, number, number]
+        : getIconRectFromSheet(icon)
+
+    return {
+        path: iconPathNormalized,
+        rect: rectNormalized,
+    }
+}
+
+const registryAliases = {
+    clothes: [] as string[],
+    uniform: [] as string[],
+    wire: [] as string[],
+    component: [] as string[],
+}
+/**
+ * Bloat only adds noise, so group very similar items.
+ */
+function assignGroup(item: Item): Item {
+    // Group clothes
+    if(item.id.includes('clothes')) {
+        registryAliases.clothes.push(item.id)
+        return {...item, id: 'clothes', title: `Clothes (${registryAliases.clothes.length})`, aliases: registryAliases.clothes} as Item
+    }
+    // Group uniform and jumpsuits
+    if(item.id.includes('uniform') || item.id.includes('jumpsuit')) {
+        registryAliases.uniform.push(item.id)
+        return {...item, id: 'uniform', title: `Uniforms (${registryAliases.uniform.length})`, aliases: registryAliases.uniform} as Item
+    }
+    // Group wires
+    if(item.id.includes('wire')) {
+        registryAliases.wire.push(item.id)
+        return {...item, id: 'wire', title: `Wires (${registryAliases.wire.length})`, aliases: registryAliases.wire} as Item
+    }
+    // Group components
+    if(item.id.includes('component') && !item.id.includes('lightcomponent')) {
+        registryAliases.component.push(item.id)
+        return {...item, id: 'component', title: `Components (${registryAliases.component.length})`, aliases: registryAliases.component} as Item
+    }
+
+    return item
+}
+
+
 (async () => {
     for(const path of files) {
         try {
@@ -242,23 +326,15 @@ const recipes: Record<string, Recipe> = {}
                         continue
                     }
 
-                    // Source have both relative and absolute paths, normalize to absolute.
-                    // Also dev ofc codes on Windows, because few paths have messed up cases.
-                    const texture = (raw.InventoryIcon ?? raw.Sprite).$texture
-                    const iconPathNormalized = (texture.includes('/') ? texture : join(dirname(path), texture))
-                        .replace('JobGear/', 'Jobgear/')
-
-                    items[raw.$identifier] = {
+                    const item = assignGroup({
                         type: 'item',
                         id: raw.$identifier,
                         categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
                         title,
                         price: Number(raw.Price.$baseprice),
-                        icon: {
-                            path: iconPathNormalized,
-                            rect: (raw.InventoryIcon ?? raw.Sprite).$sourcerect.split(',').map(Number) as [number, number, number, number],
-                        }
-                    }
+                        icon: getIcon(raw, path),
+                    })
+                    items[item.id] = item
 
                     const fabricatesRaw: (Fabricate | undefined)[] = !raw.Fabricate ? [] : Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
 
@@ -296,11 +372,11 @@ const recipes: Record<string, Recipe> = {}
                         if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)
                     }
 
-                    const recipeId = `recipe-${raw.$identifier}`
+                    const recipeId = `recipe-${item.id}`
                     recipes[recipeId] = {
                         type: 'recipe',
                         id: recipeId,
-                        result: raw.$identifier,
+                        result: item.id,
                         deconstruct: Object.keys(deconstruct.parts).length ? deconstruct : null,
                         fabricate,
                     }

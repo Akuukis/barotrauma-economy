@@ -10,6 +10,7 @@ declare interface Item {
     type: 'item'
     id: IdItemString
     categories: IdCategoryString[]
+    aliases?: string[]
     title: string
     price: number
     icon: {
