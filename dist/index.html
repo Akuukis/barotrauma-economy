@@ -39,6 +39,15 @@
             flex-grow: 1;
             overflow-y: auto;
         }
+        details,details > summary {
+            overflow-x: hidden;
+            text-overflow: clip;
+        }
+        details > text {
+            display: block;
+            padding-left: 1em;
+            margin-bottom: 0.5em;
+        }
     </style>
 </head>
 <body style="width: 100%; height: 100%; margin: 0">

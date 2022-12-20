@@ -21,6 +21,18 @@ interface Group {
     member: (item: Item) => boolean
 }
 
+const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: number) => {
+    node.append("span")
+        .text(`${Math.round(amount * item.price * 100) / 100}mk: `)
+    node.append("a")
+        .attr("href", `#${item.id}`)
+        .text(item.title ?? item.id)
+    if(amount !== 1) {
+        node.append("span")
+            .text(` x${Math.round(amount * 100) / 100} (${Math.round(item.price * 100) / 100}mk)`)
+    }
+}
+
 (async () => {
     const iconSize = 36
     const strokeWidth = 4
@@ -129,16 +141,10 @@ interface Group {
 
     const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
-    let currentItem: Item | null = ITEMS.find((item) => item.id === document.location.hash.slice(1)) ?? null
-    const callInfo = (event?: any, d?: DisplayNode) => {
-        if(d) currentItem = Object.getPrototypeOf(d) as Item
-        document.location.hash = currentItem?.id ?? ''
-        refreshInfo()
-    }
-
+    let currentItem: Item | null
     const refreshInfo = () => {
         const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
-        const info = d3.select<HTMLDivElement, never>('#info')
+        const info = d3.select<HTMLDivElement, undefined>('#info')
         info.selectAll('*').remove()
         const currentItemTG = currentItem
         if(!currentItemTG) return
@@ -189,7 +195,7 @@ interface Group {
                 const partItem = ITEMS.find((item) => item.id === id)!
                 sum += amount * partItem.price
                 info.append("div")
-                    .text(`${amount * partItem.price}mk: ${amount} x ${id} (${partItem.price}mk)`)
+                    .call(addSubLine, partItem, amount)
             }
             if(hassle) {
                 sum -= hassle
@@ -221,18 +227,14 @@ interface Group {
                         .map((fab) => {
                             const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
                             const details = d3.create<HTMLDetailsElement>('details')
-                            const summary = details.append('summary')
-                                .text(recipe.result)
 
                             const more = details.append('text')
-                                .text(`${recipeItem.id} (${recipeItem.price})`)
-
                             let sum = 0
                             for(const [id, amount] of Object.entries(fab.parts)) {
-                                const price = ITEMS.find((item) => item.id === id)!.price
-                                sum += amount * price
+                                const item = ITEMS.find((item) => item.id === id)!
+                                sum += amount * item.price
                                 more.append("div")
-                                    .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
+                                    .call(addSubLine, item, amount)
                             }
                             if(hassle) {
                                 sum += hassle
@@ -245,11 +247,19 @@ interface Group {
 
                             const ratio = recipeItem.price / sum
                             more.append("div")
-                                .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${recipeItem.price - sum}mk)`)
+                                .text(`${Math.round(sum * 100) / 100}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((recipeItem.price - sum) * 100) / 100}mk)`)
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
+                            const summary = details.append('summary')
+                            summary.append("span")
+                                .text(`${Math.round(recipeItem.price * 100) / 100}mk: `)
+                            summary.append("a")
+                                .attr("href", `#${recipeItem.id}`)
+                                .text(recipeItem.title ?? recipeItem.id)
+                            summary.append("span")
+                                .text(` (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.price * (ratio - 1) * 10) / 10}mk)`)
+                                // .text(`${Math.round(recipeItem.price * 100) / 100}mk: ${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.price * (ratio - 1) * 10) / 10}mk)`)
                             summary
-                                .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.price * (ratio - 1) * 10) / 10}mk)`)
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                             return [ratio, details] as [number, d3.Selection<HTMLDetailsElement, undefined, null, undefined>]
@@ -276,10 +286,10 @@ interface Group {
                 let sum = 0
                 for(const [id, amount] of Object.entries(fab.parts)) {
                     console.log(fab.parts)
-                    const price = ITEMS.find((item) => item.id === id)!.price
-                    sum += amount * price
+                    const item = ITEMS.find((item) => item.id === id)!
+                    sum += amount * item.price
                     info.append("div")
-                        .text(`${amount * price}mk: ${amount} x ${id} (${price}mk)`)
+                        .call(addSubLine, item, amount)
                 }
                 if(hassle) {
                     sum += hassle
@@ -330,7 +340,18 @@ interface Group {
         //     .text(JSON.stringify(d, undefined, 2))
 
     }
-    if(currentItem) refreshInfo()
+    const callInfo = (event?: any, d?: DisplayNode) => {
+        if(d) currentItem = Object.getPrototypeOf(d) as Item
+        document.location.hash = currentItem?.id ?? ''
+        refreshInfo()
+    }
+    const onHashChange = () => {
+        currentItem = ITEMS.find((item) => item.id === document.location.hash.slice(1)) ?? null
+        refreshInfo()
+    }
+    onHashChange()
+    window.addEventListener('hashchange', onHashChange)
+
     document.getElementById('hassle')!.addEventListener('click', refreshInfo)
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
