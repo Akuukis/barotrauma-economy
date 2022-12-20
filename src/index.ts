@@ -83,8 +83,8 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             ...item,
             fy: TOTAL_HEIGHT - priceToHeight(item.price),
             group: groups.find((group) => group.member(item))?.id,
-            value: item.price,
-            _nextValue: item.price,
+            value: item.price / 4,
+            _nextValue: item.price / 4,
             suggestion: Suggestion.Sell,
         }))
         // .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
@@ -312,9 +312,10 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                         .call(addSubLine, item, amount)
                 }
                 if(hassle) {
-                    sum += hassle
+                    const hasslePerResult = hassle * Object.values(fab.parts)[0]
+                    sum += hasslePerResult
                     info.append("div")
-                        .text(`${hassle}v: hassle`)
+                        .text(`${Math.round(hasslePerResult * 10) / 10}v: hassle`)
                 }
                 info.append('hr')
                     .style('width', '2em')
@@ -376,8 +377,8 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
     const resetValues = () => {
         const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
         for(const item of ITEMS) {
-            item.value = item.price
-            item._nextValue = item.price
+            item.value = item.price / 4
+            item._nextValue = item.price / 4
             item.suggestion = item.price > hassle ? Suggestion.Sell : Suggestion.Trash
         }
         refreshInfo()
@@ -388,7 +389,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for(let i = 0; i < n; i++) {
             for(const item of ITEMS) {
-                let bestValue = item.price
+                let bestValue = item.price / 4
 
 
                 const recipe = RECIPES.find((recipe) => recipe.result === item.id)
@@ -426,21 +427,20 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                             continue
                         }
 
-                        let sum = 0
+                        let sumValue = 0
                         for(const [id, amount] of Object.entries(fab.parts)) {
                             const fabItem = ITEMS.find((item) => item.id === id)
                             if(!fabItem) {
                                 console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
                                 continue
                             }
-                            sum += amount * fabItem.value
+                            sumValue += amount * fabItem.value
                         }
                         if(hassle) {
-                            sum += hassle * myAmount  // If you create 2 items at once, that's half the hassle.
+                            sumValue += hassle * myAmount  // If you create 2 items at once, that's half the hassle.
                         }
 
-                        const ratio = recipeItem.value / sum
-                        const fabricationValue = (item.value || 5) * ratio
+                        const fabricationValue = (item.value || 5) * (recipeItem.value / sumValue)
                         if(bestValue < fabricationValue) {
                             bestValue = fabricationValue
                             item.suggestion = Suggestion.Fabricate
@@ -448,11 +448,14 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                     }
                 }
 
-                item._nextValue = bestValue
+                item._nextValue = Math.max(bestValue, item._nextValue)
             }
             for(const item of ITEMS) {
-                const koef = 1/(i+1)
-                item.value = koef * item._nextValue + (1 - koef) * item.value
+                const koef = .33
+                item.value = Math.min(item.price, Math.max(item.price/4, koef * item._nextValue + (1 - koef) * item.value))
+                if(item.value < hassle) {
+                    item.suggestion = Suggestion.Trash
+                }
             }
         }
 
