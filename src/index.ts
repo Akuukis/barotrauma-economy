@@ -129,15 +129,21 @@ interface Group {
 
     const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
-    let currentItem: Item
+    let currentItem: Item | null = ITEMS.find((item) => item.id === document.location.hash.slice(1)) ?? null
     const callInfo = (event?: any, d?: DisplayNode) => {
-        const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
         if(d) currentItem = Object.getPrototypeOf(d) as Item
+        document.location.hash = currentItem?.id ?? ''
+        refreshInfo()
+    }
+
+    const refreshInfo = () => {
+        const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
         const info = d3.select<HTMLDivElement, never>('#info')
-
         info.selectAll('*').remove()
+        const currentItemTG = currentItem
+        if(!currentItemTG) return
 
-        const rect = currentItem.icon?.rect
+        const rect = currentItemTG.icon?.rect
         const svg = info.append('svg')
             .attr("width", iconSize * 2 + strokeWidth/2)
             .attr("height", iconSize * 2 + strokeWidth/2)
@@ -153,7 +159,7 @@ interface Group {
             .attr("stroke-width", strokeWidth);
         svg
             .append("image")
-            .attr("href", currentItem.icon?.path ? `img/${currentItem.icon?.path}` : null)
+            .attr("href", currentItemTG.icon?.path ? `img/${currentItemTG.icon?.path}` : null)
             .attr("clip-path", rect ? `path('M 0 0 h ${rect[2]} v ${rect[3]} h -${rect[2]} v -${rect[3]}')` : null)
             .attr("preserveAspectRatio", "xMinYMin slice")
             .attr("x", -rect[0])
@@ -163,20 +169,20 @@ interface Group {
         const infobox = info.append("div")
 
         infobox.append("h3")
-            .text(`${currentItem.title}`)
+            .text(`${currentItemTG.title}`)
             .style('margin', 0)
 
         infobox.append("div")
-            .text(`ID: ${currentItem.id}`)
+            .text(`ID: ${currentItemTG.id}`)
         infobox.append("div")
-            .text(`Base price: ${currentItem.price}mk`)
+            .text(`Base price: ${currentItemTG.price}mk`)
 
         info.append("div")
             .style('clear', 'both')
 
         info.append("h3")
             .text(`Deconstruct to`)
-        const recipe = RECIPES.find((recipe) => recipe.result === currentItem.id)
+        const recipe = RECIPES.find((recipe) => recipe.result === currentItemTG.id)
         if(recipe?.deconstruct) {
             let sum = 0
             for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
@@ -194,9 +200,9 @@ interface Group {
                 .style('width', '2em')
                 .style('margin', 0)
 
-            const ratio = sum / currentItem.price
+            const ratio = sum / currentItemTG.price
             info.append("div")
-                .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItem.price}mk)`)
+                .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItemTG.price}mk)`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
         } else {
             info.append('span').append('em')
@@ -205,13 +211,13 @@ interface Group {
 
         info.append("h3")
             .text(`Use in Fabrication of`)
-        const fabricatesTo = RECIPES.filter((recipe) => recipe.fabricate.some((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id)))
+        const fabricatesTo = RECIPES.filter((recipe) => recipe.fabricate.some((fab) => Object.keys(fab.parts).some((partId) => partId === currentItemTG.id)))
         if(fabricatesTo.length) {
 
             const outputs: [number, d3.Selection<HTMLDetailsElement, undefined, null, undefined>][] = fabricatesTo
                 .flatMap((recipe) => {
                     return recipe.fabricate
-                        .filter((fab) => Object.keys(fab.parts).some((partId) => partId === currentItem.id))
+                        .filter((fab) => Object.keys(fab.parts).some((partId) => partId === currentItemTG.id))
                         .map((fab) => {
                             const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
                             const details = d3.create<HTMLDetailsElement>('details')
@@ -243,7 +249,7 @@ interface Group {
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                             summary
-                                .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItem.price * (ratio - 1) * 10) / 10}mk)`)
+                                .text(`${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.price * (ratio - 1) * 10) / 10}mk)`)
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                             return [ratio, details] as [number, d3.Selection<HTMLDetailsElement, undefined, null, undefined>]
@@ -284,9 +290,9 @@ interface Group {
                     .style('width', '2em')
                     .style('margin', 0)
 
-                const ratio = currentItem.price / sum
+                const ratio = currentItemTG.price / sum
                 info.append("div")
-                    .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItem.price - sum}mk)`)
+                    .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItemTG.price - sum}mk)`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
             }
         } else {
@@ -298,7 +304,7 @@ interface Group {
             .style('margin-top', '1em')
         deconstructsFromNode.append("h3")
             .text(`Deconstruct from`)
-        const deconstructsFrom = RECIPES.filter((recipe) => Object.keys(recipe.deconstruct?.parts ?? {}).some((partId) => partId === currentItem.id))
+        const deconstructsFrom = RECIPES.filter((recipe) => Object.keys(recipe.deconstruct?.parts ?? {}).some((partId) => partId === currentItemTG.id))
         if(deconstructsFrom.length) {
             const ul = deconstructsFromNode.append('ul')
 
@@ -324,7 +330,8 @@ interface Group {
         //     .text(JSON.stringify(d, undefined, 2))
 
     }
-    document.getElementById('hassle')!.addEventListener('click', () => callInfo())
+    if(currentItem) refreshInfo()
+    document.getElementById('hassle')!.addEventListener('click', refreshInfo)
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
