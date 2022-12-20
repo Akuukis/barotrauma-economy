@@ -4,6 +4,20 @@
 // import d3 from 'd3'
 // import { Item, Recipe } from './common'
 
+enum Suggestion {
+    Sell = 'sell',
+    Deconstruct = 'deconstruct',
+    Fabricate = 'fabricate',
+    Trash = 'trash',
+}
+interface ItemFE extends Item {
+    fy: number
+    group: string | undefined
+    value: number
+    _nextValue: number
+    suggestion: Suggestion
+}
+
 interface DisplayNode extends d3.SimulationNodeDatum {
     id: string
     type: 'item' | 'category'
@@ -21,15 +35,15 @@ interface Group {
     member: (item: Item) => boolean
 }
 
-const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: number) => {
+const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount: number) => {
     node.append("span")
-        .text(`${Math.round(amount * item.price * 100) / 100}mk: `)
+        .text(`${Math.round(amount * item.value * 10) / 10}v: `)
     node.append("a")
         .attr("href", `#${item.id}`)
         .text(item.title ?? item.id)
     if(amount !== 1) {
         node.append("span")
-            .text(` x${Math.round(amount * 100) / 100} (${Math.round(item.price * 100) / 100}mk)`)
+            .text(` x${Math.round(amount * 10) / 10} (${Math.round(item.value * 10) / 10}v)`)
     }
 }
 
@@ -65,10 +79,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
     // Also, merge 
     // const andComponent = ITEMS_RAW.find((innerItem) => innerItem.id === 'andcomponent')!
     const ITEMS = ITEMS_RAW
-        .map((item) => ({
+        .map((item): ItemFE => ({
             ...item,
             fy: TOTAL_HEIGHT - priceToHeight(item.price),
             group: groups.find((group) => group.member(item))?.id,
+            value: item.price,
+            _nextValue: item.price,
+            suggestion: Suggestion.Sell,
         }))
         // .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
         // .filter((item) => !item.id.endsWith('component'))
@@ -141,7 +158,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
 
     const linkColor = d3.scaleOrdinal(groups.map((group) => group.id), d3.schemeCategory10)
 
-    let currentItem: Item | null
+    let currentItem: ItemFE | null
     const refreshInfo = () => {
         const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
         const info = d3.select<HTMLDivElement, undefined>('#info')
@@ -151,15 +168,15 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
 
         const rect = currentItemTG.icon?.rect
         const svg = info.append('svg')
-            .attr("width", iconSize * 2 + strokeWidth/2)
-            .attr("height", iconSize * 2 + strokeWidth/2)
+            .attr("width", iconSize * 3 + strokeWidth/2)
+            .attr("height", iconSize * 3 + strokeWidth/2)
             .style('float', 'left')
             .style('margin-right', '1em')
 
         svg
             .append("rect")
-            .attr("width", iconSize * 2 + strokeWidth/2)
-            .attr("height", iconSize * 2 + strokeWidth/2)
+            .attr("width", iconSize * 3 + strokeWidth/2)
+            .attr("height", iconSize * 3 + strokeWidth/2)
             .attr("fill", "#bbb")
             .attr("stroke", linkColor((currentItem as any).group ?? 'Other'))
             .attr("stroke-width", strokeWidth);
@@ -170,7 +187,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
             .attr("preserveAspectRatio", "xMinYMin slice")
             .attr("x", -rect[0])
             .attr("y", -rect[1])
-            .attr("transform", `scale(${iconSize * 2 / Math.max(rect[2], rect[3])})`)
+            .attr("transform", `scale(${iconSize * 3 / Math.max(rect[2], rect[3])})`)
 
         const infobox = info.append("div")
 
@@ -182,6 +199,10 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
             .text(`ID: ${currentItemTG.id}`)
         infobox.append("div")
             .text(`Base price: ${currentItemTG.price}mk`)
+        infobox.append("div")
+            .text(`Value: ${Math.round(currentItemTG.value * 10) / 10}v`)
+        infobox.append("div")
+            .text(`Suggestion: ${currentItemTG.suggestion}`)
 
         info.append("div")
             .style('clear', 'both')
@@ -193,22 +214,22 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
             let sum = 0
             for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
                 const partItem = ITEMS.find((item) => item.id === id)!
-                sum += amount * partItem.price
+                sum += amount * partItem.value
                 info.append("div")
                     .call(addSubLine, partItem, amount)
             }
             if(hassle) {
                 sum -= hassle
                 info.append("div")
-                    .text(`-${hassle}mk: hassle`)
+                    .text(`-${hassle}v: hassle`)
             }
             info.append('hr')
                 .style('width', '2em')
                 .style('margin', 0)
 
-            const ratio = sum / currentItemTG.price
+            const ratio = sum / currentItemTG.value
             info.append("div")
-                .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${sum - currentItemTG.price}mk)`)
+                .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((sum - currentItemTG.value) * 10) / 10}v)`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
         } else {
             info.append('span').append('em')
@@ -232,33 +253,33 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
                             let sum = 0
                             for(const [id, amount] of Object.entries(fab.parts)) {
                                 const item = ITEMS.find((item) => item.id === id)!
-                                sum += amount * item.price
+                                sum += amount * item.value
                                 more.append("div")
                                     .call(addSubLine, item, amount)
                             }
                             if(hassle) {
-                                sum += hassle
+                                const hasslePerResult = hassle * Object.values(fab.parts)[0]
+                                sum += hasslePerResult
                                 more.append("div")
-                                    .text(`${hassle}mk: hassle`)
+                                    .text(`${Math.round(hasslePerResult * 10) / 10}v: hassle`)
                             }
                             more.append('hr')
                                 .style('width', '2em')
                                 .style('margin', 0)
 
-                            const ratio = recipeItem.price / sum
+                            const ratio = recipeItem.value / sum
                             more.append("div")
-                                .text(`${Math.round(sum * 100) / 100}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((recipeItem.price - sum) * 100) / 100}mk)`)
+                                .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((recipeItem.value - sum) * 10) / 10}v)`)
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                             const summary = details.append('summary')
                             summary.append("span")
-                                .text(`${Math.round(recipeItem.price * 100) / 100}mk: `)
+                                .text(`${Math.round(recipeItem.value * 10) / 10}v: `)
                             summary.append("a")
                                 .attr("href", `#${recipeItem.id}`)
                                 .text(recipeItem.title ?? recipeItem.id)
                             summary.append("span")
-                                .text(` (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.price * (ratio - 1) * 10) / 10}mk)`)
-                                // .text(`${Math.round(recipeItem.price * 100) / 100}mk: ${recipeItem.title} (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.price * (ratio - 1) * 10) / 10}mk)`)
+                                .text(` (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.value * (ratio - 1) * 10) / 10}v)`)
                             summary
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
@@ -285,24 +306,23 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
             for(const fab of recipe.fabricate) {
                 let sum = 0
                 for(const [id, amount] of Object.entries(fab.parts)) {
-                    console.log(fab.parts)
                     const item = ITEMS.find((item) => item.id === id)!
-                    sum += amount * item.price
+                    sum += amount * item.value
                     info.append("div")
                         .call(addSubLine, item, amount)
                 }
                 if(hassle) {
                     sum += hassle
                     info.append("div")
-                        .text(`${hassle}mk: hassle`)
+                        .text(`${hassle}v: hassle`)
                 }
                 info.append('hr')
                     .style('width', '2em')
                     .style('margin', 0)
 
-                const ratio = currentItemTG.price / sum
+                const ratio = currentItemTG.value / sum
                 info.append("div")
-                    .text(`${sum}mk (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${currentItemTG.price - sum}mk)`)
+                    .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((currentItemTG.value - sum) * 10) / 10}v)`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
             }
         } else {
@@ -341,7 +361,8 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
 
     }
     const callInfo = (event?: any, d?: DisplayNode) => {
-        if(d) currentItem = Object.getPrototypeOf(d) as Item
+        if(d) currentItem = Object.getPrototypeOf(d) as ItemFE
+        console.log(currentItem)
         document.location.hash = currentItem?.id ?? ''
         refreshInfo()
     }
@@ -352,7 +373,98 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: Item, amount: 
     onHashChange()
     window.addEventListener('hashchange', onHashChange)
 
-    document.getElementById('hassle')!.addEventListener('click', refreshInfo)
+    const resetValues = () => {
+        const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
+        for(const item of ITEMS) {
+            item.value = item.price
+            item._nextValue = item.price
+            item.suggestion = item.price > hassle ? Suggestion.Sell : Suggestion.Trash
+        }
+        refreshInfo()
+    }
+    const simulateValues = (n = 1) => {
+        const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        for(let i = 0; i < n; i++) {
+            for(const item of ITEMS) {
+                let bestValue = item.price
+
+
+                const recipe = RECIPES.find((recipe) => recipe.result === item.id)
+                const skipDeconstruct = false
+                    || recipe?.result === 'oxygenitetank'  // they have a bug that it deconstructs to more than it's made of
+                    || recipe?.result === 'exosuit'  // they have a bug that it deconstructs to more than it's made of
+
+                if(recipe?.deconstruct && !skipDeconstruct) {
+                    let deconstructValue = 0
+                    for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
+                        const partItem = ITEMS.find((item) => item.id === id)
+                        if(partItem) {
+                            deconstructValue += amount * partItem.value
+                        } else {
+                            console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
+                        }
+                    }
+                    if(hassle) {
+                        deconstructValue -= hassle
+                    }
+                    if(bestValue < deconstructValue) {
+                        bestValue = deconstructValue
+                        item.suggestion = Suggestion.Deconstruct
+                    }
+                }
+
+                for(const recipe of RECIPES) {
+                    for(const fab of recipe.fabricate) {
+                        const myAmount = Object.entries(fab.parts).find(([partId]) => partId === item.id)?.[1]
+                        if(!myAmount) continue  // I'm not in this recipe.
+
+                        const recipeItem = ITEMS.find((item) => item.id === recipe.result)
+                        if(!recipeItem) {
+                            console.warn(`Missing item "${recipe.result}" for fabrication result, skipping..`)  // impossible?
+                            continue
+                        }
+
+                        let sum = 0
+                        for(const [id, amount] of Object.entries(fab.parts)) {
+                            const fabItem = ITEMS.find((item) => item.id === id)
+                            if(!fabItem) {
+                                console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
+                                continue
+                            }
+                            sum += amount * fabItem.value
+                        }
+                        if(hassle) {
+                            sum += hassle * myAmount  // If you create 2 items at once, that's half the hassle.
+                        }
+
+                        const ratio = recipeItem.value / sum
+                        const fabricationValue = (item.value || 5) * ratio
+                        if(bestValue < fabricationValue) {
+                            bestValue = fabricationValue
+                            item.suggestion = Suggestion.Fabricate
+                        }
+                    }
+                }
+
+                item._nextValue = bestValue
+            }
+            for(const item of ITEMS) {
+                const koef = 1/(i+1)
+                item.value = koef * item._nextValue + (1 - koef) * item.value
+            }
+        }
+
+        refreshInfo()
+    }
+    const onHassleChange = () => {
+        resetValues()
+        simulateValues(10)
+    }
+    document.getElementById('hassle')!.addEventListener('click', onHassleChange)
+    ;(window as any).resetValues = resetValues
+    ;(window as any).simulateValues = simulateValues
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;

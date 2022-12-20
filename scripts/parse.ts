@@ -317,7 +317,7 @@ function assignGroup(item: Item): Item {
 
             for(const [title, raw] of rawItems) {
                 try {
-                    if(!raw.Price) {
+                    if(!raw.Price && !raw.Deconstruct) {
                     // console.warn(`No Price for "${title} (${raw.$identifier})" within "${path}", skipping..`)
                         continue
                     }
@@ -331,7 +331,7 @@ function assignGroup(item: Item): Item {
                         id: raw.$identifier,
                         categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
                         title,
-                        price: Number(raw.Price.$baseprice),
+                        price: Number(raw.Price?.$baseprice ?? 0),
                         icon: getIcon(raw, path),
                     })
                     items[item.id] = item
