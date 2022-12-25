@@ -15,6 +15,8 @@ interface ItemFE extends Item {
     group: string | undefined
     value: number
     _nextValue: number
+    distance: number
+    _nextDistance: number
     suggestion: Suggestion
 }
 
@@ -86,6 +88,8 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             value: item.price / 4,
             _nextValue: item.price / 4,
             suggestion: Suggestion.Sell,
+            distance: 1,
+            _nextDistance: 1,
         }))
         // .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
         // .filter((item) => !item.id.endsWith('component'))
@@ -168,15 +172,15 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         const rect = currentItemTG.icon?.rect
         const svg = info.append('svg')
-            .attr("width", iconSize * 3 + strokeWidth/2)
-            .attr("height", iconSize * 3 + strokeWidth/2)
+            .attr("width", iconSize * 3.6 + strokeWidth/2)
+            .attr("height", iconSize * 3.6 + strokeWidth/2)
             .style('float', 'left')
             .style('margin-right', '1em')
 
         svg
             .append("rect")
-            .attr("width", iconSize * 3 + strokeWidth/2)
-            .attr("height", iconSize * 3 + strokeWidth/2)
+            .attr("width", iconSize * 3.6 + strokeWidth/2)
+            .attr("height", iconSize * 3.6 + strokeWidth/2)
             .attr("fill", "#bbb")
             .attr("stroke", linkColor((currentItem as any).group ?? 'Other'))
             .attr("stroke-width", strokeWidth);
@@ -187,7 +191,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .attr("preserveAspectRatio", "xMinYMin slice")
             .attr("x", -rect[0])
             .attr("y", -rect[1])
-            .attr("transform", `scale(${iconSize * 3 / Math.max(rect[2], rect[3])})`)
+            .attr("transform", `scale(${iconSize * 3.6 / Math.max(rect[2], rect[3])})`)
 
         const infobox = info.append("div")
 
@@ -198,9 +202,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         infobox.append("div")
             .text(`ID: ${currentItemTG.id}`)
         infobox.append("div")
-            .text(`Base price: ${currentItemTG.price}mk`)
+            .text(`Buy price: ${currentItemTG.price}mk`)
+        infobox.append("div")
+            .text(`Sell price: ${currentItemTG.price / 4}mk`)
         infobox.append("div")
             .text(`Value: ${Math.round(currentItemTG.value * 10) / 10}v`)
+        infobox.append("div")
+            .text(`Hassle: ${Math.round(currentItemTG.distance * hassle * 10) / 10}v`)
         infobox.append("div")
             .text(`Suggestion: ${currentItemTG.suggestion}`)
 
@@ -227,7 +235,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 .style('width', '2em')
                 .style('margin', 0)
 
-            const ratio = sum / currentItemTG.value
+            const ratio = sum / currentItemTG.price
             info.append("div")
                 .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((sum - currentItemTG.value) * 10) / 10}v)`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
@@ -246,6 +254,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                     return recipe.fabricate
                         .filter((fab) => Object.keys(fab.parts).some((partId) => partId === currentItemTG.id))
                         .map((fab) => {
+                            const producedAmount = fab.amount
                             const recipeItem = ITEMS.find((item) => item.id === recipe.result)!
                             const details = d3.create<HTMLDetailsElement>('details')
 
@@ -253,9 +262,9 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                             let sum = 0
                             for(const [id, amount] of Object.entries(fab.parts)) {
                                 const item = ITEMS.find((item) => item.id === id)!
-                                sum += amount * item.value
+                                sum += amount/producedAmount * item.value
                                 more.append("div")
-                                    .call(addSubLine, item, amount)
+                                    .call(addSubLine, item, amount/producedAmount)
                             }
                             if(hassle) {
                                 const hasslePerResult = hassle * Object.values(fab.parts)[0]
@@ -267,7 +276,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                                 .style('width', '2em')
                                 .style('margin', 0)
 
-                            const ratio = recipeItem.value / sum
+                            const ratio = recipeItem.value / sum / (currentItemTG.value / (currentItemTG.price))
                             more.append("div")
                                 .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((recipeItem.value - sum) * 10) / 10}v)`)
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
@@ -304,12 +313,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .text(`Fabricate from`)
         if(recipe && recipe.fabricate.length > 0) {
             for(const fab of recipe.fabricate) {
+                const producedAmount = fab.amount
                 let sum = 0
                 for(const [id, amount] of Object.entries(fab.parts)) {
                     const item = ITEMS.find((item) => item.id === id)!
-                    sum += amount * item.value
+                    sum += amount/producedAmount * item.value
                     info.append("div")
-                        .call(addSubLine, item, amount)
+                        .call(addSubLine, item, amount/producedAmount)
                 }
                 if(hassle) {
                     const hasslePerResult = hassle * Object.values(fab.parts)[0]
@@ -378,7 +388,9 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
         for(const item of ITEMS) {
             item.value = item.price / 4
+            item.distance = 1
             item._nextValue = item.price / 4
+            item._nextDistance = 1
             item.suggestion = item.price > hassle ? Suggestion.Sell : Suggestion.Trash
         }
         refreshInfo()
@@ -389,29 +401,33 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for(let i = 0; i < n; i++) {
             for(const item of ITEMS) {
-                let bestValue = item.price / 4
+                let bestValue = item._nextValue
 
 
                 const recipe = RECIPES.find((recipe) => recipe.result === item.id)
-                const skipDeconstruct = false
-                    || recipe?.result === 'oxygenitetank'  // they have a bug that it deconstructs to more than it's made of
-                    || recipe?.result === 'exosuit'  // they have a bug that it deconstructs to more than it's made of
+                // const skipDeconstruct = false
+                //     || recipe?.result === 'oxygenitetank'  // they have a bug that it deconstructs to more than it's made of
+                //     || recipe?.result === 'exosuit'  // they have a bug that it deconstructs to more than it's made of
 
-                if(recipe?.deconstruct && !skipDeconstruct) {
+                if(recipe?.deconstruct) {
                     let deconstructValue = 0
+                    let distanceSumByValue = 0
                     for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
                         const partItem = ITEMS.find((item) => item.id === id)
                         if(partItem) {
                             deconstructValue += amount * partItem.value
+                            distanceSumByValue += amount * partItem.value * partItem.distance
                         } else {
                             console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
                         }
                     }
+                    const distance = 1 + distanceSumByValue / deconstructValue
                     if(hassle) {
-                        deconstructValue -= hassle
+                        deconstructValue -= hassle * distance
                     }
                     if(bestValue < deconstructValue) {
                         bestValue = deconstructValue
+                        item._nextDistance = distance
                         item.suggestion = Suggestion.Deconstruct
                     }
                 }
@@ -420,6 +436,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                     for(const fab of recipe.fabricate) {
                         const myAmount = Object.entries(fab.parts).find(([partId]) => partId === item.id)?.[1]
                         if(!myAmount) continue  // I'm not in this recipe.
+                        const producedAmount = fab.amount
 
                         const recipeItem = ITEMS.find((item) => item.id === recipe.result)
                         if(!recipeItem) {
@@ -434,15 +451,17 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                                 console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
                                 continue
                             }
-                            sumValue += amount * fabItem.value
+                            sumValue += amount/producedAmount * fabItem.value
                         }
+                        const distance = 1 + recipeItem.distance
                         if(hassle) {
-                            sumValue += hassle * myAmount  // If you create 2 items at once, that's half the hassle.
+                            sumValue += hassle * distance
                         }
 
                         const fabricationValue = (item.value || 5) * (recipeItem.value / sumValue)
                         if(bestValue < fabricationValue) {
                             bestValue = fabricationValue
+                            item._nextDistance = distance
                             item.suggestion = Suggestion.Fabricate
                         }
                     }
@@ -451,14 +470,20 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 item._nextValue = Math.max(bestValue, item._nextValue)
             }
             for(const item of ITEMS) {
-                const koef = .33
+                const koef = .66
                 item.value = Math.min(item.price, Math.max(item.price/4, koef * item._nextValue + (1 - koef) * item.value))
+                item.distance = item._nextDistance
+                item.fy = TOTAL_HEIGHT - priceToHeight(1400 * (item.value / item.price - 0.25) * (1/0.75))
                 if(item.value < hassle) {
                     item.suggestion = Suggestion.Trash
                 }
+
+                item._nextValue = item.price / 4
+                item._nextDistance = 1
             }
         }
 
+        simulation.restart()
         refreshInfo()
     }
     const onHassleChange = () => {
@@ -473,8 +498,11 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
     }
 
+    const itemNodes: DisplayNode[] = ITEMS.map(d => Object.create(d));
+    const simulation: d3.Simulation<DisplayNode, DisplayLink> = d3.forceSimulation([...itemNodes])
+        .alphaDecay(0.01)  // default is 0.0228\
+        .velocityDecay(0.2)  // default is 0.4
     const chart = () => {
-        const itemNodes: DisplayNode[] = ITEMS.map(d => Object.create(d));
         // const categoryNodes: DisplayNode[] = CATEGORIES.map(d => Object.create({id: d, fy: TOTAL_HEIGHT - priceToHeight(0, true), type: 'category'}));
         // const orphanNode: DisplayNode = Object.create(CATEGORY_ORPHAN)
 
@@ -512,9 +540,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         // const forceX = d3.forceX()
         //     .strength(0.00001)
 
-        const simulation: d3.Simulation<DisplayNode, DisplayLink> = d3.forceSimulation([...itemNodes])
-            .alphaDecay(0.01)  // default is 0.0228\
-            .velocityDecay(0.2)  // default is 0.4
+        simulation
             .force("link", forceLink)
             .force("collision", forceCollision)
             // .force("x", forceX)

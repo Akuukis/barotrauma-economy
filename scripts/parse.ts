@@ -131,7 +131,8 @@ const files = [
 
 interface RequiredItem {
     "$identifier"?: IdItemString
-    "$tag"?: string,
+    "$amount"?: number
+    "$tag"?: string
 }
 
 interface Fabricate {
@@ -361,12 +362,13 @@ function assignGroup(item: Item): Item {
                         if(itemsRaw.length === 0) continue
 
                         const fabricateInner = {
-                            parts: {} as Record<IdItemString, number>
+                            amount: Number(fabricateRaw?.$amount ?? 1),
+                            parts: {} as Record<IdItemString, number>,
                         }
                         for(const itemRaw of itemsRaw) {
                             const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
-                            const amount = (fabricateRaw?.$amount ? Number(fabricateRaw?.$amount) : 1)
-                            fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + 1 / amount
+                            const requiredAmount = Number(itemRaw?.$amount ?? 1)
+                            fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + requiredAmount
                         }
 
                         if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)

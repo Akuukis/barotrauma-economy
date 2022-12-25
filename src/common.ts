@@ -24,6 +24,7 @@ declare interface RecipeDeconstruct {
 }
 
 declare interface RecipeFabricate {
+    amount: number
     parts: Record<IdItemString, number>
 }
 
