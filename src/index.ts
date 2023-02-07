@@ -4,6 +4,16 @@
 // import d3 from 'd3'
 // import { Item, Recipe } from './common'
 
+enum StoreIdentifier {
+    Outpost = "outpost",
+    City = "city",
+    Research = "research",
+    Military = "military",
+    Mine = "mine",
+    Armory = "armory",  // special merchants?
+    Engineering = "engineering",  // special merchants?
+    Medical = "medical",  // special merchants?
+}
 enum Suggestion {
     Sell = 'sell',
     Deconstruct = 'deconstruct',
@@ -50,7 +60,6 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .text(` x${Math.round(amount * 10) / 10} (${Math.round(item.value * 10) / 10}v)`)
     }
 }
-
 
 (async () => {
     const iconSize = 36
@@ -217,6 +226,41 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         info.append("div")
             .style('clear', 'both')
+
+        info.append("h3")
+            .text(`Stores`)
+
+        const table = info.append('table')
+        const theadrow = table.append('thead').append('tr')
+        const thead = theadrow
+            .selectAll('td')
+            .data(['Store', 'Multiplier', 'Sells', 'Buys'])
+            .enter()
+            .append('td')
+            .text((d) => d)
+        const tbody = table.append('tbody')
+        const rows = tbody
+            .selectAll('tr')
+            .data(Object.values(StoreIdentifier))
+        const enterRow = rows.enter()
+            .append('tr')
+        enterRow
+            .append('td')
+            .classed('id', true)
+            .text((d) => d)
+        enterRow
+            .append('td')
+            .classed('multiplier', true)
+            .text((d) => currentItemTG.stores[d] ? `${(currentItemTG.stores[d]?.multiplier ?? 1).toFixed(2)}x` : '-')
+        enterRow
+            .append('td')
+            .classed('buy', true)
+            .text((d) => currentItemTG.stores[d] ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price)}mk` : '-')
+        enterRow
+            .append('td')
+            .classed('sell', true)
+            .text((d) => currentItemTG.stores[d] ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price / 4)}mk` : '-')
+
 
         info.append("h3")
             .text(`Deconstruct to`)
@@ -702,11 +746,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         return svg;
     }
 
+    const tableNodes = ITEMS.map(d => Object.create(d));
+
     function onTable() {
         const tbody = d3.select('#table > table > tbody')
         const rows = tbody
             .selectAll('tr')
-            .data<ItemFE>(ITEMS.map((v): ItemFE => Object.create(v)), (d: unknown) => (d as any).id)
+            .data<ItemFE>(tableNodes, (d: unknown) => (d as any).id)
 
         const enterRow = rows.enter()
             .append('tr')

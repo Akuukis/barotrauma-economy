@@ -172,16 +172,6 @@ namespace Sprite {
     }
 }
 
-type StoreIdentifier =
-    | "merchantoutpost"
-    | "merchantcity"
-    | "merchantresearch"
-    | "merchantmilitary"
-    | "merchantmine"
-    | "merchantarmory"  // special merchants?
-    | "merchantengineering"  // special merchants?
-    | "merchantmedical"  // special merchants?
-
 interface ItemRaw {
     "Upgrade": {
         "$gameversion": "0.10.0.0",
@@ -195,7 +185,7 @@ interface ItemRaw {
     }>,
     "Price"?: {
         "Price": Array<{
-            "$storeidentifier": StoreIdentifier
+            "$storeidentifier": StoreIdentifierRaw
             // "$locationtype": "outpost" | "city" | "research" | "military" | "mine"
             "$multiplier": NumberString,
             "$minavailable": NumberString
@@ -349,6 +339,12 @@ function assignGroup(item: Item): Item {
                         title,
                         price: Number(raw.Price?.$baseprice ?? 0),
                         icon: getIcon(raw, path),
+                        stores: (raw.Price?.Price && (Array.isArray(raw.Price.Price) ? raw.Price.Price : [raw.Price.Price]))?.map((rawPrice) => ({
+                            id: rawPrice.$storeidentifier.slice('merchant'.length) as StoreIdentifierType,
+                            multiplier: Number(rawPrice.$multiplier ?? 1),
+                            minavailable: Number(rawPrice.$minavailable ?? 0),
+                            sold: rawPrice.$sold === 'false' ? false : true,
+                        })).reduce((obj, e) => ({...obj, [e.id]: e}), {} as Item['stores']) ?? {}
                     })
                     items[item.id] = item
 
