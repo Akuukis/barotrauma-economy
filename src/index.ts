@@ -530,7 +530,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             }
         }
 
-        simulation.restart()
+        // simulation.restart()
         refreshInfo()
     }
 
@@ -843,7 +843,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
     ;(window as any).simulateValues = simulateValues
     ;(window as any).onTable = onTable
 
-    document.getElementById('chart')?.append(chart().node()!)
+    // document.getElementById('chart')?.append(chart().node()!)
     onTable()
     onHassleChange()
 
