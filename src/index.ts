@@ -37,6 +37,8 @@ interface Group {
     member: (item: Item) => boolean
 }
 
+const tableRowColor = d3.scaleSqrt([0, 1, 5, 10, 20, 40, 80, 160, 320], d3.schemeSpectral[10])
+
 const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount: number) => {
     node.append("span")
         .text(`${Math.round(amount * item.value * 10) / 10}v: `)
@@ -48,6 +50,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .text(` x${Math.round(amount * 10) / 10} (${Math.round(item.value * 10) / 10}v)`)
     }
 }
+
 
 (async () => {
     const iconSize = 36
@@ -471,7 +474,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             }
             for(const item of ITEMS) {
                 const koef = .66
-                item.value = Math.min(item.price, Math.max(item.price/4, koef * item._nextValue + (1 - koef) * item.value))
+                item.value = Math.max(item.price/4, koef * item._nextValue + (1 - koef) * item.value)
                 item.distance = item._nextDistance
                 item.fy = TOTAL_HEIGHT - priceToHeight(1400 * (item.value / item.price - 0.25) * (1/0.75))
                 if(item.value < hassle) {
@@ -486,13 +489,6 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         simulation.restart()
         refreshInfo()
     }
-    const onHassleChange = () => {
-        resetValues()
-        simulateValues(10)
-    }
-    document.getElementById('hassle')!.addEventListener('click', onHassleChange)
-    ;(window as any).resetValues = resetValues
-    ;(window as any).simulateValues = simulateValues
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
         return `M ${d.source.x} ${d.source.y} Q ${d.source.x ?? 0} ${d.target.y ?? 0}, ${d.target.x} ${d.target.y}`;
@@ -706,6 +702,103 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         return svg;
     }
 
+    function onTable() {
+        const tbody = d3.select('#table > table > tbody')
+        const rows = tbody
+            .selectAll('tr')
+            .data<ItemFE>(ITEMS.map((v): ItemFE => Object.create(v)), (d: unknown) => (d as any).id)
+
+        const enterRow = rows.enter()
+            .append('tr')
+
+        enterRow
+            .append('td')
+            .classed('value', true)
+
+        enterRow
+            .append('td')
+            .classed('price', true)
+
+        enterRow
+            .append('td')
+            .append('svg')
+            .attr('width', '36px')
+            .attr('height', '36px')
+            .classed('icon', true)
+            .append('image')
+
+        enterRow
+            .append('td')
+            .append('a')
+            .classed('id', true)
+
+        enterRow
+            .append('td')
+            .append('a')
+            .classed('suggestion', true)
+
+
+        const updateRows = rows
+            .sort((a, b) => b.value - a.value)
+            .style('background-color', (d) => tableRowColor(d.value).replace('(', 'a(').replace(')', ', 0.5)'))
+
+        const cellValue = updateRows
+            .select('td.value')
+            .datum(d => d.value)
+            .text(d => `${Math.round(d ?? 0)}`)
+
+        const cellPrice = updateRows
+            .select('td.price')
+            .datum(d => d.price)
+            .text(d => `${Math.round(d ?? 0)}`)
+
+        const cellId = updateRows
+            .select('td > a.id')
+            .datum(d => d.id)
+            .attr('href', d => `#${d}`)
+            .text(d => `${d}`)
+
+        const cellSuggestion = updateRows
+            .select('td > a.suggestion')
+            .datum(d => d)
+            .attr('title', d => `${Math.round(d.value/d.price * 100)}%`)
+            .text(d => `${d.suggestion}`)
+
+        const cellIcon = updateRows
+            .select('td > svg.icon > image')
+            .datum(d => d.icon)
+            .attr("href", d => d?.path ? `img/${d?.path}` : null)
+            .attr("clip-path", d => d.rect ? `path('M 0 0 h ${d.rect[2]} v ${d.rect[3]} h -${d.rect[2]} v -${d.rect[3]}')` : null)
+            .attr("preserveAspectRatio", "xMinYMin slice")
+            .attr("x", d => -d?.rect[0])
+            .attr("y", d => -d?.rect[1])
+            .attr("transform", d => `scale(${iconSize * 1 / Math.max(d?.rect[2], d?.rect[3])})`)
+
+        // const updateCell = updateRow
+        //     .data((d) => [
+        //         {text: },
+        //         {text: `${Math.round(d.price ?? 0)}`},
+        //         {text: d.id, href: `#${d.id}`},
+        //     ])
+        //     .text((d) => d.text)
+        //     .attr('href', (d) => d.href ?? '')
+
+        console.log(ITEMS)
+
+    }
+
+    const onHassleChange = () => {
+        resetValues()
+        simulateValues(20)
+        onTable()
+    }
+    document.getElementById('hassle')!.addEventListener('click', onHassleChange)
+    ;(window as any).resetValues = resetValues
+    ;(window as any).simulateValues = simulateValues
+    ;(window as any).onTable = onTable
+
     document.getElementById('chart')?.append(chart().node()!)
+    onTable()
+    onHassleChange()
 
 })().catch((err) => console.error(err))

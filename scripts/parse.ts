@@ -172,6 +172,16 @@ namespace Sprite {
     }
 }
 
+type StoreIdentifier =
+    | "merchantoutpost"
+    | "merchantcity"
+    | "merchantresearch"
+    | "merchantmilitary"
+    | "merchantmine"
+    | "merchantarmory"  // special merchants?
+    | "merchantengineering"  // special merchants?
+    | "merchantmedical"  // special merchants?
+
 interface ItemRaw {
     "Upgrade": {
         "$gameversion": "0.10.0.0",
@@ -185,11 +195,16 @@ interface ItemRaw {
     }>,
     "Price"?: {
         "Price": Array<{
-            "$locationtype": "outpost" | "city" | "research" | "military" | "mine",
+            "$storeidentifier": StoreIdentifier
+            // "$locationtype": "outpost" | "city" | "research" | "military" | "mine"
             "$multiplier": NumberString,
             "$minavailable": NumberString
+            "$sold"?: "false" | "true"
         }>,
         "$baseprice": NumberString
+        "$minavailable": NumberString
+        "$sold"?: "false"
+        "$minleveldifficulty": NumberString
     },
     "Fabricate"?: Fabricate | Fabricate[]
     "Deconstruct"?: {

@@ -39,6 +39,15 @@
             flex-grow: 1;
             overflow-y: auto;
         }
+        #table {
+            position: fixed;
+            height: 100%;
+            width: 30em;
+            right: 0;
+            background-color: #ddd;
+            padding: 1em;
+            overflow-y: scroll;
+        }
         details,details > summary {
             overflow-x: hidden;
             text-overflow: clip;
@@ -66,5 +75,11 @@
         <div id="info">
         </div>
     </aside>
+        <div id="table">
+            <table>
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
     <main id="chart"></main>
 </body>
