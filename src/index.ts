@@ -360,10 +360,10 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         info.append('hr')
             .style('margin', '1em 0em')
 
-        info.append("h3")
-            .text(`Fabricate from`)
         if(recipe && recipe.fabricate.length > 0) {
             for(const fab of recipe.fabricate) {
+                info.append("h3")
+                    .text(`Fabricate from ${fab.skill ? `(${fab.skill.id}: ${fab.skill.level}+)` : ''} ${fab.talent ? '#talent' : ''}`)
                 const producedAmount = fab.amount
                 let sum = 0
                 for(const [id, amount] of Object.entries(fab.parts)) {

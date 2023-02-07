@@ -53,6 +53,11 @@ declare interface RecipeDeconstruct {
 declare interface RecipeFabricate {
     amount: number
     parts: Record<IdItemString, number>
+    talent?: true
+    skill?: {
+        id: string
+        level: number
+    }
 }
 
 declare interface Recipe {

@@ -143,6 +143,7 @@ interface Fabricate {
     "RequiredItem"?: RequiredItem | RequiredItem[],
     "Item"?: RequiredItem | RequiredItem[],
     "$suitablefabricators": string,
+    "$requiresrecipe": BooleanString,
     "$requiredtime": NumberString,
     "$amount"?: NumberString,
     "$displayname"?: string,
@@ -375,6 +376,11 @@ function assignGroup(item: Item): Item {
                         const fabricateInner = {
                             amount: Number(fabricateRaw?.$amount ?? 1),
                             parts: {} as Record<IdItemString, number>,
+                            ...(fabricateRaw.$requiresrecipe ? {talent: true as const} : {}),
+                            ...(fabricateRaw.RequiredSkill ? {skill: {
+                                id: fabricateRaw.RequiredSkill.$identifier!,
+                                level: Number(fabricateRaw.RequiredSkill.$level),
+                            }} : {}),
                         }
                         for(const itemRaw of itemsRaw) {
                             const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
