@@ -234,7 +234,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         const theadrow = table.append('thead').append('tr')
         const thead = theadrow
             .selectAll('td')
-            .data(['Store', 'Multiplier', 'Sells', 'Buys'])
+            .data(['Store', 'Multiplier', 'Buys', 'Sells', 'Stock'])
             .enter()
             .append('td')
             .text((d) => d)
@@ -254,12 +254,16 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .text((d) => currentItemTG.stores[d] ? `${(currentItemTG.stores[d]?.multiplier ?? 1).toFixed(2)}x` : '-')
         enterRow
             .append('td')
-            .classed('buy', true)
-            .text((d) => currentItemTG.stores[d] ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price)}mk` : '-')
+            .classed('buys', true)
+            .text((d) => currentItemTG.stores[d] ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price / 4)}mk` : '-')
         enterRow
             .append('td')
-            .classed('sell', true)
-            .text((d) => currentItemTG.stores[d] ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price / 4)}mk` : '-')
+            .classed('sells', true)
+            .text((d) => currentItemTG.stores[d]?.sold ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price)}mk` : '-')
+        enterRow
+            .append('td')
+            .classed('sells', true)
+            .text((d) => currentItemTG.stores[d]?.sold && currentItemTG.stores[d]?.minavailable ? `${currentItemTG.stores[d]?.minavailable}+` : '-')
 
 
         info.append("h3")
