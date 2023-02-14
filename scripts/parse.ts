@@ -313,6 +313,7 @@ function assignGroup(item: Item): Item {
     for(const path of files) {
         try {
             const xml = await new Promise<Buffer>((resolve, reject) => readFile(join(BAROTRAUMA_DIR, path), (err, buffer) => err ? reject(err) : resolve(buffer)))
+            writeFileSync(join(__dirname, '..', 'vendor', path.replace(/\//g, '-')), xml)
             const json = parser.parse(xml.toString())
 
             const {Item, ...namedRawItems} = json.Items
