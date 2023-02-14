@@ -8,6 +8,7 @@ import '../src/common'
 
 const BAROTRAUMA_DIR = '/media/kalvis/DataMuch/GamesSteam/steamapps/common/Barotrauma'
 const OUT_DIR = join(__dirname, '..', 'dist')
+const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
 const files = [
     // Barotrauma/Content/Items$ find -path '*.xml'
@@ -132,6 +133,7 @@ const files = [
 interface RequiredItem {
     "$identifier"?: IdItemString
     "$amount"?: number
+    "$count"?: number
     "$tag"?: string
 }
 
@@ -313,7 +315,7 @@ function assignGroup(item: Item): Item {
     for(const path of files) {
         try {
             const xml = await new Promise<Buffer>((resolve, reject) => readFile(join(BAROTRAUMA_DIR, path), (err, buffer) => err ? reject(err) : resolve(buffer)))
-            writeFileSync(join(__dirname, '..', 'vendor', path.replace(/\//g, '-')), xml)
+            writeFileSync(join(VENDOR_DIR, path.replace(/\//g, '-')), xml)
             const json = parser.parse(xml.toString())
 
             const {Item, ...namedRawItems} = json.Items
@@ -385,7 +387,7 @@ function assignGroup(item: Item): Item {
                         }
                         for(const itemRaw of itemsRaw) {
                             const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
-                            const requiredAmount = Number(itemRaw?.$amount ?? 1)
+                            const requiredAmount = Number(itemRaw?.$amount ?? itemRaw?.$count ?? 1)
                             fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + requiredAmount
                         }
 
@@ -419,8 +421,10 @@ function assignGroup(item: Item): Item {
     // for(const recipe of Object.values(recipes)) console.log(recipe)
     const itemsArray = Object.values(items)
     writeFileSync(join(OUT_DIR, 'items.json'), JSON.stringify(itemsArray))
+    writeFileSync(join(VENDOR_DIR, 'items.json'), JSON.stringify(itemsArray, undefined, 2))
 
     writeFileSync(join(OUT_DIR, 'recipes.json'), JSON.stringify(Object.values(recipes)))
+    writeFileSync(join(VENDOR_DIR, 'recipes.json'), JSON.stringify(Object.values(recipes), undefined, 2))
 
     const iconPaths = new Set<string>()
     for(const item of itemsArray) iconPaths.add(item.icon.path)

@@ -2434,7 +2434,7 @@
         "amount": 1,
         "parts": {
           "alienblood": 1,
-          "calcium": 1
+          "calcium": 2
         },
         "talent": true,
         "skill": {
@@ -4157,8 +4157,8 @@
       {
         "amount": 1,
         "parts": {
-          "chlorine": 1,
-          "calcium": 1,
+          "chlorine": 2,
+          "calcium": 2,
           "sulphuricacid": 1
         },
         "skill": {
@@ -4182,7 +4182,7 @@
       {
         "amount": 1,
         "parts": {
-          "chlorine": 1,
+          "chlorine": 2,
           "ethanol": 1
         },
         "skill": {
@@ -4207,7 +4207,7 @@
         "amount": 1,
         "parts": {
           "chloralhydrate": 1,
-          "sodium": 1
+          "sodium": 3
         },
         "skill": {
           "id": "medical",
@@ -4231,7 +4231,7 @@
         "amount": 1,
         "parts": {
           "thorium": 1,
-          "uranium": 1
+          "uranium": 2
         },
         "skill": {
           "id": "medical",
