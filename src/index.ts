@@ -35,8 +35,6 @@ interface ItemFE extends Item {
     baseValue: number
     value: number
     _nextValue: number
-    distance: number
-    _nextDistance: number
     shopSuggestion: ShopSuggestion
     suggestion: Suggestion
 }
@@ -60,15 +58,18 @@ interface Group {
 
 const tableRowColor = d3.scaleSqrt([0, 1, 5, 10, 20, 40, 80, 160, 320], d3.schemeSpectral[10])
 
+const format0 = (number: number) => (Math.round(number)).toFixed(0)
+const formatValue = (number: number) => (Math.round(number * 10) / 10).toFixed(1)
+const formatFraction = (number: number) => (Math.round(number * 100) / 100).toString()
 const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount: number) => {
     node.append("span")
-        .text(`${Math.round(amount * item.value * 10) / 10}v: `)
+        .text(`${formatValue(amount * item.value)}v: `)
     node.append("a")
         .attr("href", `#${item.id}`)
         .text(item.title ?? item.id)
     if(amount !== 1) {
         node.append("span")
-            .text(` x${Math.round(amount * 10) / 10} (${Math.round(item.value * 10) / 10}v)`)
+            .text(` x${formatFraction(amount)} (${formatValue(item.value)}v)`)
     }
 }
 
@@ -113,8 +114,6 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             _nextValue: item.price / 4,
             suggestion: Suggestion.Sell,
             shopSuggestion: ShopSuggestion.Sell,
-            distance: 1,
-            _nextDistance: 1,
         }))
         // .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
         // .filter((item) => !item.id.endsWith('component'))
@@ -227,13 +226,11 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         infobox.append("div")
             .text(`ID: ${currentItemTG.id}`)
         infobox.append("div")
-            .text(`Buy price: ${currentItemTG.price}mk`)
+            .text(`Buy price: ${format0(currentItemTG.price)}mk`)
         infobox.append("div")
-            .text(`Sell price: ${currentItemTG.price / 4}mk`)
+            .text(`Sell price: ${format0(currentItemTG.price / 4)}mk`)
         infobox.append("div")
-            .text(`Value: ${Math.round(currentItemTG.value * 10) / 10}v`)
-        infobox.append("div")
-            .text(`Hassle: ${Math.round(currentItemTG.distance * hassle * 10) / 10}v`)
+            .text(`Value: ${formatValue(currentItemTG.value)}v`)
         infobox.append("div")
             .text(`Shop: ${currentItemTG.shopSuggestion}`)
         infobox.append("div")
@@ -288,11 +285,11 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         enterRow
             .append('td')
             .classed('buys', true)
-            .text((d) => currentItemTG.stores[d] ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price / 4)}mk` : '-')
+            .text((d) => currentItemTG.stores[d] ? `${format0((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price / 4)}mk` : '-')
         enterRow
             .append('td')
             .classed('sells', true)
-            .text((d) => currentItemTG.stores[d]?.sold ? `${Math.round((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price)}mk` : '-')
+            .text((d) => currentItemTG.stores[d]?.sold ? `${format0((currentItemTG.stores[d]?.multiplier ?? 1) * currentItemTG.price)}mk` : '-')
         enterRow
             .append('td')
             .classed('sells', true)
@@ -313,7 +310,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             if(hassle) {
                 sum -= hassle
                 info.append("div")
-                    .text(`-${hassle}v: hassle`)
+                    .text(`-${formatValue(hassle)}v: hassle`)
             }
             info.append('hr')
                 .style('width', '2em')
@@ -321,7 +318,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
             const ratio = sum / currentItemTG.price
             info.append("div")
-                .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((sum - currentItemTG.value) * 10) / 10}v)`)
+                .text(`${formatValue(sum)}v (${format0(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${formatValue(sum - currentItemTG.value)}v)`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
         } else {
             info.append('span').append('em')
@@ -354,25 +351,25 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                                 const hasslePerResult = hassle * Object.values(fab.parts)[0]
                                 sum += hasslePerResult
                                 more.append("div")
-                                    .text(`${Math.round(hasslePerResult * 10) / 10}v: hassle`)
+                                    .text(`${formatValue(hasslePerResult)}v: hassle`)
                             }
                             more.append('hr')
                                 .style('width', '2em')
                                 .style('margin', 0)
 
-                            const ratio = recipeItem.value / sum / (currentItemTG.value / (currentItemTG.price))
+                            const ratio = recipeItem.value / sum
                             more.append("div")
-                                .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((recipeItem.value - sum) * 10) / 10}v)`)
+                                .text(`${formatValue(sum)}v (${formatValue(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${formatValue(recipeItem.value - sum)}v)`)
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
                             const summary = details.append('summary')
                             summary.append("span")
-                                .text(`${Math.round(recipeItem.value * 10) / 10}v: `)
+                                .text(`${formatValue(recipeItem.value)}v: `)
                             summary.append("a")
                                 .attr("href", `#${recipeItem.id}`)
                                 .text(recipeItem.title ?? recipeItem.id)
                             summary.append("span")
-                                .text(` (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round(currentItemTG.value * (ratio - 1) * 10) / 10}v)`)
+                                .text(` (${formatValue(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${formatValue(currentItemTG.value * (ratio - 1))}v)`)
                             summary
                                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
 
@@ -409,7 +406,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                     const hasslePerResult = hassle * Object.values(fab.parts)[0]
                     sum += hasslePerResult
                     info.append("div")
-                        .text(`${Math.round(hasslePerResult * 10) / 10}v: hassle`)
+                        .text(`${formatValue(hasslePerResult)}v: hassle`)
                 }
                 info.append('hr')
                     .style('width', '2em')
@@ -417,7 +414,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
                 const ratio = currentItemTG.value / sum
                 info.append("div")
-                    .text(`${Math.round(sum * 10) / 10}v (${Math.round(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${Math.round((currentItemTG.value - sum) * 10) / 10}v)`)
+                    .text(`${formatValue(sum)}v (${formatValue(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${formatValue((currentItemTG.value - sum))}v)`)
                     .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
             }
         } else {
@@ -474,9 +471,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             const consume = localStorage.getItem(`consume-${item.id}`) !== null
             item.baseValue = consume ? item.price : item.price / 4
             item.value = item.baseValue
-            item.distance = 1
             item._nextValue = item.baseValue
-            item._nextDistance = 1
             item.suggestion = consume ? Suggestion.Consume : item.price > hassle ? Suggestion.Sell : Suggestion.Trash
         }
         refreshInfo()
@@ -498,23 +493,19 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
                 if(recipe?.deconstruct) {
                     let deconstructValue = 0
-                    let distanceSumByValue = 0
                     for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
                         const partItem = ITEMS.find((item) => item.id === id)
                         if(partItem) {
                             deconstructValue += amount * partItem.value
-                            distanceSumByValue += amount * partItem.value * partItem.distance
                         } else {
                             if(!id.includes('genetic')) console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
                         }
                     }
-                    const distance = 1 + distanceSumByValue / deconstructValue
                     if(hassle) {
-                        deconstructValue -= hassle * distance
+                        deconstructValue -= hassle
                     }
                     if(bestValue < deconstructValue) {
                         bestValue = deconstructValue
-                        item._nextDistance = distance
                         item.suggestion = Suggestion.Deconstruct
                     }
                 }
@@ -540,15 +531,11 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                             }
                             sumValue += amount/producedAmount * fabItem.value
                         }
-                        const distance = 1 + recipeItem.distance
-                        if(hassle) {
-                            sumValue += hassle * distance
-                        }
+                        sumValue += hassle
 
                         const fabricationValue = (item.value || 5) * (recipeItem.value / sumValue)
                         if(bestValue < fabricationValue) {
                             bestValue = fabricationValue
-                            item._nextDistance = distance
                             item.suggestion = Suggestion.Fabricate
                         }
                     }
@@ -557,16 +544,14 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 item._nextValue = Math.max(bestValue, item._nextValue)
             }
             for(const item of ITEMS) {
-                const koef = .66
+                const koef = .33
                 item.value = koef * item._nextValue + (1 - koef) * item.value
-                item.distance = item._nextDistance
                 item.fy = TOTAL_HEIGHT - priceToHeight(1400 * (item.value / item.price - 0.25) * (1/0.75))
                 if(item.value < hassle) {
                     item.suggestion = Suggestion.Trash
                 }
 
                 item._nextValue = item.baseValue
-                item._nextDistance = 1
 
                 if(item.value <= hassle) item.shopSuggestion = ShopSuggestion.Trash
                 else if(item.value <= item.price / 4) item.shopSuggestion = ShopSuggestion.Sell
@@ -845,12 +830,12 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         const cellValue = updateRows
             .select('td.value')
             .datum(d => d.value)
-            .text(d => `${Math.round(d ?? 0)}`)
+            .text(d => `${format0(d ?? 0)}`)
 
         const cellPrice = updateRows
             .select('td.price')
             .datum(d => d.price)
-            .text(d => `${Math.round(d ?? 0)}`)
+            .text(d => `${format0(d ?? 0)}`)
 
         const cellId = updateRows
             .select('td > a.id')
@@ -861,7 +846,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         const cellSuggestion = updateRows
             .select('td > span.suggestion')
             .datum(d => d)
-            .attr('title', d => `${Math.round(d.value/d.price * 100)}%`)
+            .attr('title', d => `${format0(d.value/d.price * 100)}%`)
             .text(d => `${d.suggestion}`)
 
         const cellIcon = updateRows
