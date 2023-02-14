@@ -438,6 +438,7 @@ function assignGroup(item: Item): Item {
                     } else {
                         fabricate.push({ amount: 1, parts: { [item.id.replace('-empty', '')]: 1 } as Record<IdItemString, number> })
                     }
+                    if(raw.$identifier === 'fpgacircuit') fabricate.pop()  // FPGA talent variant introduces "1 tin for 1 plastic" conversion chain that simulation feedback-loops onto.
 
                     const recipeId = `recipe-${item.id}`
                     recipes[recipeId] = {

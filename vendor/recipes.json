@@ -3049,19 +3049,6 @@
           "id": "electrical",
           "level": 15
         }
-      },
-      {
-        "amount": 2,
-        "parts": {
-          "plastic": 1,
-          "copper": 2,
-          "tin": 1
-        },
-        "talent": true,
-        "skill": {
-          "id": "electrical",
-          "level": 15
-        }
       }
     ]
   },
