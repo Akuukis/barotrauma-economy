@@ -135,6 +135,8 @@ interface RequiredItem {
     "$amount"?: number
     "$count"?: number
     "$tag"?: string
+    "$mincondition"?: string // between "0.0" to "0.95" and "1.0" and "1"
+    "$maxcondition"?: string // between "0.0" to "0.95" and "1.0"
 }
 
 interface Fabricate {
@@ -325,6 +327,39 @@ function assignGroup(item: Item): Item {
                     .map((raw) => [raw.$identifier, raw] as const),
             ] as Array<[string, ItemRaw]>
 
+            for(const [title, raw] of rawItems.slice()) {
+                let conditionable = false
+                if(raw.Deconstruct?.Item) {
+                    const itemsRaw = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
+                    for(const itemRaw of itemsRaw) {
+                        if(itemRaw.$mincondition) conditionable = true
+                    }
+                }
+                const fabricatesRaw: (Fabricate | undefined)[] = !raw.Fabricate ? [] : Array.isArray(raw.Fabricate) ? raw.Fabricate : [raw.Fabricate]
+                for(const fabricateRaw of fabricatesRaw) {
+                    if(!fabricateRaw) continue
+                    const normalizedItem = (fabricateRaw.RequiredItem ?? fabricateRaw.Item)!
+                    const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
+                    if(itemsRaw.length === 0) continue
+                    for(const itemRaw of itemsRaw) {
+                        if(itemRaw.$mincondition) conditionable = true
+                        if(itemRaw.$mincondition) conditionable = true
+                    }
+                }
+
+                if(conditionable) {
+                    rawItems.push([
+                        title + ' (empty)',
+                        {
+                            ...raw,
+                            $identifier: raw.$identifier+'-empty',
+                        }
+                    ])
+                }
+            }
+
+
+
             for(const [title, raw] of rawItems) {
                 try {
                     if(!raw.Price && !raw.Deconstruct) {
@@ -335,15 +370,16 @@ function assignGroup(item: Item): Item {
                         console.warn(`No variant handling. TODO. This was "${title} (${raw.$identifier})", variant of "${raw.$variantof}", skipping..`)
                         continue
                     }
+                    const empty = raw.$identifier.includes('-empty')
 
                     const item = assignGroup({
                         type: 'item',
                         id: raw.$identifier,
                         categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
                         title,
-                        price: Number(raw.Price?.$baseprice ?? 0),
+                        price: empty ? 0 : Number(raw.Price?.$baseprice ?? 0),
                         icon: getIcon(raw, path),
-                        stores: (raw.Price?.Price && (Array.isArray(raw.Price.Price) ? raw.Price.Price : [raw.Price.Price]))?.map((rawPrice) => ({
+                        stores: empty ? {} : (raw.Price?.Price && (Array.isArray(raw.Price.Price) ? raw.Price.Price : [raw.Price.Price]))?.map((rawPrice) => ({
                             id: rawPrice.$storeidentifier.slice('merchant'.length) as StoreIdentifierType,
                             multiplier: Number(rawPrice.$multiplier ?? 1),
                             minavailable: Number(rawPrice.$minavailable ?? 0),
@@ -362,6 +398,7 @@ function assignGroup(item: Item): Item {
                         const lotteryTotalWeight = raw.Deconstruct.$chooserandom ? itemsRaw.reduce((sum, item) => sum + Number(item.$commonness!), 0) / Number(raw.Deconstruct.$amount ?? 1) : 1
 
                         for(const itemRaw of itemsRaw) {
+                            if(empty && parseFloat(itemRaw.$mincondition ?? "0") >= 0.9) continue
                             const id = itemRaw.$identifier
                             const condition = Number(itemRaw.$outcondition) || 1
                             const lotteryWeight = Number(itemRaw.$commonness ?? 1) / lotteryTotalWeight
@@ -370,28 +407,32 @@ function assignGroup(item: Item): Item {
                     }
 
                     const fabricate: RecipeFabricate[] = []
-                    for(const fabricateRaw of fabricatesRaw) {
-                        if(!fabricateRaw) continue
-                        const normalizedItem = (fabricateRaw.RequiredItem ?? fabricateRaw.Item)!
-                        const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
-                        if(itemsRaw.length === 0) continue
+                    if(!empty) {
+                        for(const fabricateRaw of fabricatesRaw) {
+                            if(!fabricateRaw) continue
+                            const normalizedItem = (fabricateRaw.RequiredItem ?? fabricateRaw.Item)!
+                            const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
+                            if(itemsRaw.length === 0) continue
 
-                        const fabricateInner = {
-                            amount: Number(fabricateRaw?.$amount ?? 1),
-                            parts: {} as Record<IdItemString, number>,
-                            ...(fabricateRaw.$requiresrecipe ? {talent: true as const} : {}),
-                            ...(fabricateRaw.RequiredSkill ? {skill: {
-                                id: fabricateRaw.RequiredSkill.$identifier!,
-                                level: Number(fabricateRaw.RequiredSkill.$level),
-                            }} : {}),
-                        }
-                        for(const itemRaw of itemsRaw) {
-                            const id = (itemRaw.$identifier ?? itemRaw.$tag)!  // wire is a tag used twice. It's also a id so go simple on this one.
-                            const requiredAmount = Number(itemRaw?.$amount ?? itemRaw?.$count ?? 1)
-                            fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + requiredAmount
-                        }
+                            const fabricateInner = {
+                                amount: Number(fabricateRaw?.$amount ?? 1),
+                                parts: {} as Record<IdItemString, number>,
+                                ...(fabricateRaw.$requiresrecipe ? {talent: true as const} : {}),
+                                ...(fabricateRaw.RequiredSkill ? {skill: {
+                                    id: fabricateRaw.RequiredSkill.$identifier!,
+                                    level: Number(fabricateRaw.RequiredSkill.$level),
+                                }} : {}),
+                            }
+                            for(const itemRaw of itemsRaw) {
+                                const id = (itemRaw.$identifier ?? itemRaw.$tag)!.replace(item.id, `${item.id}-empty`)
+                                const requiredAmount = Number(itemRaw?.$amount ?? itemRaw?.$count ?? 1)
+                                fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + requiredAmount
+                            }
 
-                        if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)
+                            if(Object.keys(fabricateInner.parts).length) fabricate.push(fabricateInner)
+                        }
+                    } else {
+                        fabricate.push({ amount: 1, parts: { [item.id.replace('-empty', '')]: 1 } as Record<IdItemString, number> })
                     }
 
                     const recipeId = `recipe-${item.id}`

@@ -625,6 +625,31 @@
   },
   {
     "type": "item",
+    "id": "alienflare-empty",
+    "categories": [
+      "Equipment",
+      "Alien",
+      "smallitem",
+      "light",
+      "provocative",
+      "Tools",
+      "tools"
+    ],
+    "title": "alienflare-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        68,
+        966,
+        54,
+        54
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "alienpistol",
     "categories": [
       "Weapon",
@@ -1507,6 +1532,27 @@
   },
   {
     "type": "item",
+    "id": "antidama2-empty",
+    "categories": [
+      "Medical",
+      "Medical",
+      "medical"
+    ],
+    "title": "Fentanyl-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        320,
+        448,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "antinarc",
     "categories": [
       "Medical",
@@ -2039,6 +2085,31 @@
   },
   {
     "type": "item",
+    "id": "assaultriflemagazine-empty",
+    "categories": [
+      "Weapon",
+      "smallitem",
+      "assaultrifleammo",
+      "riflemanbonus",
+      "Jobgear",
+      "Security",
+      "securityofficer_talent_items"
+    ],
+    "title": "assaultriflemagazine-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Jobgear/TalentGear.png",
+      "rect": [
+        476,
+        3,
+        36,
+        48
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "autoinjectorheadset",
     "categories": [
       "Equipment",
@@ -2174,6 +2245,27 @@
   },
   {
     "type": "item",
+    "id": "badcreepingorange-empty",
+    "categories": [
+      "Material",
+      "Gardening",
+      "plantproducts"
+    ],
+    "title": "badcreepingorange-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        971,
+        835,
+        43,
+        55
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "badraptorbane",
     "categories": [
       "Material",
@@ -2181,6 +2273,27 @@
       "plantproducts"
     ],
     "title": "badraptorbane",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        907,
+        838,
+        44,
+        50
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
+    "id": "badraptorbane-empty",
+    "categories": [
+      "Material",
+      "Gardening",
+      "plantproducts"
+    ],
+    "title": "badraptorbane-empty",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -2760,6 +2873,27 @@
   },
   {
     "type": "item",
+    "id": "blackpaint-empty",
+    "categories": [
+      "Misc",
+      "Tools",
+      "tools"
+    ],
+    "title": "blackpaint-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        256,
+        320,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "bluepaint",
     "categories": [
       "Misc",
@@ -2809,6 +2943,27 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "bluepaint-empty",
+    "categories": [
+      "Misc",
+      "Tools",
+      "tools"
+    ],
+    "title": "bluepaint-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        256,
+        320,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -3753,6 +3908,30 @@
   },
   {
     "type": "item",
+    "id": "chaingunammobox-empty",
+    "categories": [
+      "Weapon",
+      "chaingunequipment",
+      "chaingunammo",
+      "ammobox",
+      "Weapons",
+      "chaingun"
+    ],
+    "title": "chaingunammobox-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        680,
+        687,
+        95,
+        78
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "chaingunammoboxphysicorium",
     "categories": [
       "Weapon",
@@ -3814,6 +3993,30 @@
   },
   {
     "type": "item",
+    "id": "chaingunammoboxphysicorium-empty",
+    "categories": [
+      "Weapon",
+      "chaingunequipment",
+      "chaingunammo",
+      "ammobox",
+      "Weapons",
+      "chaingun"
+    ],
+    "title": "chaingunammoboxphysicorium-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        800,
+        687,
+        95,
+        78
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "chaingunammoboxshredder",
     "categories": [
       "Weapon",
@@ -3872,6 +4075,30 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "chaingunammoboxshredder-empty",
+    "categories": [
+      "Weapon",
+      "chaingunequipment",
+      "chaingunammo",
+      "ammobox",
+      "Weapons",
+      "chaingun"
+    ],
+    "title": "chaingunammoboxshredder-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        747,
+        602,
+        95,
+        78
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -4771,6 +4998,30 @@
   },
   {
     "type": "item",
+    "id": "coilgunammobox-empty",
+    "categories": [
+      "Weapon",
+      "coilgunequipment",
+      "coilgunammo",
+      "ammobox",
+      "Weapons",
+      "coilgun"
+    ],
+    "title": "coilgunammobox-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        800,
+        788,
+        95,
+        78
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "coilgunammoboxdepletedfuel",
     "categories": [
       "Weapon",
@@ -4824,6 +5075,31 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "coilgunammoboxdepletedfuel-empty",
+    "categories": [
+      "Weapon",
+      "coilgunequipment",
+      "coilgunammo",
+      "ammobox",
+      "Jobgear",
+      "Engineer",
+      "engineer_talent_items"
+    ],
+    "title": "coilgunammoboxdepletedfuel-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        560,
+        878,
+        95,
+        78
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -4888,6 +5164,30 @@
   },
   {
     "type": "item",
+    "id": "coilgunammoboxexplosive-empty",
+    "categories": [
+      "Weapon",
+      "coilgunequipment",
+      "coilgunammo",
+      "ammobox",
+      "Weapons",
+      "coilgun"
+    ],
+    "title": "coilgunammoboxexplosive-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        560,
+        788,
+        95,
+        78
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "coilgunammoboxpiercing",
     "categories": [
       "Weapon",
@@ -4946,6 +5246,30 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "coilgunammoboxpiercing-empty",
+    "categories": [
+      "Weapon",
+      "coilgunequipment",
+      "coilgunammo",
+      "ammobox",
+      "Weapons",
+      "coilgun"
+    ],
+    "title": "coilgunammoboxpiercing-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        680,
+        788,
+        95,
+        78
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -5384,6 +5708,27 @@
   },
   {
     "type": "item",
+    "id": "creepingorange-empty",
+    "categories": [
+      "Material",
+      "Gardening",
+      "plantproducts"
+    ],
+    "title": "creepingorange-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        971,
+        649,
+        43,
+        55
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "creepingorangevineseed",
     "categories": [
       "Misc",
@@ -5433,6 +5778,27 @@
         "sold": false
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "creepingorangevineseed-empty",
+    "categories": [
+      "Misc",
+      "Gardening",
+      "growableplants"
+    ],
+    "title": "creepingorangevineseed-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        830,
+        636,
+        31,
+        30
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -5684,6 +6050,30 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "defensebotammobox-empty",
+    "categories": [
+      "Misc",
+      "smallitem",
+      "defensebotammo",
+      "Jobgear",
+      "Mechanic",
+      "mechanic_talent_items"
+    ],
+    "title": "defensebotammobox-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Characters/Defensebot/DefenseBot.png",
+      "rect": [
+        135,
+        189,
+        115,
+        58
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -5952,6 +6342,28 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "depletedfuel-empty",
+    "categories": [
+      "Fuel",
+      "Jobgear",
+      "Engineer",
+      "engineer_talent_items"
+    ],
+    "title": "depletedfuel-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        384,
+        64,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -6761,6 +7173,31 @@
   },
   {
     "type": "item",
+    "id": "empgrenade-empty",
+    "categories": [
+      "Weapon",
+      "smallitem",
+      "weapon",
+      "explosive",
+      "demolitionsexpert",
+      "Weapons",
+      "weapons"
+    ],
+    "title": "empgrenade-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        450,
+        450,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "endocrinebooster",
     "categories": [
       "Medical",
@@ -7186,6 +7623,27 @@
   },
   {
     "type": "item",
+    "id": "extinguisher-empty",
+    "categories": [
+      "Equipment",
+      "Tools",
+      "tools"
+    ],
+    "title": "extinguisher-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        0,
+        0,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "faradayartifact",
     "categories": [
       "Alien",
@@ -7289,6 +7747,29 @@
         "sold": false
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "fertilizer-empty",
+    "categories": [
+      "Misc",
+      "fertilizer",
+      "smallitem",
+      "Gardening",
+      "gardeningtools"
+    ],
+    "title": "fertilizer-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        910,
+        128,
+        87,
+        125
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -7398,6 +7879,32 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "fixfoamgrenade-empty",
+    "categories": [
+      "Equipment",
+      "smallitem",
+      "weapon",
+      "explosive",
+      "demolitionsexpert",
+      "Jobgear",
+      "Mechanic",
+      "mechanic_talent_items"
+    ],
+    "title": "fixfoamgrenade-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Jobgear/TalentGear.png",
+      "rect": [
+        64,
+        114,
+        66,
+        62
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -7880,6 +8387,26 @@
   },
   {
     "type": "item",
+    "id": "fuelrod-empty",
+    "categories": [
+      "Tools",
+      "tools"
+    ],
+    "title": "fuelrod-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        576,
+        64,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "fulgurium",
     "categories": [
       "Material",
@@ -8052,6 +8579,26 @@
   },
   {
     "type": "item",
+    "id": "fulguriumfuelrod-empty",
+    "categories": [
+      "Tools",
+      "tools"
+    ],
+    "title": "fulguriumfuelrod-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        640,
+        64,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "fulguriumfuelrodvolatile",
     "categories": [
       "Fuel",
@@ -8102,6 +8649,28 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "fulguriumfuelrodvolatile-empty",
+    "categories": [
+      "Fuel",
+      "Jobgear",
+      "Engineer",
+      "engineer_talent_items"
+    ],
+    "title": "fulguriumfuelrodvolatile-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Jobgear/TalentGear.png",
+      "rect": [
+        67,
+        176,
+        62,
+        61
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -8434,6 +9003,27 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "greenpaint-empty",
+    "categories": [
+      "Misc",
+      "Tools",
+      "tools"
+    ],
+    "title": "greenpaint-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        256,
+        320,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -9422,6 +10012,29 @@
   },
   {
     "type": "item",
+    "id": "hmgmagazine-empty",
+    "categories": [
+      "Weapon",
+      "smallitem",
+      "hmgammo",
+      "Weapons",
+      "weapons"
+    ],
+    "title": "hmgmagazine-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Weapons/weapons_new.png",
+      "rect": [
+        208,
+        88,
+        29,
+        37
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "huskeggs",
     "categories": [
       "Material",
@@ -9917,6 +10530,28 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "incendiumfueltank-empty",
+    "categories": [
+      "Equipment",
+      "Fuel",
+      "Tools",
+      "tools"
+    ],
+    "title": "incendiumfueltank-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        256,
+        901,
+        62,
+        60
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -11388,6 +12023,28 @@
   },
   {
     "type": "item",
+    "id": "nucleardepthcharge-empty",
+    "categories": [
+      "Weapon",
+      "depthchargeammo",
+      "Weapons",
+      "depthcharge"
+    ],
+    "title": "nucleardepthcharge-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        576,
+        128,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "nucleardepthdecoy",
     "categories": [
       "Weapon",
@@ -11556,6 +12213,29 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "nuclearshell-empty",
+    "categories": [
+      "Weapon",
+      "railgunequipment",
+      "railgunammo",
+      "Weapons",
+      "railgun"
+    ],
+    "title": "nuclearshell-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        0,
+        128,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -11892,6 +12572,30 @@
   },
   {
     "type": "item",
+    "id": "oxygeniteshard-empty",
+    "categories": [
+      "Alien",
+      "Material",
+      "alien",
+      "smallitem",
+      "Alien",
+      "alienitems"
+    ],
+    "title": "oxygeniteshard-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        200,
+        835,
+        50,
+        56
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "oxygenitetank",
     "categories": [
       "Diving",
@@ -11942,6 +12646,28 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "oxygenitetank-empty",
+    "categories": [
+      "Diving",
+      "Equipment",
+      "Tools",
+      "tools"
+    ],
+    "title": "oxygenitetank-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        319,
+        901,
+        61,
+        61
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -12391,6 +13117,30 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "physicoriumammobox-empty",
+    "categories": [
+      "Weapon",
+      "coilgunequipment",
+      "coilgunammo",
+      "ammobox",
+      "Weapons",
+      "coilgun"
+    ],
+    "title": "physicoriumammobox-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        918,
+        788,
+        95,
+        78
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -13063,6 +13813,30 @@
   },
   {
     "type": "item",
+    "id": "pulselaserammobox-empty",
+    "categories": [
+      "Weapon",
+      "pulselaserequipment",
+      "pulselaserammo",
+      "ammobox",
+      "Weapons",
+      "pulselaser"
+    ],
+    "title": "pulselaserammobox-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        560,
+        687,
+        95,
+        78
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "pulselaserammoboxtrilaser",
     "categories": [
       "Weapon",
@@ -13121,6 +13895,30 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "pulselaserammoboxtrilaser-empty",
+    "categories": [
+      "Weapon",
+      "pulselaserequipment",
+      "pulselaserammo",
+      "ammobox",
+      "Weapons",
+      "pulselaser"
+    ],
+    "title": "pulselaserammoboxtrilaser-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Containers/containers.png",
+      "rect": [
+        918,
+        687,
+        95,
+        78
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -13341,6 +14139,30 @@
   },
   {
     "type": "item",
+    "id": "railguncanistershell-empty",
+    "categories": [
+      "Weapon",
+      "railgunequipment",
+      "railgunammo",
+      "containershell",
+      "Weapons",
+      "railgun"
+    ],
+    "title": "railguncanistershell-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        0,
+        447,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "railgunshell",
     "categories": [
       "Weapon",
@@ -13453,6 +14275,27 @@
   },
   {
     "type": "item",
+    "id": "raptorbane-empty",
+    "categories": [
+      "Material",
+      "Gardening",
+      "plantproducts"
+    ],
+    "title": "raptorbane-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        971,
+        777,
+        44,
+        50
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "raptorbaneextract",
     "categories": [
       "Material",
@@ -13554,6 +14397,27 @@
         "sold": false
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "raptorbaneseed-empty",
+    "categories": [
+      "Misc",
+      "Gardening",
+      "growableplants"
+    ],
+    "title": "raptorbaneseed-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        863,
+        668,
+        30,
+        33
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -13659,6 +14523,27 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "redpaint-empty",
+    "categories": [
+      "Misc",
+      "Tools",
+      "tools"
+    ],
+    "title": "redpaint-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        256,
+        320,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -14275,6 +15160,27 @@
         "sold": false
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "saltvineseed-empty",
+    "categories": [
+      "Misc",
+      "Gardening",
+      "growableplants"
+    ],
+    "title": "saltvineseed-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        829,
+        666,
+        33,
+        35
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -15287,6 +16193,27 @@
   },
   {
     "type": "item",
+    "id": "smallplanter-empty",
+    "categories": [
+      "Misc",
+      "Gardening",
+      "gardeningtools"
+    ],
+    "title": "smallplanter-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        896,
+        384,
+        128,
+        128
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "smg",
     "categories": [
       "Weapon",
@@ -15408,6 +16335,29 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "smgmagazine-empty",
+    "categories": [
+      "Weapon",
+      "smallitem",
+      "smgammo",
+      "Weapons",
+      "weapons"
+    ],
+    "title": "smgmagazine-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        960,
+        960,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -16183,6 +17133,31 @@
   },
   {
     "type": "item",
+    "id": "stungrenade-empty",
+    "categories": [
+      "Weapon",
+      "smallitem",
+      "weapon",
+      "explosive",
+      "demolitionsexpert",
+      "Weapons",
+      "weapons"
+    ],
+    "title": "stungrenade-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        384,
+        0,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "stungun",
     "categories": [
       "Weapon",
@@ -16641,6 +17616,30 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "sulphuriteshard-empty",
+    "categories": [
+      "Alien",
+      "Material",
+      "alien",
+      "smallitem",
+      "Alien",
+      "alienitems"
+    ],
+    "title": "sulphuriteshard-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Alien/AlienMaterials.png",
+      "rect": [
+        178,
+        437,
+        60,
+        73
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -17255,6 +18254,26 @@
   },
   {
     "type": "item",
+    "id": "thoriumfuelrod-empty",
+    "categories": [
+      "Tools",
+      "tools"
+    ],
+    "title": "thoriumfuelrod-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        384,
+        64,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "tigerthresheregg",
     "categories": [
       "Misc",
@@ -17536,6 +18555,27 @@
   },
   {
     "type": "item",
+    "id": "tobaccobud-empty",
+    "categories": [
+      "Material",
+      "Gardening",
+      "plantproducts"
+    ],
+    "title": "tobaccobud-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        904,
+        646,
+        56,
+        61
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "tobaccovineseed",
     "categories": [
       "Misc",
@@ -17585,6 +18625,27 @@
         "sold": false
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "tobaccovineseed-empty",
+    "categories": [
+      "Misc",
+      "Gardening",
+      "growableplants"
+    ],
+    "title": "tobaccovineseed-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
+      "rect": [
+        863,
+        636,
+        30,
+        31
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",
@@ -18426,6 +19487,28 @@
   },
   {
     "type": "item",
+    "id": "weldingfueltank-empty",
+    "categories": [
+      "Equipment",
+      "Fuel",
+      "Tools",
+      "tools"
+    ],
+    "title": "weldingfueltank-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas.png",
+      "rect": [
+        960,
+        0,
+        64,
+        64
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "weldingtool",
     "categories": [
       "Equipment",
@@ -18533,6 +19616,27 @@
         "sold": true
       }
     }
+  },
+  {
+    "type": "item",
+    "id": "whitepaint-empty",
+    "categories": [
+      "Misc",
+      "Tools",
+      "tools"
+    ],
+    "title": "whitepaint-empty",
+    "price": 0,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        256,
+        320,
+        64,
+        64
+      ]
+    },
+    "stores": {}
   },
   {
     "type": "item",

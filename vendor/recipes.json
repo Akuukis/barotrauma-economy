@@ -182,6 +182,20 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-alienflare-empty",
+    "result": "alienflare-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "alienflare": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-alienpistol",
     "result": "alienpistol",
     "deconstruct": {
@@ -468,6 +482,20 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-antidama2-empty",
+    "result": "antidama2-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "antidama2": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-antinarc",
     "result": "antinarc",
     "deconstruct": {
@@ -686,12 +714,30 @@
         "parts": {
           "magnesium": 1,
           "lead": 1,
-          "assaultriflemagazine": 1
+          "assaultriflemagazine-empty": 1
         },
         "talent": true,
         "skill": {
           "id": "weapons",
           "level": 40
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-assaultriflemagazine-empty",
+    "result": "assaultriflemagazine-empty",
+    "deconstruct": {
+      "parts": {
+        "titaniumaluminiumalloy": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "assaultriflemagazine": 1
         }
       }
     ]
@@ -762,6 +808,25 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-badcreepingorange-empty",
+    "result": "badcreepingorange-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1,
+        "creepingorangevineseed": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "badcreepingorange": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-badraptorbane",
     "result": "badraptorbane",
     "deconstruct": {
@@ -771,6 +836,25 @@
       }
     },
     "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-badraptorbane-empty",
+    "result": "badraptorbane-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1,
+        "raptorbaneseed": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "badraptorbane": 1
+        }
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -963,6 +1047,20 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-blackpaint-empty",
+    "result": "blackpaint-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "blackpaint": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-bluepaint",
     "result": "bluepaint",
     "deconstruct": {
@@ -981,6 +1079,20 @@
         "skill": {
           "id": "mechanical",
           "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-bluepaint-empty",
+    "result": "bluepaint-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "bluepaint": 1
         }
       }
     ]
@@ -1253,11 +1365,29 @@
         "parts": {
           "lead": 2,
           "titanium": 1,
-          "chaingunammobox": 1
+          "chaingunammobox-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 35
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-chaingunammobox-empty",
+    "result": "chaingunammobox-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "chaingunammobox": 1
         }
       }
     ]
@@ -1290,11 +1420,29 @@
         "parts": {
           "physicorium": 1,
           "titanium": 1,
-          "chaingunammoboxphysicorium": 1
+          "chaingunammoboxphysicorium-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 50
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-chaingunammoboxphysicorium-empty",
+    "result": "chaingunammoboxphysicorium-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "chaingunammoboxphysicorium": 1
         }
       }
     ]
@@ -1327,11 +1475,29 @@
         "parts": {
           "lead": 1,
           "titaniumaluminiumalloy": 1,
-          "chaingunammoboxshredder": 1
+          "chaingunammoboxshredder-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 55
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-chaingunammoboxshredder-empty",
+    "result": "chaingunammoboxshredder-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "chaingunammoboxshredder": 1
         }
       }
     ]
@@ -1615,11 +1781,29 @@
         "parts": {
           "lead": 1,
           "steel": 1,
-          "coilgunammobox": 1
+          "coilgunammobox-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-coilgunammobox-empty",
+    "result": "coilgunammobox-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "coilgunammobox": 1
         }
       }
     ]
@@ -1654,12 +1838,30 @@
         "parts": {
           "depletedfuel": 2,
           "steel": 1,
-          "coilgunammoboxdepletedfuel": 1
+          "coilgunammoboxdepletedfuel-empty": 1
         },
         "talent": true,
         "skill": {
           "id": "weapons",
           "level": 30
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-coilgunammoboxdepletedfuel-empty",
+    "result": "coilgunammoboxdepletedfuel-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "coilgunammoboxdepletedfuel": 1
         }
       }
     ]
@@ -1693,11 +1895,29 @@
         "parts": {
           "c4block": 1,
           "steel": 1,
-          "coilgunammoboxexplosive": 1
+          "coilgunammoboxexplosive-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 40
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-coilgunammoboxexplosive-empty",
+    "result": "coilgunammoboxexplosive-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "coilgunammoboxexplosive": 1
         }
       }
     ]
@@ -1730,11 +1950,29 @@
         "parts": {
           "titaniumaluminiumalloy": 1,
           "steel": 1,
-          "coilgunammoboxpiercing": 1
+          "coilgunammoboxpiercing-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 25
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-coilgunammoboxpiercing-empty",
+    "result": "coilgunammoboxpiercing-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "coilgunammoboxpiercing": 1
         }
       }
     ]
@@ -1887,6 +2125,25 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-creepingorange-empty",
+    "result": "creepingorange-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1,
+        "creepingorangevineseed": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "creepingorange": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-creepingorangevineseed",
     "result": "creepingorangevineseed",
     "deconstruct": {
@@ -1895,6 +2152,24 @@
       }
     },
     "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-creepingorangevineseed-empty",
+    "result": "creepingorangevineseed-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "creepingorangevineseed": 1
+        }
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -2003,9 +2278,28 @@
         "parts": {
           "magnesium": 1,
           "lead": 1,
-          "defensebotammobox": 1
+          "defensebotammobox-empty": 1
         },
         "talent": true
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-defensebotammobox-empty",
+    "result": "defensebotammobox-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1,
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "defensebotammobox": 1
+        }
       }
     ]
   },
@@ -2131,6 +2425,24 @@
         "skill": {
           "id": "electrical",
           "level": 35
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-depletedfuel-empty",
+    "result": "depletedfuel-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "depletedfuel": 1
         }
       }
     ]
@@ -2409,6 +2721,24 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-empgrenade-empty",
+    "result": "empgrenade-empty",
+    "deconstruct": {
+      "parts": {
+        "iron": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "empgrenade": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-endocrinebooster",
     "result": "endocrinebooster",
     "deconstruct": {
@@ -2567,6 +2897,25 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-extinguisher-empty",
+    "result": "extinguisher-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1,
+        "sodium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "extinguisher": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-faradayartifact",
     "result": "faradayartifact",
     "deconstruct": {
@@ -2604,6 +2953,20 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-fertilizer-empty",
+    "result": "fertilizer-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "fertilizer": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-fiberplant",
     "result": "fiberplant",
     "deconstruct": {
@@ -2635,6 +2998,24 @@
         "skill": {
           "id": "mechanical",
           "level": 35
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-fixfoamgrenade-empty",
+    "result": "fixfoamgrenade-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "fixfoamgrenade": 1
         }
       }
     ]
@@ -2829,11 +3210,29 @@
         "amount": 1,
         "parts": {
           "uranium": 1,
-          "fuelrod": 1
+          "fuelrod-empty": 1
         },
         "skill": {
           "id": "electrical",
           "level": 15
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-fuelrod-empty",
+    "result": "fuelrod-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "fuelrod": 1
         }
       }
     ]
@@ -2897,11 +3296,30 @@
         "amount": 1,
         "parts": {
           "fulgurium": 1,
-          "fulguriumfuelrod": 1
+          "fulguriumfuelrod-empty": 1
         },
         "skill": {
           "id": "electrical",
           "level": 40
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-fulguriumfuelrod-empty",
+    "result": "fulguriumfuelrod-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1,
+        "lead": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "fulguriumfuelrod": 1
         }
       }
     ]
@@ -2938,12 +3356,31 @@
         "parts": {
           "fulgurium": 1,
           "thorium": 1,
-          "fulguriumfuelrodvolatile": 1
+          "fulguriumfuelrodvolatile-empty": 1
         },
         "talent": true,
         "skill": {
           "id": "electrical",
           "level": 70
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-fulguriumfuelrodvolatile-empty",
+    "result": "fulguriumfuelrodvolatile-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1,
+        "lead": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "fulguriumfuelrodvolatile": 1
         }
       }
     ]
@@ -3066,6 +3503,20 @@
         "skill": {
           "id": "mechanical",
           "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-greenpaint-empty",
+    "result": "greenpaint-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "greenpaint": 1
         }
       }
     ]
@@ -3445,12 +3896,30 @@
         "parts": {
           "magnesium": 1,
           "lead": 1,
-          "hmgmagazine": 1
+          "hmgmagazine-empty": 1
         },
         "talent": true,
         "skill": {
           "id": "weapons",
           "level": 40
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-hmgmagazine-empty",
+    "result": "hmgmagazine-empty",
+    "deconstruct": {
+      "parts": {
+        "titaniumaluminiumalloy": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "hmgmagazine": 1
         }
       }
     ]
@@ -3468,7 +3937,7 @@
       {
         "amount": 1,
         "parts": {
-          "huskeggsbasic": 1,
+          "huskeggs-emptybasic": 1,
           "calcium": 1
         },
         "skill": {
@@ -3602,12 +4071,30 @@
       {
         "amount": 1,
         "parts": {
-          "incendiumfueltank": 1,
+          "incendiumfueltank-empty": 1,
           "incendium": 1
         },
         "skill": {
           "id": "mechanical",
           "level": 30
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-incendiumfueltank-empty",
+    "result": "incendiumfueltank-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "incendiumfueltank": 1
         }
       }
     ]
@@ -4085,6 +4572,26 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-nucleardepthcharge-empty",
+    "result": "nucleardepthcharge-empty",
+    "deconstruct": {
+      "parts": {
+        "iron": 1,
+        "uranium": 1,
+        "incendium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "nucleardepthcharge": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-nucleardepthdecoy",
     "result": "nucleardepthdecoy",
     "deconstruct": {
@@ -4179,6 +4686,26 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-nuclearshell-empty",
+    "result": "nuclearshell-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1,
+        "uranium": 1,
+        "incendium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "nuclearshell": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-opium",
     "result": "opium",
     "deconstruct": null,
@@ -4266,6 +4793,24 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-oxygeniteshard-empty",
+    "result": "oxygeniteshard-empty",
+    "deconstruct": {
+      "parts": {
+        "liquidoxygenite": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "oxygeniteshard": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-oxygenitetank",
     "result": "oxygenitetank",
     "deconstruct": {
@@ -4284,6 +4829,25 @@
         "skill": {
           "id": "mechanical",
           "level": 40
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-oxygenitetank-empty",
+    "result": "oxygenitetank-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1,
+        "liquidoxygenite": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "oxygenitetank": 1
         }
       }
     ]
@@ -4426,11 +4990,29 @@
           "physicorium": 1,
           "lead": 1,
           "steel": 1,
-          "physicoriumammobox": 1
+          "physicoriumammobox-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 30
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-physicoriumammobox-empty",
+    "result": "physicoriumammobox-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "physicoriumammobox": 1
         }
       }
     ]
@@ -4689,11 +5271,29 @@
         "parts": {
           "lithium": 1,
           "alienblood": 1,
-          "pulselaserammobox": 1
+          "pulselaserammobox-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 45
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-pulselaserammobox-empty",
+    "result": "pulselaserammobox-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "pulselaserammobox": 1
         }
       }
     ]
@@ -4726,11 +5326,29 @@
         "parts": {
           "fulgurium": 1,
           "alienblood": 1,
-          "pulselaserammoboxtrilaser": 1
+          "pulselaserammoboxtrilaser-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 60
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-pulselaserammoboxtrilaser-empty",
+    "result": "pulselaserammoboxtrilaser-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "pulselaserammoboxtrilaser": 1
         }
       }
     ]
@@ -4807,11 +5425,29 @@
         "amount": 1,
         "parts": {
           "lead": 1,
-          "railguncanistershell": 1
+          "railguncanistershell-empty": 1
         },
         "skill": {
           "id": "weapons",
           "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-railguncanistershell-empty",
+    "result": "railguncanistershell-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "railguncanistershell": 1
         }
       }
     ]
@@ -4853,6 +5489,25 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-raptorbane-empty",
+    "result": "raptorbane-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1,
+        "raptorbaneseed": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "raptorbane": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-raptorbaneextract",
     "result": "raptorbaneextract",
     "deconstruct": {
@@ -4883,6 +5538,24 @@
       }
     },
     "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-raptorbaneseed-empty",
+    "result": "raptorbaneseed-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "raptorbaneseed": 1
+        }
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -4929,6 +5602,20 @@
         "skill": {
           "id": "mechanical",
           "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-redpaint-empty",
+    "result": "redpaint-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "redpaint": 1
         }
       }
     ]
@@ -5148,6 +5835,24 @@
       }
     },
     "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-saltvineseed-empty",
+    "result": "saltvineseed-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "saltvineseed": 1
+        }
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -5478,6 +6183,24 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-smallplanter-empty",
+    "result": "smallplanter-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "smallplanter": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-smg",
     "result": "smg",
     "deconstruct": {
@@ -5530,12 +6253,30 @@
         "parts": {
           "magnesium": 1,
           "lead": 1,
-          "smgmagazine": 1
+          "smgmagazine-empty": 1
         },
         "talent": true,
         "skill": {
           "id": "weapons",
           "level": 40
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-smgmagazine-empty",
+    "result": "smgmagazine-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "smgmagazine": 1
         }
       }
     ]
@@ -5803,6 +6544,24 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-stungrenade-empty",
+    "result": "stungrenade-empty",
+    "deconstruct": {
+      "parts": {
+        "iron": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "stungrenade": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-stungun",
     "result": "stungun",
     "deconstruct": {
@@ -5951,6 +6710,24 @@
       }
     },
     "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-sulphuriteshard-empty",
+    "result": "sulphuriteshard-empty",
+    "deconstruct": {
+      "parts": {
+        "sulphuricacid": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "sulphuriteshard": 1
+        }
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -6159,11 +6936,30 @@
         "amount": 1,
         "parts": {
           "thorium": 1,
-          "thoriumfuelrod": 1
+          "thoriumfuelrod-empty": 1
         },
         "skill": {
           "id": "electrical",
           "level": 30
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-thoriumfuelrod-empty",
+    "result": "thoriumfuelrod-empty",
+    "deconstruct": {
+      "parts": {
+        "steel": 1,
+        "lead": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "thoriumfuelrod": 1
         }
       }
     ]
@@ -6244,6 +7040,25 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-tobaccobud-empty",
+    "result": "tobaccobud-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1,
+        "tobaccovineseed": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "tobaccobud": 1
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-tobaccovineseed",
     "result": "tobaccovineseed",
     "deconstruct": {
@@ -6252,6 +7067,24 @@
       }
     },
     "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-tobaccovineseed-empty",
+    "result": "tobaccovineseed-empty",
+    "deconstruct": {
+      "parts": {
+        "carbon": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "tobaccovineseed": 1
+        }
+      }
+    ]
   },
   {
     "type": "recipe",
@@ -6528,12 +7361,30 @@
       {
         "amount": 1,
         "parts": {
-          "weldingfueltank": 1,
+          "weldingfueltank-empty": 1,
           "ethanol": 1
         },
         "skill": {
           "id": "mechanical",
           "level": 15
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-weldingfueltank-empty",
+    "result": "weldingfueltank-empty",
+    "deconstruct": {
+      "parts": {
+        "aluminium": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "weldingfueltank": 1
         }
       }
     ]
@@ -6582,6 +7433,20 @@
         "skill": {
           "id": "mechanical",
           "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-whitepaint-empty",
+    "result": "whitepaint-empty",
+    "deconstruct": null,
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "whitepaint": 1
         }
       }
     ]
