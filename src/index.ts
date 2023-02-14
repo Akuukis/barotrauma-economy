@@ -14,7 +14,16 @@ enum StoreIdentifier {
     Engineering = "engineering",  // special merchants?
     Medical = "medical",  // special merchants?
 }
+enum ShopSuggestion {
+    Trash = 'trash',
+    Sell = 'sell',
+    SellPremium = 'sell premium',
+    Hold = 'hold',
+    BuyDiscounted = 'buy discounted',
+    Buy = 'buy',
+}
 enum Suggestion {
+    Consume = 'consume',
     Sell = 'sell',
     Deconstruct = 'deconstruct',
     Fabricate = 'fabricate',
@@ -23,10 +32,12 @@ enum Suggestion {
 interface ItemFE extends Item {
     fy: number
     group: string | undefined
+    baseValue: number
     value: number
     _nextValue: number
     distance: number
     _nextDistance: number
+    shopSuggestion: ShopSuggestion
     suggestion: Suggestion
 }
 
@@ -92,14 +103,16 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
     // Also, merge 
     // const andComponent = ITEMS_RAW.find((innerItem) => innerItem.id === 'andcomponent')!
-    const ITEMS = ITEMS_RAW
+    const ITEMS = (window as any).ITEMS = ITEMS_RAW
         .map((item): ItemFE => ({
             ...item,
             fy: TOTAL_HEIGHT - priceToHeight(item.price),
             group: groups.find((group) => group.member(item))?.id,
+            baseValue: NaN,
             value: item.price / 4,
             _nextValue: item.price / 4,
             suggestion: Suggestion.Sell,
+            shopSuggestion: ShopSuggestion.Sell,
             distance: 1,
             _nextDistance: 1,
         }))
@@ -184,15 +197,15 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         const rect = currentItemTG.icon?.rect
         const svg = info.append('svg')
-            .attr("width", iconSize * 3.6 + strokeWidth/2)
-            .attr("height", iconSize * 3.6 + strokeWidth/2)
+            .attr("width", iconSize * 4 + strokeWidth/2)
+            .attr("height", iconSize * 4 + strokeWidth/2)
             .style('float', 'left')
             .style('margin-right', '1em')
 
         svg
             .append("rect")
-            .attr("width", iconSize * 3.6 + strokeWidth/2)
-            .attr("height", iconSize * 3.6 + strokeWidth/2)
+            .attr("width", iconSize * 4 + strokeWidth/2)
+            .attr("height", iconSize * 4 + strokeWidth/2)
             .attr("fill", "#bbb")
             .attr("stroke", linkColor((currentItem as any).group ?? 'Other'))
             .attr("stroke-width", strokeWidth);
@@ -203,7 +216,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .attr("preserveAspectRatio", "xMinYMin slice")
             .attr("x", -rect[0])
             .attr("y", -rect[1])
-            .attr("transform", `scale(${iconSize * 3.6 / Math.max(rect[2], rect[3])})`)
+            .attr("transform", `scale(${iconSize * 4 / Math.max(rect[2], rect[3])})`)
 
         const infobox = info.append("div")
 
@@ -222,7 +235,27 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         infobox.append("div")
             .text(`Hassle: ${Math.round(currentItemTG.distance * hassle * 10) / 10}v`)
         infobox.append("div")
+            .text(`Shop: ${currentItemTG.shopSuggestion}`)
+        infobox.append("div")
             .text(`Suggestion: ${currentItemTG.suggestion}`)
+        const checkboxDiv = infobox.append("div")
+        checkboxDiv.append('span')
+            .text('Check for consumption')
+        checkboxDiv.append('input')
+            .attr('type', 'checkbox')
+            .text('Check for consumption')
+            .classed('consume', true)
+            .attr('id', () => `consume-${currentItemTG.id}`)
+            .attr('checked', () => localStorage.getItem(`consume-${currentItemTG.id}`) !== null ? true : null)
+            .on('click', (event: MouseEvent) => {
+                const id = (event.target as any).id as string
+                if(localStorage.getItem(id)) {
+                    localStorage.removeItem(id)
+                } else {
+                    localStorage.setItem(id, "checked")
+                }
+                onHassleChange()
+            })
 
         info.append("div")
             .style('clear', 'both')
@@ -438,11 +471,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
     const resetValues = () => {
         const hassle = Number((document.getElementById('hassle') as HTMLInputElement).value)
         for(const item of ITEMS) {
-            item.value = item.price / 4
+            const consume = localStorage.getItem(`consume-${item.id}`) !== null
+            item.baseValue = consume ? item.price : item.price / 4
+            item.value = item.baseValue
             item.distance = 1
-            item._nextValue = item.price / 4
+            item._nextValue = item.baseValue
             item._nextDistance = 1
-            item.suggestion = item.price > hassle ? Suggestion.Sell : Suggestion.Trash
+            item.suggestion = consume ? Suggestion.Consume : item.price > hassle ? Suggestion.Sell : Suggestion.Trash
         }
         refreshInfo()
     }
@@ -452,8 +487,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for(let i = 0; i < n; i++) {
             for(const item of ITEMS) {
-                const $consume = localStorage.getItem(`consume-${item.id}`) !== null
-                if(!$consume) console.log(`cant find: ${item.id}`)
+                const consume = localStorage.getItem(`consume-${item.id}`) !== null
                 let bestValue = item._nextValue
 
 
@@ -471,7 +505,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                             deconstructValue += amount * partItem.value
                             distanceSumByValue += amount * partItem.value * partItem.distance
                         } else {
-                            console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
+                            if(!id.includes('genetic')) console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
                         }
                     }
                     const distance = 1 + distanceSumByValue / deconstructValue
@@ -524,15 +558,22 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             }
             for(const item of ITEMS) {
                 const koef = .66
-                item.value = Math.max(item.price/4, koef * item._nextValue + (1 - koef) * item.value)
+                item.value = koef * item._nextValue + (1 - koef) * item.value
                 item.distance = item._nextDistance
                 item.fy = TOTAL_HEIGHT - priceToHeight(1400 * (item.value / item.price - 0.25) * (1/0.75))
                 if(item.value < hassle) {
                     item.suggestion = Suggestion.Trash
                 }
 
-                item._nextValue = item.price / 4
+                item._nextValue = item.baseValue
                 item._nextDistance = 1
+
+                if(item.value <= hassle) item.shopSuggestion = ShopSuggestion.Trash
+                else if(item.value <= item.price / 4) item.shopSuggestion = ShopSuggestion.Sell
+                else if(item.value <= item.price / 2) item.shopSuggestion = ShopSuggestion.SellPremium
+                else if(item.value >= item.price) item.shopSuggestion = ShopSuggestion.Buy
+                else if(item.value >= item.price / 2) item.shopSuggestion = ShopSuggestion.BuyDiscounted
+                else item.shopSuggestion = ShopSuggestion.Hold
             }
         }
 
@@ -792,6 +833,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         enterRow
             .append('td')
             .append('input')
+            .attr('type', 'checkbox')
             .classed('consume', true)
             .attr('checked', (d) => localStorage.getItem(`consume-${d.id}`) !== null ? true : null)
 
@@ -836,7 +878,6 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .select('td > input.consume')
             .datum(d => d.id)
             .attr('id', id => `consume-${id}`)
-            .attr('type', 'checkbox')
             .on('click', (event: MouseEvent) => {
                 const id = (event.target as any).id as string
                 if(localStorage.getItem(id)) {
