@@ -316,7 +316,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 .style('width', '2em')
                 .style('margin', 0)
 
-            const ratio = sum / currentItemTG.price
+            const ratio = sum / currentItemTG.value
             info.append("div")
                 .text(`${formatValue(sum)}v (${format0(ratio * 100)}%, ${ratio > 1 ? '+' : ''}${formatValue(sum - currentItemTG.value)}v)`)
                 .style('color', ratio > 1.1 ? '#008400' : ratio < 0.9 ? '#840000' : '')
@@ -485,25 +485,16 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 const consume = localStorage.getItem(`consume-${item.id}`) !== null
                 let bestValue = item._nextValue
 
-
                 const recipe = RECIPES.find((recipe) => recipe.result === item.id)
-                // const skipDeconstruct = false
-                //     || recipe?.result === 'oxygenitetank'  // they have a bug that it deconstructs to more than it's made of
-                //     || recipe?.result === 'exosuit'  // they have a bug that it deconstructs to more than it's made of
-
                 if(recipe?.deconstruct) {
                     let deconstructValue = 0
                     for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
                         const partItem = ITEMS.find((item) => item.id === id)
-                        if(partItem) {
-                            deconstructValue += amount * partItem.value
-                        } else {
-                            if(!id.includes('genetic')) console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
-                        }
+                        if(!partItem && !id.includes('genetic')) console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
+                        deconstructValue += amount * (partItem?.value || 0)
                     }
-                    if(hassle) {
-                        deconstructValue -= hassle
-                    }
+                    deconstructValue -= hassle
+
                     if(bestValue < deconstructValue) {
                         bestValue = deconstructValue
                         item.suggestion = Suggestion.Deconstruct
@@ -523,17 +514,14 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                         }
 
                         let sumValue = 0
-                        for(const [id, amount] of Object.entries(fab.parts)) {
-                            const fabItem = ITEMS.find((item) => item.id === id)
-                            if(!fabItem) {
-                                console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
-                                continue
-                            }
-                            sumValue += amount/producedAmount * fabItem.value
+                        for(const [id, partAmount] of Object.entries(fab.parts)) {
+                            const partItem = ITEMS.find((item) => item.id === id)
+                            if(!partItem) console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
+                            sumValue += partAmount/producedAmount * (partItem?.value || 0)
                         }
                         sumValue += hassle
 
-                        const fabricationValue = (item.value || 5) * (recipeItem.value / sumValue)
+                        const fabricationValue = (item.value || 0) * (recipeItem.value / sumValue)
                         if(bestValue < fabricationValue) {
                             bestValue = fabricationValue
                             item.suggestion = Suggestion.Fabricate
@@ -541,7 +529,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                     }
                 }
 
-                item._nextValue = Math.max(bestValue, item._nextValue)
+                item._nextValue = bestValue
             }
             for(const item of ITEMS) {
                 const koef = .33
@@ -550,8 +538,6 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 if(item.value < hassle) {
                     item.suggestion = Suggestion.Trash
                 }
-
-                item._nextValue = item.baseValue
 
                 if(item.value <= hassle) item.shopSuggestion = ShopSuggestion.Trash
                 else if(item.value <= item.price / 4) item.shopSuggestion = ShopSuggestion.Sell
