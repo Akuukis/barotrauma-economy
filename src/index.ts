@@ -452,6 +452,8 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for(let i = 0; i < n; i++) {
             for(const item of ITEMS) {
+                const $consume = localStorage.getItem(`consume-${item.id}`) !== null
+                if(!$consume) console.log(`cant find: ${item.id}`)
                 let bestValue = item._nextValue
 
 
@@ -784,8 +786,14 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         enterRow
             .append('td')
-            .append('a')
+            .append('span')
             .classed('suggestion', true)
+
+        enterRow
+            .append('td')
+            .append('input')
+            .classed('consume', true)
+            .attr('checked', (d) => localStorage.getItem(`consume-${d.id}`) !== null ? true : null)
 
 
         const updateRows = rows
@@ -809,7 +817,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .text(d => `${d}`)
 
         const cellSuggestion = updateRows
-            .select('td > a.suggestion')
+            .select('td > span.suggestion')
             .datum(d => d)
             .attr('title', d => `${Math.round(d.value/d.price * 100)}%`)
             .text(d => `${d.suggestion}`)
@@ -823,6 +831,21 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .attr("x", d => -d?.rect[0])
             .attr("y", d => -d?.rect[1])
             .attr("transform", d => `scale(${iconSize * 1 / Math.max(d?.rect[2], d?.rect[3])})`)
+
+        const cellConsume = updateRows
+            .select('td > input.consume')
+            .datum(d => d.id)
+            .attr('id', id => `consume-${id}`)
+            .attr('type', 'checkbox')
+            .on('click', (event: MouseEvent) => {
+                const id = (event.target as any).id as string
+                if(localStorage.getItem(id)) {
+                    localStorage.removeItem(id)
+                } else {
+                    localStorage.setItem(id, "checked")
+                }
+                onHassleChange()
+            })
 
         // const updateCell = updateRow
         //     .data((d) => [
