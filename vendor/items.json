@@ -26,37 +26,37 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -86,19 +86,19 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -110,7 +110,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
@@ -146,19 +146,19 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -170,7 +170,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
@@ -481,13 +481,13 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -499,13 +499,13 @@
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -533,37 +533,37 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "engineering": {
         "id": "engineering",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -595,31 +595,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -635,7 +635,7 @@
       "Tools",
       "tools"
     ],
-    "title": "alienflare-empty",
+    "title": "alienflare (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -677,31 +677,31 @@
         "id": "outpost",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -730,31 +730,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -802,7 +802,7 @@
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -814,7 +814,7 @@
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -845,31 +845,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -897,31 +897,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -949,31 +949,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1001,31 +1001,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1053,25 +1053,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -1105,31 +1105,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1158,31 +1158,31 @@
         "id": "outpost",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1538,7 +1538,7 @@
       "Medical",
       "medical"
     ],
-    "title": "Fentanyl-empty",
+    "title": "Fentanyl (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -1829,31 +1829,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1886,31 +1886,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1941,7 +1941,7 @@
         "id": "outpost",
         "multiplier": 0.7,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
@@ -1959,13 +1959,13 @@
         "id": "military",
         "multiplier": 0.8,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.8,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -1999,31 +1999,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -2055,19 +2055,19 @@
         "id": "outpost",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -2079,7 +2079,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -2095,7 +2095,7 @@
       "Security",
       "securityofficer_talent_items"
     ],
-    "title": "assaultriflemagazine-empty",
+    "title": "assaultriflemagazine (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Jobgear/TalentGear.png",
@@ -2136,31 +2136,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -2194,31 +2194,31 @@
         "id": "outpost",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -2251,7 +2251,7 @@
       "Gardening",
       "plantproducts"
     ],
-    "title": "badcreepingorange-empty",
+    "title": "badcreepingorange (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -2293,7 +2293,7 @@
       "Gardening",
       "plantproducts"
     ],
-    "title": "badraptorbane-empty",
+    "title": "badraptorbane (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -2565,31 +2565,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -2620,31 +2620,31 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -2879,7 +2879,7 @@
       "Tools",
       "tools"
     ],
-    "title": "blackpaint-empty",
+    "title": "blackpaint (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
@@ -2952,7 +2952,7 @@
       "Tools",
       "tools"
     ],
-    "title": "bluepaint-empty",
+    "title": "bluepaint (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
@@ -2990,31 +2990,31 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -3103,31 +3103,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -3155,31 +3155,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -3325,25 +3325,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -3652,25 +3652,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -3706,31 +3706,31 @@
         "id": "outpost",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -3758,31 +3758,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -3811,37 +3811,37 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -3917,7 +3917,7 @@
       "Weapons",
       "chaingun"
     ],
-    "title": "chaingunammobox-empty",
+    "title": "chaingunammobox (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -3957,19 +3957,19 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -3981,7 +3981,7 @@
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
@@ -4002,7 +4002,7 @@
       "Weapons",
       "chaingun"
     ],
-    "title": "chaingunammoboxphysicorium-empty",
+    "title": "chaingunammoboxphysicorium (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -4087,7 +4087,7 @@
       "Weapons",
       "chaingun"
     ],
-    "title": "chaingunammoboxshredder-empty",
+    "title": "chaingunammoboxshredder (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -4124,31 +4124,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -4176,31 +4176,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -4233,13 +4233,13 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -4257,13 +4257,13 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -4336,31 +4336,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.6,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -4440,25 +4440,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -4492,31 +4492,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -4569,31 +4569,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     },
     "aliases": [
@@ -5007,7 +5007,7 @@
       "Weapons",
       "coilgun"
     ],
-    "title": "coilgunammobox-empty",
+    "title": "coilgunammobox (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -5048,31 +5048,31 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -5088,7 +5088,7 @@
       "Engineer",
       "engineer_talent_items"
     ],
-    "title": "coilgunammoboxdepletedfuel-empty",
+    "title": "coilgunammoboxdepletedfuel (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -5128,19 +5128,19 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -5152,7 +5152,7 @@
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
@@ -5173,7 +5173,7 @@
       "Weapons",
       "coilgun"
     ],
-    "title": "coilgunammoboxexplosive-empty",
+    "title": "coilgunammoboxexplosive (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -5258,7 +5258,7 @@
       "Weapons",
       "coilgun"
     ],
-    "title": "coilgunammoboxpiercing-empty",
+    "title": "coilgunammoboxpiercing (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -5358,31 +5358,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -5561,25 +5561,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -5678,31 +5678,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.8,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -5714,7 +5714,7 @@
       "Gardening",
       "plantproducts"
     ],
-    "title": "creepingorange-empty",
+    "title": "creepingorange (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -5787,7 +5787,7 @@
       "Gardening",
       "growableplants"
     ],
-    "title": "creepingorangevineseed-empty",
+    "title": "creepingorangevineseed (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -5876,31 +5876,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -6062,7 +6062,7 @@
       "Mechanic",
       "mechanic_talent_items"
     ],
-    "title": "defensebotammobox-empty",
+    "title": "defensebotammobox (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Characters/Defensebot/DefenseBot.png",
@@ -6099,31 +6099,31 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -6262,13 +6262,13 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.15,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -6280,7 +6280,7 @@
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -6315,31 +6315,31 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -6352,7 +6352,7 @@
       "Engineer",
       "engineer_talent_items"
     ],
-    "title": "depletedfuel-empty",
+    "title": "depletedfuel (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -6589,31 +6589,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 10,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -6642,31 +6642,31 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -6696,31 +6696,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -7183,7 +7183,7 @@
       "Weapons",
       "weapons"
     ],
-    "title": "empgrenade-empty",
+    "title": "empgrenade (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -7221,31 +7221,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -7274,31 +7274,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -7326,31 +7326,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -7629,7 +7629,7 @@
       "Tools",
       "tools"
     ],
-    "title": "extinguisher-empty",
+    "title": "extinguisher (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -7666,31 +7666,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -7758,7 +7758,7 @@
       "Gardening",
       "gardeningtools"
     ],
-    "title": "fertilizer-empty",
+    "title": "fertilizer (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -7852,31 +7852,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -7893,7 +7893,7 @@
       "Mechanic",
       "mechanic_talent_items"
     ],
-    "title": "fixfoamgrenade-empty",
+    "title": "fixfoamgrenade (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Jobgear/TalentGear.png",
@@ -7930,19 +7930,19 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -7954,13 +7954,13 @@
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 1.25,
         "minavailable": 1,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -8392,7 +8392,7 @@
       "Tools",
       "tools"
     ],
-    "title": "fuelrod-empty",
+    "title": "fuelrod (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -8543,37 +8543,37 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "engineering": {
         "id": "engineering",
         "multiplier": 0.9,
         "minavailable": 2,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -8584,7 +8584,7 @@
       "Tools",
       "tools"
     ],
-    "title": "fulguriumfuelrod-empty",
+    "title": "fulguriumfuelrod (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -8622,31 +8622,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -8659,7 +8659,7 @@
       "Engineer",
       "engineer_talent_items"
     ],
-    "title": "fulguriumfuelrodvolatile-empty",
+    "title": "fulguriumfuelrodvolatile (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Jobgear/TalentGear.png",
@@ -8696,31 +8696,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -8829,13 +8829,13 @@
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -8924,31 +8924,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -9012,7 +9012,7 @@
       "Tools",
       "tools"
     ],
-    "title": "greenpaint-empty",
+    "title": "greenpaint (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
@@ -9054,19 +9054,19 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -9078,7 +9078,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
@@ -9186,31 +9186,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -9244,31 +9244,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -9383,31 +9383,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -9436,31 +9436,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -9547,31 +9547,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10020,7 +10020,7 @@
       "Weapons",
       "weapons"
     ],
-    "title": "hmgmagazine-empty",
+    "title": "hmgmagazine (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Weapons/weapons_new.png",
@@ -10182,31 +10182,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10286,19 +10286,19 @@
         "id": "outpost",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -10397,31 +10397,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10450,13 +10450,13 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.15,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -10468,7 +10468,7 @@
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -10503,31 +10503,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10540,7 +10540,7 @@
       "Tools",
       "tools"
     ],
-    "title": "incendiumfueltank-empty",
+    "title": "incendiumfueltank (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -10581,19 +10581,19 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -10605,7 +10605,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
@@ -10639,25 +10639,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -10694,37 +10694,37 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10752,31 +10752,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10804,31 +10804,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10877,31 +10877,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -10929,25 +10929,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -11215,25 +11215,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -11386,37 +11386,37 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -11446,31 +11446,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -11617,31 +11617,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -11881,31 +11881,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -11993,19 +11993,19 @@
         "id": "outpost",
         "multiplier": 1.35,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -12017,7 +12017,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -12030,7 +12030,7 @@
       "Weapons",
       "depthcharge"
     ],
-    "title": "nucleardepthcharge-empty",
+    "title": "nucleardepthcharge (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -12069,19 +12069,19 @@
         "id": "outpost",
         "multiplier": 1.35,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
@@ -12093,7 +12093,7 @@
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -12126,31 +12126,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -12180,7 +12180,7 @@
         "id": "outpost",
         "multiplier": 1.35,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
@@ -12224,7 +12224,7 @@
       "Weapons",
       "railgun"
     ],
-    "title": "nuclearshell-empty",
+    "title": "nuclearshell (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -12581,7 +12581,7 @@
       "Alien",
       "alienitems"
     ],
-    "title": "oxygeniteshard-empty",
+    "title": "oxygeniteshard (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -12656,7 +12656,7 @@
       "Tools",
       "tools"
     ],
-    "title": "oxygenitetank-empty",
+    "title": "oxygenitetank (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -12746,13 +12746,13 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.15,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -12764,13 +12764,13 @@
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -12976,25 +12976,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -13029,13 +13029,13 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.15,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -13047,7 +13047,7 @@
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -13084,37 +13084,37 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13129,7 +13129,7 @@
       "Weapons",
       "coilgun"
     ],
-    "title": "physicoriumammobox-empty",
+    "title": "physicoriumammobox (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -13328,31 +13328,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13455,31 +13455,31 @@
         "id": "outpost",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13507,25 +13507,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -13560,31 +13560,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13664,31 +13664,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13722,31 +13722,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13822,7 +13822,7 @@
       "Weapons",
       "pulselaser"
     ],
-    "title": "pulselaserammobox-empty",
+    "title": "pulselaserammobox (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -13862,13 +13862,13 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -13880,19 +13880,19 @@
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13907,7 +13907,7 @@
       "Weapons",
       "pulselaser"
     ],
-    "title": "pulselaserammoboxtrilaser-empty",
+    "title": "pulselaserammoboxtrilaser (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Containers/containers.png",
@@ -13944,31 +13944,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -13996,31 +13996,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -14148,7 +14148,7 @@
       "Weapons",
       "railgun"
     ],
-    "title": "railguncanistershell-empty",
+    "title": "railguncanistershell (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
@@ -14245,31 +14245,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.8,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -14281,7 +14281,7 @@
       "Gardening",
       "plantproducts"
     ],
-    "title": "raptorbane-empty",
+    "title": "raptorbane (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -14406,7 +14406,7 @@
       "Gardening",
       "growableplants"
     ],
-    "title": "raptorbaneseed-empty",
+    "title": "raptorbaneseed (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -14444,31 +14444,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -14532,7 +14532,7 @@
       "Tools",
       "tools"
     ],
-    "title": "redpaint-empty",
+    "title": "redpaint (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
@@ -14570,31 +14570,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -15029,31 +15029,31 @@
         "id": "outpost",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -15081,31 +15081,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.8,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -15169,7 +15169,7 @@
       "Gardening",
       "growableplants"
     ],
-    "title": "saltvineseed-empty",
+    "title": "saltvineseed (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -15232,31 +15232,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -15645,31 +15645,31 @@
         "id": "outpost",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -15722,25 +15722,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -15986,31 +15986,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -16111,13 +16111,13 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
@@ -16129,13 +16129,13 @@
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -16199,7 +16199,7 @@
       "Gardening",
       "gardeningtools"
     ],
-    "title": "smallplanter-empty",
+    "title": "smallplanter (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -16346,7 +16346,7 @@
       "Weapons",
       "weapons"
     ],
-    "title": "smgmagazine-empty",
+    "title": "smgmagazine (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -16467,25 +16467,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -16660,31 +16660,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -16713,31 +16713,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -16879,31 +16879,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -17143,7 +17143,7 @@
       "Weapons",
       "weapons"
     ],
-    "title": "stungrenade-empty",
+    "title": "stungrenade (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -17307,31 +17307,31 @@
         "id": "outpost",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -17528,37 +17528,37 @@
         "id": "outpost",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "armory": {
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -17628,7 +17628,7 @@
       "Alien",
       "alienitems"
     ],
-    "title": "sulphuriteshard-empty",
+    "title": "sulphuriteshard (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Alien/AlienMaterials.png",
@@ -17777,31 +17777,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18008,31 +18008,31 @@
         "id": "outpost",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 0.85,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18063,31 +18063,31 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18115,31 +18115,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18167,25 +18167,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -18259,7 +18259,7 @@
       "Tools",
       "tools"
     ],
-    "title": "thoriumfuelrod-empty",
+    "title": "thoriumfuelrod (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -18317,25 +18317,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -18369,31 +18369,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18421,25 +18421,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -18525,31 +18525,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.8,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18561,7 +18561,7 @@
       "Gardening",
       "plantproducts"
     ],
-    "title": "tobaccobud-empty",
+    "title": "tobaccobud (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -18634,7 +18634,7 @@
       "Gardening",
       "growableplants"
     ],
-    "title": "tobaccovineseed-empty",
+    "title": "tobaccovineseed (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -18852,19 +18852,19 @@
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -18892,31 +18892,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -19124,25 +19124,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -19176,31 +19176,31 @@
         "id": "outpost",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.75,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -19229,25 +19229,25 @@
         "id": "outpost",
         "multiplier": 1.4,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
@@ -19282,31 +19282,31 @@
         "id": "outpost",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.5,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       }
     }
   },
@@ -19494,7 +19494,7 @@
       "Tools",
       "tools"
     ],
-    "title": "weldingfueltank-empty",
+    "title": "weldingfueltank (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
@@ -19625,7 +19625,7 @@
       "Tools",
       "tools"
     ],
-    "title": "whitepaint-empty",
+    "title": "whitepaint (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
@@ -19839,25 +19839,25 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": true
+        "sold": false
       },
       "mine": {
         "id": "mine",

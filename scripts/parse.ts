@@ -383,7 +383,7 @@ function assignGroup(item: Item): Item {
                             id: rawPrice.$storeidentifier.slice('merchant'.length) as StoreIdentifierType,
                             multiplier: Number(rawPrice.$multiplier ?? 1),
                             minavailable: Number(rawPrice.$minavailable ?? 0),
-                            sold: rawPrice.$sold === 'false' ? false : true,
+                            sold: ((raw.Price?.$sold === "false" && rawPrice.$sold !== 'true') || rawPrice.$sold === 'false') ? false : true,
                         })).reduce((obj, e) => ({...obj, [e.id]: e}), {} as Item['stores']) ?? {}
                     })
                     items[item.id] = item
