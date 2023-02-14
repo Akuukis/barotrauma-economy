@@ -219,6 +219,7 @@ interface ItemRaw {
     "$variantof"?: IdItemString,
     "$category"?: string,
     "$tags": StringsWithComma,
+    "$Tags": StringsWithComma,
     "$maxstacksize": NumberString,
     "$cargocontaineridentifier": string,
     "$description": "",
@@ -328,6 +329,7 @@ function assignGroup(item: Item): Item {
             ] as Array<[string, ItemRaw]>
 
             for(const [title, raw] of rawItems.slice()) {
+                if(raw.$tags?.includes('plantitem') || raw.$Tags?.includes('plantitem')) continue
                 let conditionable = false
                 if(raw.Deconstruct?.Item) {
                     const itemsRaw = !raw.Deconstruct?.Item ? [] : Array.isArray(raw.Deconstruct.Item) ? raw.Deconstruct.Item : [raw.Deconstruct.Item ?? []]
@@ -342,6 +344,7 @@ function assignGroup(item: Item): Item {
                     const itemsRaw = Array.isArray(normalizedItem) ? normalizedItem : normalizedItem ? [normalizedItem] : []
                     if(itemsRaw.length === 0) continue
                     for(const itemRaw of itemsRaw) {
+                        if(raw.$identifier !== itemRaw.$identifier) continue
                         if(itemRaw.$mincondition) conditionable = true
                         if(itemRaw.$mincondition) conditionable = true
                     }
@@ -398,7 +401,7 @@ function assignGroup(item: Item): Item {
                         const lotteryTotalWeight = raw.Deconstruct.$chooserandom ? itemsRaw.reduce((sum, item) => sum + Number(item.$commonness!), 0) / Number(raw.Deconstruct.$amount ?? 1) : 1
 
                         for(const itemRaw of itemsRaw) {
-                            if(empty && parseFloat(itemRaw.$mincondition ?? "0") >= 0.9) continue
+                            if(empty && parseFloat(itemRaw.$mincondition ?? "0") > 0.1) continue
                             const id = itemRaw.$identifier
                             const condition = Number(itemRaw.$outcondition) || 1
                             const lotteryWeight = Number(itemRaw.$commonness ?? 1) / lotteryTotalWeight
@@ -424,7 +427,8 @@ function assignGroup(item: Item): Item {
                                 }} : {}),
                             }
                             for(const itemRaw of itemsRaw) {
-                                const id = (itemRaw.$identifier ?? itemRaw.$tag)!.replace(item.id, `${item.id}-empty`)
+                                const emptyItem = parseFloat(itemRaw.$maxcondition ?? "1") < 0.11 || itemRaw.$identifier === item.id
+                                const id = `${(itemRaw.$identifier ?? itemRaw.$tag)}${emptyItem ? '-empty' : ''}`
                                 const requiredAmount = Number(itemRaw?.$amount ?? itemRaw?.$count ?? 1)
                                 fabricateInner.parts[id] = (fabricateInner.parts[id] ?? 0) + requiredAmount
                             }

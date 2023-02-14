@@ -808,25 +808,6 @@
   },
   {
     "type": "recipe",
-    "id": "recipe-badcreepingorange-empty",
-    "result": "badcreepingorange-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1,
-        "creepingorangevineseed": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "badcreepingorange": 1
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
     "id": "recipe-badraptorbane",
     "result": "badraptorbane",
     "deconstruct": {
@@ -836,25 +817,6 @@
       }
     },
     "fabricate": []
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-badraptorbane-empty",
-    "result": "badraptorbane-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1,
-        "raptorbaneseed": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "badraptorbane": 1
-        }
-      }
-    ]
   },
   {
     "type": "recipe",
@@ -2125,25 +2087,6 @@
   },
   {
     "type": "recipe",
-    "id": "recipe-creepingorange-empty",
-    "result": "creepingorange-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1,
-        "creepingorangevineseed": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "creepingorange": 1
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
     "id": "recipe-creepingorangevineseed",
     "result": "creepingorangevineseed",
     "deconstruct": {
@@ -2152,24 +2095,6 @@
       }
     },
     "fabricate": []
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-creepingorangevineseed-empty",
-    "result": "creepingorangevineseed-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "creepingorangevineseed": 1
-        }
-      }
-    ]
   },
   {
     "type": "recipe",
@@ -2382,7 +2307,7 @@
       {
         "amount": 1,
         "parts": {
-          "fuelrod": 1,
+          "fuelrod-empty": 1,
           "steel": 1
         },
         "talent": true,
@@ -2394,7 +2319,7 @@
       {
         "amount": 1,
         "parts": {
-          "thoriumfuelrod": 1,
+          "thoriumfuelrod-empty": 1,
           "steel": 1
         },
         "talent": true,
@@ -2406,7 +2331,7 @@
       {
         "amount": 2,
         "parts": {
-          "fulguriumfuelrod": 1,
+          "fulguriumfuelrod-empty": 1,
           "steel": 1
         },
         "talent": true,
@@ -2418,31 +2343,13 @@
       {
         "amount": 2,
         "parts": {
-          "fulguriumfuelrodvolatile": 1,
+          "fulguriumfuelrodvolatile-empty": 1,
           "steel": 1
         },
         "talent": true,
         "skill": {
           "id": "electrical",
           "level": 35
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-depletedfuel-empty",
-    "result": "depletedfuel-empty",
-    "deconstruct": {
-      "parts": {
-        "steel": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "depletedfuel": 1
         }
       }
     ]
@@ -2901,8 +2808,7 @@
     "result": "extinguisher-empty",
     "deconstruct": {
       "parts": {
-        "aluminium": 1,
-        "sodium": 1
+        "aluminium": 1
       }
     },
     "fabricate": [
@@ -3937,7 +3843,7 @@
       {
         "amount": 1,
         "parts": {
-          "huskeggs-emptybasic": 1,
+          "huskeggsbasic": 1,
           "calcium": 1
         },
         "skill": {
@@ -4572,26 +4478,6 @@
   },
   {
     "type": "recipe",
-    "id": "recipe-nucleardepthcharge-empty",
-    "result": "nucleardepthcharge-empty",
-    "deconstruct": {
-      "parts": {
-        "iron": 1,
-        "uranium": 1,
-        "incendium": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "nucleardepthcharge": 1
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
     "id": "recipe-nucleardepthdecoy",
     "result": "nucleardepthdecoy",
     "deconstruct": {
@@ -4680,26 +4566,6 @@
         "skill": {
           "id": "electrical",
           "level": 40
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-nuclearshell-empty",
-    "result": "nuclearshell-empty",
-    "deconstruct": {
-      "parts": {
-        "steel": 1,
-        "uranium": 1,
-        "incendium": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "nuclearshell": 1
         }
       }
     ]
@@ -4795,11 +4661,7 @@
     "type": "recipe",
     "id": "recipe-oxygeniteshard-empty",
     "result": "oxygeniteshard-empty",
-    "deconstruct": {
-      "parts": {
-        "liquidoxygenite": 1
-      }
-    },
+    "deconstruct": null,
     "fabricate": [
       {
         "amount": 1,
@@ -5489,25 +5351,6 @@
   },
   {
     "type": "recipe",
-    "id": "recipe-raptorbane-empty",
-    "result": "raptorbane-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1,
-        "raptorbaneseed": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "raptorbane": 1
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
     "id": "recipe-raptorbaneextract",
     "result": "raptorbaneextract",
     "deconstruct": {
@@ -5538,24 +5381,6 @@
       }
     },
     "fabricate": []
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-raptorbaneseed-empty",
-    "result": "raptorbaneseed-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "raptorbaneseed": 1
-        }
-      }
-    ]
   },
   {
     "type": "recipe",
@@ -5835,24 +5660,6 @@
       }
     },
     "fabricate": []
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-saltvineseed-empty",
-    "result": "saltvineseed-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "saltvineseed": 1
-        }
-      }
-    ]
   },
   {
     "type": "recipe",
@@ -6185,11 +5992,7 @@
     "type": "recipe",
     "id": "recipe-smallplanter-empty",
     "result": "smallplanter-empty",
-    "deconstruct": {
-      "parts": {
-        "steel": 1
-      }
-    },
+    "deconstruct": null,
     "fabricate": [
       {
         "amount": 1,
@@ -6715,11 +6518,7 @@
     "type": "recipe",
     "id": "recipe-sulphuriteshard-empty",
     "result": "sulphuriteshard-empty",
-    "deconstruct": {
-      "parts": {
-        "sulphuricacid": 1
-      }
-    },
+    "deconstruct": null,
     "fabricate": [
       {
         "amount": 1,
@@ -7040,25 +6839,6 @@
   },
   {
     "type": "recipe",
-    "id": "recipe-tobaccobud-empty",
-    "result": "tobaccobud-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1,
-        "tobaccovineseed": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "tobaccobud": 1
-        }
-      }
-    ]
-  },
-  {
-    "type": "recipe",
     "id": "recipe-tobaccovineseed",
     "result": "tobaccovineseed",
     "deconstruct": {
@@ -7067,24 +6847,6 @@
       }
     },
     "fabricate": []
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-tobaccovineseed-empty",
-    "result": "tobaccovineseed-empty",
-    "deconstruct": {
-      "parts": {
-        "carbon": 1
-      }
-    },
-    "fabricate": [
-      {
-        "amount": 1,
-        "parts": {
-          "tobaccovineseed": 1
-        }
-      }
-    ]
   },
   {
     "type": "recipe",

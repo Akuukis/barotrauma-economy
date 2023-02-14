@@ -2245,27 +2245,6 @@
   },
   {
     "type": "item",
-    "id": "badcreepingorange-empty",
-    "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
-    ],
-    "title": "badcreepingorange (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        971,
-        835,
-        43,
-        55
-      ]
-    },
-    "stores": {}
-  },
-  {
-    "type": "item",
     "id": "badraptorbane",
     "categories": [
       "Material",
@@ -2273,27 +2252,6 @@
       "plantproducts"
     ],
     "title": "badraptorbane",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        907,
-        838,
-        44,
-        50
-      ]
-    },
-    "stores": {}
-  },
-  {
-    "type": "item",
-    "id": "badraptorbane-empty",
-    "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
-    ],
-    "title": "badraptorbane (empty)",
     "price": 0,
     "icon": {
       "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
@@ -5708,27 +5666,6 @@
   },
   {
     "type": "item",
-    "id": "creepingorange-empty",
-    "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
-    ],
-    "title": "creepingorange (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        971,
-        649,
-        43,
-        55
-      ]
-    },
-    "stores": {}
-  },
-  {
-    "type": "item",
     "id": "creepingorangevineseed",
     "categories": [
       "Misc",
@@ -5778,27 +5715,6 @@
         "sold": false
       }
     }
-  },
-  {
-    "type": "item",
-    "id": "creepingorangevineseed-empty",
-    "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
-    ],
-    "title": "creepingorangevineseed (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        830,
-        636,
-        31,
-        30
-      ]
-    },
-    "stores": {}
   },
   {
     "type": "item",
@@ -6342,28 +6258,6 @@
         "sold": false
       }
     }
-  },
-  {
-    "type": "item",
-    "id": "depletedfuel-empty",
-    "categories": [
-      "Fuel",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
-    ],
-    "title": "depletedfuel (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/InventoryIconAtlas.png",
-      "rect": [
-        384,
-        64,
-        64,
-        64
-      ]
-    },
-    "stores": {}
   },
   {
     "type": "item",
@@ -12023,28 +11917,6 @@
   },
   {
     "type": "item",
-    "id": "nucleardepthcharge-empty",
-    "categories": [
-      "Weapon",
-      "depthchargeammo",
-      "Weapons",
-      "depthcharge"
-    ],
-    "title": "nucleardepthcharge (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/InventoryIconAtlas.png",
-      "rect": [
-        576,
-        128,
-        64,
-        64
-      ]
-    },
-    "stores": {}
-  },
-  {
-    "type": "item",
     "id": "nucleardepthdecoy",
     "categories": [
       "Weapon",
@@ -12213,29 +12085,6 @@
         "sold": true
       }
     }
-  },
-  {
-    "type": "item",
-    "id": "nuclearshell-empty",
-    "categories": [
-      "Weapon",
-      "railgunequipment",
-      "railgunammo",
-      "Weapons",
-      "railgun"
-    ],
-    "title": "nuclearshell (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/InventoryIconAtlas.png",
-      "rect": [
-        0,
-        128,
-        64,
-        64
-      ]
-    },
-    "stores": {}
   },
   {
     "type": "item",
@@ -14275,27 +14124,6 @@
   },
   {
     "type": "item",
-    "id": "raptorbane-empty",
-    "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
-    ],
-    "title": "raptorbane (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        971,
-        777,
-        44,
-        50
-      ]
-    },
-    "stores": {}
-  },
-  {
-    "type": "item",
     "id": "raptorbaneextract",
     "categories": [
       "Material",
@@ -14397,27 +14225,6 @@
         "sold": false
       }
     }
-  },
-  {
-    "type": "item",
-    "id": "raptorbaneseed-empty",
-    "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
-    ],
-    "title": "raptorbaneseed (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        863,
-        668,
-        30,
-        33
-      ]
-    },
-    "stores": {}
   },
   {
     "type": "item",
@@ -15160,27 +14967,6 @@
         "sold": false
       }
     }
-  },
-  {
-    "type": "item",
-    "id": "saltvineseed-empty",
-    "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
-    ],
-    "title": "saltvineseed (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        829,
-        666,
-        33,
-        35
-      ]
-    },
-    "stores": {}
   },
   {
     "type": "item",
@@ -18555,27 +18341,6 @@
   },
   {
     "type": "item",
-    "id": "tobaccobud-empty",
-    "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
-    ],
-    "title": "tobaccobud (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        904,
-        646,
-        56,
-        61
-      ]
-    },
-    "stores": {}
-  },
-  {
-    "type": "item",
     "id": "tobaccovineseed",
     "categories": [
       "Misc",
@@ -18625,27 +18390,6 @@
         "sold": false
       }
     }
-  },
-  {
-    "type": "item",
-    "id": "tobaccovineseed-empty",
-    "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
-    ],
-    "title": "tobaccovineseed (empty)",
-    "price": 0,
-    "icon": {
-      "path": "Content/Items/Gardening/GrowablePlants_Temp.png",
-      "rect": [
-        863,
-        636,
-        30,
-        31
-      ]
-    },
-    "stores": {}
   },
   {
     "type": "item",
