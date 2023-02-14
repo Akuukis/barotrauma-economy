@@ -419,12 +419,13 @@ function assignGroup(item: Item): Item {
     // console.log(recipes)
     // for(const item of Object.values(items)) console.log(item)
     // for(const recipe of Object.values(recipes)) console.log(recipe)
-    const itemsArray = Object.values(items)
+    const itemsArray = Object.values(items).sort((a, b) => a.id < b.id ? -1 : 1)
     writeFileSync(join(OUT_DIR, 'items.json'), JSON.stringify(itemsArray))
     writeFileSync(join(VENDOR_DIR, 'items.json'), JSON.stringify(itemsArray, undefined, 2))
 
-    writeFileSync(join(OUT_DIR, 'recipes.json'), JSON.stringify(Object.values(recipes)))
-    writeFileSync(join(VENDOR_DIR, 'recipes.json'), JSON.stringify(Object.values(recipes), undefined, 2))
+    const recipesArray = Object.values(recipes).sort((a, b) => a.id < b.id ? -1 : 1)
+    writeFileSync(join(OUT_DIR, 'recipes.json'), JSON.stringify(recipesArray))
+    writeFileSync(join(VENDOR_DIR, 'recipes.json'), JSON.stringify(recipesArray, undefined, 2))
 
     const iconPaths = new Set<string>()
     for(const item of itemsArray) iconPaths.add(item.icon.path)
