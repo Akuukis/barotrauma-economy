@@ -375,10 +375,17 @@ function assignGroup(item: Item): Item {
                     }
                     const empty = raw.$identifier.includes('-empty')
 
+                    const categories = [
+                        ...(raw.$category?.split(',') ?? []),
+                        ...(raw.$tags?.split(',') ?? []),
+                        ...path.replace('Content/Items/', '').replace('.xml', '').split('/')
+                    ]
+                        .map((category) => category.toLowerCase().replace(/s$/, ''))
+
                     const item = assignGroup({
                         type: 'item',
                         id: raw.$identifier,
-                        categories: (raw.$category?.split(',') || []).concat((raw.$tags?.split(',') || [])).concat(...path.replace('Content/Items/', '').replace('.xml', '').split('/')),
+                        categories: [...new Set(categories).values()],
                         title,
                         price: empty ? 0 : Number(raw.Price?.$baseprice ?? 0),
                         icon: getIcon(raw, path),

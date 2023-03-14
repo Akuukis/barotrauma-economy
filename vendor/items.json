@@ -3,12 +3,12 @@
     "type": "item",
     "id": "40mmchemgrenade",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "grenade",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "40mmchemgrenade",
     "price": 130,
@@ -64,11 +64,9 @@
     "type": "item",
     "id": "40mmgrenade",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "grenade",
-      "Weapons",
-      "weapons"
+      "grenade"
     ],
     "title": "40mmgrenade",
     "price": 100,
@@ -124,11 +122,9 @@
     "type": "item",
     "id": "40mmstungrenade",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "grenade",
-      "Weapons",
-      "weapons"
+      "grenade"
     ],
     "title": "40mmstungrenade",
     "price": 120,
@@ -184,12 +180,10 @@
     "type": "item",
     "id": "abyssdivingsuit",
     "categories": [
-      "Diving",
-      "Equipment",
       "diving",
+      "equipment",
       "deepdiving",
       "provocative",
-      "Diving",
       "divinggear"
     ],
     "title": "abyssdivingsuit",
@@ -240,8 +234,6 @@
     "type": "item",
     "id": "accordion",
     "categories": [
-      "Misc",
-      "Misc",
       "misc"
     ],
     "title": "accordion",
@@ -292,10 +284,8 @@
     "type": "item",
     "id": "adrenaline",
     "categories": [
-      "Medical",
-      "Material",
-      "Medical",
-      "medical"
+      "medical",
+      "material"
     ],
     "title": "Adrenaline",
     "price": 60,
@@ -351,8 +341,7 @@
     "type": "item",
     "id": "adrenalinegland",
     "categories": [
-      "Material",
-      "CreatureLoot",
+      "material",
       "creatureloot"
     ],
     "title": "adrenalinegland",
@@ -403,9 +392,9 @@
     "type": "item",
     "id": "alarmbuzzer",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "alarmbuzzer",
     "price": 100,
@@ -461,8 +450,7 @@
     "type": "item",
     "id": "alienblood",
     "categories": [
-      "Material",
-      "CreatureLoot",
+      "material",
       "creatureloot"
     ],
     "title": "alienblood",
@@ -513,8 +501,7 @@
     "type": "item",
     "id": "aliencircuitry",
     "categories": [
-      "Misc",
-      "CreatureLoot",
+      "misc",
       "creatureloot"
     ],
     "title": "aliencircuitry",
@@ -571,13 +558,12 @@
     "type": "item",
     "id": "alienflare",
     "categories": [
-      "Equipment",
-      "Alien",
+      "equipment",
+      "alien",
       "smallitem",
       "light",
       "provocative",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "alienflare",
     "price": 200,
@@ -627,13 +613,12 @@
     "type": "item",
     "id": "alienflare-empty",
     "categories": [
-      "Equipment",
-      "Alien",
+      "equipment",
+      "alien",
       "smallitem",
       "light",
       "provocative",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "alienflare (empty)",
     "price": 0,
@@ -652,15 +637,12 @@
     "type": "item",
     "id": "alienpistol",
     "categories": [
-      "Weapon",
-      "Alien",
-      "smallitem",
       "weapon",
       "alien",
+      "smallitem",
       "mountableweapon",
       "pistolitem",
-      "Alien",
-      "alienitems"
+      "alienitem"
     ],
     "title": "alienpistol",
     "price": 500,
@@ -710,10 +692,9 @@
     "type": "item",
     "id": "alienpowercell",
     "categories": [
-      "Alien",
-      "Equipment",
-      "Alien",
-      "alienitems"
+      "alien",
+      "equipment",
+      "alienitem"
     ],
     "title": "alienpowercell",
     "price": 150,
@@ -763,10 +744,9 @@
     "type": "item",
     "id": "alienshell",
     "categories": [
-      "Weapon",
+      "weapon",
       "railgunequipment",
       "railgunammo",
-      "Weapons",
       "railgun"
     ],
     "title": "alienshell",
@@ -823,12 +803,10 @@
     "type": "item",
     "id": "alienspear",
     "categories": [
-      "Weapon",
-      "Alien",
+      "weapon",
+      "alien",
       "mediumitem",
-      "harpoonammo",
-      "Weapons",
-      "weapons"
+      "harpoonammo"
     ],
     "title": "alienspear",
     "price": 50,
@@ -878,9 +856,8 @@
     "type": "item",
     "id": "alientranslator",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "alientranslator",
     "price": 500,
@@ -930,9 +907,8 @@
     "type": "item",
     "id": "alientrinket1",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "alientrinket1",
     "price": 300,
@@ -982,9 +958,8 @@
     "type": "item",
     "id": "alientrinket2",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "alientrinket2",
     "price": 300,
@@ -1034,9 +1009,8 @@
     "type": "item",
     "id": "alientrinket3",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "alientrinket3",
     "price": 300,
@@ -1086,9 +1060,7 @@
     "type": "item",
     "id": "aluminium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "aluminium",
     "price": 42,
@@ -1138,9 +1110,8 @@
     "type": "item",
     "id": "amblygonite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "amblygonite",
     "price": 200,
@@ -1190,10 +1161,9 @@
     "type": "item",
     "id": "ancientweapon",
     "categories": [
-      "Alien",
-      "Weapon",
-      "Alien",
-      "alienitems"
+      "alien",
+      "weapon",
+      "alienitem"
     ],
     "title": "ancientweapon",
     "price": 1000,
@@ -1243,8 +1213,6 @@
     "type": "item",
     "id": "antibiotics",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Antibiotics",
@@ -1307,8 +1275,6 @@
     "type": "item",
     "id": "antibleeding1",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Bandage",
@@ -1365,8 +1331,6 @@
     "type": "item",
     "id": "antibleeding2",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Plastiseal",
@@ -1393,8 +1357,6 @@
     "type": "item",
     "id": "antibleeding3",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "AntibioticGlue",
@@ -1421,8 +1383,6 @@
     "type": "item",
     "id": "antibloodloss1",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Saline",
@@ -1479,8 +1439,6 @@
     "type": "item",
     "id": "antibloodloss2",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "BloodPack",
@@ -1513,8 +1471,6 @@
     "type": "item",
     "id": "antidama1",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Morphine",
@@ -1571,8 +1527,6 @@
     "type": "item",
     "id": "antidama2",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Fentanyl",
@@ -1599,8 +1553,6 @@
     "type": "item",
     "id": "antidama2-empty",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Fentanyl (empty)",
@@ -1620,8 +1572,6 @@
     "type": "item",
     "id": "antinarc",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Naloxone",
@@ -1648,8 +1598,6 @@
     "type": "item",
     "id": "antiparalysis",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "ParalysisAntidote",
@@ -1706,8 +1654,6 @@
     "type": "item",
     "id": "antipsychosis",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Haloperidol",
@@ -1764,8 +1710,6 @@
     "type": "item",
     "id": "antirad",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "AntiRad",
@@ -1822,9 +1766,8 @@
     "type": "item",
     "id": "aquaticpoppy",
     "categories": [
-      "Material",
-      "Materials",
-      "medmaterials"
+      "material",
+      "medmaterial"
     ],
     "title": "aquaticpoppy",
     "price": 150,
@@ -1874,9 +1817,8 @@
     "type": "item",
     "id": "aragonite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "aragonite",
     "price": 80,
@@ -1926,14 +1868,13 @@
     "type": "item",
     "id": "arcemitter",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "mountableweapon",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "arcemitter",
     "price": 740,
@@ -1983,12 +1924,11 @@
     "type": "item",
     "id": "artifacttransportcase",
     "categories": [
-      "Equipment",
+      "equipment",
       "mediumitem",
       "mobilecontainer",
       "artifactcontainer",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "artifacttransportcase",
     "price": 300,
@@ -2038,15 +1978,14 @@
     "type": "item",
     "id": "assaultrifle",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "gunsmith",
       "mountableweapon",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "assaultrifle",
     "price": 720,
@@ -2096,13 +2035,13 @@
     "type": "item",
     "id": "assaultriflemagazine",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "assaultrifleammo",
-      "riflemanbonus",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "riflemanbonu",
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "assaultriflemagazine",
     "price": 350,
@@ -2152,13 +2091,13 @@
     "type": "item",
     "id": "assaultriflemagazine-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "assaultrifleammo",
-      "riflemanbonus",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "riflemanbonu",
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "assaultriflemagazine (empty)",
     "price": 0,
@@ -2177,13 +2116,13 @@
     "type": "item",
     "id": "autoinjectorheadset",
     "categories": [
-      "Equipment",
-      "Medical",
+      "equipment",
+      "medical",
       "smallitem",
       "mobileradio",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "autoinjectorheadset",
     "price": 140,
@@ -2233,15 +2172,14 @@
     "type": "item",
     "id": "autoshotgun",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "gunsmith",
       "mountableweapon",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "autoshotgun",
     "price": 710,
@@ -2291,9 +2229,9 @@
     "type": "item",
     "id": "badcreepingorange",
     "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
+      "material",
+      "gardening",
+      "plantproduct"
     ],
     "title": "badcreepingorange",
     "price": 0,
@@ -2312,9 +2250,9 @@
     "type": "item",
     "id": "badraptorbane",
     "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
+      "material",
+      "gardening",
+      "plantproduct"
     ],
     "title": "badraptorbane",
     "price": 0,
@@ -2333,9 +2271,7 @@
     "type": "item",
     "id": "ballisticfiber",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "ballisticfiber",
     "price": 160,
@@ -2385,11 +2321,11 @@
     "type": "item",
     "id": "ballistichelmet1",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Security",
+      "jobgear",
+      "security",
       "securityofficer_gear"
     ],
     "title": "ballistichelmet1",
@@ -2446,11 +2382,11 @@
     "type": "item",
     "id": "ballistichelmet2",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Security",
+      "jobgear",
+      "security",
       "securityofficer_gear"
     ],
     "title": "ballistichelmet2",
@@ -2507,11 +2443,11 @@
     "type": "item",
     "id": "ballistichelmet3",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Security",
+      "jobgear",
+      "security",
       "securityofficer_gear"
     ],
     "title": "ballistichelmet3",
@@ -2568,9 +2504,9 @@
     "type": "item",
     "id": "balloonegg",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetEggs"
+      "misc",
+      "pet",
+      "petegg"
     ],
     "title": "balloonegg",
     "price": 500,
@@ -2620,9 +2556,9 @@
     "type": "item",
     "id": "banana",
     "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
+      "misc",
+      "gardening",
+      "growableplant"
     ],
     "title": "banana",
     "price": 50,
@@ -2678,12 +2614,10 @@
     "type": "item",
     "id": "bananapeel",
     "categories": [
-      "Misc",
+      "misc",
       "smallitem",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "bananapeel",
     "price": 30,
@@ -2709,12 +2643,12 @@
     "type": "item",
     "id": "bandolier",
     "categories": [
-      "Equipment",
+      "equipment",
       "mediumitem",
       "clothing",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "bandolier",
     "price": 250,
@@ -2764,11 +2698,11 @@
     "type": "item",
     "id": "baseballcap",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Mechanic",
+      "jobgear",
+      "mechanic",
       "mechanic_gear"
     ],
     "title": "baseballcap",
@@ -2819,13 +2753,13 @@
     "type": "item",
     "id": "batterycell",
     "categories": [
-      "Equipment",
-      "Electrical",
+      "equipment",
+      "electrical",
       "smallitem",
       "loadable",
       "mobilebattery",
-      "Electricity",
-      "poweritems"
+      "electricity",
+      "poweritem"
     ],
     "title": "batterycell",
     "price": 125,
@@ -2881,13 +2815,11 @@
     "type": "item",
     "id": "bikehorn",
     "categories": [
-      "Misc",
+      "misc",
       "smallitem",
       "hornitem",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "bikehorn",
     "price": 5,
@@ -2943,9 +2875,8 @@
     "type": "item",
     "id": "blackpaint",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "blackpaint",
     "price": 90,
@@ -2995,9 +2926,8 @@
     "type": "item",
     "id": "blackpaint-empty",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "blackpaint (empty)",
     "price": 0,
@@ -3016,9 +2946,8 @@
     "type": "item",
     "id": "bluepaint",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "bluepaint",
     "price": 90,
@@ -3068,9 +2997,8 @@
     "type": "item",
     "id": "bluepaint-empty",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "bluepaint (empty)",
     "price": 0,
@@ -3089,10 +3017,10 @@
     "type": "item",
     "id": "boardingaxe",
     "categories": [
-      "Weapon",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "weapon",
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "boardingaxe",
     "price": 350,
@@ -3142,11 +3070,11 @@
     "type": "item",
     "id": "bodyarmor",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Security",
+      "jobgear",
+      "security",
       "securityofficer_gear"
     ],
     "title": "bodyarmor",
@@ -3203,9 +3131,8 @@
     "type": "item",
     "id": "bornite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "bornite",
     "price": 60,
@@ -3255,9 +3182,8 @@
     "type": "item",
     "id": "brockite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "brockite",
     "price": 150,
@@ -3307,10 +3233,8 @@
     "type": "item",
     "id": "button",
     "categories": [
-      "Electrical",
+      "electrical",
       "smallitem",
-      "button",
-      "Button",
       "button"
     ],
     "title": "button",
@@ -3367,9 +3291,8 @@
     "type": "item",
     "id": "c4block",
     "categories": [
-      "Weapon",
-      "Weapons",
-      "explosives"
+      "weapon",
+      "explosive"
     ],
     "title": "c4block",
     "price": 160,
@@ -3425,9 +3348,7 @@
     "type": "item",
     "id": "calcium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "calcium",
     "price": 31,
@@ -3477,8 +3398,6 @@
     "type": "item",
     "id": "calyxanide",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Calyxanide",
@@ -3541,11 +3460,11 @@
     "type": "item",
     "id": "captainscap1",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Captain",
+      "jobgear",
+      "captain",
       "captain_gear"
     ],
     "title": "captainscap1",
@@ -3596,11 +3515,11 @@
     "type": "item",
     "id": "captainscap2",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Captain",
+      "jobgear",
+      "captain",
       "captain_gear"
     ],
     "title": "captainscap2",
@@ -3651,11 +3570,11 @@
     "type": "item",
     "id": "captainscap3",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Captain",
+      "jobgear",
+      "captain",
       "captain_gear"
     ],
     "title": "captainscap3",
@@ -3706,8 +3625,6 @@
     "type": "item",
     "id": "captainspipe",
     "categories": [
-      "Misc",
-      "Misc",
       "misc"
     ],
     "title": "captainspipe",
@@ -3758,9 +3675,7 @@
     "type": "item",
     "id": "carbon",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "carbon",
     "price": 10,
@@ -3810,11 +3725,11 @@
     "type": "item",
     "id": "cargoscooter",
     "categories": [
-      "Equipment",
-      "Diving",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "equipment",
+      "diving",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "cargoscooter",
     "price": 400,
@@ -3864,9 +3779,8 @@
     "type": "item",
     "id": "cassiterite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "cassiterite",
     "price": 40,
@@ -3916,10 +3830,10 @@
     "type": "item",
     "id": "ceremonialsword",
     "categories": [
-      "Weapon",
-      "Jobgear",
-      "Assistant",
-      "assistant_talent_items"
+      "weapon",
+      "jobgear",
+      "assistant",
+      "assistant_talent_item"
     ],
     "title": "ceremonialsword",
     "price": 340,
@@ -3975,11 +3889,10 @@
     "type": "item",
     "id": "chaingunammobox",
     "categories": [
-      "Weapon",
+      "weapon",
       "chaingunequipment",
       "chaingunammo",
       "ammobox",
-      "Weapons",
       "chaingun"
     ],
     "title": "chaingunammobox",
@@ -4036,11 +3949,10 @@
     "type": "item",
     "id": "chaingunammobox-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "chaingunequipment",
       "chaingunammo",
       "ammobox",
-      "Weapons",
       "chaingun"
     ],
     "title": "chaingunammobox (empty)",
@@ -4060,11 +3972,10 @@
     "type": "item",
     "id": "chaingunammoboxphysicorium",
     "categories": [
-      "Weapon",
+      "weapon",
       "chaingunequipment",
       "chaingunammo",
       "ammobox",
-      "Weapons",
       "chaingun"
     ],
     "title": "chaingunammoboxphysicorium",
@@ -4121,11 +4032,10 @@
     "type": "item",
     "id": "chaingunammoboxphysicorium-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "chaingunequipment",
       "chaingunammo",
       "ammobox",
-      "Weapons",
       "chaingun"
     ],
     "title": "chaingunammoboxphysicorium (empty)",
@@ -4145,11 +4055,10 @@
     "type": "item",
     "id": "chaingunammoboxshredder",
     "categories": [
-      "Weapon",
+      "weapon",
       "chaingunequipment",
       "chaingunammo",
       "ammobox",
-      "Weapons",
       "chaingun"
     ],
     "title": "chaingunammoboxshredder",
@@ -4206,11 +4115,10 @@
     "type": "item",
     "id": "chaingunammoboxshredder-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "chaingunequipment",
       "chaingunammo",
       "ammobox",
-      "Weapons",
       "chaingun"
     ],
     "title": "chaingunammoboxshredder (empty)",
@@ -4230,9 +4138,8 @@
     "type": "item",
     "id": "chalcopyrite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "chalcopyrite",
     "price": 60,
@@ -4282,9 +4189,8 @@
     "type": "item",
     "id": "chamosite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "chamosite",
     "price": 130,
@@ -4334,14 +4240,13 @@
     "type": "item",
     "id": "chemgrenade",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
       "demolitionsexpert",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "chemgrenade",
     "price": 80,
@@ -4399,8 +4304,7 @@
     "categories": [
       "crate",
       "allowcleanup",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "chemicalcrate",
     "price": 0,
@@ -4419,9 +4323,9 @@
     "type": "item",
     "id": "chitin",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetItems"
+      "misc",
+      "pet",
+      "petitem"
     ],
     "title": "chitin",
     "price": 1,
@@ -4440,11 +4344,11 @@
     "type": "item",
     "id": "chitinhelmet",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Pets",
-      "PetItems"
+      "pet",
+      "petitem"
     ],
     "title": "chitinhelmet",
     "price": 175,
@@ -4494,9 +4398,9 @@
     "type": "item",
     "id": "chloralhydrate",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "ChloralHydrate",
     "price": 100,
@@ -4546,9 +4450,7 @@
     "type": "item",
     "id": "chlorine",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "chlorine",
     "price": 11,
@@ -4598,9 +4500,8 @@
     "type": "item",
     "id": "chrysoprase",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "chrysoprase",
     "price": 40,
@@ -4650,10 +4551,10 @@
     "type": "item",
     "id": "cigar",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Captain",
-      "captain_talent_items"
+      "misc",
+      "jobgear",
+      "captain",
+      "captain_talent_item"
     ],
     "title": "cigar",
     "price": 130,
@@ -4672,11 +4573,11 @@
     "type": "item",
     "id": "clothes",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Commoner",
+      "jobgear",
+      "commoner",
       "commoner_gear"
     ],
     "title": "Clothes (18)",
@@ -4747,14 +4648,12 @@
     "type": "item",
     "id": "clowncostume",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
       "clowngear",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "clowncostume",
     "price": 40,
@@ -4812,10 +4711,8 @@
     "categories": [
       "crate",
       "allowcleanup",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "clowncrate",
     "price": 170,
@@ -4834,15 +4731,15 @@
     "type": "item",
     "id": "clowndivingmask",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
       "clownmask",
       "diving",
       "lightdiving",
-      "Jobgear",
-      "Assistant",
-      "assistant_talent_items"
+      "jobgear",
+      "assistant",
+      "assistant_talent_item"
     ],
     "title": "clowndivingmask",
     "price": 150,
@@ -4861,15 +4758,13 @@
     "type": "item",
     "id": "clownexosuit",
     "categories": [
-      "Diving",
-      "Equipment",
+      "diving",
+      "equipment",
       "clowngear",
       "deepdiving",
       "deepdivinglarge",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "clownexosuit",
     "price": 1500,
@@ -4888,14 +4783,12 @@
     "type": "item",
     "id": "clownmask",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
       "clownmask",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "clownmask",
     "price": 40,
@@ -4951,14 +4844,12 @@
     "type": "item",
     "id": "clownmaskunique",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
       "clownmask",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "clownmaskunique",
     "price": 100,
@@ -4984,14 +4875,12 @@
     "type": "item",
     "id": "clownsuitunique",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
       "clowngear",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "clownsuitunique",
     "price": 0,
@@ -5010,10 +4899,10 @@
     "type": "item",
     "id": "coalitioncommendation",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Captain",
-      "captain_talent_items"
+      "equipment",
+      "jobgear",
+      "captain",
+      "captain_talent_item"
     ],
     "title": "coalitioncommendation",
     "price": 300,
@@ -5063,10 +4952,10 @@
     "type": "item",
     "id": "coalitionmedal",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Captain",
-      "captain_talent_items"
+      "equipment",
+      "jobgear",
+      "captain",
+      "captain_talent_item"
     ],
     "title": "coalitionmedal",
     "price": 600,
@@ -5116,11 +5005,10 @@
     "type": "item",
     "id": "coilgunammobox",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "coilgunammobox",
@@ -5177,11 +5065,10 @@
     "type": "item",
     "id": "coilgunammobox-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "coilgunammobox (empty)",
@@ -5201,13 +5088,13 @@
     "type": "item",
     "id": "coilgunammoboxdepletedfuel",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "coilgunammoboxdepletedfuel",
     "price": 280,
@@ -5257,13 +5144,13 @@
     "type": "item",
     "id": "coilgunammoboxdepletedfuel-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "coilgunammoboxdepletedfuel (empty)",
     "price": 0,
@@ -5282,11 +5169,10 @@
     "type": "item",
     "id": "coilgunammoboxexplosive",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "coilgunammoboxexplosive",
@@ -5343,11 +5229,10 @@
     "type": "item",
     "id": "coilgunammoboxexplosive-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "coilgunammoboxexplosive (empty)",
@@ -5367,11 +5252,10 @@
     "type": "item",
     "id": "coilgunammoboxpiercing",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "coilgunammoboxpiercing",
@@ -5428,11 +5312,10 @@
     "type": "item",
     "id": "coilgunammoboxpiercing-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "coilgunammoboxpiercing (empty)",
@@ -5452,12 +5335,10 @@
     "type": "item",
     "id": "combatdivingsuit",
     "categories": [
-      "Diving",
-      "Equipment",
       "diving",
+      "equipment",
       "deepdiving",
       "provocative",
-      "Diving",
       "divinggear"
     ],
     "title": "combatdivingsuit",
@@ -5514,10 +5395,10 @@
     "type": "item",
     "id": "combatstimulantsyringe",
     "categories": [
-      "Medical",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "medical",
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "combatstimulantsyringe",
     "price": 340,
@@ -5567,9 +5448,9 @@
     "type": "item",
     "id": "component",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "Components (32)",
     "price": 100,
@@ -5659,10 +5540,9 @@
     "type": "item",
     "id": "compoundn",
     "categories": [
-      "Weapon",
-      "Material",
-      "Weapons",
-      "explosives"
+      "weapon",
+      "material",
+      "explosive"
     ],
     "title": "compoundn",
     "price": 150,
@@ -5718,9 +5598,7 @@
     "type": "item",
     "id": "copper",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "copper",
     "price": 22,
@@ -5770,8 +5648,7 @@
     "type": "item",
     "id": "crawleregg",
     "categories": [
-      "Misc",
-      "CreatureLoot",
+      "misc",
       "creatureloot"
     ],
     "title": "crawleregg",
@@ -5791,9 +5668,9 @@
     "type": "item",
     "id": "crawlereggprojectile",
     "categories": [
-      "Misc",
-      "Alien",
-      "alienitems"
+      "misc",
+      "alien",
+      "alienitem"
     ],
     "title": "crawlereggprojectile",
     "price": 0,
@@ -5812,10 +5689,9 @@
     "type": "item",
     "id": "crawlermask",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "crawlermask",
@@ -5835,9 +5711,9 @@
     "type": "item",
     "id": "creepingorange",
     "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
+      "material",
+      "gardening",
+      "plantproduct"
     ],
     "title": "creepingorange",
     "price": 20,
@@ -5887,9 +5763,9 @@
     "type": "item",
     "id": "creepingorangevineseed",
     "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
+      "misc",
+      "gardening",
+      "growableplant"
     ],
     "title": "creepingorangevineseed",
     "price": 30,
@@ -5939,9 +5815,8 @@
     "type": "item",
     "id": "crowbar",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "crowbar",
     "price": 20,
@@ -5991,9 +5866,8 @@
     "type": "item",
     "id": "cryolite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "cryolite",
     "price": 80,
@@ -6043,9 +5917,9 @@
     "type": "item",
     "id": "cyanide",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Cyanide",
     "price": 250,
@@ -6101,8 +5975,6 @@
     "type": "item",
     "id": "cyanideantidote",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "CyanideAntidote",
@@ -6165,12 +6037,10 @@
     "type": "item",
     "id": "cymbals",
     "categories": [
-      "Misc",
+      "misc",
       "smallitem",
-      "clowns",
-      "Jobgear",
-      "Clown",
-      "clown"
+      "clown",
+      "jobgear"
     ],
     "title": "cymbals",
     "price": 100,
@@ -6196,12 +6066,12 @@
     "type": "item",
     "id": "defensebotammobox",
     "categories": [
-      "Misc",
+      "misc",
       "smallitem",
       "defensebotammo",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "defensebotammobox",
     "price": 200,
@@ -6233,12 +6103,12 @@
     "type": "item",
     "id": "defensebotammobox-empty",
     "categories": [
-      "Misc",
+      "misc",
       "smallitem",
       "defensebotammo",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "defensebotammobox (empty)",
     "price": 0,
@@ -6257,9 +6127,9 @@
     "type": "item",
     "id": "defensebotspawner",
     "categories": [
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "defensebotspawner",
     "price": 700,
@@ -6309,9 +6179,9 @@
     "type": "item",
     "id": "deliriumine",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Deliriumine",
     "price": 250,
@@ -6361,8 +6231,6 @@
     "type": "item",
     "id": "deliriumineantidote",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "DeliriumineAntidote",
@@ -6419,10 +6287,8 @@
     "type": "item",
     "id": "dementonite",
     "categories": [
-      "Material",
-      "Alien",
-      "Materials",
-      "materials"
+      "material",
+      "alien"
     ],
     "title": "dementonite",
     "price": 200,
@@ -6472,10 +6338,10 @@
     "type": "item",
     "id": "depletedfuel",
     "categories": [
-      "Fuel",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "fuel",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "depletedfuel",
     "price": 75,
@@ -6525,9 +6391,8 @@
     "type": "item",
     "id": "depthchargeshell",
     "categories": [
-      "Weapon",
+      "weapon",
       "depthchargeammo",
-      "Weapons",
       "depthcharge"
     ],
     "title": "depthchargeshell",
@@ -6578,10 +6443,9 @@
     "type": "item",
     "id": "depthdecoyshell",
     "categories": [
-      "Weapon",
+      "weapon",
       "depthchargeammo",
       "decoy",
-      "Weapons",
       "depthcharge"
     ],
     "title": "depthdecoyshell",
@@ -6632,10 +6496,9 @@
     "type": "item",
     "id": "detonator",
     "categories": [
-      "Equipment",
-      "Weapon",
-      "Weapons",
-      "explosives"
+      "equipment",
+      "weapon",
+      "explosive"
     ],
     "title": "detonator",
     "price": 100,
@@ -6697,8 +6560,6 @@
     "type": "item",
     "id": "deusizine",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Deusizine",
@@ -6725,9 +6586,8 @@
     "type": "item",
     "id": "diamond",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "diamond",
     "price": 50,
@@ -6777,10 +6637,9 @@
     "type": "item",
     "id": "diversremains",
     "categories": [
-      "Misc",
+      "misc",
       "mediumitem",
       "monsterfood",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "diversremains",
@@ -6831,9 +6690,7 @@
     "type": "item",
     "id": "divingknife",
     "categories": [
-      "Weapon",
-      "Weapons",
-      "weapons"
+      "weapon"
     ],
     "title": "divingknife",
     "price": 29,
@@ -6895,9 +6752,7 @@
     "type": "item",
     "id": "divingknifeunique",
     "categories": [
-      "Weapon",
-      "Weapons",
-      "weapons"
+      "weapon"
     ],
     "title": "divingknifeunique",
     "price": 770,
@@ -6916,9 +6771,8 @@
     "type": "item",
     "id": "divingmask",
     "categories": [
-      "Diving",
-      "Equipment",
-      "Diving",
+      "diving",
+      "equipment",
       "divinggear"
     ],
     "title": "divingmask",
@@ -6969,12 +6823,10 @@
     "type": "item",
     "id": "divingsuit",
     "categories": [
-      "Diving",
-      "Equipment",
       "diving",
+      "equipment",
       "deepdiving",
       "provocative",
-      "Diving",
       "divinggear"
     ],
     "title": "divingsuit",
@@ -7025,10 +6877,10 @@
     "type": "item",
     "id": "duffelbag",
     "categories": [
-      "Equipment",
+      "equipment",
       "mobilecontainer",
       "despawncontainer",
-      "Jobgear",
+      "jobgear",
       "misc"
     ],
     "title": "duffelbag",
@@ -7048,8 +6900,7 @@
     "type": "item",
     "id": "elastin",
     "categories": [
-      "Material",
-      "Medical",
+      "material",
       "medical"
     ],
     "title": "Elastin",
@@ -7106,9 +6957,8 @@
     "type": "item",
     "id": "elastinplant",
     "categories": [
-      "Material",
-      "Materials",
-      "medmaterials"
+      "material",
+      "medmaterial"
     ],
     "title": "elastinplant",
     "price": 150,
@@ -7158,9 +7008,9 @@
     "type": "item",
     "id": "emergencysiren",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "emergencysiren",
     "price": 150,
@@ -7216,13 +7066,10 @@
     "type": "item",
     "id": "empgrenade",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "empgrenade",
     "price": 175,
@@ -7284,13 +7131,10 @@
     "type": "item",
     "id": "empgrenade-empty",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "empgrenade (empty)",
     "price": 0,
@@ -7309,10 +7153,10 @@
     "type": "item",
     "id": "endocrinebooster",
     "categories": [
-      "Medical",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "medical",
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "endocrinebooster",
     "price": 1400,
@@ -7362,9 +7206,8 @@
     "type": "item",
     "id": "endwormshell",
     "categories": [
-      "Misc",
+      "misc",
       "mediumitem",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "endwormshell",
@@ -7415,9 +7258,8 @@
     "type": "item",
     "id": "esperite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "esperite",
     "price": 100,
@@ -7467,10 +7309,9 @@
     "type": "item",
     "id": "ethanol",
     "categories": [
-      "Medical",
-      "Material",
-      "Medical",
-      "buffs"
+      "medical",
+      "material",
+      "buff"
     ],
     "title": "Ethanol",
     "price": 60,
@@ -7526,10 +7367,10 @@
     "type": "item",
     "id": "europabrew",
     "categories": [
-      "Medical",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "medical",
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "europabrew",
     "price": 200,
@@ -7579,14 +7420,13 @@
     "type": "item",
     "id": "exosuit",
     "categories": [
-      "Diving",
-      "Equipment",
       "diving",
+      "equipment",
       "deepdiving",
       "deepdivinglarge",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "exosuit",
     "price": 80,
@@ -7607,8 +7447,7 @@
     "categories": [
       "crate",
       "allowcleanup",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "explosivecrate",
     "price": 0,
@@ -7627,12 +7466,10 @@
     "type": "item",
     "id": "explosivespear",
     "categories": [
-      "Weapon",
+      "weapon",
       "mediumitem",
       "harpoonammo",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "explosivespear",
     "price": 80,
@@ -7688,9 +7525,8 @@
     "type": "item",
     "id": "extinguisher",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "extinguisher",
     "price": 100,
@@ -7740,9 +7576,8 @@
     "type": "item",
     "id": "extinguisher-empty",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "extinguisher (empty)",
     "price": 0,
@@ -7761,9 +7596,8 @@
     "type": "item",
     "id": "faradayartifact",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "faradayartifact",
     "price": 1000,
@@ -7813,11 +7647,11 @@
     "type": "item",
     "id": "fertilizer",
     "categories": [
-      "Misc",
+      "misc",
       "fertilizer",
       "smallitem",
-      "Gardening",
-      "gardeningtools"
+      "gardening",
+      "gardeningtool"
     ],
     "title": "fertilizer",
     "price": 140,
@@ -7873,11 +7707,11 @@
     "type": "item",
     "id": "fertilizer-empty",
     "categories": [
-      "Misc",
+      "misc",
       "fertilizer",
       "smallitem",
-      "Gardening",
-      "gardeningtools"
+      "gardening",
+      "gardeningtool"
     ],
     "title": "fertilizer (empty)",
     "price": 0,
@@ -7896,9 +7730,8 @@
     "type": "item",
     "id": "fiberplant",
     "categories": [
-      "Material",
-      "Materials",
-      "medmaterials"
+      "material",
+      "medmaterial"
     ],
     "title": "fiberplant",
     "price": 100,
@@ -7948,14 +7781,14 @@
     "type": "item",
     "id": "fixfoamgrenade",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "weapon",
       "explosive",
       "demolitionsexpert",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "fixfoamgrenade",
     "price": 95,
@@ -8005,14 +7838,14 @@
     "type": "item",
     "id": "fixfoamgrenade-empty",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "weapon",
       "explosive",
       "demolitionsexpert",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "fixfoamgrenade (empty)",
     "price": 0,
@@ -8031,9 +7864,8 @@
     "type": "item",
     "id": "flamer",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "flamer",
     "price": 105,
@@ -8089,9 +7921,8 @@
     "type": "item",
     "id": "flamerunique",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "flamerunique",
     "price": 755,
@@ -8110,12 +7941,11 @@
     "type": "item",
     "id": "flare",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "light",
       "provocative",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "flare",
     "price": 30,
@@ -8171,9 +8001,8 @@
     "type": "item",
     "id": "flashlight",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "flashlight",
     "price": 200,
@@ -8223,9 +8052,7 @@
     "type": "item",
     "id": "flashpowder",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "flashpowder",
     "price": 90,
@@ -8275,9 +8102,9 @@
     "type": "item",
     "id": "food",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetItems"
+      "misc",
+      "pet",
+      "petitem"
     ],
     "title": "food",
     "price": 120,
@@ -8327,9 +8154,9 @@
     "type": "item",
     "id": "fpgacircuit",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "fpgacircuit",
     "price": 80,
@@ -8385,13 +8212,10 @@
     "type": "item",
     "id": "fraggrenade",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "fraggrenade",
     "price": 150,
@@ -8447,8 +8271,7 @@
     "type": "item",
     "id": "fuelrod",
     "categories": [
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "fuelrod",
     "price": 150,
@@ -8510,8 +8333,7 @@
     "type": "item",
     "id": "fuelrod-empty",
     "categories": [
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "fuelrod (empty)",
     "price": 0,
@@ -8530,10 +8352,8 @@
     "type": "item",
     "id": "fulgurium",
     "categories": [
-      "Material",
-      "Alien",
-      "Materials",
-      "materials"
+      "material",
+      "alien"
     ],
     "title": "fulgurium",
     "price": 200,
@@ -8583,13 +8403,13 @@
     "type": "item",
     "id": "fulguriumbatterycell",
     "categories": [
-      "Equipment",
-      "Electrical",
+      "equipment",
+      "electrical",
       "smallitem",
       "loadable",
       "mobilebattery",
-      "Electricity",
-      "poweritems"
+      "electricity",
+      "poweritem"
     ],
     "title": "fulguriumbatterycell",
     "price": 250,
@@ -8645,8 +8465,7 @@
     "type": "item",
     "id": "fulguriumfuelrod",
     "categories": [
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "fulguriumfuelrod",
     "price": 250,
@@ -8702,8 +8521,7 @@
     "type": "item",
     "id": "fulguriumfuelrod-empty",
     "categories": [
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "fulguriumfuelrod (empty)",
     "price": 0,
@@ -8722,10 +8540,10 @@
     "type": "item",
     "id": "fulguriumfuelrodvolatile",
     "categories": [
-      "Fuel",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "fuel",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "fulguriumfuelrodvolatile",
     "price": 400,
@@ -8775,10 +8593,10 @@
     "type": "item",
     "id": "fulguriumfuelrodvolatile-empty",
     "categories": [
-      "Fuel",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "fuel",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "fulguriumfuelrodvolatile (empty)",
     "price": 0,
@@ -8797,9 +8615,8 @@
     "type": "item",
     "id": "galena",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "galena",
     "price": 70,
@@ -8849,10 +8666,9 @@
     "type": "item",
     "id": "genesplicer",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "geneticdevice",
-      "Genetic",
       "genetic"
     ],
     "title": "genesplicer",
@@ -8897,11 +8713,10 @@
     "type": "item",
     "id": "geneticmaterial_unresearched",
     "categories": [
-      "Material",
+      "material",
       "smallitem",
       "unidentifiedgeneticmaterial",
-      "blackmarketgenes",
-      "Genetic",
+      "blackmarketgene",
       "genetic"
     ],
     "title": "geneticmaterial_unresearched",
@@ -8934,10 +8749,9 @@
     "type": "item",
     "id": "geneticmaterialcrawler",
     "categories": [
-      "Material",
+      "material",
       "smallitem",
       "geneticmaterial",
-      "Genetic",
       "genetic"
     ],
     "title": "geneticmaterialcrawler",
@@ -8970,12 +8784,11 @@
     "type": "item",
     "id": "glowstick",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "light",
       "provocative",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "glowstick",
     "price": 45,
@@ -9031,9 +8844,8 @@
     "type": "item",
     "id": "graphite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "graphite",
     "price": 25,
@@ -9083,9 +8895,8 @@
     "type": "item",
     "id": "greenpaint",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "greenpaint",
     "price": 90,
@@ -9135,9 +8946,8 @@
     "type": "item",
     "id": "greenpaint-empty",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "greenpaint (empty)",
     "price": 0,
@@ -9156,14 +8966,11 @@
     "type": "item",
     "id": "grenadelauncher",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "grenadelauncher",
     "price": 1000,
@@ -9219,8 +9026,6 @@
     "type": "item",
     "id": "guitar",
     "categories": [
-      "Misc",
-      "Misc",
       "misc"
     ],
     "title": "guitar",
@@ -9271,9 +9076,9 @@
     "type": "item",
     "id": "hallucinogenicbufotoxin",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Bufotoxin",
     "price": 200,
@@ -9292,9 +9097,8 @@
     "type": "item",
     "id": "hammerheadribs",
     "categories": [
-      "Misc",
+      "misc",
       "mediumitem",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "hammerheadribs",
@@ -9345,15 +9149,14 @@
     "type": "item",
     "id": "handcannon",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "gun",
       "pistolitem",
       "mountableweapon",
-      "Jobgear",
-      "Captain",
-      "captain_talent_items"
+      "jobgear",
+      "captain",
+      "captain_talent_item"
     ],
     "title": "handcannon",
     "price": 600,
@@ -9403,13 +9206,13 @@
     "type": "item",
     "id": "handcannonround",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "handcannonammo",
       "pistolammoitem",
-      "Jobgear",
-      "Captain",
-      "captain_talent_items"
+      "jobgear",
+      "captain",
+      "captain_talent_item"
     ],
     "title": "handcannonround",
     "price": 70,
@@ -9428,11 +9231,11 @@
     "type": "item",
     "id": "handcuffs",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "handlocker",
-      "Jobgear",
-      "Security",
+      "jobgear",
+      "security",
       "securityofficer_gear"
     ],
     "title": "handcuffs",
@@ -9489,10 +9292,10 @@
     "type": "item",
     "id": "handheldelectricalmonitor",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "equipment",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "handheldelectricalmonitor",
     "price": 150,
@@ -9542,10 +9345,10 @@
     "type": "item",
     "id": "handhelditemfinder",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Assistant",
-      "assistant_talent_items"
+      "equipment",
+      "jobgear",
+      "assistant",
+      "assistant_talent_item"
     ],
     "title": "handhelditemfinder",
     "price": 140,
@@ -9595,9 +9398,8 @@
     "type": "item",
     "id": "handheldsonar",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "handheldsonar",
     "price": 150,
@@ -9653,10 +9455,10 @@
     "type": "item",
     "id": "handheldstatusmonitor",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "equipment",
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "handheldstatusmonitor",
     "price": 140,
@@ -9706,9 +9508,9 @@
     "type": "item",
     "id": "handheldterminal",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "handheldterminal",
     "price": 100,
@@ -9727,8 +9529,6 @@
     "type": "item",
     "id": "harmonica",
     "categories": [
-      "Misc",
-      "Misc",
       "misc"
     ],
     "title": "harmonica",
@@ -9779,13 +9579,10 @@
     "type": "item",
     "id": "harpooncoilrifle",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "harpooncoilrifle",
     "price": 270,
@@ -9841,13 +9638,10 @@
     "type": "item",
     "id": "harpoongun",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "harpoongun",
     "price": 170,
@@ -9903,10 +9697,10 @@
     "type": "item",
     "id": "headset",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "mobileradio",
-      "Jobgear",
+      "jobgear",
       "misc"
     ],
     "title": "headset",
@@ -9957,11 +9751,11 @@
     "type": "item",
     "id": "healthscanner",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Medic",
+      "jobgear",
+      "medic",
       "medic_gear"
     ],
     "title": "healthscanner",
@@ -10018,14 +9812,11 @@
     "type": "item",
     "id": "hmg",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "hmg",
     "price": 900,
@@ -10081,11 +9872,9 @@
     "type": "item",
     "id": "hmgmagazine",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "hmgammo",
-      "Weapons",
-      "weapons"
+      "hmgammo"
     ],
     "title": "hmgmagazine",
     "price": 350,
@@ -10141,11 +9930,9 @@
     "type": "item",
     "id": "hmgmagazine-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "hmgammo",
-      "Weapons",
-      "weapons"
+      "hmgammo"
     ],
     "title": "hmgmagazine (empty)",
     "price": 0,
@@ -10164,9 +9951,8 @@
     "type": "item",
     "id": "honkmotherianscriptures1",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Clown",
+      "misc",
+      "jobgear",
       "clown"
     ],
     "title": "honkmotherianscriptures1",
@@ -10193,8 +9979,7 @@
     "type": "item",
     "id": "huskeggs",
     "categories": [
-      "Material",
-      "CreatureLoot",
+      "material",
       "creatureloot"
     ],
     "title": "huskeggs",
@@ -10251,8 +10036,7 @@
     "type": "item",
     "id": "huskeggsbasic",
     "categories": [
-      "Material",
-      "CreatureLoot",
+      "material",
       "creatureloot"
     ],
     "title": "huskeggsbasic",
@@ -10303,8 +10087,7 @@
     "type": "item",
     "id": "huskstinger",
     "categories": [
-      "Weapon",
-      "CreatureLoot",
+      "weapon",
       "creatureloot"
     ],
     "title": "huskstinger",
@@ -10324,9 +10107,8 @@
     "type": "item",
     "id": "hydroxyapatite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "hydroxyapatite",
     "price": 100,
@@ -10376,9 +10158,8 @@
     "type": "item",
     "id": "hyperzine",
     "categories": [
-      "Medical",
-      "Medical",
-      "buffs"
+      "medical",
+      "buff"
     ],
     "title": "Hyperzine",
     "price": 450,
@@ -10428,9 +10209,8 @@
     "type": "item",
     "id": "ic4block",
     "categories": [
-      "Weapon",
-      "Weapons",
-      "explosives"
+      "weapon",
+      "explosive"
     ],
     "title": "ic4block",
     "price": 400,
@@ -10486,7 +10266,7 @@
     "type": "item",
     "id": "idcard",
     "categories": [
-      "Equipment",
+      "equipment",
       "idcard"
     ],
     "title": "idcard",
@@ -10519,7 +10299,7 @@
     "type": "item",
     "id": "idcardwreck",
     "categories": [
-      "Equipment",
+      "equipment",
       "idcard"
     ],
     "title": "idcardwreck",
@@ -10539,9 +10319,8 @@
     "type": "item",
     "id": "ilmenite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "ilmenite",
     "price": 100,
@@ -10591,10 +10370,8 @@
     "type": "item",
     "id": "incendium",
     "categories": [
-      "Material",
-      "Alien",
-      "Materials",
-      "materials"
+      "material",
+      "alien"
     ],
     "title": "incendium",
     "price": 200,
@@ -10644,10 +10421,9 @@
     "type": "item",
     "id": "incendiumfueltank",
     "categories": [
-      "Equipment",
-      "Fuel",
-      "Tools",
-      "tools"
+      "equipment",
+      "fuel",
+      "tool"
     ],
     "title": "incendiumfueltank",
     "price": 250,
@@ -10697,10 +10473,9 @@
     "type": "item",
     "id": "incendiumfueltank-empty",
     "categories": [
-      "Equipment",
-      "Fuel",
-      "Tools",
-      "tools"
+      "equipment",
+      "fuel",
+      "tool"
     ],
     "title": "incendiumfueltank (empty)",
     "price": 0,
@@ -10719,13 +10494,10 @@
     "type": "item",
     "id": "incendiumgrenade",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "incendiumgrenade",
     "price": 175,
@@ -10781,9 +10553,7 @@
     "type": "item",
     "id": "iron",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "iron",
     "price": 8,
@@ -10833,12 +10603,12 @@
     "type": "item",
     "id": "ironhelmet",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "ironhelmet",
     "price": 50,
@@ -10894,9 +10664,8 @@
     "type": "item",
     "id": "ironore",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "ironore",
     "price": 25,
@@ -10946,9 +10715,8 @@
     "type": "item",
     "id": "langbeinite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "langbeinite",
     "price": 200,
@@ -10998,8 +10766,7 @@
     "type": "item",
     "id": "largemudraptoregg",
     "categories": [
-      "Misc",
-      "CreatureLoot",
+      "misc",
       "creatureloot"
     ],
     "title": "largemudraptoregg",
@@ -11019,9 +10786,8 @@
     "type": "item",
     "id": "lazulite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "lazulite",
     "price": 25,
@@ -11071,9 +10837,7 @@
     "type": "item",
     "id": "lead",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "lead",
     "price": 18,
@@ -11123,10 +10887,9 @@
     "type": "item",
     "id": "lever",
     "categories": [
-      "Electrical",
+      "electrical",
       "smallitem",
       "switch",
-      "Button",
       "button"
     ],
     "title": "lever",
@@ -11183,9 +10946,9 @@
     "type": "item",
     "id": "lightcomponent",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "lightcomponent",
     "price": 110,
@@ -11241,9 +11004,9 @@
     "type": "item",
     "id": "lightcomponent90",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "lightcomponent90",
     "price": 110,
@@ -11299,9 +11062,9 @@
     "type": "item",
     "id": "lightcomponentround",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "lightcomponentround",
     "price": 110,
@@ -11357,8 +11120,6 @@
     "type": "item",
     "id": "liquidoxygenite",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "LiquidOxygenite",
@@ -11415,9 +11176,7 @@
     "type": "item",
     "id": "lithium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "lithium",
     "price": 88,
@@ -11467,15 +11226,12 @@
     "type": "item",
     "id": "machinepistol",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallautoweapon",
       "smallitem",
-      "weapon",
       "gun",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "machinepistol",
     "price": 200,
@@ -11531,9 +11287,7 @@
     "type": "item",
     "id": "magnesium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "magnesium",
     "price": 65,
@@ -11583,12 +11337,12 @@
     "type": "item",
     "id": "makeshiftarmor",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "makeshiftarmor",
     "price": 140,
@@ -11646,9 +11400,9 @@
     "categories": [
       "container",
       "cargocontainer",
-      "Jobgear",
-      "Assistant",
-      "assistant_talent_items"
+      "jobgear",
+      "assistant",
+      "assistant_talent_item"
     ],
     "title": "makeshiftshelf",
     "price": 140,
@@ -11698,11 +11452,10 @@
     "type": "item",
     "id": "mediccrate",
     "categories": [
-      "Medical",
+      "medical",
       "crate",
       "allowcleanup",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "mediccrate",
     "price": 0,
@@ -11721,8 +11474,7 @@
     "type": "item",
     "id": "mediummudraptoregg",
     "categories": [
-      "Misc",
-      "CreatureLoot",
+      "misc",
       "creatureloot"
     ],
     "title": "mediummudraptoregg",
@@ -11744,8 +11496,7 @@
     "categories": [
       "crate",
       "allowcleanup",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "metalcrate",
     "price": 0,
@@ -11764,9 +11515,8 @@
     "type": "item",
     "id": "meth",
     "categories": [
-      "Medical",
-      "Medical",
-      "buffs"
+      "medical",
+      "buff"
     ],
     "title": "Methamphetamine",
     "price": 50,
@@ -11816,9 +11566,8 @@
     "type": "item",
     "id": "molochbone",
     "categories": [
-      "Misc",
+      "misc",
       "mediumitem",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "molochbone",
@@ -11869,9 +11618,9 @@
     "type": "item",
     "id": "morbusine",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Morbusine",
     "price": 200,
@@ -11927,8 +11676,6 @@
     "type": "item",
     "id": "morbusineantidote",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "MorbusineAntidote",
@@ -11991,9 +11738,9 @@
     "type": "item",
     "id": "motiondetector",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "motiondetector",
     "price": 130,
@@ -12049,9 +11796,9 @@
     "type": "item",
     "id": "mucusball",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetItems"
+      "misc",
+      "pet",
+      "petitem"
     ],
     "title": "mucusball",
     "price": 1,
@@ -12070,10 +11817,9 @@
     "type": "item",
     "id": "mudraptorshell",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "mudraptorshell",
@@ -12093,9 +11839,8 @@
     "type": "item",
     "id": "nasonovartifact",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "nasonovartifact",
     "price": 1000,
@@ -12145,10 +11890,9 @@
     "type": "item",
     "id": "nitroglycerin",
     "categories": [
-      "Material",
-      "Weapon",
-      "Weapons",
-      "explosives"
+      "material",
+      "weapon",
+      "explosive"
     ],
     "title": "nitroglycerin",
     "price": 150,
@@ -12204,9 +11948,8 @@
     "type": "item",
     "id": "nucleardepthcharge",
     "categories": [
-      "Weapon",
+      "weapon",
       "depthchargeammo",
-      "Weapons",
       "depthcharge"
     ],
     "title": "nucleardepthcharge",
@@ -12257,10 +12000,9 @@
     "type": "item",
     "id": "nucleardepthdecoy",
     "categories": [
-      "Weapon",
+      "weapon",
       "depthchargeammo",
       "decoy",
-      "Weapons",
       "depthcharge"
     ],
     "title": "nucleardepthdecoy",
@@ -12311,14 +12053,13 @@
     "type": "item",
     "id": "nucleargun",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "mountableweapon",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "nucleargun",
     "price": 900,
@@ -12368,10 +12109,9 @@
     "type": "item",
     "id": "nuclearshell",
     "categories": [
-      "Weapon",
+      "weapon",
       "railgunequipment",
       "railgunammo",
-      "Weapons",
       "railgun"
     ],
     "title": "nuclearshell",
@@ -12428,8 +12168,6 @@
     "type": "item",
     "id": "opium",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "Opium",
@@ -12486,9 +12224,9 @@
     "type": "item",
     "id": "orangeboyegg",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetEggs"
+      "misc",
+      "pet",
+      "petegg"
     ],
     "title": "orangeboyegg",
     "price": 500,
@@ -12538,9 +12276,7 @@
     "type": "item",
     "id": "organicfiber",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "organicfiber",
     "price": 30,
@@ -12590,9 +12326,9 @@
     "type": "item",
     "id": "oscillator",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "oscillator",
     "price": 100,
@@ -12648,9 +12384,9 @@
     "type": "item",
     "id": "oxygendetector",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "oxygendetector",
     "price": 100,
@@ -12706,12 +12442,10 @@
     "type": "item",
     "id": "oxygeniteshard",
     "categories": [
-      "Alien",
-      "Material",
       "alien",
+      "material",
       "smallitem",
-      "Alien",
-      "alienitems"
+      "alienitem"
     ],
     "title": "oxygeniteshard",
     "price": 200,
@@ -12761,12 +12495,10 @@
     "type": "item",
     "id": "oxygeniteshard-empty",
     "categories": [
-      "Alien",
-      "Material",
       "alien",
+      "material",
       "smallitem",
-      "Alien",
-      "alienitems"
+      "alienitem"
     ],
     "title": "oxygeniteshard (empty)",
     "price": 0,
@@ -12785,10 +12517,9 @@
     "type": "item",
     "id": "oxygenitetank",
     "categories": [
-      "Diving",
-      "Equipment",
-      "Tools",
-      "tools"
+      "diving",
+      "equipment",
+      "tool"
     ],
     "title": "oxygenitetank",
     "price": 175,
@@ -12838,10 +12569,9 @@
     "type": "item",
     "id": "oxygenitetank-empty",
     "categories": [
-      "Diving",
-      "Equipment",
-      "Tools",
-      "tools"
+      "diving",
+      "equipment",
+      "tool"
     ],
     "title": "oxygenitetank (empty)",
     "price": 0,
@@ -12860,10 +12590,9 @@
     "type": "item",
     "id": "oxygentank",
     "categories": [
-      "Diving",
-      "Equipment",
-      "Tools",
-      "tools"
+      "diving",
+      "equipment",
+      "tool"
     ],
     "title": "oxygentank",
     "price": 75,
@@ -12913,9 +12642,8 @@
     "type": "item",
     "id": "paralyxis",
     "categories": [
-      "Material",
-      "Materials",
-      "medmaterials"
+      "material",
+      "medmaterial"
     ],
     "title": "paralyxis",
     "price": 190,
@@ -12965,9 +12693,9 @@
     "type": "item",
     "id": "paralyzant",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Paralyzant",
     "price": 380,
@@ -13017,9 +12745,9 @@
     "type": "item",
     "id": "peanutegg",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetEggs"
+      "misc",
+      "pet",
+      "petegg"
     ],
     "title": "peanutegg",
     "price": 500,
@@ -13069,9 +12797,9 @@
     "type": "item",
     "id": "petnametag",
     "categories": [
-      "Equipment",
-      "Pets",
-      "PetItems"
+      "equipment",
+      "pet",
+      "petitem"
     ],
     "title": "petnametag",
     "price": 10,
@@ -13121,10 +12849,10 @@
     "type": "item",
     "id": "petraptoregg",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Assistant",
-      "assistant_talent_items"
+      "misc",
+      "jobgear",
+      "assistant",
+      "assistant_talent_item"
     ],
     "title": "petraptoregg",
     "price": 550,
@@ -13143,9 +12871,7 @@
     "type": "item",
     "id": "phosphorus",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "phosphorus",
     "price": 25,
@@ -13195,10 +12921,8 @@
     "type": "item",
     "id": "physicorium",
     "categories": [
-      "Material",
-      "Alien",
-      "Materials",
-      "materials"
+      "material",
+      "alien"
     ],
     "title": "physicorium",
     "price": 200,
@@ -13248,11 +12972,10 @@
     "type": "item",
     "id": "physicoriumammobox",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "physicoriumammobox",
@@ -13309,11 +13032,10 @@
     "type": "item",
     "id": "physicoriumammobox-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "coilgunequipment",
       "coilgunammo",
       "ammobox",
-      "Weapons",
       "coilgun"
     ],
     "title": "physicoriumammobox (empty)",
@@ -13333,8 +13055,6 @@
     "type": "item",
     "id": "pipetobacco",
     "categories": [
-      "Misc",
-      "Misc",
       "misc"
     ],
     "title": "pipetobacco",
@@ -13385,9 +13105,8 @@
     "type": "item",
     "id": "plasmacutter",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "plasmacutter",
     "price": 150,
@@ -13443,9 +13162,7 @@
     "type": "item",
     "id": "plastic",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "plastic",
     "price": 45,
@@ -13495,9 +13212,8 @@
     "type": "item",
     "id": "polyhalite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "polyhalite",
     "price": 50,
@@ -13547,8 +13263,6 @@
     "type": "item",
     "id": "pomegrenadeextract",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "pomegrenadeextract",
@@ -13599,9 +13313,9 @@
     "type": "item",
     "id": "poop",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetItems"
+      "misc",
+      "pet",
+      "petitem"
     ],
     "title": "poop",
     "price": 0,
@@ -13620,11 +13334,11 @@
     "type": "item",
     "id": "portablepump",
     "categories": [
-      "Machine",
+      "machine",
       "smallitem",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "portablepump",
     "price": 520,
@@ -13674,9 +13388,7 @@
     "type": "item",
     "id": "potassium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "potassium",
     "price": 10,
@@ -13726,10 +13438,10 @@
     "type": "item",
     "id": "pressurestabilizer",
     "categories": [
-      "Medical",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "medical",
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "pressurestabilizer",
     "price": 200,
@@ -13779,9 +13491,9 @@
     "type": "item",
     "id": "psilotoadegg",
     "categories": [
-      "Misc",
-      "Pets",
-      "PetEggs"
+      "misc",
+      "pet",
+      "petegg"
     ],
     "title": "psilotoadegg",
     "price": 500,
@@ -13831,9 +13543,8 @@
     "type": "item",
     "id": "psychosisartifact",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "psychosisartifact",
     "price": 1000,
@@ -13883,15 +13594,14 @@
     "type": "item",
     "id": "pucs",
     "categories": [
-      "Equipment",
-      "Diving",
+      "equipment",
       "diving",
       "deepdiving",
-      "divinggear_wearableindoors",
+      "divinggear_wearableindoor",
       "provocative",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "pucs",
     "price": 670,
@@ -13941,11 +13651,10 @@
     "type": "item",
     "id": "pulselaserammobox",
     "categories": [
-      "Weapon",
+      "weapon",
       "pulselaserequipment",
       "pulselaserammo",
       "ammobox",
-      "Weapons",
       "pulselaser"
     ],
     "title": "pulselaserammobox",
@@ -14002,11 +13711,10 @@
     "type": "item",
     "id": "pulselaserammobox-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "pulselaserequipment",
       "pulselaserammo",
       "ammobox",
-      "Weapons",
       "pulselaser"
     ],
     "title": "pulselaserammobox (empty)",
@@ -14026,11 +13734,10 @@
     "type": "item",
     "id": "pulselaserammoboxtrilaser",
     "categories": [
-      "Weapon",
+      "weapon",
       "pulselaserequipment",
       "pulselaserammo",
       "ammobox",
-      "Weapons",
       "pulselaser"
     ],
     "title": "pulselaserammoboxtrilaser",
@@ -14087,11 +13794,10 @@
     "type": "item",
     "id": "pulselaserammoboxtrilaser-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "pulselaserequipment",
       "pulselaserammo",
       "ammobox",
-      "Weapons",
       "pulselaser"
     ],
     "title": "pulselaserammoboxtrilaser (empty)",
@@ -14111,9 +13817,8 @@
     "type": "item",
     "id": "pyromorphite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "pyromorphite",
     "price": 30,
@@ -14163,9 +13868,8 @@
     "type": "item",
     "id": "quartz",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "quartz",
     "price": 100,
@@ -14215,9 +13919,9 @@
     "type": "item",
     "id": "radiotoxin",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Radiotoxin",
     "price": 200,
@@ -14267,11 +13971,10 @@
     "type": "item",
     "id": "railguncanistershell",
     "categories": [
-      "Weapon",
+      "weapon",
       "railgunequipment",
       "railgunammo",
       "containershell",
-      "Weapons",
       "railgun"
     ],
     "title": "railguncanistershell",
@@ -14328,11 +14031,10 @@
     "type": "item",
     "id": "railguncanistershell-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "railgunequipment",
       "railgunammo",
       "containershell",
-      "Weapons",
       "railgun"
     ],
     "title": "railguncanistershell (empty)",
@@ -14352,10 +14054,9 @@
     "type": "item",
     "id": "railgunshell",
     "categories": [
-      "Weapon",
+      "weapon",
       "railgunequipment",
       "railgunammo",
-      "Weapons",
       "railgun"
     ],
     "title": "railgunshell",
@@ -14412,9 +14113,9 @@
     "type": "item",
     "id": "raptorbane",
     "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
+      "material",
+      "gardening",
+      "plantproduct"
     ],
     "title": "raptorbane",
     "price": 40,
@@ -14464,9 +14165,9 @@
     "type": "item",
     "id": "raptorbaneextract",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "raptorbaneextract",
     "price": 250,
@@ -14516,9 +14217,9 @@
     "type": "item",
     "id": "raptorbaneseed",
     "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
+      "misc",
+      "gardening",
+      "growableplant"
     ],
     "title": "raptorbaneseed",
     "price": 30,
@@ -14568,10 +14269,10 @@
     "type": "item",
     "id": "reactorpda",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "equipment",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "reactorpda",
     "price": 150,
@@ -14621,9 +14322,8 @@
     "type": "item",
     "id": "redpaint",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "redpaint",
     "price": 140,
@@ -14673,9 +14373,8 @@
     "type": "item",
     "id": "redpaint-empty",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "redpaint (empty)",
     "price": 0,
@@ -14694,10 +14393,10 @@
     "type": "item",
     "id": "repairpack",
     "categories": [
-      "Equipment",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "equipment",
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "repairpack",
     "price": 43,
@@ -14747,13 +14446,11 @@
     "type": "item",
     "id": "respawndivingsuit",
     "categories": [
-      "Diving",
-      "Equipment",
       "diving",
+      "equipment",
       "deepdiving",
       "provocative",
       "respawnsuit",
-      "Diving",
       "divinggear"
     ],
     "title": "respawndivingsuit",
@@ -14773,15 +14470,12 @@
     "type": "item",
     "id": "revolver",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "gun",
       "pistolitem",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "revolver",
     "price": 150,
@@ -14837,12 +14531,10 @@
     "type": "item",
     "id": "revolverround",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "revolverammo",
-      "pistolammoitem",
-      "Weapons",
-      "weapons"
+      "pistolammoitem"
     ],
     "title": "revolverround",
     "price": 30,
@@ -14898,14 +14590,11 @@
     "type": "item",
     "id": "rifle",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "rifle",
     "price": 500,
@@ -14961,12 +14650,10 @@
     "type": "item",
     "id": "riflebullet",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "rifleammo",
-      "riflemanbonus",
-      "Weapons",
-      "weapons"
+      "riflemanbonu"
     ],
     "title": "riflebullet",
     "price": 30,
@@ -15022,11 +14709,11 @@
     "type": "item",
     "id": "riotshield",
     "categories": [
-      "Equipment",
+      "equipment",
       "mediumitem",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "riotshield",
     "price": 360,
@@ -15076,9 +14763,7 @@
     "type": "item",
     "id": "rubber",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "rubber",
     "price": 20,
@@ -15128,11 +14813,11 @@
     "type": "item",
     "id": "rum",
     "categories": [
-      "Medical",
-      "Material",
-      "Jobgear",
-      "Captain",
-      "captain_talent_items"
+      "medical",
+      "material",
+      "jobgear",
+      "captain",
+      "captain_talent_item"
     ],
     "title": "Rum",
     "price": 130,
@@ -15158,12 +14843,12 @@
     "type": "item",
     "id": "safetyharness",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "safetyharness",
     "price": 120,
@@ -15213,9 +14898,9 @@
     "type": "item",
     "id": "saltbulb",
     "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
+      "material",
+      "gardening",
+      "plantproduct"
     ],
     "title": "saltbulb",
     "price": 65,
@@ -15265,9 +14950,9 @@
     "type": "item",
     "id": "saltvineseed",
     "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
+      "misc",
+      "gardening",
+      "growableplant"
     ],
     "title": "saltvineseed",
     "price": 30,
@@ -15317,9 +15002,7 @@
     "type": "item",
     "id": "scrap",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "scrap",
     "price": 5,
@@ -15338,14 +15021,13 @@
     "type": "item",
     "id": "scrapcannon",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "mountableweapon",
-      "Jobgear",
-      "Mechanic",
-      "mechanic_talent_items"
+      "jobgear",
+      "mechanic",
+      "mechanic_talent_item"
     ],
     "title": "scrapcannon",
     "price": 640,
@@ -15395,9 +15077,8 @@
     "type": "item",
     "id": "screwdriver",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "screwdriver",
     "price": 10,
@@ -15454,8 +15135,7 @@
     "id": "sealedsupplycrate",
     "categories": [
       "crate",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "sealedsupplycrate",
     "price": 1250,
@@ -15476,8 +15156,7 @@
     "categories": [
       "crate",
       "securecrate",
-      "Containers",
-      "containers"
+      "container"
     ],
     "title": "securemetalcrate",
     "price": 0,
@@ -15496,9 +15175,9 @@
     "type": "item",
     "id": "seedbag",
     "categories": [
-      "Misc",
-      "Gardening",
-      "gardeningtools"
+      "misc",
+      "gardening",
+      "gardeningtool"
     ],
     "title": "seedbag",
     "price": 60,
@@ -15548,9 +15227,8 @@
     "type": "item",
     "id": "shellshield",
     "categories": [
-      "Equipment",
+      "equipment",
       "mediumitem",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "shellshield",
@@ -15570,14 +15248,11 @@
     "type": "item",
     "id": "shotgun",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "shotgun",
     "price": 500,
@@ -15633,11 +15308,9 @@
     "type": "item",
     "id": "shotgunshell",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "shotgunammo",
-      "Weapons",
-      "weapons"
+      "shotgunammo"
     ],
     "title": "shotgunshell",
     "price": 30,
@@ -15693,11 +15366,9 @@
     "type": "item",
     "id": "shotgunshellblunt",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "shotgunammo",
-      "Weapons",
-      "weapons"
+      "shotgunammo"
     ],
     "title": "shotgunshellblunt",
     "price": 20,
@@ -15753,12 +15424,12 @@
     "type": "item",
     "id": "shotgunslugexplosive",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "shotgunammo",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "shotgunslugexplosive",
     "price": 75,
@@ -15808,13 +15479,10 @@
     "type": "item",
     "id": "shotgununique",
     "categories": [
-      "Weapon",
-      "mediumitem",
       "weapon",
+      "mediumitem",
       "gun",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "shotgununique",
     "price": 931,
@@ -15833,9 +15501,7 @@
     "type": "item",
     "id": "silicon",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "silicon",
     "price": 17,
@@ -15885,10 +15551,10 @@
     "type": "item",
     "id": "skillbookeuropanmedicine",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "misc",
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "skillbookeuropanmedicine",
     "price": 350,
@@ -15938,10 +15604,10 @@
     "type": "item",
     "id": "skillbookhandyseaman",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "misc",
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "skillbookhandyseaman",
     "price": 350,
@@ -15991,10 +15657,10 @@
     "type": "item",
     "id": "skillbooksailorsguide",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Assistant",
-      "assistant_talent_items"
+      "misc",
+      "jobgear",
+      "assistant",
+      "assistant_talent_item"
     ],
     "title": "skillbooksailorsguide",
     "price": 350,
@@ -16044,10 +15710,10 @@
     "type": "item",
     "id": "skillbooksubmarinewarfare",
     "categories": [
-      "Misc",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "misc",
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "skillbooksubmarinewarfare",
     "price": 350,
@@ -16097,9 +15763,8 @@
     "type": "item",
     "id": "skyholderartifact",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "skyholderartifact",
     "price": 1000,
@@ -16149,9 +15814,8 @@
     "type": "item",
     "id": "slimebacteria",
     "categories": [
-      "Material",
-      "Materials",
-      "medmaterials"
+      "material",
+      "medmaterial"
     ],
     "title": "slimebacteria",
     "price": 150,
@@ -16201,9 +15865,9 @@
     "type": "item",
     "id": "smallcrawleregg",
     "categories": [
-      "Misc",
-      "Alien",
-      "alienitems"
+      "misc",
+      "alien",
+      "alienitem"
     ],
     "title": "smallcrawleregg",
     "price": 80,
@@ -16222,8 +15886,7 @@
     "type": "item",
     "id": "smallmudraptoregg",
     "categories": [
-      "Misc",
-      "CreatureLoot",
+      "misc",
       "creatureloot"
     ],
     "title": "smallmudraptoregg",
@@ -16274,9 +15937,9 @@
     "type": "item",
     "id": "smallplanter",
     "categories": [
-      "Misc",
-      "Gardening",
-      "gardeningtools"
+      "misc",
+      "gardening",
+      "gardeningtool"
     ],
     "title": "smallplanter",
     "price": 120,
@@ -16326,9 +15989,9 @@
     "type": "item",
     "id": "smallplanter-empty",
     "categories": [
-      "Misc",
-      "Gardening",
-      "gardeningtools"
+      "misc",
+      "gardening",
+      "gardeningtool"
     ],
     "title": "smallplanter (empty)",
     "price": 0,
@@ -16347,15 +16010,12 @@
     "type": "item",
     "id": "smg",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallautoweapon",
       "smallitem",
-      "weapon",
       "gun",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "smg",
     "price": 390,
@@ -16411,11 +16071,9 @@
     "type": "item",
     "id": "smgmagazine",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "smgammo",
-      "Weapons",
-      "weapons"
+      "smgammo"
     ],
     "title": "smgmagazine",
     "price": 100,
@@ -16471,11 +16129,9 @@
     "type": "item",
     "id": "smgmagazine-empty",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "smgammo",
-      "Weapons",
-      "weapons"
+      "smgammo"
     ],
     "title": "smgmagazine (empty)",
     "price": 0,
@@ -16494,14 +16150,11 @@
     "type": "item",
     "id": "smgunique",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallautoweapon",
       "smallitem",
-      "weapon",
       "gun",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "smgunique",
     "price": 1064,
@@ -16520,9 +16173,9 @@
     "type": "item",
     "id": "smokedetector",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "smokedetector",
     "price": 130,
@@ -16578,9 +16231,7 @@
     "type": "item",
     "id": "sodium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "sodium",
     "price": 33,
@@ -16630,9 +16281,8 @@
     "type": "item",
     "id": "sonarbeacon",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "sonarbeacon",
     "price": 150,
@@ -16688,11 +16338,9 @@
     "type": "item",
     "id": "spear",
     "categories": [
-      "Weapon",
+      "weapon",
       "mediumitem",
-      "harpoonammo",
-      "Weapons",
-      "weapons"
+      "harpoonammo"
     ],
     "title": "spear",
     "price": 7,
@@ -16748,11 +16396,9 @@
     "type": "item",
     "id": "spearunique",
     "categories": [
-      "Weapon",
+      "weapon",
       "mediumitem",
-      "harpoonammo",
-      "Weapons",
-      "weapons"
+      "harpoonammo"
     ],
     "title": "spearunique",
     "price": 550,
@@ -16771,9 +16417,8 @@
     "type": "item",
     "id": "sphalerite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "sphalerite",
     "price": 100,
@@ -16823,9 +16468,8 @@
     "type": "item",
     "id": "spinelingspikeloot",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "spinelingspikeloot",
@@ -16876,9 +16520,8 @@
     "type": "item",
     "id": "sprayer",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "sprayer",
     "price": 120,
@@ -16928,13 +16571,10 @@
     "type": "item",
     "id": "stabilozine",
     "categories": [
-      "Medical",
+      "medical",
       "smallitem",
       "chem",
-      "medical",
-      "syringe",
-      "Medical",
-      "medical"
+      "syringe"
     ],
     "title": "Stabilozine",
     "price": 40,
@@ -16990,9 +16630,8 @@
     "type": "item",
     "id": "stannite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "stannite",
     "price": 50,
@@ -17042,9 +16681,7 @@
     "type": "item",
     "id": "steel",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "steel",
     "price": 28,
@@ -17094,9 +16731,8 @@
     "type": "item",
     "id": "steroids",
     "categories": [
-      "Medical",
-      "Medical",
-      "buffs"
+      "medical",
+      "buff"
     ],
     "title": "AnabolicSteroids",
     "price": 350,
@@ -17152,9 +16788,7 @@
     "type": "item",
     "id": "stunbaton",
     "categories": [
-      "Weapon",
-      "Weapons",
-      "weapons"
+      "weapon"
     ],
     "title": "stunbaton",
     "price": 200,
@@ -17210,13 +16844,10 @@
     "type": "item",
     "id": "stungrenade",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "stungrenade",
     "price": 125,
@@ -17272,13 +16903,10 @@
     "type": "item",
     "id": "stungrenade-empty",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "explosive",
-      "demolitionsexpert",
-      "Weapons",
-      "weapons"
+      "demolitionsexpert"
     ],
     "title": "stungrenade (empty)",
     "price": 0,
@@ -17297,15 +16925,12 @@
     "type": "item",
     "id": "stungun",
     "categories": [
-      "Weapon",
-      "smallitem",
       "weapon",
+      "smallitem",
       "gun",
       "stunner",
       "gunsmith",
-      "mountableweapon",
-      "Weapons",
-      "weapons"
+      "mountableweapon"
     ],
     "title": "stungun",
     "price": 180,
@@ -17361,11 +16986,9 @@
     "type": "item",
     "id": "stungundart",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
-      "stungunammo",
-      "Weapons",
-      "weapons"
+      "stungunammo"
     ],
     "title": "stungundart",
     "price": 30,
@@ -17421,12 +17044,12 @@
     "type": "item",
     "id": "stungundartfulgurium",
     "categories": [
-      "Weapon",
+      "weapon",
       "smallitem",
       "stungunammo",
-      "Jobgear",
-      "Security",
-      "securityofficer_talent_items"
+      "jobgear",
+      "security",
+      "securityofficer_talent_item"
     ],
     "title": "stungundartfulgurium",
     "price": 120,
@@ -17476,9 +17099,9 @@
     "type": "item",
     "id": "sufforin",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "Sufforin",
     "price": 100,
@@ -17534,8 +17157,6 @@
     "type": "item",
     "id": "sufforinantidote",
     "categories": [
-      "Medical",
-      "Medical",
       "medical"
     ],
     "title": "SufforinAntidote",
@@ -17598,9 +17219,9 @@
     "type": "item",
     "id": "sulphuricacid",
     "categories": [
-      "Material",
-      "Medical",
-      "poisons"
+      "material",
+      "medical",
+      "poison"
     ],
     "title": "SulphuricAcid",
     "price": 80,
@@ -17656,10 +17277,10 @@
     "type": "item",
     "id": "sulphuricacidsyringe",
     "categories": [
-      "Medical",
-      "Jobgear",
-      "Medic",
-      "medic_talent_items"
+      "medical",
+      "jobgear",
+      "medic",
+      "medic_talent_item"
     ],
     "title": "sulphuricacidsyringe",
     "price": 125,
@@ -17715,12 +17336,10 @@
     "type": "item",
     "id": "sulphuriteshard",
     "categories": [
-      "Alien",
-      "Material",
       "alien",
+      "material",
       "smallitem",
-      "Alien",
-      "alienitems"
+      "alienitem"
     ],
     "title": "sulphuriteshard",
     "price": 200,
@@ -17770,12 +17389,10 @@
     "type": "item",
     "id": "sulphuriteshard-empty",
     "categories": [
-      "Alien",
-      "Material",
       "alien",
+      "material",
       "smallitem",
-      "Alien",
-      "alienitems"
+      "alienitem"
     ],
     "title": "sulphuriteshard (empty)",
     "price": 0,
@@ -17794,8 +17411,7 @@
     "type": "item",
     "id": "swimbladder",
     "categories": [
-      "Material",
-      "CreatureLoot",
+      "material",
       "creatureloot"
     ],
     "title": "swimbladder",
@@ -17846,10 +17462,9 @@
     "type": "item",
     "id": "switch",
     "categories": [
-      "Electrical",
+      "electrical",
       "smallitem",
       "switch",
-      "Button",
       "button"
     ],
     "title": "switch",
@@ -17906,9 +17521,8 @@
     "type": "item",
     "id": "sylvite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "sylvite",
     "price": 70,
@@ -17958,14 +17572,13 @@
     "type": "item",
     "id": "syringegun",
     "categories": [
-      "Equipment",
-      "Medical",
-      "Weapon",
+      "equipment",
+      "medical",
+      "weapon",
       "smallitem",
       "gun",
       "mountableweapon",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "syringegun",
     "price": 190,
@@ -18021,9 +17634,9 @@
     "type": "item",
     "id": "terminal",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "terminal",
     "price": 200,
@@ -18079,9 +17692,8 @@
     "type": "item",
     "id": "textdisplay",
     "categories": [
-      "Electrical",
-      "Labels",
-      "labels"
+      "electrical",
+      "label"
     ],
     "title": "textdisplay",
     "price": 200,
@@ -18137,9 +17749,8 @@
     "type": "item",
     "id": "thermalartifact",
     "categories": [
-      "Alien",
-      "Alien",
-      "alienitems"
+      "alien",
+      "alienitem"
     ],
     "title": "thermalartifact",
     "price": 1000,
@@ -18189,12 +17800,12 @@
     "type": "item",
     "id": "thermalgoggles",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
+      "jobgear",
+      "engineer",
+      "engineer_talent_item"
     ],
     "title": "thermalgoggles",
     "price": 350,
@@ -18244,9 +17855,8 @@
     "type": "item",
     "id": "thorianite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "thorianite",
     "price": 300,
@@ -18296,9 +17906,7 @@
     "type": "item",
     "id": "thorium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "thorium",
     "price": 125,
@@ -18348,8 +17956,7 @@
     "type": "item",
     "id": "thoriumfuelrod",
     "categories": [
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "thoriumfuelrod",
     "price": 200,
@@ -18405,8 +18012,7 @@
     "type": "item",
     "id": "thoriumfuelrod-empty",
     "categories": [
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "thoriumfuelrod (empty)",
     "price": 0,
@@ -18425,8 +18031,7 @@
     "type": "item",
     "id": "tigerthresheregg",
     "categories": [
-      "Misc",
-      "CreatureLoot",
+      "misc",
       "creatureloot"
     ],
     "title": "tigerthresheregg",
@@ -18446,9 +18051,7 @@
     "type": "item",
     "id": "tin",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "tin",
     "price": 11,
@@ -18498,9 +18101,8 @@
     "type": "item",
     "id": "titanite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "titanite",
     "price": 250,
@@ -18550,9 +18152,7 @@
     "type": "item",
     "id": "titanium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "titanium",
     "price": 65,
@@ -18602,9 +18202,7 @@
     "type": "item",
     "id": "titaniumaluminiumalloy",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "titaniumaluminiumalloy",
     "price": 150,
@@ -18654,9 +18252,9 @@
     "type": "item",
     "id": "tobaccobud",
     "categories": [
-      "Material",
-      "Gardening",
-      "plantproducts"
+      "material",
+      "gardening",
+      "plantproduct"
     ],
     "title": "tobaccobud",
     "price": 40,
@@ -18706,9 +18304,9 @@
     "type": "item",
     "id": "tobaccovineseed",
     "categories": [
-      "Misc",
-      "Gardening",
-      "growableplants"
+      "misc",
+      "gardening",
+      "growableplant"
     ],
     "title": "tobaccovineseed",
     "price": 30,
@@ -18758,10 +18356,8 @@
     "type": "item",
     "id": "tonicliquid",
     "categories": [
-      "Medical",
-      "Material",
-      "Medical",
-      "medical"
+      "medical",
+      "material"
     ],
     "title": "TonicLiquid",
     "price": 75,
@@ -18811,12 +18407,10 @@
     "type": "item",
     "id": "toolbelt",
     "categories": [
-      "Equipment",
+      "equipment",
       "mediumitem",
       "mobilecontainer",
-      "tool",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "toolbelt",
     "price": 65,
@@ -18872,12 +18466,10 @@
     "type": "item",
     "id": "toolbox",
     "categories": [
-      "Equipment",
+      "equipment",
       "mediumitem",
       "mobilecontainer",
-      "tool",
-      "Tools",
-      "tools"
+      "tool"
     ],
     "title": "toolbox",
     "price": 60,
@@ -18927,9 +18519,8 @@
     "type": "item",
     "id": "toyhammer",
     "categories": [
-      "Weapon",
-      "Jobgear",
-      "Clown",
+      "weapon",
+      "jobgear",
       "clown"
     ],
     "title": "toyhammer",
@@ -18986,9 +18577,8 @@
     "type": "item",
     "id": "triphylite",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "triphylite",
     "price": 100,
@@ -19038,9 +18628,8 @@
     "type": "item",
     "id": "uex",
     "categories": [
-      "Weapon",
-      "Weapons",
-      "explosives"
+      "weapon",
+      "explosive"
     ],
     "title": "uex",
     "price": 95,
@@ -19096,9 +18685,8 @@
     "type": "item",
     "id": "underwaterscooter",
     "categories": [
-      "Diving",
-      "Equipment",
-      "Diving",
+      "diving",
+      "equipment",
       "divinggear"
     ],
     "title": "underwaterscooter",
@@ -19149,11 +18737,11 @@
     "type": "item",
     "id": "uniform",
     "categories": [
-      "Equipment",
+      "equipment",
       "smallitem",
       "clothing",
-      "Jobgear",
-      "Security",
+      "jobgear",
+      "security",
       "securityofficer_gear"
     ],
     "title": "Uniforms (12)",
@@ -19218,9 +18806,7 @@
     "type": "item",
     "id": "uranium",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "uranium",
     "price": 50,
@@ -19270,9 +18856,8 @@
     "type": "item",
     "id": "uraniumore",
     "categories": [
-      "Material",
-      "Materials",
-      "minerals"
+      "material",
+      "mineral"
     ],
     "title": "uraniumore",
     "price": 200,
@@ -19322,10 +18907,9 @@
     "type": "item",
     "id": "volatilecompoundn",
     "categories": [
-      "Weapon",
-      "Material",
-      "Weapons",
-      "explosives"
+      "weapon",
+      "material",
+      "explosive"
     ],
     "title": "volatilecompoundn",
     "price": 250,
@@ -19375,9 +18959,8 @@
     "type": "item",
     "id": "watchershell",
     "categories": [
-      "Misc",
+      "misc",
       "mediumitem",
-      "CreatureLoot",
       "creatureloot"
     ],
     "title": "watchershell",
@@ -19428,9 +19011,9 @@
     "type": "item",
     "id": "waterdetector",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "waterdetector",
     "price": 130,
@@ -19486,9 +19069,9 @@
     "type": "item",
     "id": "wateringcan",
     "categories": [
-      "Misc",
-      "Gardening",
-      "gardeningtools"
+      "misc",
+      "gardening",
+      "gardeningtool"
     ],
     "title": "wateringcan",
     "price": 80,
@@ -19544,10 +19127,9 @@
     "type": "item",
     "id": "weldingfueltank",
     "categories": [
-      "Equipment",
-      "Fuel",
-      "Tools",
-      "tools"
+      "equipment",
+      "fuel",
+      "tool"
     ],
     "title": "weldingfueltank",
     "price": 120,
@@ -19609,10 +19191,9 @@
     "type": "item",
     "id": "weldingfueltank-empty",
     "categories": [
-      "Equipment",
-      "Fuel",
-      "Tools",
-      "tools"
+      "equipment",
+      "fuel",
+      "tool"
     ],
     "title": "weldingfueltank (empty)",
     "price": 0,
@@ -19631,9 +19212,8 @@
     "type": "item",
     "id": "weldingtool",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "weldingtool",
     "price": 150,
@@ -19689,9 +19269,8 @@
     "type": "item",
     "id": "whitepaint",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "whitepaint",
     "price": 90,
@@ -19741,9 +19320,8 @@
     "type": "item",
     "id": "whitepaint-empty",
     "categories": [
-      "Misc",
-      "Tools",
-      "tools"
+      "misc",
+      "tool"
     ],
     "title": "whitepaint (empty)",
     "price": 0,
@@ -19762,9 +19340,9 @@
     "type": "item",
     "id": "wire",
     "categories": [
-      "Electrical",
-      "Electricity",
-      "signalitems"
+      "electrical",
+      "electricity",
+      "signalitem"
     ],
     "title": "Wires (7)",
     "price": 10,
@@ -19829,9 +19407,8 @@
     "type": "item",
     "id": "wrench",
     "categories": [
-      "Equipment",
-      "Tools",
-      "tools"
+      "equipment",
+      "tool"
     ],
     "title": "wrench",
     "price": 20,
@@ -19887,9 +19464,8 @@
     "type": "item",
     "id": "yeastshroom",
     "categories": [
-      "Material",
-      "Materials",
-      "medmaterials"
+      "material",
+      "medmaterial"
     ],
     "title": "yeastshroom",
     "price": 200,
@@ -19939,9 +19515,7 @@
     "type": "item",
     "id": "zinc",
     "categories": [
-      "Material",
-      "Materials",
-      "materials"
+      "material"
     ],
     "title": "zinc",
     "price": 26,
