@@ -550,6 +550,32 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         // simulation.restart()
         refreshInfo()
+
+        const suggestionNodes = Object.values(Suggestion).map((suggestion) => ({
+            label: suggestion,
+            amount: ITEMS.filter((item) => item.suggestion.includes(suggestion)).length,
+        })).concat({label: '' as Suggestion, amount: Infinity})
+            .sort((a, b) => b.amount - a.amount)
+        d3.select('#suggestion')
+            .selectAll('option')
+            .data(suggestionNodes)
+            .enter()
+            .append('option')
+            .attr('value', d => d.label)
+            .text(d => d.label ? `${d.label} (${d.amount})` : '')
+
+        const shoppingNodes = Object.values(ShopSuggestion).map((shopping) => ({
+            label: shopping,
+            amount: ITEMS.filter((item) => item.shopSuggestion.includes(shopping)).length,
+        })).concat({label: '' as ShopSuggestion, amount: Infinity})
+            .sort((a, b) => (a.label as string) === '' ? -1 : (b.label as string) === '' ? 1 : 0)
+        d3.select('#shopping')
+            .selectAll('option')
+            .data(shoppingNodes)
+            .enter()
+            .append('option')
+            .attr('value', d => d.label)
+            .text(d => d.label ? `${d.label} (${d.amount})` : '')
     }
 
     function linkArc(d: { source: DisplayNode; target: DisplayNode }) {
@@ -767,7 +793,14 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
     const tableNodes = ITEMS.map(d => Object.create(d));
 
     function onTable() {
-        const tbody = d3.select('#table > table > tbody')
+        const filterCategory = (document.getElementById('category') as HTMLSelectElement).value.split(' (')[0]
+        const filterSuggestion = (document.getElementById('suggestion') as HTMLSelectElement).value.split(' (')[0]
+        const filterShopping = (document.getElementById('shopping') as HTMLSelectElement).value.split(' (')[0]
+        const isVisible = (item: ItemFE) => (filterCategory ? item.categories.includes(filterCategory) : true)
+            && (filterSuggestion ? item.suggestion === filterSuggestion : true)
+            && (filterShopping ? item.shopSuggestion === filterShopping : true)
+
+        const tbody = d3.select('#table > tbody')
         const rows = tbody
             .selectAll('tr')
             .data<ItemFE>(tableNodes, (d: unknown) => (d as any).id)
@@ -803,6 +836,11 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         enterRow
             .append('td')
+            .append('span')
+            .classed('shopSuggestion', true)
+
+        enterRow
+            .append('td')
             .append('input')
             .attr('type', 'checkbox')
             .classed('consume', true)
@@ -812,6 +850,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         const updateRows = rows
             .sort((a, b) => b.value - a.value)
             .style('background-color', (d) => tableRowColor(d.value).replace('(', 'a(').replace(')', ', 0.5)'))
+            .style('display', (d) => isVisible(d) ? null : 'none')
 
         const cellValue = updateRows
             .select('td.value')
@@ -834,6 +873,12 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             .datum(d => d)
             .attr('title', d => `${format0(d.value/d.price * 100)}%`)
             .text(d => `${d.suggestion}`)
+
+        const cellShopSuggestion = updateRows
+            .select('td > span.shopSuggestion')
+            .datum(d => d)
+            // .attr('title', d => `${format0(d.value/d.price * 100)}%`)
+            .text(d => `${d.shopSuggestion}`)
 
         const cellIcon = updateRows
             .select('td > svg.icon > image')
@@ -885,5 +930,25 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
     // document.getElementById('chart')?.append(chart().node()!)
     onTable()
     onHassleChange()
+
+
+    const categoryNodes = CATEGORIES.map((category) => ({
+        label: category,
+        amount: ITEMS.filter((item) => item.categories.includes(category)).length,
+    })).concat({label: '', amount: Infinity})
+        .filter(({amount}) => amount > 1)
+        .sort((a, b) => b.amount - a.amount)
+    d3.select('#category')
+        .selectAll('option')
+        .data(categoryNodes)
+        .enter()
+        .append('option')
+        .attr('value', d => d.label)
+        .text(d => d.label ? `${d.label} (${d.amount})` : '')
+
+    ;(document.getElementById('category') as HTMLSelectElement)!.addEventListener('change', () => onTable())
+    ;(document.getElementById('suggestion') as HTMLSelectElement)!.addEventListener('change', () => onTable())
+    ;(document.getElementById('shopping') as HTMLSelectElement)!.addEventListener('change', () => onTable())
+
 
 })().catch((err) => console.error(err))

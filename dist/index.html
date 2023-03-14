@@ -39,13 +39,12 @@
             flex-grow: 1;
             overflow-y: auto;
         }
+        main {
+            padding: 1em 1em 1em 29em;
+        }
         #table {
-            position: fixed;
-            height: 100%;
-            width: 30em;
-            right: 0;
-            background-color: #ddd;
-            padding: 1em;
+            margin: auto;
+            max-width: 42em;
             overflow-y: scroll;
         }
         details,details > summary {
@@ -63,23 +62,37 @@
     <aside id="aside">
         <div id="config">
             <h3>Config</h3>
-            <div>
+            <!-- <div>
                 <input id="drag" type="checkbox" />
                 <label>enable item dragging</label>
-            </div>
+            </div> -->
             <div>
                 <input id="hassle" type="number" value="0" min="0" max="100" />
                 <label>cost of hassle (mk)</label>
+            </div>
+            <div>
+                <select id="suggestion" name="suggestion" value="">
+                </select>
+                <label for="suggestion">filter by usage suggestion</label>
+            </div>
+            <div>
+                <select id="shopping" name="shopping" value="">
+                </select>
+                <label for="shopping">filter by shopping suggestion</label>
+            </div>
+            <div>
+                <select id="category" name="category" value="">
+                </select>
+                <label for="category">filter by category</label>
             </div>
         </div>
         <div id="info">
         </div>
     </aside>
-        <div id="table">
-            <table>
+    <main>
+            <table id="table">
                 <thead></thead>
                 <tbody></tbody>
             </table>
-        </div>
-    <main id="chart"></main>
+    </main>
 </body>
