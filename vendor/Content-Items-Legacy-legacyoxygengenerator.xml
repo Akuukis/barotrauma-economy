@@ -24,9 +24,13 @@
       <StatusEffect type="OnFire" target="This" Condition="-0.5"/>
       <StatusEffect type="OnActive" target="Contained" targetidentifiers="oxygentank" Condition="2.0"/>
       <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="8000" selectionmode="All"/>
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="8000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="3000" />
         <Explosion range="50" stun="0" force="3.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false"/>
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="2000" />
       </StatusEffect>
     </OxygenGenerator>
   

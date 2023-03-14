@@ -43,7 +43,7 @@
     <!-- for scrap cannon -->
     <Projectile characterusable="false" hitscan="true" hitscancount="16" removeonhit="true" spread="25">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
-      <Attack structuredamage="1" targetforce="4" itemdamage="15" severlimbsprobability="0.5">
+      <Attack structuredamage="1" targetforce="4" itemdamage="1" severlimbsprobability="0.5">
         <Affliction identifier="lacerations" strength="3" />
         <Affliction identifier="bleeding" strength="6" />
         <Affliction identifier="stun" strength="0.1" />
@@ -83,12 +83,12 @@
   <Item name="" identifier="lead" category="Material" maxstacksize="8" Tags="smallitem,petfood3" canbepicked="true" description="" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="storagecab" />
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
-    <Price baseprice="18" sold="false">
+    <Price baseprice="18" sold="true" minavailable="3">
       <Price storeidentifier="merchantoutpost" multiplier="1.3" />
-      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="6" />
       <Price storeidentifier="merchantresearch" multiplier="1.1" />
-      <Price storeidentifier="merchantmilitary" multiplier="1.1" />
-      <Price storeidentifier="merchantmine" sold="true" multiplier="0.8" minavailable="10" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="10" />
+      <Price storeidentifier="merchantmine" multiplier="0.8" minavailable="20" />
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="768,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="101,92,47,38" depth="0.55" origin="0.5,0.5" />
@@ -113,7 +113,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="153,6,23,44" depth="0.55" origin="0.5,0.5" />
-    <Body width="22" height="42" density="25" />
+    <Body width="22" height="42" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -154,7 +154,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="102,55,46,37" depth="0.55" origin="0.5,0.5" />
-    <Body width="45" height="30" density="30" />
+    <Body width="45" height="30" density="15" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -164,7 +164,7 @@
   </Item>
   <Item name="" identifier="sodium" category="Material" maxstacksize="8" Tags="smallitem,explodesinwater" canbepicked="true" description="" cargocontaineridentifier="chemicalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medfabcab" />
-    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
+    <PreferredContainer secondary="abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
     <Price baseprice="33" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.3" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />
@@ -174,7 +174,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="29,7,23,44" depth="0.55" origin="0.5,0.5" />
-    <Body width="22" height="42" density="25" />
+    <Body width="22" height="42" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <LightComponent LightColor="255,127,39,255" Flicker="1.0" range="100" IsOn="false">
       <StatusEffect type="NotInWater" target="This" IsOn="false" />
@@ -182,7 +182,7 @@
         <ParticleEmitter particle="weldspark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="360" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" />
         <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="0.5" scalemax="1" />
         <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="0.7" anglemin="0" anglemax="360" velocitymin="-10" velocitymax="10" />
-        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="800.0" loop="true" />
+        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="500.0" loop="true" />
       </StatusEffect>
       <StatusEffect type="InWater" target="This" delay="3.0" setvalue="true" condition="0" stackable="false" checkconditionalalways="true">
         <!-- check the item is still in water after the delay has run out-->
@@ -190,8 +190,9 @@
       </StatusEffect>
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="All" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" selectionmode="All" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" ballastfloradamage="20" force="3" applyfireeffects="false" flames="false">
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
@@ -212,7 +213,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,128,64,64" />
     <Sprite texture="minerals.png" sourcerect="196,54,46,38" depth="0.55" origin="0.5,0.5" />
-    <Body width="45" height="30" density="30" />
+    <Body width="45" height="30" density="15" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -232,7 +233,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="129,6,23,44" depth="0.55" origin="0.5,0.5" />
-    <Body width="22" height="42" density="25" />
+    <Body width="22" height="42" density="15" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -292,7 +293,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="77,6,23,44" depth="0.55" origin="0.5,0.5" />
-    <Body width="22" height="42" density="25" />
+    <Body width="22" height="42" density="15" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <LightComponent LightColor="255,127,39,255" Flicker="1.0" range="100" IsOn="false">
       <StatusEffect type="NotInWater" target="This" IsOn="false" />
@@ -300,7 +301,7 @@
         <ParticleEmitter particle="weldspark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="360" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" />
         <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="0.5" scalemax="1" />
         <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="0.7" anglemin="0" anglemax="360" velocitymin="-10" velocitymax="10" />
-        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="800.0" loop="true" />
+        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="500.0" loop="true" />
       </StatusEffect>
       <StatusEffect type="InWater" target="This" delay="3.0" setvalue="true" condition="0" stackable="false" checkconditionalalways="true">
         <!-- check the item is still in water after the delay has run out-->
@@ -308,8 +309,9 @@
       </StatusEffect>
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="All" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" selectionmode="All" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" ballastfloradamage="20" force="3" applyfireeffects="false" flames="false">
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
@@ -351,12 +353,12 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="102,6,23,44" depth="0.55" origin="0.5,0.5" />
-    <Body width="22" height="42" density="25" />
+    <Body width="22" height="42" density="15" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
   <Item name="" identifier="lithium" category="Material" maxstacksize="8" Tags="smallitem,explodesinwater" canbepicked="true" description="" cargocontaineridentifier="chemicalcrate" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="storagecab" />
-    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
+    <PreferredContainer secondary="abandonedstoragecab" minamount="1" maxamount="2" spawnprobability="0.05" />
     <Price baseprice="88" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.3" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />
@@ -366,7 +368,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,192,64,64" />
     <Sprite texture="minerals.png" sourcerect="3,7,24,44" depth="0.55" origin="0.5,0.5" />
-    <Body width="27" height="47" density="25" />
+    <Body width="27" height="47" density="15" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <LightComponent LightColor="255,0,0,255" Flicker="1.0" range="100" IsOn="false">
       <StatusEffect type="NotInWater" target="This" IsOn="false" />
@@ -374,7 +376,7 @@
         <ParticleEmitter particle="weldspark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="360" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" />
         <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="0.5" scalemax="1" />
         <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="0.7" anglemin="0" anglemax="360" velocitymin="-10" velocitymax="10" />
-        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="800.0" loop="true" />
+        <sound file="Content/Items/Tools/FlareLoop.ogg" type="OnActive" range="500.0" loop="true" />
       </StatusEffect>
       <StatusEffect type="InWater" target="This" delay="3.0" setvalue="true" condition="0" stackable="false" checkconditionalalways="true">
         <!-- check the item is still in water after the delay has run out-->
@@ -382,8 +384,9 @@
       </StatusEffect>
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" selectionmode="All" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" selectionmode="All" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" ballastfloradamage="20" force="3" applyfireeffects="false" flames="false">
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
@@ -405,7 +408,7 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,256,64,64" />
     <Sprite texture="minerals.png" sourcerect="55,7,22,44" depth="0.6" origin="0.5,0.5" />
     <Body width="22" height="42" density="20" />
-    <Throwable characterusable="true" canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10">
+    <Throwable characterusable="true" canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
         <Remove />
@@ -464,7 +467,7 @@
     <!-- for scrap cannon -->
     <Projectile characterusable="false" hitscan="true" hitscancount="16" removeonhit="true" spread="25">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
-      <Attack structuredamage="1" targetforce="4" itemdamage="15" severlimbsprobability="0.5">
+      <Attack structuredamage="2" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
         <Affliction identifier="lacerations" strength="6" />
         <Affliction identifier="bleeding" strength="6" />
         <Affliction identifier="stun" strength="0.1" />
@@ -531,7 +534,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,128,64,64" />
     <Sprite texture="minerals.png" sourcerect="202,100,43,30" depth="0.55" origin="0.5,0.5" />
-    <Body width="40" height="27" density="15" />
+    <Body width="40" height="27" density="12" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -560,7 +563,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="706,770,62,61" origin="0.5,0.5" />
     <Sprite texture="minerals.png" sourcerect="221,0,35,53" depth="0.55" origin="0.5,0.5" />
-    <Body width="35" height="55" density="10.02" />
+    <Body width="35" height="55" density="12" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -580,7 +583,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,768,64,64" />
     <Sprite texture="minerals.png" sourcerect="178,8,42,45" depth="0.55" origin="0.5,0.5" />
-    <Body width="45" height="45" density="15" />
+    <Body width="45" height="45" density="12" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" />
   </Item>
   <Item name="" identifier="rubber" category="Material" maxstacksize="8" Tags="smallitem" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
@@ -595,7 +598,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,770,64,64" />
     <Sprite texture="minerals.png" sourcerect="133,221,35,32" depth="0.55" origin="0.5,0.5" />
-    <Body width="5" radius="15" density="8" />
+    <Body width="5" radius="15" density="9" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -623,15 +626,16 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,256,64,64" />
     <Sprite texture="minerals.png" depth="0.55" sourcerect="127,134,23,42" origin="0.5,0.5" />
-    <Body width="23" height="43" density="20" />
-    <Throwable characterusable="false" canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Body width="23" height="43" density="15" />
+    <Throwable characterusable="false" canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" />
       <StatusEffect type="OnFire" target="this" Condition="-50" />
       <StatusEffect type="OnUse" target="This" Condition="0.0" setvalue="true" />
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
-        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="All" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" selectionmode="All" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="3000" />
         <Explosion range="250.0" ballastfloradamage="20" force="3">
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="5" />
@@ -667,7 +671,7 @@
     <!-- for scrap cannon -->
     <Projectile characterusable="false" hitscan="true" hitscancount="16" removeonhit="true" spread="25">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,100" scalemultiplier="1,0.5" />
-      <Attack structuredamage="1" targetforce="4" itemdamage="15" severlimbsprobability="0.5">
+      <Attack structuredamage="2" targetforce="4" itemdamage="2" severlimbsprobability="0.5">
         <Affliction identifier="lacerations" strength="3" />
         <Affliction identifier="lacerations" strength="3" probability="0.5" />
         <Affliction identifier="bleeding" strength="6" />
@@ -700,11 +704,12 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="260,835,53,61" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Alien/AlienMaterials.png" sourcerect="105,439,52,61" depth="0.55" origin="0.5,0.5" />
-    <Body radius="20" height="10" density="30" />
+    <Body radius="20" height="10" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" characterusable="false" msg="ItemMsgPickUpSelect" attachable="true" reattachable="false">
       <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="3000" />
         <Explosion range="250.0" ballastfloradamage="50" force="5">
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="burn" strength="5" probability="0.2" dividebylimbcount="false" />
@@ -739,7 +744,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="328,833,51,63" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Alien/AlienMaterials.png" sourcerect="186,351,59,67" depth="0.55" origin="0.5,0.5" />
-    <Body radius="25" density="30" />
+    <Body radius="25" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" attachable="true" reattachable="false">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -771,7 +776,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="70,835,52,59" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Alien/AlienMaterials.png" sourcerect="97,349,58,71" depth="0.55" origin="0.5,0.5" />
-    <Body radius="25" density="50" />
+    <Body radius="25" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" attachable="true" reattachable="false">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -803,7 +808,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,830,64,64" />
     <Sprite texture="Content/Items/Alien/AlienMaterials.png" sourcerect="15,356,60,54" depth="0.55" origin="0.5,0.5" />
-    <Body radius="25" density="30" />
+    <Body radius="25" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" attachable="true" reattachable="false">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">

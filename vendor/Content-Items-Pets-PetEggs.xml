@@ -1,5 +1,5 @@
 <Items>
-  <Item name="" identifier="peanutegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="200" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="peanutegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
     <PreferredContainer secondary="abandonedstoragecab,wreckstoragecab" amount="1" spawnprobability="0.05" />
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="265,5,43,55" origin="0.5,0.5" />
@@ -16,12 +16,12 @@
       <Item identifier="adrenalinegland" />
     </Deconstruct>
     <!-- rectangular body to prevent the egg from rolling -->
-    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8"/>
+    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8" density="11"/>
     <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
       <StatusEffect type="OnBroken" target="This">
         <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
         <particleemitter particle="brownchunks" particleamount="50" velocitymin="0" velocitymax="700" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
-        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnFire" target="This" Condition="-5.0"/>
@@ -36,7 +36,7 @@
       </Containable>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="psilotoadegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="200" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="psilotoadegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
     <PreferredContainer secondary="abandonedstoragecab,wreckstoragecab" amount="1" spawnprobability="0.05" />
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="265,133,43,55" origin="0.5,0.5" />
@@ -53,12 +53,12 @@
       <Item identifier="adrenalinegland" />
     </Deconstruct>
     <!-- rectangular body to prevent the egg from rolling -->
-    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8"/>
+    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8" density="11"/>
     <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
       <StatusEffect type="OnBroken" target="This">
         <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
         <particleemitter particle="brownchunks" particleamount="50" velocitymin="0" velocitymax="700" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
-        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnFire" target="This" Condition="-5.0"/>
@@ -73,7 +73,7 @@
       </Containable>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="orangeboyegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="200" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="orangeboyegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
     <PreferredContainer secondary="abandonedstoragecab,wreckstoragecab" amount="1" spawnprobability="0.05" />
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="266,259,44,56" origin="0.5,0.5" />
@@ -90,12 +90,12 @@
       <Item identifier="adrenalinegland" />
     </Deconstruct>
     <!-- rectangular body to prevent the egg from rolling -->
-    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8"/>
+    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8" density="11"/>
     <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
       <StatusEffect type="OnBroken" target="This">
         <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
         <particleemitter particle="brownchunks" particleamount="50" velocitymin="0" velocitymax="700" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
-        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnFire" target="This" Condition="-5.0"/>
@@ -110,7 +110,7 @@
       </Containable>
     </ItemContainer>
   </Item>
-  <Item name="" identifier="balloonegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="200" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="" identifier="balloonegg" nameidentifier="petegg" Tags="smallitem,monsterfood" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
     <PreferredContainer secondary="abandonedstoragecab,wreckstoragecab" amount="1" spawnprobability="0.05" />
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="11,389,43,55" origin="0.5,0.5" />
@@ -127,12 +127,12 @@
       <Item identifier="adrenalinegland" />
     </Deconstruct>
     <!-- rectangular body to prevent the egg from rolling -->
-    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8"/>
+    <Body width="43" height="55" friction="1.0" restitution="0.01" angulardamping="0.8" density="11"/>
     <Holdable slots="RightHand,LeftHand,Any" holdpos="0,-70" handle1="0,10" handle2="0,-10">
       <StatusEffect type="OnBroken" target="This">
         <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
         <particleemitter particle="brownchunks" particleamount="50" velocitymin="0" velocitymax="700" anglemin="0" anglemax="360" scalemin="0.2" scalemax="0.5" />
-        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnFire" target="This" Condition="-5.0"/>

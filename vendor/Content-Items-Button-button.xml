@@ -20,7 +20,7 @@
       <RequiredItem identifier="fpgacircuit" />
       <RequiredItem identifier="plastic" />
     </Fabricate>
-    <Body width="36" height="40" density="40" />
+    <Body width="36" height="40" density="20" />
     <Controller direction="None" canbepicked="true" msg="ItemMsgPressSelect">
       <RequiredItem identifier="idcard" type="Picked" msg="ItemMsgUnauthorizedAccess" />
       <sound file="Content/Items/Button/Button.ogg" type="OnUse" range="500.0" />

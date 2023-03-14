@@ -20,7 +20,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="832,576,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="256,102,112,54" depth="0.6" />
-    <Body width="100" height="45" density="20" />
+    <Body width="100" height="45" density="15" />
     <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="ToolBelt" texture="Content/Items/Tools/tools.png" sourcerect="256,102,112,54" limb="Torso" inherittexturescale="true" origin="0.5,-0.2" />
     </Wearable>
@@ -53,7 +53,7 @@
     <!--<Sprite texture="Content/Items/Containers/crates.png" depth="0.54" sourcerect="1,0,68,39"/>-->
     <Body width="90" height="60" density="20" />
     <MeleeWeapon slots="RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="0" itemdamage="5" targetimpulse="2">
+      <Attack structuredamage="0" itemdamage="1" targetimpulse="2">
         <Affliction identifier="blunttrauma" strength="2" />
         <Affliction identifier="stun" strength="0.6" />
         <StatusEffect type="OnUse" target="UseTarget">
@@ -125,16 +125,18 @@
         <Affliction identifier="burn" amount="2.5" />
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="3" applyfireeffects="false" >
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="6" applyfireeffects="false" >
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="10" />
@@ -149,6 +151,7 @@
     </RepairTool>
     <!-- one welding fuel or oxygen tank can be contained inside the welding tool -->
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="8,-35" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="weldingtoolfuel,oxygensource" />
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="500" fadeouttime="3" />
@@ -163,7 +166,8 @@
     </Upgrade>
     <Upgrade gameversion="0.15.4.0">
       <ItemContainer itempos="8,-35"/>
-    </Upgrade>      
+    </Upgrade>
+    <SkillRequirementHint identifier="mechanical" level="50" />
   </Item>
   
   <Item name="" identifier="plasmacutter" category="Equipment" Tags="smallitem,cuttingequipment,tool,mountableweapon" cargocontaineridentifier="metalcrate" description="" Scale="0.5" impactsoundtag="impact_metal_light">
@@ -195,24 +199,25 @@
     <RepairTool firedamage="10.0" structurefixamount="-0.5" range="150" barrelpos="55,10" combatpriority="10" repairmultiple="true" repairthroughwalls="false" maxoverlappingwalldist="0.0" repairthroughholes="true" levelwallfixamount="-5.0" targetforce="10">
       <RequiredItems items="oxygensource,weldingtoolfuel" type="Contained" msg="ItemMsgOxygenTankRequired" />
       <RequiredSkill identifier="mechanical" level="50" />
-      <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" Condition="-1.0" />
-      <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" Condition="-0.5" />
-      <StatusEffect type="OnSuccess" targettype="UseTarget" targets="door,ductblock,aliendoor" Stuck="-20.0" Condition="-3.0" />
-      <StatusEffect type="OnSuccess" targettype="UseTarget" Condition="-3.0" />
-      <StatusEffect type="OnSuccess" targettype="Limb" severlimbsprobability="0.005">        
+      <StatusEffect type="OnUse" targettype="Contained" targets="oxygensource" Condition="-1.0" />
+      <StatusEffect type="OnSuccess" targettype="UseTarget" targets="door,ductblock,aliendoor" Stuck="-20.0" />
+      <StatusEffect type="OnSuccess" targettype="UseTarget" Condition="-15.0" />
+      <StatusEffect type="OnSuccess" targettype="Limb" severlimbsprobability="0.005">      
         <Affliction identifier="burn" amount="4.0" />
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="weldingfueltank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="3" applyfireeffects="false" >
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="incendiumfueltank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" ballastfloradamage="50" force="6" applyfireeffects="true" ignorefireeffectsfortags="incendiumfueltank">
           <Affliction identifier="burn" strength="100" />
           <Affliction identifier="stun" strength="10" />
@@ -225,13 +230,14 @@
       <ParticleEmitterHitItem identifiers="door,hatch,ductblock" particle="plasmasmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
       <ParticleEmitterHitItem identifiers="ore" particle="iceshards" particlespersecond="5" anglemin="-40" anglemax="40" velocitymin="10" velocitymax="300" scalemin="0.5" scalemax="1.0" />
       <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
-      <sound file="Content/Items/Tools/PlasmaCutterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <sound file="Content/Items/Tools/PlasmaCutterLoop.ogg" type="OnUse" range="750.0" loop="true" />
       <Fixable identifier="structure" />
       <LightComponent LightColor="0.8,0.7,1.0,1.0" Flicker="0.5">
         <sprite texture="Content/Items/Electricity/lightsprite.png" origin="0.5,0.5" />
       </LightComponent>      
     </RepairTool>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="0,-39" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="weldingtoolfuel,oxygensource" />
     </ItemContainer>
     <aitarget sightrange="2000" soundrange="500" fadeouttime="3" />
@@ -245,6 +251,7 @@
         <RequiredItems identifier="oxygensource,weldingtoolfuel" type="Contained" msg="ItemMsgOxygenTankRequired" />
       </RepairTool>
     </Upgrade>
+    <SkillRequirementHint identifier="mechanical" level="50" />
   </Item>
   
   <Item name="" identifier="weldingfueltank" category="Equipment,Fuel" maxstacksize="8" Tags="smallitem,weldingtoolfuel,weldingfuel" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light">
@@ -283,8 +290,9 @@
       <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
         <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="5000" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="3">
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
@@ -323,13 +331,14 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,901,62,60" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="460,71,24,66" depth="0.55" origin="0.5,0.5" />
-    <Body width="22" height="65" density="5" />
+    <Body width="22" height="65" density="8" />
     <Holdable canbecombined="true" slots="Any,RightHand,LeftHand" holdpos="30,-15" handle1="0,5" handle2="0,-5" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
         <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="5000" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris3.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" ballastfloradamage="50" force="6" >
           <Affliction identifier="burn" strength="100" />
           <Affliction identifier="stun" strength="10" />
@@ -363,9 +372,9 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" depth="0.55" sourcerect="161,105,64,128" origin="0.5,0.5" />
-    <Body width="30" height="100" density="5" />
+    <Body width="30" height="100" density="8" />
     <Holdable slots="RightHand+LeftHand" controlpose="true" aimpos="40,-20" handle1="-6,10" handle2="-10,40" msg="ItemMsgPickUpSelect" />
-    <RepairTool extinguishamount="60.0" range="500" barrelpos="21,25" repairthroughholes="true" hititems="false">
+    <RepairTool extinguishamount="60.0" range="500" barrelpos="21,25" repairthroughholes="true" hititems="false" IgnoreCharacters="true">
       <ParticleEmitter particle="extinguisher" velocitymin="1000.0" velocitymax="1650.0" particlespersecond="100" />
       <StatusEffect type="OnUse" targettype="This" Condition="-2.0" />
       <sound file="Content/Items/Tools/Extinguisher.ogg" type="OnUse" range="500.0" loop="true" />
@@ -458,7 +467,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,0,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,189,64,14" depth="0.55" origin="0.5,0.5" />
-    <Body width="60" height="12" density="30" />
+    <Body width="60" height="12" density="25" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="60" reload="1.0" range="50" combatpriority="7" msg="ItemMsgPickUpSelect">
       <Attack structuredamage="0" itemdamage="2" targetimpulse="2">
         <Affliction identifier="lacerations" strength="5" />
@@ -549,7 +558,7 @@
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,225,130,30" depth="0.55" origin="0.5,0.5" />
     <Body width="120" height="20" density="30" />
     <MeleeWeapon slots="RightHand+LeftHand,Any" controlpose="true" aimpos="45,10" handle1="-10,0" handle2="0,5" holdangle="60" reload="1" range="100" combatpriority="20" msg="ItemMsgPickUpSelect">
-      <Attack structuredamage="12" itemdamage="12" targetimpulse="10">
+      <Attack structuredamage="8" itemdamage="8" targetimpulse="10">
         <Affliction identifier="blunttrauma" strength="10" />
         <Affliction identifier="stun" strength="0.5" />
         <StatusEffect type="OnUse" target="UseTarget">
@@ -617,6 +626,7 @@
       <icon identifier="" texture="Content/UI/MainIconsAtlas.png" sourcerect="346,416,4,4" origin="0.5,0.5"/>
     </Sonar>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <Containable items="mobilebattery">
         <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
       </Containable>
@@ -667,6 +677,7 @@
       <TextBox text="sonarbeacon.beaconsignal" propertyname="SonarLabel" maxtextlength="32"/>
     </CustomInterface>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <Containable items="mobilebattery">
         <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
       </Containable>
@@ -710,6 +721,7 @@
       </LightComponent>
     </Holdable>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <Containable items="mobilebattery">
         <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
       </Containable>
@@ -737,8 +749,8 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,0,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="227,205,54,18" depth="0.55" origin="0.5,0.5" />
-    <Body width="50" height="15" density="12" />
-    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <Body width="50" height="15" density="10"/>
+    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="2.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
     <LightComponent LightColor="255,0.0,0.0,255" Flicker="0.5" range="600" IsOn="false">
       <StatusEffect type="OnUse" targettype="This" IsOn="true">
         <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
@@ -775,14 +787,15 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="68,966,54,54" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Tools/tools.png" sourcerect="283,205,54,18" depth="0.55" origin="0.5,0.5" />
-    <Body width="50" height="15" density="12" />
-    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <Body width="50" height="15" density="10" />
+    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" holdangle="90" throwforce="2.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
     <LightComponent LightColor="0,162,232,255" Flicker="0.5" range="1000" IsOn="false">
       <StatusEffect type="OnUse" targettype="This" IsOn="true">
         <Conditional IsOn="eq False" targetitemcomponent="LightComponent" />
         <sound file="Content/Items/Tools/FlareIgnite.ogg" range="800.0" />
       </StatusEffect>
       <StatusEffect type="OnActive" targettype="This" Condition="-0.125">
+        <Conditional PhysicsBodyActive="eq true" />
         <ParticleEmitter particle="flare" particlespersecond="30" />
         <ParticleEmitter particle="bubbles" particlespersecond="30" />
       </StatusEffect>
@@ -831,7 +844,7 @@
       <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
       <ParticleEmitter particle="flamethrower" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="1000" velocitymax="1500" highqualitycollisiondetection="true"/>
       <ParticleEmitter particle="flamethrowersmoke" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="500" velocitymax="1000"/>
-      <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" />
       <StatusEffect type="OnFailure" target="This">
         <ParticleEmitter particle="bubbles" particlespersecond="20" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true"/>
         <ParticleEmitter particle="fleshsmoke" particlespersecond="10" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true"/>
@@ -853,16 +866,18 @@
       </StatusEffect>
       <!-- explode if oxygen tanks are inserted -->
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="3" applyfireeffects="false" >
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="6" applyfireeffects="false" >
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="10" />
@@ -880,9 +895,11 @@
     </RepairTool>
     <!-- one welding fuel or oxygen tank can be contained inside the welding tool -->
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="8,-20" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="weldingtoolfuel,oxygensource" />
     </ItemContainer>
     <aitarget sightrange="5000" soundrange="500" fadeouttime="5" />
+    <SkillRequirementHint identifier="weapons" level="50" />
   </Item>
 
   <Item name="" identifier="syringegun" category="Equipment,Medical,Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,gun,mountableweapon" scale="0.5" impactsoundtag="impact_metal_light">
@@ -914,16 +931,19 @@
     <RangedWeapon barrelpos="71,30" spread="0" unskilledspread="10" drawhudwhenequipped="true" crosshairscale="0.2">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
-      <Sound file="Content/Items/Weapons/SyringeGun1.ogg" type="OnUse" />
-      <Sound file="Content/Items/Weapons/SyringeGun2.ogg" type="OnUse" />
+      <Sound file="Content/Items/Weapons/SyringeGun1.ogg" type="OnUse" range="1000" volume="0.75"/>
+      <Sound file="Content/Items/Weapons/SyringeGun2.ogg" type="OnUse" range="1000" volume="0.75"/>
       <RequiredItems items="syringe" type="Contained" msg="ItemMsgSyringeRequired" />
-      <RequiredSkill identifier="weapons" level="15" />
+      <RequiredSkill identifier="weapons" level="20" />
       <RequiredSkill identifier="medical" level="30" />
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="4" itempos="0,25" itemrotation="-90" hideitems="false" containedstateindicatorstyle="syringe">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="384,448,64,64" origin="0.5,0.5" />
       <Containable items="syringe" />
     </ItemContainer>
     <aitarget sightrange="0" soundrange="0" />
+    <SkillRequirementHint identifier="weapons" level="20" />
+    <SkillRequirementHint identifier="medical" level="30" />
   </Item>
 
   <Item name="" identifier="oxygentank" category="Diving,Equipment" maxstacksize="8" Tags="smallitem,oxygensource,refillableoxygensource" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" allowdroppingonswap="true">
@@ -961,8 +981,8 @@
       <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
         <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="2000" />
         <Explosion range="150.0" force="3" >
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
@@ -974,7 +994,7 @@
     </Quality>
   </Item>
 
-  <Item name="" identifier="oxygenitetank" category="Diving,Equipment" maxstacksize="8" Tags="smallitem,oxygensource" description="" scale="0.5" impactsoundtag="impact_metal_light">
+  <Item name="" identifier="oxygenitetank" category="Diving,Equipment" maxstacksize="8" health="200" Tags="smallitem,oxygensource" description="" scale="0.5" impactsoundtag="impact_metal_light">
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
     <Price baseprice="175" displaynonempty="true">
       <Price storeidentifier="merchantoutpost" sold="false" />
@@ -1003,8 +1023,9 @@
       <StatusEffect type="OnFire" target="This" Condition="-10.0" tags="onfire" duration="1" stackable="false" />
       <StatusEffect type="OnBroken" target="This" delay="1" stackable="false">
         <Conditional HasStatusTag="onfire" />
-        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="6" >
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="10" />
@@ -1181,7 +1202,7 @@
     <Deconstruct time="10">
       <Item identifier="ethanol" mincondition="0.9" />
     </Deconstruct>
-    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="1.0" />
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="128,0,0,255" />
@@ -1215,7 +1236,7 @@
     <Deconstruct time="10">
       <Item identifier="ethanol" mincondition="0.9" />
     </Deconstruct>
-    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_green" decalsize="1.0" />
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="0,128,0,255" />
@@ -1249,7 +1270,7 @@
     <Deconstruct time="10">
       <Item identifier="ethanol" mincondition="0.9" />
     </Deconstruct>
-    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_blue" decalsize="1.0" />
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="0,0,128,255" />
@@ -1283,7 +1304,7 @@
     <Deconstruct time="10">
       <Item identifier="ethanol" mincondition="0.9" />
     </Deconstruct>
-    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_black" decalsize="1.0" />
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="20,20,20,255" />
@@ -1317,7 +1338,7 @@
     <Deconstruct time="10">
       <Item identifier="ethanol" mincondition="0.9" />
     </Deconstruct>
-    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_white" decalsize="1.0" />
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
@@ -1348,7 +1369,7 @@
       <ParticleEmitterHitCharacter particle="fleshsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="100" />
       <ParticleEmitter particle="steamspray" particlespersecond="80" anglemin="0" anglemax="0" velocitymin="1500" velocitymax="2000" highqualitycollisiondetection="true"/>
       <ParticleEmitter particle="bubbles" particlespersecond="20" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true"/>
-      <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <sound file="Content/Items/Weapons/FlameThrowerLoop.ogg" type="OnUse" range="750.0" loop="true" />
       <StatusEffect type="OnFailure" target="UseTarget">
         <ParticleEmitter particle="bubbles" particlespersecond="20" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true"/>
         <ParticleEmitter particle="fleshsmoke" particlespersecond="10" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true"/>
@@ -1362,16 +1383,18 @@
       </StatusEffect>
       <!-- explode if oxygen tanks are inserted -->
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygentank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="3" applyfireeffects="false" >
           <Affliction identifier="burn" strength="25" />
           <Affliction identifier="stun" strength="5" />
         </Explosion>
       </StatusEffect>
       <StatusEffect type="OnUse" targettype="Contained" targets="oxygenitetank" delay="1.0" stackable="false" Condition="-100.0" disabledeltatime="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="5000" />
-        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="2000" />
         <Explosion range="150.0" force="6" applyfireeffects="false" >
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="10" />
@@ -1382,9 +1405,11 @@
       </StatusEffect>
     </RepairTool>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="11,-15" containedspritedepth="0.56" containedstateindicatorstyle="tank">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="weldingtoolfuel,oxygensource" />
     </ItemContainer>
     <aitarget sightrange="5000" soundrange="500" fadeouttime="5" />
+    <SkillRequirementHint identifier="weapons" level="40" />
   </Item>
 
   <Item name="" identifier="glowstick" category="Equipment" maxstacksize="8" cargocontaineridentifier="metalcrate" Scale="0.5" tags="smallitem,light,provocative" impactsoundtag="impact_soft" isshootable="true">

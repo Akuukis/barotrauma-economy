@@ -53,11 +53,13 @@
     <Upgrade gameversion="0.19.5.0">
       <Turret rotationspeedhighskill="5" />
     </Upgrade>
+    <SkillRequirementHint identifier="weapons" level="50" />
   </Item>
 
   <Item name="" identifier="chaingunloader" tags="chaingunequipment,chaingunammosource,turretammosource" category="Machine,Weapon" linkable="true" allowedlinks="chaingun" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
     <SwappableItem canbebought="false" origin="75,356" spawnwithid="chaingunammobox"/>
     <Sprite name="Chaingun Loader Front" texture="Loaders.png" depth="0.78" sourcerect="701,6,149,356" origin="0.5,0.5" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
     <DecorativeSprite name="Chaingun Loader Frame Back" texture="Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-68" />
     <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="10" mindeteriorationdelay="60" maxdeteriorationdelay="300" MinDeteriorationCondition="0" RepairThreshold="50" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
       <StatusEffect type="InWater" target="This" condition="-0.25" />
@@ -67,10 +69,10 @@
       <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
         <Affliction identifier="lacerations" strength="5" />
-        <Affliction identifier="stun" strength="5" />
+        <Affliction identifier="stun" strength="4" />
       </StatusEffect>
     </Repairable>
     <ItemContainer hideitems="false" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="6" itempos="75,-270" iteminterval="0,0" itemrotation="0" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.79">
@@ -250,7 +252,7 @@
     </Fabricate>
     <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.54" sourcerect="800,687,95,78" origin="0.5,0.5" />
-    <Body width="115" height="88" density="50" />
+    <Body width="115" height="88" density="30" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">
@@ -291,7 +293,7 @@
     </Fabricate>
     <!--<InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" />-->
     <Sprite texture="Content/Items/Containers/containers.png" depth="0.54" sourcerect="747,602,95,78" origin="0.5,0.5" />d
-    <Body width="115" height="88" density="50" />
+    <Body width="115" height="88" density="30" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect" />
     <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
       <StatusEffect type="OnUse" target="This" disabledeltatime="true">

@@ -256,6 +256,13 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-alientranslator",
+    "result": "alientranslator",
+    "deconstruct": null,
+    "fabricate": []
+  },
+  {
+    "type": "recipe",
     "id": "recipe-alientrinket1",
     "result": "alientrinket1",
     "deconstruct": {
@@ -916,6 +923,29 @@
       "parts": {
         "alienblood": 2,
         "adrenalinegland": 1
+      }
+    },
+    "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-banana",
+    "result": "banana",
+    "deconstruct": {
+      "parts": {
+        "potassium": 1,
+        "carbon": 1
+      }
+    },
+    "fabricate": []
+  },
+  {
+    "type": "recipe",
+    "id": "recipe-bananapeel",
+    "result": "bananapeel",
+    "deconstruct": {
+      "parts": {
+        "potassium": 1
       }
     },
     "fabricate": []
@@ -1661,6 +1691,32 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-clownexosuit",
+    "result": "clownexosuit",
+    "deconstruct": {
+      "parts": {
+        "titaniumaluminiumalloy": 3,
+        "rubber": 2
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "clownsuitunique": 1,
+          "titaniumaluminiumalloy": 10,
+          "banana": 50
+        },
+        "talent": true,
+        "skill": {
+          "id": "mechanical",
+          "level": 60
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-clownmask",
     "result": "clownmask",
     "deconstruct": {
@@ -2178,6 +2234,13 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-cymbals",
+    "result": "cymbals",
+    "deconstruct": null,
+    "fabricate": []
+  },
+  {
+    "type": "recipe",
     "id": "recipe-defensebotammobox",
     "result": "defensebotammobox",
     "deconstruct": {
@@ -2445,13 +2508,6 @@
         "carbon": 3
       }
     },
-    "fabricate": []
-  },
-  {
-    "type": "recipe",
-    "id": "recipe-dirtybomb",
-    "result": "dirtybomb",
-    "deconstruct": null,
     "fabricate": []
   },
   {
@@ -3819,6 +3875,13 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-honkmotherianscriptures1",
+    "result": "honkmotherianscriptures1",
+    "deconstruct": null,
+    "fabricate": []
+  },
+  {
+    "type": "recipe",
     "id": "recipe-huskeggs",
     "result": "huskeggs",
     "deconstruct": {
@@ -3835,7 +3898,7 @@
         },
         "skill": {
           "id": "medical",
-          "level": 22
+          "level": 30
         }
       }
     ]
@@ -4168,6 +4231,30 @@
   },
   {
     "type": "recipe",
+    "id": "recipe-lightcomponentround",
+    "result": "lightcomponentround",
+    "deconstruct": {
+      "parts": {
+        "fpgacircuit": 1,
+        "phosphorus": 1
+      }
+    },
+    "fabricate": [
+      {
+        "amount": 1,
+        "parts": {
+          "fpgacircuit": 1,
+          "phosphorus": 2
+        },
+        "skill": {
+          "id": "electrical",
+          "level": 20
+        }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
     "id": "recipe-liquidoxygenite",
     "result": "liquidoxygenite",
     "deconstruct": null,
@@ -4451,7 +4538,7 @@
       {
         "amount": 1,
         "parts": {
-          "depthchargeshell": 1,
+          "iron": 2,
           "fuelrod": 1,
           "uex": 1
         },

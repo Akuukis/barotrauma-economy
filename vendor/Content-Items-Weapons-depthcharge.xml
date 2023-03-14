@@ -21,7 +21,7 @@
   <Item name="" identifier="depthchargeshell" tags="depthchargeammo" category="Weapon" sonarsize="5" scale="0.4" impactsoundtag="impact_metal_heavy" damagedbymonsters="true" damagedbyexplosions="true" damagedbyrepairtools="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" indestructible="true" health="10">
     <Upgrade gameversion="0.20.4.0" scale="0.4"/>
     <PreferredContainer primary="depthchargeloader" secondary="ammoboxcontainer" />
-    <Price baseprice="30" minavailable="1">
+    <Price baseprice="120" minavailable="1">
       <Price storeidentifier="merchantoutpost" multiplier="1.4" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="2" />
       <Price storeidentifier="merchantresearch" multiplier="1.25" />
@@ -39,7 +39,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,128,64,64" origin="0.5,0.5" />
     <Sprite texture="TurretsAndDepthCharges.png" sourcerect="0,0,130,89" depth="0.55" origin="0.5,0.5" />
-    <Body width="128" height="85" density="15" />
+    <Body width="128" height="85" density="20" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,20" handle2="10,20" aimable="false" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" launchimpulse="5.0">
       <!-- Make destructible when launched -->
@@ -50,8 +50,14 @@
         <particleemitter particle="shrapnel" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
         <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" />
       </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionDebris4.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="5000" />
+      </StatusEffect>
       <!-- Trigger explosions on contained items -->
       <StatusEffect type="OnBroken" target="Contained" >
+        <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="20000" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="20000" />
         <Explosion range="700.0" ballastfloradamage="150" structuredamage="175" itemdamage="500" force="17.5" severlimbsprobability="0.5" decal="explosion" decalsize="0.5" penetration="0.5">
           <Affliction identifier="explosiondamage" strength="150" dividebylimbcount="true"/>
           <Affliction identifier="burn" strength="15" probability="0.2" dividebylimbcount="false"/>
@@ -98,13 +104,13 @@
     </Fabricate>
     <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
       <RequiredSkill identifier="electrical" level="40" />
-      <RequiredItem identifier="depthchargeshell" />
+      <RequiredItem identifier="iron" amount="2" />
       <RequiredItem identifier="fuelrod" mincondition="0.8" usecondition="false" />
       <RequiredItem identifier="uex" />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,128,64,64" origin="0.5,0.5" />
     <Sprite texture="TurretsAndDepthCharges.png" sourcerect="130,1,129,88" depth="0.55" origin="0.5,0.5" />
-    <Body width="128" height="85" density="15" />
+    <Body width="128" height="85" density="20" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,20" handle2="10,20" aimable="false" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" launchimpulse="5.0">
       <!-- Make destructible when launched -->
@@ -116,6 +122,10 @@
         <particleemitter particle="shrapnel" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
         <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" />
       </StatusEffect>
+      <StatusEffect type="OnBroken" target="this">
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="5000" />
+      </StatusEffect>
       <StatusEffect type="OnBroken" target="this" >
         <Explosion range="1500.0" structuredamage="600" itemdamage="1000" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0"
            camerashake="1000" camerashakerange="50000"
@@ -126,9 +136,9 @@
           <Affliction identifier="radiationsickness" strength="100" />
           <Affliction identifier="bleeding" strength="500" probability="0.05" />
           <Affliction identifier="stun" strength="30" />
-          <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
-          <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
         </Explosion>
+        <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="50000" />
         <Explosion range="2000" force="0.0" smoke="false" sparks="false" empstrength="2.5" applyfireeffects="false" ignorecover="true">
           <Affliction identifier="emp" strength="50" multiplybymaxvitality="true" />
         </Explosion>
@@ -172,7 +182,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="267,64,41,61" origin="0.5,0.5" />
     <Sprite texture="TurretsAndDepthCharges.png" sourcerect="138,380,129,88" depth="0.55" origin="0.5,0.5" />
-    <Body width="128" height="85" density="12" />
+    <Body width="128" height="85" density="15" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,20" handle2="10,20" aimable="false" msg="ItemMsgPickUpSelect" />
     <AiTarget maxsoundrange="10000" maxsightrange="6000" />
     <Projectile characterusable="false" launchimpulse="5.0">
@@ -232,7 +242,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,704,64,64" origin="0.5,0.5" />
     <Sprite texture="TurretsAndDepthCharges.png" sourcerect="270,379,129,88" depth="0.55" origin="0.5,0.5" />
-    <Body width="128" height="85" density="12" />
+    <Body width="128" height="85" density="15" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,20" handle2="10,20" aimable="false" msg="ItemMsgPickUpSelect" />
     <AiTarget maxsoundrange="10000" maxsightrange="6000" />
     <Projectile characterusable="false" launchimpulse="5.0">
@@ -246,7 +256,13 @@
         <particleemitter particle="shrapnel" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
         <Sound file="Content/Sounds/Damage/HitArmor1.ogg" range="800" />
       </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionDebris4.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="5000" />
+      </StatusEffect>
       <StatusEffect type="OnBroken" target="this">
+        <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="50000"/>
         <Explosion range="1500.0" structuredamage="600" itemdamage="1000" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0"
            camerashake="1000" camerashakerange="50000"
            flashrange="10000" flashduration="5.0"
@@ -256,8 +272,6 @@
           <Affliction identifier="radiationsickness" strength="100" />
           <Affliction identifier="bleeding" strength="500" probability="0.05" />
           <Affliction identifier="stun" strength="30" />
-          <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
-          <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
         </Explosion>
         <Explosion range="2000" force="0.0" smoke="false" sparks="false" empstrength="2.5" applyfireeffects="false" ignorecover="true">
           <Affliction identifier="emp" strength="50" multiplybymaxvitality="true" />

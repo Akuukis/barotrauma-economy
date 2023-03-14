@@ -15,7 +15,7 @@
     <!-- remove SwappableItem element (can't be swapped with normal turrets) -->
     <SwappableItem />
     <Sprite texture="Content/Items/Shipwrecks/TurretsWrecked.png" sourcerect="0,256,256,256"/>
-    <Turret barrelpos="126,89">
+    <Turret targetcharacters="false" targetsubmarines="true" randommovement="true" targetitems="false" randomaimmaxtime="3" randomaimmintime="1" randomaimamount="60" aimdelay="true" barrelpos="126,89">
       <RailSprite texture="Content/Items/Shipwrecks/TurretsWrecked.png" sourcerect="716,0,167,228" />
       <BarrelSprite texture="Content/Items/Shipwrecks/TurretsWrecked.png" sourcerect="578,8,129,284" />
     </Turret>
@@ -46,7 +46,7 @@
     <!-- remove SwappableItem element (can't be swapped with normal turrets) -->
     <SwappableItem />
     <Sprite texture="Content/Items/Shipwrecks/TurretsWrecked.png" sourcerect="0,0,256,256" />
-    <Turret>
+    <Turret targetcharacters="true" targetmonsters="false" targetsubmarines="false" targetitems="false" randommovement="true" randomaimmaxtime="3" randomaimmintime="1" randomaimamount="60" aimdelay="true">
       <RailSprite texture="Content/Items/Shipwrecks/TurretsWrecked.png" sourcerect="405,16,120,287" />
       <BarrelSprite texture="Content/Items/Shipwrecks/TurretsWrecked.png" sourcerect="261,8,125,333" />
     </Turret>
@@ -151,23 +151,28 @@
       <ParticleEmitter mincondition="1.0" />
     </Repairable>
   </Item>
-  <Item name="" identifier="doorwrecked" nameidentifier="door" tags="door" scale="0.5" health="40" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="doorwrecked" nameidentifier="door" tags="door" scale="0.5" health="75" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyexplosions="true" ShowNameInHealthBar="false" explosiondamagemultiplier="0.1" ondamagedthreshold="10">
     <Sprite name="doorwrecked.background" texture="MiscWrecked.png" sourcerect="1790,1236,49,416" depth="0.51" origin="0.5,0.5" />
     <DecorativeSprite texture="MiscWrecked.png" sourcerect="1841,1236,44,417" depth="0.89" origin="0.5,0.5" />
-    <Door canbeselected="true" canbepicked="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="10.0" shadowscale="0.7,1">
+    <Door canbeselected="true" canbepicked="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="6.0" shadowscale="0.7,1">
+      <Upgrade gameversion="0.22.0.0" PickingTime="6.0" />
       <RequiredItem items="crowbar" type="Equipped" />
       <Sprite name="doorwrecked.door" texture="MiscWrecked.png" sourcerect="1936,1025,42,416" depth="0.05" origin="0.5,0" />
       <WeldedSprite name="doorwrecked.welded" texture="MiscWrecked.png" sourcerect="957,1,65,377" depth="0.0" origin="0.5,0.5" />
-      <BrokenSprite name="doorwrecked.broken" texture="MiscWrecked.png" sourcerect="1926,1445,121,416" depth="0.051" origin="0.5,0" scale="true" />
+      <BrokenSprite name="doorwrecked.broken" texture="Content/Items/Door/door.png" sourcerect="271,0,121,416" depth="0.509" origin="0.5,0.0" scale="true" />
       <sound file="Content/Items/Door/Door1.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door2.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door3.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door4.ogg" type="OnUse" range="500.0" />
-      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="4000.0" />
+      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="2000.0" onlyinsamesub="true" />
       <sound file="Content/Items/Door/Duct1.ogg" type="OnFailure" selectionmode="Random" range="300" />
       <sound file="Content/Items/Door/Duct2.ogg" type="OnFailure" range="300" />
-      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="3000" />
-      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="3000" />
+      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="2000" />
+      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="2000" />
+      <StatusEffect type="OnDamaged" target="This">
+        <sound file="Content/Items/Door/DoorBreak1.ogg" selectionmode="Random" range="800" />
+        <sound file="Content/Items/Door/DoorBreak2.ogg" range="800" />
+      </StatusEffect>    
     </Door>
     <AiTarget sightrange="3000.0" static="True" />
     <Repairable selectkey="Action" header="mechanicalrepairsheader" fixDurationHighSkill="10" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
@@ -183,23 +188,28 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="windoweddoorwrecked" nameidentifier="windoweddoor" tags="door" scale="0.5" health="40" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="windoweddoorwrecked" nameidentifier="windoweddoor" tags="door" scale="0.5" health="75" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyexplosions="true" ShowNameInHealthBar="false" explosiondamagemultiplier="0.1" ondamagedthreshold="10">
     <Sprite name="windoweddoorwrecked.background" texture="MiscWrecked.png" sourcerect="1789,1236,49,416" depth="0.51" origin="0.5,0.5" />
     <DecorativeSprite texture="MiscWrecked.png" sourcerect="1840,1236,46,417" depth="0.89" origin="0.5,0.5" />
-    <Door window="0,0,50,227" canbepicked="true" canbeselected="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="10.0" shadowscale="0.7,1">
+    <Door window="0,0,50,227" canbepicked="true" canbeselected="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="6.0" shadowscale="0.7,1">
+      <Upgrade gameversion="0.22.0.0" PickingTime="6.0" />
       <RequiredItem items="crowbar" type="Equipped" />
       <Sprite name="windoweddoorwrecked.door" texture="MiscWrecked.png" sourcerect="1885,1025,50,416" depth="0.05" origin="0.5,0" />
       <WeldedSprite name="windoweddoorwrecked.welded" texture="MiscWrecked.png" sourcerect="957,1,65,377" depth="0.0" origin="0.5,0.5" />
-      <BrokenSprite name="windoweddoorwrecked.broken" texture="MiscWrecked.png" sourcerect="1927,1445,120,416" depth="0.051" origin="0.5,0" scale="true" />
+      <BrokenSprite name="doorwrecked.broken" texture="Content/Items/Door/door.png" sourcerect="392,0,120,416" depth="0.509" origin="0.5,0.0" scale="true" />
       <sound file="Content/Items/Door/Door1.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door2.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door3.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door4.ogg" type="OnUse" range="500.0" />
-      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="4000.0" />
+      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="2000.0" onlyinsamesub="true" />
       <sound file="Content/Items/Door/Duct1.ogg" type="OnFailure" selectionmode="Random" range="300" />
       <sound file="Content/Items/Door/Duct2.ogg" type="OnFailure" range="300" />
-      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="3000" />
-      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="3000" />
+      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="2000" />
+      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="2000" />
+      <StatusEffect type="OnDamaged" target="This">
+        <sound file="Content/Items/Door/DoorBreak1.ogg" selectionmode="Random" range="800" />
+        <sound file="Content/Items/Door/DoorBreak2.ogg" range="800" />
+      </StatusEffect>
     </Door>
     <AiTarget sightrange="3000.0" static="True" />
     <Repairable selectkey="Action" header="mechanicalrepairsheader" fixDurationHighSkill="10" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
@@ -215,9 +225,10 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="hatchwrecked" nameidentifier="hatch" allowedlinks="gap, hull" tags="door" scale="0.5" health="40" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="hatchwrecked" nameidentifier="hatch" allowedlinks="gap, hull" tags="door" scale="0.5" health="75" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyexplosions="true" ShowNameInHealthBar="false" explosiondamagemultiplier="0.1" ondamagedthreshold="10">
     <Sprite name="hatchwrecked.background" texture="MiscWrecked.png" sourcerect="1234,1815,256,98" depth="0.7" origin="0.5,0.5" />
-    <Door canbeselected="true" canbepicked="true" horizontal="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="10.0" shadowscale="1,0.8">
+    <Door canbeselected="true" canbepicked="true" horizontal="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="6.0" shadowscale="1,0.8">
+      <Upgrade gameversion="0.22.0.0" PickingTime="6.0" />
       <RequiredItem items="crowbar" type="Equipped" />
       <Sprite name="hatchwrecked.door" texture="MiscWrecked.png" sourcerect="1775,1883,256,38" depth="0.05" origin="0,0.5" />
       <WeldedSprite name="hatchwrecked.welded" texture="MiscWrecked.png" sourcerect="209,893,227,75" depth="0.0" origin="0.5,0.5" />
@@ -226,11 +237,15 @@
       <sound file="Content/Items/Door/Door2.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door3.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door4.ogg" type="OnUse" range="500.0" />
-      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="4000.0" />
+      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="2000.0" onlyinsamesub="true" />
       <sound file="Content/Items/Door/Duct1.ogg" type="OnFailure" selectionmode="Random" range="300" />
       <sound file="Content/Items/Door/Duct2.ogg" type="OnFailure" range="300" />
-      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="3000" />
-      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="3000" />
+      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="2000" />
+      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="2000" />
+      <StatusEffect type="OnDamaged" target="This">
+        <sound file="Content/Items/Door/DoorBreak1.ogg" selectionmode="Random" range="800" />
+        <sound file="Content/Items/Door/DoorBreak2.ogg" range="800" />
+      </StatusEffect>
     </Door>
     <AiTarget sightrange="1500.0" static="True" />
     <Repairable selectkey="Action" header="mechanicalrepairsheader" fixDurationHighSkill="10" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
@@ -246,24 +261,28 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="doorwbuttonswrecked" nameidentifier="doorwbuttons" tags="door" scale="0.5" health="40" requirebodyinsidetrigger="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="doorwbuttonswrecked" nameidentifier="doorwbuttons" tags="door" scale="0.5" health="75" requirebodyinsidetrigger="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyexplosions="true" ShowNameInHealthBar="false" explosiondamagemultiplier="0.1" ondamagedthreshold="10">
     <Sprite name="doorwbuttonswrecked.background" texture="MiscWrecked.png" sourcerect="1789,1236,49,416" depth="0.51" origin="0.5,0.5" />
     <DecorativeSprite texture="MiscWrecked.png" sourcerect="1884,1452,164,416" depth="0.89" origin="0.5,0.5" />
-    <Door canbeselected="true" canbepicked="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="10.0" shadowscale="0.7,1" hasintegratedbuttons="true">
+    <Door canbeselected="true" canbepicked="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="6.0" shadowscale="0.7,1" hasintegratedbuttons="true">
+      <Upgrade gameversion="0.22.0.0" PickingTime="6.0" />
       <RequiredItem items="crowbar" type="Equipped" optional="true" />
       <Requireditem items="idcard" type="Picked" optional="true" msg="itemmsgunauthorizedaccess" />
       <Sprite name="doorwbuttonswrecked.door" texture="MiscWrecked.png" sourcerect="1936,1025,42,416" depth="0.05" origin="0.5,0" />
-      <WeldedSprite name="doorwbuttonswrecked.welded" texture="MiscWrecked.png" sourcerect="957,1,65,377" depth="0.0" origin="0.5,0.5" />
-      <BrokenSprite name="doorwbuttonswrecked.broken" texture="MiscWrecked.png" sourcerect="1926,1445,121,416" depth="0.051" origin="0.5,0" scale="true" />
+      <BrokenSprite name="doorwrecked.broken" texture="Content/Items/Door/door.png" sourcerect="271,0,121,416" depth="0.509" origin="0.5,0.0" scale="true" />
       <sound file="Content/Items/Door/Door1.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door2.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door3.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door4.ogg" type="OnUse" range="500.0" />
-      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="4000.0" />
+      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="2000.0" onlyinsamesub="true" />
       <sound file="Content/Items/Door/Duct1.ogg" type="OnFailure" selectionmode="Random" range="300" />
       <sound file="Content/Items/Door/Duct2.ogg" type="OnFailure" range="300" />
-      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="3000" />
-      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="3000" />
+      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="2000" />
+      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="2000" />
+      <StatusEffect type="OnDamaged" target="This">
+        <sound file="Content/Items/Door/DoorBreak1.ogg" selectionmode="Random" range="800" />
+        <sound file="Content/Items/Door/DoorBreak2.ogg" range="800" />
+      </StatusEffect>
     </Door>
     <trigger x="-60" y="-140" width="170" height="85" />
     <AiTarget sightrange="3000.0" static="True" />
@@ -280,24 +299,28 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="windoweddoorwbuttonswrecked" nameidentifier="windoweddoorwbuttons" tags="door" scale="0.5" health="40" requirebodyinsidetrigger="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="windoweddoorwbuttonswrecked" nameidentifier="windoweddoorwbuttons" tags="door" scale="0.5" health="75" requirebodyinsidetrigger="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyexplosions="true" ShowNameInHealthBar="false" explosiondamagemultiplier="0.1" ondamagedthreshold="10">
     <Sprite name="windoweddoorwbuttonswrecked.background" texture="MiscWrecked.png" sourcerect="1789,1236,49,416" depth="0.51" origin="0.5,0.5" />
     <DecorativeSprite texture="MiscWrecked.png" sourcerect="1884,1452,164,416" depth="0.89" origin="0.5,0.5" />
-    <Door window="0,0,50,227" canbepicked="true" canbeselected="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="10.0" shadowscale="0.7,1" hasintegratedbuttons="true">
+    <Door window="0,0,50,227" canbepicked="true" canbeselected="true" pickkey="Action" msg="ItemMsgForceOpenCrowbar" PickingTime="6.0" shadowscale="0.7,1" hasintegratedbuttons="true">
+      <Upgrade gameversion="0.22.0.0" PickingTime="6.0" />
       <RequiredItem items="crowbar" type="Equipped" optional="true" />
       <Requireditem items="idcard" type="Picked" optional="true" msg="itemmsgunauthorizedaccess" />
       <Sprite name="windoweddoorwbuttonswrecked.door" texture="MiscWrecked.png" sourcerect="1885,1025,50,416" depth="0.05" origin="0.5,0" />
-      <WeldedSprite name="windoweddoorwbuttonswrecked.welded" texture="MiscWrecked.png" sourcerect="957,1,65,377" depth="0.0" origin="0.5,0.5" />
-      <BrokenSprite name="windoweddoorwbuttonswrecked.broken" texture="MiscWrecked.png" sourcerect="1927,1445,120,416" depth="0.051" origin="0.5,0" scale="true" />
+      <BrokenSprite name="doorwrecked.broken" texture="Content/Items/Door/door.png" sourcerect="392,0,120,416" depth="0.509" origin="0.5,0.0" scale="true" />
       <sound file="Content/Items/Door/Door1.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door2.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door3.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door4.ogg" type="OnUse" range="500.0" />
-      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="4000.0" />
+      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="2000.0" onlyinsamesub="true" />
       <sound file="Content/Items/Door/Duct1.ogg" type="OnFailure" selectionmode="Random" range="300" />
       <sound file="Content/Items/Door/Duct2.ogg" type="OnFailure" range="300" />
-      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="3000" />
-      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="3000" />
+      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="2000" />
+      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="2000" />
+      <StatusEffect type="OnDamaged" target="This">
+        <sound file="Content/Items/Door/DoorBreak1.ogg" selectionmode="Random" range="800" />
+        <sound file="Content/Items/Door/DoorBreak2.ogg" range="800" />
+      </StatusEffect>
     </Door>
     <trigger x="-60" y="-140" width="170" height="85" />
     <AiTarget sightrange="3000.0" static="True" />
@@ -314,11 +337,12 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="hatchwbuttonswrecked" nameidentifier="hatchwbuttons" allowedlinks="gap, hull" tags="door" scale="0.5" health="40" requirebodyinsidetrigger="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="hatchwbuttonswrecked" nameidentifier="hatchwbuttons" allowedlinks="gap, hull" tags="door" scale="0.5" health="75" requirebodyinsidetrigger="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyexplosions="true" ShowNameInHealthBar="false" explosiondamagemultiplier="0.1" ondamagedthreshold="10">
     <Upgrade gameversion="0.9.7.0" spritedepth="0.7" />
     <Sprite name="hatchwbuttonswrecked.background" texture="MiscWrecked.png" sourcerect="1234,1815,256,98" depth="0.7" origin="0.5,0.5" />
     <DecorativeSprite texture="MiscWrecked.png" sourcerect="1502,1853,256,193" depth="0.89" origin="0.5,0.5" />
-    <Door canbeselected="true" canbepicked="true" horizontal="true" pickkey="Action" msg="ItemMsgOpen" PickingTime="10.0" shadowscale="1,0.8" hasintegratedbuttons="true">
+    <Door canbeselected="true" canbepicked="true" horizontal="true" pickkey="Action" msg="ItemMsgOpen" PickingTime="6.0" shadowscale="1,0.8" hasintegratedbuttons="true">
+      <Upgrade gameversion="0.22.0.0" PickingTime="6.0" />
       <RequiredItem items="crowbar" type="Equipped" optional="true" />
       <Requireditem items="idcard" type="Picked" optional="true" msg="itemmsgunauthorizedaccess" />
       <Sprite name="hatchwbuttonswrecked.door" texture="MiscWrecked.png" sourcerect="1775,1883,256,38" depth="0.05" origin="0,0.5" />
@@ -328,11 +352,15 @@
       <sound file="Content/Items/Door/Door2.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door3.ogg" type="OnUse" range="500.0" />
       <sound file="Content/Items/Door/Door4.ogg" type="OnUse" range="500.0" />
-      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="4000.0" />
+      <sound file="Content/Items/Tools/Crowbar.ogg" type="OnPicked" range="2000.0" onlyinsamesub="true" />
       <sound file="Content/Items/Door/Duct1.ogg" type="OnFailure" selectionmode="Random" range="300" />
       <sound file="Content/Items/Door/Duct2.ogg" type="OnFailure" range="300" />
-      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="3000" />
-      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="3000" />
+      <sound file="Content/Items/Door/DoorBreak1.ogg" type="OnBroken" selectionmode="Random" range="2000" />
+      <sound file="Content/Items/Door/DoorBreak2.ogg" type="OnBroken" range="2000" />
+      <StatusEffect type="OnDamaged" target="This">
+        <sound file="Content/Items/Door/DoorBreak1.ogg" selectionmode="Random" range="800" />
+        <sound file="Content/Items/Door/DoorBreak2.ogg" range="800" />
+      </StatusEffect>
     </Door>
     <trigger x="170" y="51" width="70" height="200" />
     <AiTarget sightrange="1500.0" static="True" />
@@ -349,7 +377,7 @@
       <output name="state_out" displayname="connection.stateout" fallbackdisplayname="connection.signalout" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="dockingportwrecked" nameidentifier="dockingport" tags="dock" linkable="true" indestructible="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="dockingportwrecked" nameidentifier="dockingport" tags="dock" linkable="true" indestructible="true" category="Wrecked">
     <Sprite texture="MiscWrecked.png" sourcerect="1745,1025,113,209" depth="0.94" origin="0.5,0.5" />
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -361,7 +389,7 @@
       <output name="proximity_sensor" displayname="connection.dockingproximitysensor" fallbackdisplayname="label.readytodock" />
     </ConnectionPanel>
   </Item>
-  <Item name="" identifier="dockinghatchwrecked" nameidentifier="dockinghatch" tags="dock" linkable="true" indestructible="false" category="Wrecked" damagedbyrepairtools="true" damagedbymonsters="true" damagedbyexplosions="true" explosiondamagemultiplier="0.1">
+  <Item name="" identifier="dockinghatchwrecked" nameidentifier="dockinghatch" tags="dock" linkable="true" indestructible="true" category="Wrecked">
     <Sprite texture="MiscWrecked.png" sourcerect="1595,1403,128,112" depth="0.94" origin="0.5,0.5" />
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
@@ -440,6 +468,7 @@
     <Sprite name="Diving Suit Locker Small" texture="Content/Items/Shipwrecks/MiscWrecked.png" sourcerect="1126,1964,99,83" depth="0.84" origin="0.5,0.5" />
     <ItemContainer hideitems="false" drawinventory="true" capacity="3" maxstacksize="1" slotsperrow="3" itempos="27,-42" iteminterval="22.5,0" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.16,0.18" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="oxygensource,weldingfuel" />
     </ItemContainer>
   </Item>

@@ -27,9 +27,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -47,8 +47,9 @@
       <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
       <RequiredSkill identifier="electrical" level="55" />
       <RequiredItem items="screwdriver" type="Equipped" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -103,9 +104,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -133,8 +134,9 @@
       <ParticleEmitter particle="MistSmoke" particlespersecond="60" anglemin="0" anglemax="360" distancemin="0" distancemax="25" velocitymin="0" velocitymax="20" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="spark" particleburstamount="5" particlespersecond="5" anglemin="0" anglemax="359" velocitymin="100" velocitymax="500" particleburstinterval="2" scalemin="0.5" scalemax="1" mincondition="0.0" maxcondition="15.0" />
       <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -157,11 +159,11 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
       </StatusEffect>
       <RequiredItem items="screwdriver" type="Equipped" />
       <output name="power_out" displayname="connection.powerout" />
@@ -194,9 +196,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -228,8 +230,9 @@
       <ParticleEmitter particle="fleshsmoke" particlespersecond="2" scalemin="1" scalemax="2" mincondition="0.0" maxcondition="50.0" />
       <RequiredSkill identifier="electrical" level="55" />
       <RequiredItem items="screwdriver" type="Equipped" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -238,7 +241,7 @@
   
   <Item name="" identifier="batterycell" category="Equipment,Electrical" maxstacksize="8" tags="smallitem,loadable,mobilebattery" scale="0.5" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="batterycellrecharger" maxcondition="80"/>
-    <PreferredContainer primary="stunbaton,scooter,handheldsonar,sonarbeacon,flashlight,portablepump" spawnprobability="1.0" mincondition="25"/>
+    <PreferredContainer primary="stunbaton,scooter,handheldsonar,sonarbeacon,flashlight,portablepump,exosuit" spawnprobability="1.0" mincondition="25"/>
     <PreferredContainer secondary="divingcab" amount="3" spawnprobability="1" notcampaign="true"/>
     <PreferredContainer secondary="abandonedengcab,wreckengcab,outpostengcab" minamount="1" maxamount="2" spawnprobability="0.1"/>
     <PreferredContainer secondary="abandonedstoragecab,wreckstoragecabcab" minamount="1" maxamount="2" spawnprobability="0.05"/>
@@ -317,9 +320,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>

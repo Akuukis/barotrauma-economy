@@ -11,7 +11,7 @@
       <SwapConnectedItem tag="turretammosource" swapto="blankloader" />
     </SwappableItem>
     <StaticBody width="80" radius="80" />
-    <Turret rotationlimits="180,360" projectilecount="0" canbeselected="false" characterusable="false" linkable="true" barrelpos="128,88">
+    <Turret rotationlimits="180,360" projectilecount="0" canbeselected="false" characterusable="false" linkable="true" barrelpos="128,-50">
       <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true">
         <LightTexture texture="Content/Lights/alphaOne.png" />
       </LightComponent>
@@ -38,7 +38,7 @@
       <SwapConnectedItem tag="turretammosource" swapto="blankloader" />
     </SwappableItem>
     <StaticBody width="80" radius="80" />
-    <Turret rotationlimits="180,360" projectilecount="0" canbeselected="false" characterusable="false" linkable="true" barrelpos="222,88">
+    <Turret rotationlimits="180,360" projectilecount="0" canbeselected="false" characterusable="false" linkable="true" barrelpos="220,-128">
       <LightComponent LightColor="1.0,0.8,0.8,1.0" Flicker="0.0" range="2500" IsOn="true" drawbehindsubs="true" ignorecontinuoustoggle="true">
         <LightTexture texture="Content/Lights/alphaOne.png" />
       </LightComponent>

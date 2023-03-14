@@ -658,6 +658,7 @@
       "weapon",
       "alien",
       "mountableweapon",
+      "pistolitem",
       "Alien",
       "alienitems"
     ],
@@ -868,6 +869,58 @@
       "mine": {
         "id": "mine",
         "multiplier": 1.25,
+        "minavailable": 0,
+        "sold": false
+      }
+    }
+  },
+  {
+    "type": "item",
+    "id": "alientranslator",
+    "categories": [
+      "Alien",
+      "Alien",
+      "alienitems"
+    ],
+    "title": "alientranslator",
+    "price": 500,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        251,
+        833,
+        60,
+        61
+      ]
+    },
+    "stores": {
+      "outpost": {
+        "id": "outpost",
+        "multiplier": 0.2,
+        "minavailable": 0,
+        "sold": false
+      },
+      "city": {
+        "id": "city",
+        "multiplier": 0.2,
+        "minavailable": 0,
+        "sold": false
+      },
+      "research": {
+        "id": "research",
+        "multiplier": 2,
+        "minavailable": 0,
+        "sold": false
+      },
+      "military": {
+        "id": "military",
+        "multiplier": 0.2,
+        "minavailable": 0,
+        "sold": false
+      },
+      "mine": {
+        "id": "mine",
+        "multiplier": 1,
         "minavailable": 0,
         "sold": false
       }
@@ -1241,6 +1294,12 @@
         "multiplier": 0.9,
         "minavailable": 10,
         "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -1439,6 +1498,12 @@
       "medical": {
         "id": "medical",
         "multiplier": 0.9,
+        "minavailable": 0,
+        "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
         "minavailable": 0,
         "sold": true
       }
@@ -2212,7 +2277,7 @@
         "id": "military",
         "multiplier": 0.9,
         "minavailable": 0,
-        "sold": false
+        "sold": true
       },
       "mine": {
         "id": "mine",
@@ -2553,6 +2618,95 @@
   },
   {
     "type": "item",
+    "id": "banana",
+    "categories": [
+      "Misc",
+      "Gardening",
+      "growableplants"
+    ],
+    "title": "banana",
+    "price": 50,
+    "icon": {
+      "path": "Content/Map/Outposts/Art/FactionItems.png",
+      "rect": [
+        263,
+        193,
+        38,
+        39
+      ]
+    },
+    "stores": {
+      "outpost": {
+        "id": "outpost",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      },
+      "city": {
+        "id": "city",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      },
+      "research": {
+        "id": "research",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      },
+      "military": {
+        "id": "military",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      },
+      "mine": {
+        "id": "mine",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 3,
+        "sold": true
+      }
+    }
+  },
+  {
+    "type": "item",
+    "id": "bananapeel",
+    "categories": [
+      "Misc",
+      "smallitem",
+      "clowns",
+      "Jobgear",
+      "Clown",
+      "clown"
+    ],
+    "title": "bananapeel",
+    "price": 30,
+    "icon": {
+      "path": "Content/Map/Outposts/Art/FactionItems.png",
+      "rect": [
+        340,
+        2,
+        65,
+        48
+      ]
+    },
+    "stores": {
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 1,
+        "sold": true
+      }
+    }
+  },
+  {
+    "type": "item",
     "id": "bandolier",
     "categories": [
       "Equipment",
@@ -2578,13 +2732,13 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": false
+        "sold": true
       },
       "city": {
         "id": "city",
         "multiplier": 1.2,
-        "minavailable": 0,
-        "sold": false
+        "minavailable": 1,
+        "sold": true
       },
       "research": {
         "id": "research",
@@ -2730,11 +2884,13 @@
       "Misc",
       "smallitem",
       "hornitem",
-      "Misc",
-      "misc"
+      "clowns",
+      "Jobgear",
+      "Clown",
+      "clown"
     ],
     "title": "bikehorn",
-    "price": 1,
+    "price": 5,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
       "rect": [
@@ -2774,6 +2930,12 @@
         "multiplier": 1,
         "minavailable": 0,
         "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 3,
+        "sold": true
       }
     }
   },
@@ -3365,6 +3527,12 @@
         "id": "medical",
         "multiplier": 0.9,
         "minavailable": 7,
+        "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 3,
         "sold": true
       }
     }
@@ -4583,6 +4751,7 @@
       "smallitem",
       "clothing",
       "clowngear",
+      "clowns",
       "Jobgear",
       "Clown",
       "clown"
@@ -4628,6 +4797,12 @@
         "multiplier": 1,
         "minavailable": 0,
         "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 3,
+        "sold": true
       }
     }
   },
@@ -4637,6 +4812,7 @@
     "categories": [
       "crate",
       "allowcleanup",
+      "clowns",
       "Jobgear",
       "Clown",
       "clown"
@@ -4683,12 +4859,40 @@
   },
   {
     "type": "item",
+    "id": "clownexosuit",
+    "categories": [
+      "Diving",
+      "Equipment",
+      "clowngear",
+      "deepdiving",
+      "deepdivinglarge",
+      "clowns",
+      "Jobgear",
+      "Clown",
+      "clown"
+    ],
+    "title": "clownexosuit",
+    "price": 1500,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        382,
+        895,
+        128,
+        128
+      ]
+    },
+    "stores": {}
+  },
+  {
+    "type": "item",
     "id": "clownmask",
     "categories": [
       "Equipment",
       "smallitem",
       "clothing",
       "clownmask",
+      "clowns",
       "Jobgear",
       "Clown",
       "clown"
@@ -4734,6 +4938,12 @@
         "multiplier": 1,
         "minavailable": 0,
         "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 3,
+        "sold": true
       }
     }
   },
@@ -4745,12 +4955,13 @@
       "smallitem",
       "clothing",
       "clownmask",
+      "clowns",
       "Jobgear",
       "Clown",
       "clown"
     ],
     "title": "clownmaskunique",
-    "price": 40,
+    "price": 100,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
       "rect": [
@@ -4760,7 +4971,14 @@
         64
       ]
     },
-    "stores": {}
+    "stores": {
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
+      }
+    }
   },
   {
     "type": "item",
@@ -4770,12 +4988,13 @@
       "smallitem",
       "clothing",
       "clowngear",
+      "clowns",
       "Jobgear",
       "Clown",
       "clown"
     ],
     "title": "clownsuitunique",
-    "price": 40,
+    "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas2.png",
       "rect": [
@@ -5869,6 +6088,12 @@
         "multiplier": 1.1,
         "minavailable": 0,
         "sold": false
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -5926,6 +6151,43 @@
         "id": "medical",
         "multiplier": 0.9,
         "minavailable": 2,
+        "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
+      }
+    }
+  },
+  {
+    "type": "item",
+    "id": "cymbals",
+    "categories": [
+      "Misc",
+      "smallitem",
+      "clowns",
+      "Jobgear",
+      "Clown",
+      "clown"
+    ],
+    "title": "cymbals",
+    "price": 100,
+    "icon": {
+      "path": "Content/Map/Outposts/Art/FactionItems.png",
+      "rect": [
+        334,
+        106,
+        57,
+        55
+      ]
+    },
+    "stores": {
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 1,
         "sold": true
       }
     }
@@ -6269,7 +6531,7 @@
       "depthcharge"
     ],
     "title": "depthchargeshell",
-    "price": 30,
+    "price": 120,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
       "rect": [
@@ -6513,59 +6775,6 @@
   },
   {
     "type": "item",
-    "id": "dirtybomb",
-    "categories": [
-      "Weapon",
-      "Jobgear",
-      "Engineer",
-      "engineer_talent_items"
-    ],
-    "title": "dirtybomb",
-    "price": 240,
-    "icon": {
-      "path": "Content/Items/InventoryIconAtlas2.png",
-      "rect": [
-        448,
-        640,
-        64,
-        64
-      ]
-    },
-    "stores": {
-      "outpost": {
-        "id": "outpost",
-        "multiplier": 1.25,
-        "minavailable": 0,
-        "sold": false
-      },
-      "city": {
-        "id": "city",
-        "multiplier": 1.25,
-        "minavailable": 0,
-        "sold": false
-      },
-      "research": {
-        "id": "research",
-        "multiplier": 1.25,
-        "minavailable": 0,
-        "sold": false
-      },
-      "military": {
-        "id": "military",
-        "multiplier": 0.9,
-        "minavailable": 0,
-        "sold": false
-      },
-      "mine": {
-        "id": "mine",
-        "multiplier": 1,
-        "minavailable": 0,
-        "sold": false
-      }
-    }
-  },
-  {
-    "type": "item",
     "id": "diversremains",
     "categories": [
       "Misc",
@@ -6672,6 +6881,12 @@
         "id": "armory",
         "multiplier": 0.9,
         "minavailable": 15,
+        "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
         "sold": true
       }
     }
@@ -7298,6 +7513,12 @@
         "multiplier": 1.1,
         "minavailable": 0,
         "sold": true
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -7639,6 +7860,12 @@
         "multiplier": 0.75,
         "minavailable": 0,
         "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -8657,6 +8884,12 @@
         "multiplier": 1,
         "minavailable": 0,
         "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -8686,13 +8919,13 @@
       "city": {
         "id": "city",
         "multiplier": 1,
-        "minavailable": 0,
+        "minavailable": 5,
         "sold": true
       },
       "research": {
         "id": "research",
         "multiplier": 1.2,
-        "minavailable": 1,
+        "minavailable": 10,
         "sold": true
       }
     }
@@ -9929,6 +10162,35 @@
   },
   {
     "type": "item",
+    "id": "honkmotherianscriptures1",
+    "categories": [
+      "Misc",
+      "Jobgear",
+      "Clown",
+      "clown"
+    ],
+    "title": "honkmotherianscriptures1",
+    "price": 20,
+    "icon": {
+      "path": "Content/Map/Outposts/Art/FactionItems.png",
+      "rect": [
+        218,
+        195,
+        37,
+        55
+      ]
+    },
+    "stores": {
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 2,
+        "sold": true
+      }
+    }
+  },
+  {
+    "type": "item",
     "id": "huskeggs",
     "categories": [
       "Material",
@@ -9976,6 +10238,12 @@
         "multiplier": 1.3,
         "minavailable": 0,
         "sold": false
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 2,
+        "sold": true
       }
     }
   },
@@ -10040,7 +10308,7 @@
       "creatureloot"
     ],
     "title": "huskstinger",
-    "price": 1,
+    "price": 0,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
       "rect": [
@@ -10823,30 +11091,30 @@
         "id": "outpost",
         "multiplier": 1.3,
         "minavailable": 0,
-        "sold": false
+        "sold": true
       },
       "city": {
         "id": "city",
         "multiplier": 1.25,
-        "minavailable": 0,
-        "sold": false
+        "minavailable": 6,
+        "sold": true
       },
       "research": {
         "id": "research",
         "multiplier": 1.1,
         "minavailable": 0,
-        "sold": false
+        "sold": true
       },
       "military": {
         "id": "military",
         "multiplier": 1.1,
-        "minavailable": 0,
-        "sold": false
+        "minavailable": 10,
+        "sold": true
       },
       "mine": {
         "id": "mine",
         "multiplier": 0.8,
-        "minavailable": 10,
+        "minavailable": 20,
         "sold": true
       }
     }
@@ -10984,6 +11252,64 @@
       "rect": [
         896,
         384,
+        64,
+        64
+      ]
+    },
+    "stores": {
+      "outpost": {
+        "id": "outpost",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
+      },
+      "city": {
+        "id": "city",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      },
+      "research": {
+        "id": "research",
+        "multiplier": 1.25,
+        "minavailable": 0,
+        "sold": true
+      },
+      "military": {
+        "id": "military",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
+      },
+      "mine": {
+        "id": "mine",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
+      },
+      "engineering": {
+        "id": "engineering",
+        "multiplier": 0.9,
+        "minavailable": 0,
+        "sold": true
+      }
+    }
+  },
+  {
+    "type": "item",
+    "id": "lightcomponentround",
+    "categories": [
+      "Electrical",
+      "Electricity",
+      "signalitems"
+    ],
+    "title": "lightcomponentround",
+    "price": 110,
+    "icon": {
+      "path": "Content/Items/InventoryIconAtlas2.png",
+      "rect": [
+        64,
+        448,
         64,
         64
       ]
@@ -11588,6 +11914,12 @@
         "multiplier": 1.1,
         "minavailable": 0,
         "sold": false
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -11645,6 +11977,12 @@
         "id": "medical",
         "multiplier": 0.9,
         "minavailable": 2,
+        "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
         "sold": true
       }
     }
@@ -12015,8 +12353,8 @@
       "military": {
         "id": "military",
         "multiplier": 0.9,
-        "minavailable": 0,
-        "sold": false
+        "minavailable": 1,
+        "sold": true
       },
       "mine": {
         "id": "mine",
@@ -13577,7 +13915,7 @@
         "id": "city",
         "multiplier": 1,
         "minavailable": 0,
-        "sold": false
+        "sold": true
       },
       "research": {
         "id": "research",
@@ -14685,7 +15023,7 @@
     "id": "riotshield",
     "categories": [
       "Equipment",
-      "smallitem",
+      "mediumitem",
       "Jobgear",
       "Security",
       "securityofficer_talent_items"
@@ -14807,7 +15145,14 @@
         66
       ]
     },
-    "stores": {}
+    "stores": {
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": false
+      }
+    }
   },
   {
     "type": "item",
@@ -15024,17 +15369,17 @@
         "id": "city",
         "multiplier": 1.25,
         "minavailable": 0,
-        "sold": false
-      },
-      "research": {
-        "id": "research",
-        "multiplier": 1.25,
-        "minavailable": 0,
-        "sold": false
+        "sold": true
       },
       "military": {
         "id": "military",
         "multiplier": 0.9,
+        "minavailable": 1,
+        "sold": true
+      },
+      "research": {
+        "id": "research",
+        "multiplier": 1.25,
         "minavailable": 0,
         "sold": false
       },
@@ -15204,7 +15549,7 @@
     "id": "shellshield",
     "categories": [
       "Equipment",
-      "smallitem",
+      "mediumitem",
       "CreatureLoot",
       "creatureloot"
     ],
@@ -16794,6 +17139,12 @@
         "multiplier": 1.1,
         "minavailable": 0,
         "sold": false
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -17170,6 +17521,12 @@
         "multiplier": 1.1,
         "minavailable": 0,
         "sold": false
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },
@@ -17227,6 +17584,12 @@
         "id": "medical",
         "multiplier": 0.9,
         "minavailable": 2,
+        "sold": true
+      },
+      "husk": {
+        "id": "husk",
+        "multiplier": 1,
+        "minavailable": 0,
         "sold": true
       }
     }
@@ -18565,11 +18928,12 @@
     "id": "toyhammer",
     "categories": [
       "Weapon",
-      "Weapons",
-      "weapons"
+      "Jobgear",
+      "Clown",
+      "clown"
     ],
     "title": "toyhammer",
-    "price": 1,
+    "price": 80,
     "icon": {
       "path": "Content/Items/InventoryIconAtlas.png",
       "rect": [
@@ -18609,6 +18973,12 @@
         "multiplier": 1.25,
         "minavailable": 0,
         "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 1,
+        "sold": true
       }
     }
   },
@@ -19161,6 +19531,12 @@
         "multiplier": 0.75,
         "minavailable": 0,
         "sold": false
+      },
+      "clown": {
+        "id": "clown",
+        "multiplier": 1,
+        "minavailable": 0,
+        "sold": true
       }
     }
   },

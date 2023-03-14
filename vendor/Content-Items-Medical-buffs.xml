@@ -29,7 +29,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="75,0,37,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="35" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -71,6 +71,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon"/>
+    <SkillRequirementHint identifier="medical" level="35" />
   </Methamphetamine>
   <!-- Name: Anabolic Steroids -->
   <!-- Description: Temporarily increases muscular strength and physical performance. -->
@@ -87,6 +88,7 @@
       <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="1" />
       <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="2" />
       <Price storeidentifier="merchantmine" sold="false" multiplier="1.1" />
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2"/>
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="45">
       <RequiredSkill identifier="medical" level="30" />
@@ -99,7 +101,7 @@
     <!-- TODO: sprite -->
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="112,0,38,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="35" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -137,6 +139,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon"/>
+    <SkillRequirementHint identifier="medical" level="35" />
   </AnabolicSteroids>
   <!-- Name: Hyperzine -->
   <!-- Description: An extremely potent muscle stimulant for those moments when you gotta go fast. -->
@@ -164,7 +167,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="149,0,37,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="50" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -209,6 +212,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon"/>
+    <SkillRequirementHint identifier="medical" level="50" />
   </Hyperzine>
   <!-- Name: Ethanol -->
   <!-- Medical alcohol used as an ingredient in the manufacture of various medicines. Drinking while on duty is not advised. -->
@@ -226,11 +230,12 @@
       <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="10" />
       <Price storeidentifier="merchantmilitary" multiplier="1.1" />
       <Price storeidentifier="merchantmine" multiplier="1.1" />
+      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="2" />
     </Price>
     <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="80" fabricationlimitmin="5" fabricationlimitmax="10"/>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,768,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="435,452,30,57" depth="0.6" origin="0.5,0.5" />
-    <Body width="30" height="55" density="10.2" />   
+    <Body width="30" height="55" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0"/>
       <StatusEffect type="OnSecondaryUse" target="This,Character">
@@ -266,7 +271,7 @@
     <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="40" fabricationlimitmin="5" fabricationlimitmax="10"/>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,768,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="315,452,30,57" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0"/>
       <StatusEffect type="OnSecondaryUse" target="This,Character">

@@ -17,7 +17,7 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,115,200" scalemultiplier="1,1" />
-      <Attack structuredamage="20" targetforce="20" itemdamage="40" severlimbsprobability="1.0" penetration="0.5">
+      <Attack structuredamage="20" targetforce="20" itemdamage="20" severlimbsprobability="1.0" penetration="0.5">
         <Affliction identifier="gunshotwound" strength="70" />
         <Affliction identifier="bleeding" strength="50" />
         <Affliction identifier="stun" strength="1.5" />
@@ -53,7 +53,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="303,364,42,67" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,256,111,56" depth="0.55" origin="0.5,0.5" />
-    <Body width="106" height="49" density="70" />
+    <Body width="106" height="49" density="30" />
     <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="90,10" handle1="-45,-4" handle2="-45,-15" msg="ItemMsgPickUpSelect" />
     <RangedWeapon reload="1" barrelpos="40,6" spread="0" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
@@ -73,7 +73,8 @@
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="6" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0" containedspritedepth="0.56">
       <Containable items="handcannonammo" hide="true"/>
-      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
       <SubContainer capacity="1" maxstacksize="1">
         <Containable items="flashlight" hide="false" itempos="17,4" setactive="true"/>
       </SubContainer>
@@ -82,6 +83,7 @@
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
+    <SkillRequirementHint identifier="weapons" level="60" />
   </Item>
   <Item name="" identifier="coalitioncommendation" category="Equipment" Tags="smallitem" cargocontaineridentifier="metalcrate" allowasextracargo="true" maxstacksize="8" scale="0.5" impactsoundtag="impact_soft">
     <PreferredContainer primary="crewcab"/>
@@ -97,7 +99,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="265,365,36,65" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="3,4,24,43" depth="0.6" origin="0.5,0.5" />
-    <Body width="19" height="40" density="20" />
+    <Body width="19" height="40" density="25" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <Attack targetimpulse="5">
         <!-- empty attack so that a talent can trigger-->
@@ -127,7 +129,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="228,365,37,65" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="33,4,24,43" depth="0.6" origin="0.5,0.5" />
-    <Body width="19" height="40" density="20" />
+    <Body width="19" height="40" density="25" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <Attack targetimpulse="5">
         <!-- empty attack so that a talent can trigger-->
@@ -150,8 +152,8 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="174,234,42,50" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,60,50,12" depth="0.55" origin="0.5,0.5" />
-    <Body width="45" height="10" />
-    <Holdable slots="Any,RightHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+    <Body width="45" height="10" density="9.9"/>
+    <Holdable slots="Any,RightHand,LeftHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnUse" target="This" Condition="-4.0">
         <ParticleEmitter particle="swirlysmoke" particlespersecond="2" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
       </StatusEffect>
@@ -173,13 +175,17 @@
     <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
     <PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true"/>
     <PreferredContainer primary="medfabcab" secondary="medcab"/>
-    <Price baseprice="130" sold="false" />
+    <Price baseprice="130" sold="false">
+      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="3">
+        <Reputation faction="clowns" min="30"/>
+      </Price>
+    </Price>
     <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
       <RequiredItem identifier="ethanol" />
       <RequiredItem identifier="raptorbane" />
     </Fabricate>
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="486,212,27,66" depth="0.6" origin="0.5,0.5" />
-    <Body width="27" height="66" density="15" />
+    <Body width="27" height="66" density="20" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0"/>
       <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">

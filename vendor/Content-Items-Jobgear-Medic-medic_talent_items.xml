@@ -11,7 +11,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="113,264,58,45" origin="0.5,0.5" />
     <Sprite name="Headset" texture="Content/Items/JobGear/TalentGear.png" depth="0.6" sourcerect="253,301,76,64" origin="0.35,0.5" />
-    <Body radius="20" height="20" density="30" />
+    <Body radius="20" height="20" density="15" />
     <Deconstruct time="10">
       <Item identifier="plastic" amount="2" />
       <Item identifier="copper" />
@@ -23,6 +23,7 @@
     </Fabricate>
     <WifiComponent range="35000.0" LinkToChat="true" MinChatMessageInterval="0.0" />
     <ItemContainer capacity="1" maxstacksize="1" autoinject="true">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="384,448,64,64" origin="0.5,0.5" />
       <Containable items="chem,medical" />
     </ItemContainer>
     <Wearable limbtype="Head" slots="Any,Headset" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
@@ -73,7 +74,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/Medical/Medicines.png" sourcerect="448,320,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="264,309,37,68" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="35" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -102,6 +103,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon"/>
+    <SkillRequirementHint identifier="medical" level="35" />
   </Item>
   <Item name="" identifier="pressurestabilizer" category="Medical" maxstacksize="8" Tags="smallitem,chem,medical,syringe" allowasextracargo="true" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab"/>
@@ -122,7 +124,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="3,308,37,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="35" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -149,6 +151,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon"/>
+    <SkillRequirementHint identifier="medical" level="35" />
   </Item>
   <Item name="" identifier="endocrinebooster" category="Medical" maxstacksize="8" Tags="smallitem,chem,medical,syringe" allowasextracargo="true" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="medcab"/>
@@ -175,9 +178,9 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/Medical/Medicines.png" sourcerect="448,256,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="303,310,35,67" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="35" />
+      <RequiredSkill identifier="medical" level="60" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget">
@@ -202,11 +205,15 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="60" />
   </Item>
   <Item identifier="advancedgenesplicer" variantof="genesplicer" allowasextracargo="true" descriptionidentifier="advancedgenesplicer">
     <PreferredContainer primary="medcab" secondary="medcab"/>
     <PreferredContainer secondary="abandonedmedcab,wreckmedcab,outpostmedcab" spawnprobability="0"/>
     <Price baseprice="550" sold="false" minleveldifficulty="65">
+      <Price storeidentifier="merchanthusk" minavailable="1" maxavailable="2" sold="true">
+        <Reputation faction="huskcult" min="50"/>
+      </Price>
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="0.9" />
       <Price storeidentifier="merchantresearch" multiplier="1.1" sold="true" />
@@ -228,7 +235,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/Genetic/Genetic.png" sourcerect="327,62,73,65" origin="0.5,0.5" />
     <Sprite name="Headset" texture="Content/Items/Genetic/Genetic.png" depth="0.6" sourcerect="148,85,73,35" origin="0.5,0.5" />
-    <Body radius="8" width="48" density="30" />
+    <Body radius="8" width="48" density="15" />
     <ItemContainer capacity="2" />
     <Wearable>
       <sprite name="Gene Splicer Wearable" texture="Content/Items/Genetic/Genetic.png" limb="Head" hidelimb="false" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.5" hideotherwearables="false" sourcerect="326,131,67,55" origin="0.6,0.0" />
@@ -240,6 +247,9 @@
     <PreferredContainer secondary="secarmcab,weaponholder"/>
     <PreferredContainer secondary="wreckmedcab,abandonedmedcab,wreckarmcab,abandonedarmcab" amount="1" spawnprobability="0" />
     <Price baseprice="310" sold="false">
+      <Price storeidentifier="merchanthusk" minavailable="1" maxavailable="2" sold="true">
+        <Reputation faction="huskcult" min="50"/>
+      </Price>
     </Price>
     <Deconstruct time="10">
       <Item identifier="titaniumaluminiumalloy" />
@@ -247,8 +257,8 @@
     </Deconstruct>
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
       <RequiredSkill identifier="medical" level="50" />
-      <RequiredItem identifier="titaniumaluminiumalloy" />
-      <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="aluminium" amount="1" />
       <RequiredItem identifier="plastic" amount="2" />
     </Fabricate>
     <InventoryIcon />
@@ -257,16 +267,20 @@
     <RangedWeapon launchimpulse="10.0" barrelpos="71,30" spread="0" unskilledspread="10" drawhudwhenequipped="true" crosshairscale="0.2">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
-      <Sound file="Content/Items/Weapons/SyringeGun1.ogg" type="OnUse" />
-      <Sound file="Content/Items/Weapons/SyringeGun2.ogg" type="OnUse" />
+      <Sound file="Content/Items/Weapons/SyringeGun1.ogg" type="OnUse" range="1000" volume="0.75"/>
+      <Sound file="Content/Items/Weapons/SyringeGun2.ogg" type="OnUse" range="1000" volume="0.75"/>
       <RequiredItems items="syringe" type="Contained" msg="ItemMsgSyringeRequired" />
       <RequiredSkill identifier="weapons" level="30" />
       <RequiredSkill identifier="medical" level="50" />
     </RangedWeapon>
-    <ItemContainer capacity="2" maxstacksize="8" itempos="0,25" itemrotation="-90" hideitems="false" containedstateindicatorstyle="syringe">
+    <ItemContainer capacity="2" maxstacksize="8" itempos="0,25" itemrotation="-90" hideitems="false" containedstateindicatorstyle="syringe" ShowTotalStackCapacityInContainedStateIndicator="true" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="384,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="384,448,64,64" origin="0.5,0.5" />
       <Containable items="syringe" />
     </ItemContainer>
     <StatusHUD drawhudwhenequipped="true" />
+    <SkillRequirementHint identifier="weapons" level="30" />
+    <SkillRequirementHint identifier="medical" level="50" />
   </Item>
 
   <Item name="" identifier="europabrew" category="Medical" maxstacksize="16" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
@@ -290,7 +304,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="0,960,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="113,209,37,72" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnSuccess" target="UseTarget">
@@ -306,7 +320,7 @@
     <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon"/>
   </Item>
 
-  <Item name="" identifier="sulphuricacidsyringe" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+  <Item name="" identifier="sulphuricacidsyringe" category="Medical" maxstacksize="8" cargocontaineridentifier="chemicalcrate" description="" Tags="smallitem,chem,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
     <PreferredContainer secondary="wrecktoxcab,abandonedtoxcab" spawnprobability="0" />
     <PreferredContainer primary="toxcab" secondary="toxcontainer"/>
     <Price baseprice="125" sold="false">
@@ -327,11 +341,11 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,960,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="263,210,37,72" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnSuccess" target="Limb" duration="5.0">
-        <Affliction identifier="acidburn" amount="3" />
+        <Affliction identifier="acidburn" amount="6" />
       </StatusEffect>
       <StatusEffect type="OnSuccess" target="UseTarget">
         <Conditional entitytype="eq Character"/>
@@ -374,7 +388,7 @@
         <SpawnItem identifiers="acidmistemitter" spawnposition="This" count="3" spread="25"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
-        <sound file="Content/Items/Weapons/StunGrenade.ogg" />
+        <sound file="Content/Items/Weapons/StunGrenade.ogg" range="2000"/>
         <Explosion range="500" ballastfloradamage="0" itemdamage="0" force="0.5" sparks="true" shockwave="false" flames="false" smoke="false" flash="true">
           <Affliction identifier="acidburn" strength="20" />
           <Affliction identifier="acidburn" strength="10" probability="0.2" dividebylimbcount="false"/>
@@ -383,7 +397,7 @@
         <Remove />
       </StatusEffect>
     </ItemComponent>
-    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" throwforce="4.0" msg="ItemMsgPickUpSelect">
+    <Throwable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="0,0" throwforce="3.5" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" Condition="-100.0" delay="2" setvalue="true" />
       <StatusEffect type="OnSecondaryUse" delay="0.5">
         <SpawnItem identifiers="acidmistemitter" spawnposition="This" />
@@ -451,11 +465,10 @@
     <Body width="38" height="15" density="30" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
     <Projectile characterusable="false" launchimpulse="20.0" sticktocharacters="false">
-      <sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" type="OnImpact" range="500" selectionmode="Random" />
-      <sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" type="OnImpact" range="500" />
       <StatusEffect type="OnUse" target="This" Condition="-100.0" delay="1.0" setvalue="true" />
       <StatusEffect type="OnBroken" target="This">
-        <sound file="Content/Items/Weapons/StunGrenade.ogg" />
+        <sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" range="2000" />
+        <sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" range="2000" />
         <Explosion range="500" ballastfloradamage="0" itemdamage="0" force="0.5" sparks="true" shockwave="false" flames="false" smoke="false" flash="true">
           <Affliction identifier="acidburn" strength="20" />
           <Affliction identifier="acidburn" strength="10" probability="0.2" dividebylimbcount="false"/>
@@ -521,8 +534,8 @@
         <Sound file="Content/Items/Tools/Sprayer.ogg" range="300" volume="0.1" loop="true"/>
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="150" delay="0.5" stackable="false" disabledeltatime="true">
-        <Affliction identifier="acidburn" strength="0.05"/>
-        <Affliction identifier="stun" strength="0.2" probability="0.5"/>
+        <Affliction identifier="acidburn" strength="0.07"/>
+        <Affliction identifier="slow" strength="40"/>
       </StatusEffect>
       <StatusEffect type="OnBroken" target="This">
         <Remove />

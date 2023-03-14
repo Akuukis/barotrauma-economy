@@ -33,11 +33,11 @@
       <IsActiveConditional Condition="gt 0.0" />
     </DecorativeSprite>
 
-    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="351,624,336,400" alpha="1.0" />
     </LightComponent>
 
-    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" blinkfrequency="1" allowingameediting="false">
+    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" alphablend="false" blinkfrequency="1" allowingameediting="false">
       <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="688,624,336,400" alpha="1.0" />
     </LightComponent>
     
@@ -51,9 +51,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel"/>
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -69,7 +69,7 @@
       <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
@@ -102,7 +102,7 @@
     <BrokenSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" sourcerect="336,0,336,288" origin="0.5,0.5" depth="0.8" maxcondition="80" fadein="true" />
     <BrokenSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" sourcerect="672,0,336,288" origin="0.5,0.5" depth="0.8" maxcondition="0" />
 
-    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="688,339,336,288" alpha="1.0" />
     </LightComponent>
 
@@ -116,9 +116,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel"/>
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -133,8 +133,8 @@
       <RequiredItem items="wrench" type="equipped" />
       <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
-      <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />   
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
@@ -165,7 +165,7 @@
     <Sprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.8" sourcerect="0,304,256,320"/>
     <BrokenSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" sourcerect="272,304,256,320" depth="0.8" maxcondition="80" fadein="true" />
     <BrokenSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" sourcerect="544,304,256,320" depth="0.8" maxcondition="0" />
-    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" allowingameediting="false">
+    <LightComponent range="10.0" lightcolor="255,255,255,0" powerconsumption="5" IsOn="true" castshadows="false" alphablend="false" allowingameediting="false">
       <sprite texture="Content/Items/Command/navigatorLights.png" depth="0.025" sourcerect="0,665,256,320" origin="0.5,0.5" alpha="1.0" />
     </LightComponent>
     <DecorativeSprite texture="Content/Items/Fabricators/FabricatorsAndDeconstructors.png" depth="0.84" sourcerect="866,484,156,105"/>
@@ -210,9 +210,9 @@
     <ConnectionPanel selectkey="Action" canbeselected="true" hudpriority="10" msg="ItemMsgRewireScrewdriver">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel"/>
       <RequiredSkill identifier="electrical" level="55" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Explosion range="100.0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
         <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
@@ -228,7 +228,7 @@
       <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />

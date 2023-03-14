@@ -100,11 +100,11 @@
     </Powered>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredSkill identifier="electrical" level="20" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
-        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="3" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
       <RequiredItem items="screwdriver" type="Equipped" />
@@ -115,6 +115,16 @@
     <ItemContainer hideitems="false" drawinventory="true" capacity="10" maxstacksize="1" slotsperrow="5" itempos="24,-41" iteminterval="42,-65" itemsperrow="2" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
       <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="6" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="7" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="8" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="9" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="oxygensource,weldingfuel" excludebroken="false" excludefullcondition="true">
         <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And">
           <Conditional Voltage="gt 0.1" targetcontainer="true" targetitemcomponent="Powered"/>
@@ -132,11 +142,11 @@
     </Powered>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredSkill identifier="electrical" level="20" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
-        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="3" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
       <RequiredItem items="screwdriver" type="Equipped" />
@@ -158,11 +168,11 @@
     </Powered>
     <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
       <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
-      <RequiredSkill identifier="electrical" level="20" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
-        <Sound file="Content/Items/Weapons/ElectricalDischarger.ogg" range="1000" />
-        <Explosion range="100.0" stun="0" force="5.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
-        <Affliction identifier="stun" strength="3" />
+      <RequiredSkill identifier="electrical" level="25" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Sounds/Damage/Electrocution1.ogg" range="1000" />
+        <Explosion range="100.0" stun="0" force="1.0" flames="false" shockwave="false" sparks="true" underwaterbubble="false" />
+        <Affliction identifier="stun" strength="4" />
         <Affliction identifier="burn" strength="5" />
       </StatusEffect>
       <RequiredItem items="screwdriver" type="Equipped" />
@@ -172,6 +182,9 @@
     </ConnectionPanel> 
     <ItemContainer hideitems="false" drawinventory="true" capacity="3" maxstacksize="1" slotsperrow="3" itempos="27,-42" iteminterval="22.5,0" itemrotation="0" canbeselected="true" containedspritedepth="0.83" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.16,0.18" anchor="Center" style="ItemUI" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
       <Containable items="oxygensource,weldingfuel" excludebroken="false" excludefullcondition="true">
         <StatusEffect type="OnContaining" targettype="Contained" Condition="1.0" Comparison="And">

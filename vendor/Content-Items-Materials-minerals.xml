@@ -28,7 +28,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="85,146,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="172,146,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.0" abysscommonness="0" />
       <Commonness commonness="0.10" cavecommonness="0.15" abysscommonness="100" leveltype="europanridge" />
@@ -58,7 +58,7 @@
     </LightComponent>
     <ContainedSprite texture="Content/Items/Materials/MineralEnvironment.png" usewhenattached="true" decorativespritebehavior="HideWhenNotVisible" depth="0.55" sourcerect="0,731,86,147" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Materials/Minerals.png" depth="0.3" sourcerect="521,767,109,117" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.49" sourcerect="85,731,85,147" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.48" sourcerect="172,731,84,147" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.51" sourcerect="85,731,85,147" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
@@ -102,7 +102,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="0,877,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="172,877,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0" />
       <Commonness commonness="0.30" cavecommonness="0" abysscommonness="50" leveltype="europanridge" />
@@ -140,7 +140,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="84,3,84,144" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="170,3,84,144" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="-50">
       <Commonness commonness="0" />
       <Commonness commonness="0.80" cavecommonness="0.1" abysscommonness="10" leveltype="europanridge" />
@@ -178,7 +178,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="85,585,88,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="0,585,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.20" abysscommonness="0" />
       <Commonness commonness="0.15" cavecommonness="0.1" abysscommonness="0" leveltype="theaphoticplateau" />
@@ -214,7 +214,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="768,292,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="938,292,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.20" abysscommonness="5.00" />
       <Commonness commonness="0.30" abysscommonness="3.33" leveltype="europanridge" />
@@ -249,7 +249,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="597,585,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="681,585,87,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.70" abysscommonness="1" />
       <Commonness commonness="0.60" abysscommonness="1" leveltype="europanridge" />
@@ -286,7 +286,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="768,0,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="853,0,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.60" abysscommonness="50" />
       <Commonness commonness="0.60" abysscommonness="2" leveltype="europanridge" />
@@ -324,7 +324,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="341,292,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="256,293,86,146" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.45" abysscommonness="25" />
       <Commonness commonness="0.55" abysscommonness="10" leveltype="europanridge" />
@@ -362,7 +362,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="853,731,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="938,731,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.45" cavecommonness="0.1" abysscommonness="25" />
       <Commonness commonness="0.5" cavecommonness="0.1" abysscommonness="10" leveltype="europanridge" />
@@ -398,7 +398,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="681,292,87,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Materials/Minerals.png" depth="0.3" sourcerect="273,634,113,121" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0" />
       <Commonness commonness="0.4" cavecommonness="0.7" abysscommonness="50" leveltype="europanridge" />
@@ -436,7 +436,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="853,877,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="938,877,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.75" abysscommonness="20" />
       <Commonness commonness="0.65" abysscommonness="0" leveltype="europanridge" />
@@ -473,7 +473,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="681,438,87,148" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="597,438,84,148" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.25" cavecommonness="0.2" abysscommonness="20" />
       <Commonness commonness="0.30" abysscommonness="10" leveltype="theaphoticplateau" />
@@ -507,7 +507,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="341,585,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="426,585,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.4" abysscommonness="0" />
       <Commonness commonness="0.2" abysscommonness="0" leveltype="hydrothermalwastes" />
@@ -541,12 +541,12 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="256,877,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="426,877,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
-      <Commonness commonness="0.5" cavecommonness="0.6" abysscommonness="0" />
-      <Commonness commonness="0.6" cavecommonness="0.7" abysscommonness="50" leveltype="europanridge" />
-      <Commonness commonness="0.5" cavecommonness="0.6" abysscommonness="50" leveltype="theaphoticplateau" />
-      <Commonness commonness="0.2" cavecommonness="0.2" abysscommonness="0" leveltype="hydrothermalwastes" />
+      <Commonness commonness="0.9" cavecommonness="0.9" abysscommonness="0" />
+      <Commonness commonness="0.85" cavecommonness="0.9" abysscommonness="50" leveltype="theaphoticplateau" />
+      <Commonness commonness="0.85" cavecommonness="0.8" abysscommonness="50" leveltype="thegreatsea" />
+      <Commonness commonness="0.8" cavecommonness="0.7" abysscommonness="0" leveltype="hydrothermalwastes" />
       <RequiredItem items="cuttingequipment" type="Equipped" />
     </LevelResource>
     <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
@@ -576,7 +576,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="341,0,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="426,0,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.10" abysscommonness="10" />
       <Commonness commonness="0.40" abysscommonness="50" leveltype="europanridge" />
@@ -613,7 +613,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="597,146,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="681,146,87,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.15" abysscommonness="100" />
       <Commonness commonness="0.30" abysscommonness="50" leveltype="europanridge" />
@@ -652,7 +652,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="256,441,86,145" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="426,438,86,148" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.40" abysscommonness="50" />
       <Commonness commonness="0.50" abysscommonness="25" leveltype="europanridge" />
@@ -691,7 +691,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="84,438,88,148" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="172,440,84,146" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.65" abysscommonness="10" />
       <Commonness commonness="0.50" abysscommonness="5" leveltype="europanridge" />
@@ -728,7 +728,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="938,146,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="853,146,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.20" abysscommonness="25" />
       <Commonness commonness="0.40" abysscommonness="25" leveltype="europanridge" />
@@ -765,7 +765,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="597,0,84,145" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="681,0,87,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.30" abysscommonness="0" />
       <Commonness commonness="0.40" abysscommonness="5" leveltype="europanridge" />
@@ -803,7 +803,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="597,877,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="681,877,87,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.10" abysscommonness="30" />
       <Commonness commonness="0.25" abysscommonness="20" leveltype="europanridge" />
@@ -840,7 +840,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="256,731,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="426,731,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.50" abysscommonness="15" />
       <Commonness commonness="0.45" abysscommonness="10" leveltype="europanridge" />
@@ -870,7 +870,7 @@
     </LightComponent>
     <ContainedSprite texture="Content/Items/Materials/MineralEnvironment.png" usewhenattached="true" decorativespritebehavior="HideWhenNotVisible" depth="0.55" sourcerect="853,438,86,148" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Materials/Minerals.png" depth="0.3" sourcerect="906,637,108,115" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.49" sourcerect="768,438,86,148" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.48" sourcerect="938,438,86,148" offset="20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="1" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.51" sourcerect="768,438,86,148" offset="-20,0" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,30" origin="0.5,0.5" randomgroupid="2" />
@@ -915,7 +915,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="512,877,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="681,877,87,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.30" abysscommonness="10" />
       <Commonness commonness="0.50" abysscommonness="5" leveltype="europanridge" />
@@ -951,7 +951,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="85,146,88,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="172,146,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.10" cavecommonness="0.40" abysscommonness="30" />
       <Commonness commonness="0.30" cavecommonness="0.50" abysscommonness="20" leveltype="europanridge" />
@@ -988,7 +988,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="85,292,88,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="172,292,84,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.15" cavecommonness="0.10" abysscommonness="0" />
       <Commonness commonness="0.1" cavecommonness="0.10" abysscommonness="0" leveltype="europanridge" />
@@ -1024,7 +1024,7 @@
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.491" sourcerect="938,585,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/MineralEnvironment.png" depth="0.53" sourcerect="768,585,86,147" offset="0,-30" randomrotation="-20,20" randomscale="0.8,1.5" randomoffset="30,10" origin="0.5,0.5" randomgroupid="3" />
     <DecorativeSprite texture="Content/Items/Materials/Minerals.png" depth="0.4" sourcerect="810,893,173,131" offset="0,-40" randomrotation="-20,20" origin="0.5,0.5" />
-    <Body radius="40" width="20" density="50" />
+    <Body radius="40" width="20" density="25" />
     <LevelResource deattachduration="4" randomoffsetfromwall="80">
       <Commonness commonness="0.65" abysscommonness="5" />
       <Commonness commonness="0.50" abysscommonness="5" leveltype="europanridge" />
@@ -1035,9 +1035,9 @@
     </LevelResource>
     <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgUsePlasmaCutter" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false" />
   </Item>
-  <Item name="" identifier="piezocrystal" category="Material" Tags="" canbepicked="false" description="" scale="0.5" sonarsize="30" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true">
+  <Item name="" identifier="piezocrystal" category="Material" Tags="" canbepicked="false" description="" scale="0.5" sonarsize="30" health="60" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true">
     <Sprite texture="Content/Items/Materials/Crystal.png" depth="1.0" sourcerect="0,4,1024,1020" origin="0.5,0.6" />
-    <Body width="500" height="500" density="50" bodytype="Static" />
+    <Body width="500" height="500" density="25" bodytype="Static" />
     <LightComponent lightcolor="178,196,207,255" range="4000.0" powerconsumption="0" flicker="0.2" flickerspeed="0.5" pulsefrequency="0.2" pulseamount="0.8" ison="true" drawbehindsubs="true">
       <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
         <particleemitter particle="iceshards" particleamount="200" velocitymin="100" velocitymax="3000" anglemin="0" anglemax="360" scalemin="0.5" scalemax="3.0" />
@@ -1059,9 +1059,9 @@
         <Explosion range="7000.0" camerashake="3" stun="0" force="0.0" flames="false" shockwave="false" sparks="false" underwaterbubble="false" />
       </StatusEffect>
       <StatusEffect type="OnUse">
-        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="6000" selectionmode="Random" />
-        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="6000" />
-        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="6000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" range="10000" selectionmode="Random" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" range="10000" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" range="10000" />
       </StatusEffect>
     </ElectricalDischarger>
     <ItemComponent>

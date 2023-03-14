@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Items>
-  <Item name="" identifier="railgun" description="" Tags="turret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" focusonselected="true" offsetonselected="800" linkable="true" allowedlinks="railgunammosource">
-    <Sprite texture="Turrets.png" depth="0.01" sourcerect="0,0,512,512" canflipy="false" />
+  <Item name="" identifier="railgun" description="" Tags="turret,slowturret" category="Machine,Weapon" interactthroughwalls="true" Scale="0.5" interactdistance="10" focusonselected="true" offsetonselected="800" linkable="true" allowedlinks="railgunammosource">
+    <Sprite texture="Turrets.png" depth="0.01" sourcerect="4,4,504,504" canflipy="false" />
     <MinimapIcon name="Command_Weapons_Railgun" texture="Content/UI/CommandUIAtlas.png" sourcerect="640,0,128,128" />
     <SwappableItem price="7500" replacementonuninstall="largeturrethardpoint" origin="256,438" swapidentifier="largeturret">
       <SchematicSprite texture="Content/UI/WeaponUI.png" sourcerect="0,0,256,389" />
@@ -10,7 +10,7 @@
     </SwappableItem>
     <UpgradePreviewSprite scale="3.5" texture="Content/UI/WeaponUI.png" sourcerect="140,805,102,70" origin="0.5,0.5" />
     <StaticBody width="80" radius="80" />
-    <Turret launchimpulse="80.0" canbeselected="false" characterusable="false" linkable="true" barrelpos="252, 178" firingoffset="0,-150" rotationlimits="180,360" powerconsumption="20000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="100" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8">
+    <Turret launchimpulse="80.0" canbeselected="false" characterusable="false" linkable="true" barrelpos="250, 180" firingoffset="0,-150" rotationlimits="180,360" powerconsumption="20000.0" showchargeindicator="true" showprojectileindicator="true" recoildistance="100" springstiffnesslowskill="2" springstiffnesshighskill="50" springdampinglowskill="0.5" springdampinghighskill="10" rotationspeedlowskill="1" rotationspeedhighskill="8">
       <StatusEffect type="OnUse" target="This">
         <sound file="Content/Items/Weapons/Railgun1.ogg" range="10000" type="OnUse" volume="3" />
         <sound file="Content/Items/Weapons/Railgun2.ogg" range="10000" type="OnUse" volume="3" />
@@ -18,7 +18,7 @@
         <Explosion range="1000.0" structuredamage="0" force="0.01" camerashake="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false" />
       </StatusEffect>
       <WeaponIndicator texture="Content/UI/WeaponUI.png" sourcerect="343,913,66,36" origin="0.227, 0.5" />
-      <RailSprite texture="Content/Items/Weapons/Turrets.png" origin="0.52, 0.59" sourcerect="0,512,328,512" depth="0.011" />
+      <RailSprite texture="Content/Items/Weapons/Turrets.png" origin="0.51, 0.6" sourcerect="0,512,328,512" depth="0.011" />
       <BarrelSprite texture="Content/Items/Weapons/Turrets.png" origin="0.5, 0.85" sourcerect="512,0,250,672" depth="0.012" />
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,256" />
@@ -43,6 +43,7 @@
       <input name="set_light" displayname="connection.setlight" />
     </ConnectionPanel>
     <Upgrade gameversion="0.10.0.0" scale="*0.5" barrelpos="256,178" />
+    <SkillRequirementHint identifier="weapons" level="50" />
   </Item>
   
   <Item name="" description="" identifier="periscope" tags="periscope" category="Machine,Weapon" type="Controller" disableitemusagewhenselected="true" scale="0.5" isshootable="true" requireaimtouse="false" requireaimtosecondaryuse="false">
@@ -65,6 +66,7 @@
   <Item name="" identifier="railgunloadersmall" nameidentifier="railgunloader" tags="railgunequipment,railgunammosource,turretammosource,railgunammoloader" category="Machine,Weapon" linkable="true" allowedlinks="railgun" scale="0.5" damagedbyexplosions="true" explosiondamagemultiplier="0.2">
     <SwappableItem canbebought="false" origin="110,353"  spawnwithid="railgunshell,railgunshell,railgunshell,railgunshell,railgunshell"/>
     <Sprite name="Railgun Loader Front" texture="Loaders.png" depth="0.78" sourcerect="709,370,220,353" origin="0.5,0.5" />
+    <UpgradePreviewSprite texture="Content/UI/WeaponUI.png" sourcerect="208,968,32,46" origin="0.5,0.5" />
     <DecorativeSprite name="Railgun Loader Frame Front" texture="Loaders.png" depth="0.8" sourcerect="31,569,117,200" origin="0.5,0.5" offset="0,-30" />
     <ItemContainer hideitems="false" drawinventory="true" capacity="5" slotsperrow="6" itempos="70,-200" iteminterval="20,0" itemrotation="90" canbeselected="true" msg="ItemMsgInteractSelect" containedspritedepth="0.79">
       <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
@@ -78,7 +80,7 @@
       <ParticleEmitter particle="damagebubbles" particleburstamount="2" particleburstinterval="2.0" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemin="0" anglemax="359" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
       <ParticleEmitter particle="smoke" particleburstamount="3" particleburstinterval="0.5" particlespersecond="2" scalemin="1" scalemax="2.5" anglemin="0" anglemax="359" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
       <ParticleEmitter particle="heavysmoke" particleburstinterval="0.25" particlespersecond="2" scalemin="2.5" scalemax="5.0" mincondition="0.0" maxcondition="15.0" />
-      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
         <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
         <Affliction identifier="lacerations" strength="5" />
         <Affliction identifier="stun" strength="4" />
@@ -189,9 +191,9 @@
         <Affliction identifier="bleeding" strength="50" />
         <Affliction identifier="stun" strength="15" />
       </Attack>
-      <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
-      <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" type="OnUse" volume="10" selectionmode="Random" range="50000" dontmuffle="true" />
       <StatusEffect type="OnImpact" target="This" Condition="-100.0" setvalue="true" allowwhenbroken="true">
+        <sound file="Content/Items/Weapons/ExplosionLarge1.ogg" range="50000" />
+        <sound file="Content/Items/Weapons/ExplosionLarge2.ogg" range="50000" />
         <Explosion range="1500.0" structuredamage="600" itemdamage="1000" ballastfloradamage="1000" force="50.0" severlimbsprobability="2" decal="explosion" decalsize="1.0"
                    camerashake="1000" camerashakerange="50000" 
                    flashrange="10000" flashduration="5.0"
@@ -207,6 +209,10 @@
         </Explosion>
         <ParticleEmitter particle="underwaterexplosion" anglemin="0" anglemax="360" particleamount="3" velocitymin="0" velocitymax="0" scalemin="15" scalemax="15" />
         <SpawnItem identifier="nuclearaftereffectemitter" spawnposition="This"/>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This">
+        <sound file="Content/Items/Weapons/ExplosionDebris4.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris5.ogg" range="5000" />
       </StatusEffect>
       <StatusEffect type="OnActive" target="This">
         <ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="5" velocitymin="0" velocitymax="50" scalemin="1" scalemax="3" />

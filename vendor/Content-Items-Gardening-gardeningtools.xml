@@ -2,7 +2,7 @@
 <Items>
   <Item name="" identifier="smallplanter" category="Misc" Tags="planter,mediumitem" scale="0.5" isshootable="true">
     <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="896,384,128,128" depth="0.75" premultiplyalpha="false" origin="0.5,0.5" />
-    <Body width="95" height="106" density="40" />
+    <Body width="95" height="106" density="25" />
     <Price baseprice="120" minleveldifficulty="1">
       <Price storeidentifier="merchantoutpost" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="1" />
@@ -45,10 +45,11 @@
       <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.2" />
       <Price storeidentifier="merchantmine" sold="false" multiplier="0.75" />
+      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="2" />
     </Price>
     <PreferredContainer primary="crewcab" amount="1" spawnprobability="0.5" notcampaign="true"/>
     <PreferredContainer primary="wreckstoragecab,abandonedstoragecab,wreckcrewcab,abandonedcrewcab,outpostcrewcabinet" amount="1" spawnprobability="0.1" />
-    <Body width="121" height="96" density="40" />
+    <Body width="121" height="96" density="15" />
     <Fabricate suitablefabricators="fabricator" requiredtime="35">
       <RequiredSkill identifier="mechanical" level="20" />
       <RequiredItem identifier="steel" amount="2" />
@@ -72,6 +73,7 @@
       <Price storeidentifier="merchantresearch" multiplier="0.9" />
       <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.2" />
       <Price storeidentifier="merchantmine" sold="false" multiplier="0.75" />
+      <Price storeidentifier="merchantclown" minavailable="0" maxavailable="2" />
     </Price>
     <PreferredContainer primary="crewcab"/>
     <PreferredContainer primary="wreckstoragecab,abandonedstoragecab,wreckcrewcab,abandonedcrewcab,outpostcrewcabinet" amount="1" spawnprobability="0.2" />
@@ -97,7 +99,7 @@
     <PreferredContainer primary="crewcab"/>
     <PreferredContainer primary="wreckstoragecab,abandonedstoragecab,wreckcrewcab,abandonedcrewcab,outpostcrewcabinet" amount="1" spawnprobability="0.2" />
     <Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="841,704,49,65" depth="0.55" origin="0.5,0.5" />
-    <Body width="45" height="60" density="25" />
+    <Body width="45" height="60" density="12" />
     <Price baseprice="60" minleveldifficulty="1">
       <Price storeidentifier="merchantoutpost" />
       <Price storeidentifier="merchantcity" multiplier="1.2" />

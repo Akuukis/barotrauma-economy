@@ -42,7 +42,7 @@
         <VineSprite type="StumpRight" sourcerect="896,128,128,128" />
       </VineSprites>
     </Growable>
-    <Body radius="15" density="12" />
+    <Body radius="15" density="10.1" />
     <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.15.22.0">
       <Growable growthspeed="0.070" hardiness="0.15" floodtolerance="0.4" productrate="0.022"/>
@@ -89,7 +89,7 @@
         <VineSprite type="StumpRight" sourcerect="896,384,128,128" />
       </VineSprites>
     </Growable>
-    <Body radius="15" density="12" />
+    <Body radius="15" density="10.1" />
     <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.15.22.0">
       <Growable growthspeed="0.065" hardiness="0.071" floodtolerance="0.5" productrate="0.0056"/>
@@ -136,7 +136,7 @@
         <VineSprite type="StumpRight" sourcerect="896,640,128,128" />
       </VineSprites>
     </Growable>
-    <Body radius="15" density="12" />
+    <Body radius="15" density="10.1" />
     <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.15.22.0">
       <Growable growthspeed="0.076" hardiness="0.162" floodtolerance="0.2" productrate="0.0056"/>
@@ -184,10 +184,78 @@
         <VineSprite type="StumpRight" sourcerect="896,896,128,128" />
       </VineSprites>
     </Growable>
-    <Body radius="15" density="12" />
+    <Body radius="15" density="10.1" />
     <Holdable canBeCombined="false" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
     <Upgrade gameversion="0.15.22.0">
       <Growable growthspeed="0.065" hardiness="0.062" floodtolerance="0.4" productrate="0.022"/>
     </Upgrade>
+  </Item>
+
+
+  <Item name="" identifier="banana" category="Misc" Tags="smallitem,seed,plantitem" maxstacksize="8" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft" spritecolor="215,245,77,255">
+    <!-- TODO: sprite -->
+    <sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="263,193,38,39" depth="0.2" origin="0.5,0.5" />
+    <PreferredContainer primary="seedbag" amount="1" spawnprobability="0.03" />
+    <Price baseprice="50" canbespecial="false">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" sold="false"/>
+      <Price storeidentifier="merchantresearch" sold="false" />
+      <Price storeidentifier="merchantmilitary" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" />
+      <Price storeidentifier="merchantclown" minavailable="3" maxavailable="5" sold="true">
+        <Reputation faction="clowns" min="50"/>
+      </Price>
+    </Price>
+    <Deconstruct time="30">
+      <Item identifier="potassium" mincondition="0.5" />
+      <Item identifier="carbon" mincondition="0.5" />
+    </Deconstruct>
+    <Growable growthspeed="0.076" pickingtime="3" maximumvines="18" maxhealth="375" hardiness="0.15" floodtolerance="0.2" seedrate="0" productrate="0.0056" flowerquantity="4" baseflowerscale="0.60" vinescale="0.25" vinetint="55,152,27,255" flowertint="139,56,87,255">
+      <ProducedItem identifier="banana" probability="1.0"/>
+      <VineSprites vineatlas="Content/Items/Gardening/branches.png" decayatlas="Content/Items/Gardening/branches_overlay.png">
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,256,256,256" />
+        <LeafSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,256,256,256" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="0,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="128,768,128,128" />
+        <FlowerSprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="256,768,128,128" />
+        <VineSprite type="Stem" sourcerect="640,896,128,128" />
+        <VineSprite type="CrossJunction" sourcerect="512,896,128,128" />
+        <VineSprite type="VerticalLane" sourcerect="512,768,128,128" />
+        <VineSprite type="HorizontalLane" sourcerect="640,768,128,128" />
+        <VineSprite type="TurnTopRight" sourcerect="0,768,128,128" />
+        <VineSprite type="TurnTopLeft" sourcerect="384,768,128,128" />
+        <VineSprite type="TurnBottomLeft" sourcerect="256,768,128,128" />
+        <VineSprite type="TurnBottomRight" sourcerect="128,768,128,128" />
+        <VineSprite type="TSectionTop" sourcerect="128,896,128,128" />
+        <VineSprite type="TSectionLeft" sourcerect="256,896,128,128" />
+        <VineSprite type="TSectionBottom" sourcerect="384,896,128,128" />
+        <VineSprite type="TSectionRight" sourcerect="0,896,128,128" />
+        <VineSprite type="StumpTop" sourcerect="768,768,128,128" />
+        <VineSprite type="StumpLeft" sourcerect="896,768,128,128" />
+        <VineSprite type="StumpBottom" sourcerect="768,896,128,128" />
+        <VineSprite type="StumpRight" sourcerect="896,896,128,128" />
+      </VineSprites>
+    </Growable>
+    <Body radius="15" density="12" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimable="false" aimpos="5,-5" handle1="-5,-5" holdangle="-45" swingamount="0,3" swingspeed="0.5" swingwhenaiming="true" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character" disabledeltatime="true">
+        <Conditional Condition="lte 0" />
+        <ReduceAffliction identifier="nausea" amount="5" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="5" />
+        <Affliction identifier="strengthen" amount="10" />        
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true" />
+      <StatusEffect type="OnUse" target="Character">
+        <ReduceAffliction identifier="nausea" amount="5" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="5" />
+        <Affliction identifier="strengthen" amount="10" />
+      </StatusEffect>
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <SpawnItem identifier="bananapeel" spawnposition="SameInventory"/>
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
   </Item>
 </Items>

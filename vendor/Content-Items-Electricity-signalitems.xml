@@ -1253,7 +1253,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,388,59,57" origin="0.5,0.5" />
     <Sprite texture="signalcomp.png" depth="0.8" sourcerect="195,4,28,24" origin="0.5,0.5" />
-    <LightComponent canbeselected="true" color="1.0,0.0,0.0,0.5" castshadows="false">
+    <LightComponent canbeselected="true" color="255,0.0,0.0,127" alphablend="true" castshadows="false">
       <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
       <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.38,0.5" />
     </LightComponent>
@@ -1291,9 +1291,47 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,384,64,64" origin="0.5,0.5" />
     <Sprite texture="signalcomp.png" depth="0.8" sourcerect="195,33,27,31" origin="0.5,0.5" />
-    <LightComponent canbeselected="true" color="1.0,0.0,0.0,0.5" castshadows="false">
+    <LightComponent canbeselected="true" color="255,0.0,0.0,127" alphablend="true" castshadows="false">
       <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
       <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.55" />
+    </LightComponent>
+    <Body width="28" height="23" density="15" />
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
+      <RequiredItem items="wrench" type="Equipped" />
+    </Holdable>
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="toggle" displayname="connection.togglestate" />
+      <input name="set_state" displayname="connection.setstate" />
+      <input name="set_color" displayname="connection.setcolor" />
+    </ConnectionPanel>
+  </Item>
+  <Item name="" identifier="lightcomponentround" nameidentifier="lightcomponent" maxstacksize="8" category="Electrical" Tags="smallitem,lightcomponent" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+    <Price baseprice="110" minleveldifficulty="5">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" sold="false"/>
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" multiplier="0.9" />
+    </Price>
+    <PreferredContainer primary="engcab"/>
+    <PreferredContainer secondary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.05" />
+    <Deconstruct time="10">
+      <Item identifier="fpgacircuit" />
+      <Item identifier="phosphorus" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="electrical" level="20" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="phosphorus" amount="2" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+    <Sprite texture="signalcomp.png" depth="0.8" sourcerect="194,103,25,26" origin="0.5,0.5" />
+    <LightComponent canbeselected="true" color="1.0,0.0,0.0,0.5" castshadows="false">
+      <LightTexture texture="Content/Lights/pointlight_bounce.png" origin="0.5,0.5" />
+      <sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="228,3,23,24" origin="0.5,0.5" />
     </LightComponent>
     <Body width="28" height="23" density="15" />
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
@@ -1622,7 +1660,7 @@
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
-    <LightComponent canbeselected="false" lightcolor="255,0,0,100" castshadows="false" blinkfrequency="0.68" range="20">
+    <LightComponent canbeselected="false" lightcolor="255,0,0,100" alphablend="true" castshadows="false" blinkfrequency="0.68" range="20">
       <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="302,894,40,62" origin="0.5,0.5" alpha="1.0" />
       <sound file="Content/Items/WarningSiren.ogg" type="OnActive" range="2000.0" loop="true" volume="0.5" />
       <StatusEffect type="OnContained" target="This" IsActive="false">
@@ -1663,7 +1701,7 @@
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="65,-10" handle1="0,0" attachable="true" aimable="true">
       <RequiredItem items="wrench" type="Equipped" />
     </Holdable>
-    <LightComponent canbeselected="false" lightcolor="255,0,0,100" castshadows="false" blinkfrequency="2.6" range="20">
+    <LightComponent canbeselected="false" lightcolor="255,0,0,100" alphablend="true" castshadows="false" blinkfrequency="2.6" range="20">
       <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="301,963,42,57" origin="0.5,0.5" alpha="1.0" />
       <sound file="Content/Items/AlarmBuzzerLoop.ogg" type="OnActive" range="1000.0" loop="true" volume="0.5" />
       <StatusEffect type="OnContained" target="This" IsActive="false">
@@ -1741,7 +1779,7 @@
     <PreferredContainer primary="reactorcab" secondary="engcab" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="323,193,60,61" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Electricity/signalcomp.png" sourcerect="149,371,69,93" depth="0.8" origin="0.5,0.5" />
-    <Body width="60" height="90" density="8" />
+    <Body width="60" height="90" density="15" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
     <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" drawhudwhenequipped="true">
       <GuiFrame relativesize="0.35,0.35" anchor="Center" style="ItemUI" />

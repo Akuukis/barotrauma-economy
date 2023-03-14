@@ -47,7 +47,7 @@
       <!-- copied from divingmask -->
       <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1000.0" Condition="-0.5" comparison="Or">
         <Conditional IsDead="false" />
-        <RequiredItem items="oxygentank" type="Contained" />
+        <RequiredItem items="oxygensource" type="Contained" />
       </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="-100.0" Oxygen="-5.0" Condition="-5.0">
         <Conditional IsDead="false" />
@@ -57,16 +57,13 @@
         <RequiredItem items="incendiumfueltank" type="Contained" />
         <Affliction identifier="burn" amount="3.0" />
       </StatusEffect>
-      <StatusEffect type="OnWearing" target="Contained,Character" OxygenAvailable="1500.0" Condition="-0.1" comparison="Or">
-        <Conditional IsDead="false" />
-        <RequiredItem items="oxygenitetank" type="Contained" />
-      </StatusEffect>
       <StatusEffect type="OnWearing" target="Contained,Character" SpeedMultiplier="1.2" setvalue="true" comparison="Or">
         <Conditional IsDead="false" />
         <RequiredItem items="oxygenitetank" type="Contained" />
       </StatusEffect>
     </Wearable>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="tank">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
       <Containable items="oxygensource,weldingtoolfuel" />
     </ItemContainer>
   </Item>
@@ -90,7 +87,7 @@
       <RequiredItem identifier="plastic" />
     </Fabricate>
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="445,228,34,28" depth="0.55" origin="0.5,0.5" />
-    <Body width="34" height="28" density="8" />
+    <Body width="34" height="28" density="15" />
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
     <MiniMap enableitemfinder="true" enablehullcondition="false" EnableElectricalView="false" EnableHullStatus="false" drawhudwhenequipped="true" displaybordersize="-0.1" characterusable="false" allowuioverlap="true">
       <GuiFrame relativesize="0.4,0.4" anchor="CenterLeft" relativeoffset="0.006,-0.01" style="ItemUI" />
@@ -116,8 +113,8 @@
       <RequiredItem identifier="iron" amount="6" />
     </Fabricate>
     <Sprite texture="Content/Items/Containers/UnitLoadDevice.png" depth="0.84" sourcerect="567,433,185,187" origin="0.5,0.5" />
-    <Body width="185" height="187" density="20" />
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="20.0" aimpos="85,-10" handle1="0,0" attachable="true" attachedbydefault="true" aimable="true">
+    <Body width="185" height="187" density="25" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="20.0" aimpos="85,-10" handle1="0,0" attachable="true" attachedbydefault="true" limitedattachable="true" aimable="true">
       <StatusEffect target="This" type="Always">
         <Conditional attached="false" targetitemcomponentname="Holdable"/>
         <DropContainedItems/>
@@ -147,9 +144,9 @@
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
     </Fabricate>
     <Sprite texture="Content/Items/Jobgear/TalentGear.png" sourcerect="0,479,153,18" depth="0.55" origin="0.5,0.5" />
-    <Body width="153" height="18" density="25" />
+    <Body width="153" height="18" density="30" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="35,10" handle1="-28,0" holdangle="30" aimangle="20" reload="0.75" range="75" combatPriority="30" msg="ItemMsgPickUpSelect">
-      <Attack targetimpulse="2" severlimbsprobability="0.55" itemdamage="10" structuredamage="1" structuresoundtype="StructureSlash">
+      <Attack targetimpulse="2" severlimbsprobability="0.55" itemdamage="6" structuredamage="1" structuresoundtype="StructureSlash">
         <Affliction identifier="lacerations" strength="19" />
         <Affliction identifier="bleeding" strength="14" />
         <Affliction identifier="stun" strength="0.25" />
@@ -179,6 +176,11 @@
     <Quality>
       <QualityStat stattype="StrikingPowerMultiplier" value="0.15"/>
     </Quality>
+    <SkillRequirementHint identifier="weapons" level="50" />
+    <SkillRequirementHint identifier="helm" level="50" />
+    <SkillRequirementHint identifier="electrical" level="50" />
+    <SkillRequirementHint identifier="mechanical" level="50" />
+    <SkillRequirementHint identifier="medical" level="50" />
   </Item>
 
   <Item name="" identifier="petraptoregg" hideinmenus="true" health="100" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.4" impactsoundtag="impact_soft" spritecolor="200,200,255,255">
@@ -194,7 +196,7 @@
       <Item identifier="adrenalinegland" />
     </Deconstruct>
     <!-- rectangular body to prevent the egg from rolling -->
-    <Body width="120" height="120" friction="1.0" restitution="0.01" angulardamping="1.0" />
+    <Body width="120" height="120" friction="1.0" restitution="0.01" angulardamping="1.0" density="12"/>
     <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false">
       <StatusEffect type="OnBroken" target="This">
         <particleemitter particle="whitegoosplash" particleamount="20" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />

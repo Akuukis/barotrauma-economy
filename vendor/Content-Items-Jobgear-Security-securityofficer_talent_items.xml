@@ -6,7 +6,9 @@
       <Price storeidentifier="merchantoutpost" multiplier="1.4" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />
       <Price storeidentifier="merchantresearch" multiplier="1.25" />
-      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="0" maxavailable="1" sold="true">
+        <Reputation faction="coalition" min="70"/>
+      </Price>
       <Price storeidentifier="merchantmine" multiplier="1.25" />
     </Price>
     <Fabricate suitablefabricators="fabricator" requiredtime="65" requiresrecipe="true">
@@ -44,7 +46,9 @@
     </RangedWeapon>
     <ItemContainer capacity="2" maxstacksize="12" hideitems="false" containedstateindicatorstyle="bullet" ShowTotalStackCapacityInContainedStateIndicator="true" containedstateindicatorslot="0" containedspritedepth="0.56">
       <Containable items="shotgunammo" hide="true"/>
-      <SlotIcon slotindex="2" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
       <SubContainer capacity="1" maxstacksize="1">
         <Containable items="flashlight" hide="false" itempos="26,-2" setactive="true"/>
       </SubContainer>
@@ -53,6 +57,7 @@
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
+    <SkillRequirementHint identifier="weapons" level="60" />
   </Item>
   <Item name="" identifier="assaultrifle" category="Weapon" cargocontaineridentifier="metalcrate" allowasextracargo="true" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder"/>
@@ -103,7 +108,8 @@
     </RangedWeapon>
     <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
       <Containable items="assaultrifleammo" itempos="4,-12" />
-      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />   
       <SubContainer capacity="1" maxstacksize="1">
         <Containable items="flashlight" hide="false" itempos="24,4" setactive="true"/>
       </SubContainer>
@@ -112,6 +118,7 @@
     <Quality>
       <QualityStat stattype="FirepowerMultiplier" value="0.1" />
     </Quality>
+    <SkillRequirementHint identifier="weapons" level="50" />
   </Item>
   <Item name="" identifier="assaultriflemagazine" maxstacksize="2" scale="0.5" category="Weapon" allowasextracargo="true" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,assaultrifleammo,riflemanbonus" impactsoundtag="impact_metal_light">
     <PreferredContainer primary="assaultrifle" minamount="1" maxamount="1" spawnprobability="1"/>
@@ -157,7 +164,7 @@
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" hitscan="true" removeonhit="true">
       <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,200,175" scalemultiplier="1,0.8" />
-      <Attack structuredamage="10" targetforce="7.5" itemdamage="20" severlimbsprobability="0.2" penetration="0.2">
+      <Attack structuredamage="6" targetforce="7.5" itemdamage="6" severlimbsprobability="0.2" penetration="0.2">
         <Affliction identifier="gunshotwound" strength="30" />
         <Affliction identifier="bleeding" strength="15" />
         <Affliction identifier="stun" strength="0.25" />
@@ -213,8 +220,12 @@
   <Item name="" identifier="bandolier" category="Equipment" tags="mediumitem,clothing" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" description="" impactsoundtag="impact_soft">
     <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="250" sold="false">
-      <Price storeidentifier="merchantoutpost" multiplier="1.3" />
-      <Price storeidentifier="merchantcity" multiplier="1.2" />
+      <Price storeidentifier="merchantoutpost" multiplier="1.3" minavailable="0" maxavailable="1" sold="true">
+        <Reputation faction="separatists" min="50"/>
+      </Price>
+      <Price storeidentifier="merchantcity" multiplier="1.2" minavailable="1" maxavailable="3" sold="true">
+        <Reputation faction="separatists" min="50"/>
+      </Price>
       <Price storeidentifier="merchantresearch" />
       <Price storeidentifier="merchantmilitary" multiplier="0.9" />
       <Price storeidentifier="merchantmine" />
@@ -230,7 +241,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="202,304,48,61" origin="0.45,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="216,210,78,95" depth="0.6" origin="0.5,0.5" />
-    <Body radius="30" height="30" density="25" />
+    <Body radius="30" height="30" density="15" />
     <Wearable slots="OuterClothes" msg="ItemMsgPickUpSelect" canbeselected="false" canbepicked="true" pickkey="Select">
       <sprite name="Security Vest" texture="Content/Items/JobGear/TalentGear.png" limb="Torso" hidelimb="false" sourcerect="215,209,79,97" inherittexturescale="true" origin="0.45,0.6" />
       <SkillModifier skillidentifier="weapons" skillvalue="15" />
@@ -262,7 +273,7 @@
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="1,425,164,53" depth="0.55" origin="0.5,0.2" />
     <Body width="161" height="20" density="25" />
     <MeleeWeapon slots="Any,RightHand+LeftHand" aimpos="50,0" handle1="-22,2" handle2="-32,5" holdangle="30" aimangle="10" reload="1.2" range="155" combatPriority="40" msg="ItemMsgPickUpSelect">
-      <Attack targetimpulse="5" severlimbsprobability="7.5" itemdamage="50" structuredamage="25">
+      <Attack targetimpulse="5" severlimbsprobability="7.5" itemdamage="30" structuredamage="25">
         <Affliction identifier="lacerations" strength="36" />
         <Affliction identifier="bleeding" strength="10" />
         <Affliction identifier="stun" strength="0.5" />
@@ -322,13 +333,16 @@
       <RequiredSkill identifier="mechanical" level="20" />
       <RequiredItem identifier="combatdivingsuit" />
       <RequiredItem identifier="rubber" />
+      <!-- clear the rest of the requirements -->
+      <RequiredItem />
+      <RequiredItem />
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="256,704,128,128" origin="0.5,0.5" />
     <Sprite name="Slipsuit Item" texture="Content/Items/Jobgear/Security/Slipsuit_Items.png" sourcerect="7,8,157,121" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Slipsuit In Vertical Locker" allowedcontainertags="divingsuitcontainervertical" texture="Content/Items/Jobgear/Security/Slipsuit_Items.png" sourcerect="171,0,77,192" depth="0.55" origin="0.5,0.5" />
     <ContainedSprite name="Slipsuit Behind Window" allowedcontainertags="divingsuitcontainerwindow" texture="Content/Items/Jobgear/Security/slipsuit.png" sourcerect="430,0,80,207" depth="0.55" origin="-0.12,-0.13" />
     <ContainedSprite name="Slipsuit In Horizontal Locker" allowedcontainertags="divingsuitcontainerhorizontal" texture="Content/Items/Jobgear/Security/Slipsuit_Items.png" sourcerect="0,193,230,63" depth="0.55" origin="0.6,0.5" />
-    <Body radius="45" width="34" density="15" />
+    <Body radius="45" width="34" density="20" />
     <Wearable>
       <sprite name="Slipsuit Helmet Wearable" texture="Content/Items/Jobgear/headgears.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hidelimb="false" alphaclipotherwearables="true" sourcerect="0,520,105,124" origin="0.5,0.4">
         <LightComponent range="200.0" lightcolor="250,224,165,255" powerconsumption="10" IsOn="true" allowingameediting="false">
@@ -373,7 +387,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="215,67,61,61" origin="0.5,0.5" />
     <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="200,189,72,18" depth="0.55" origin="0.5,0.5" />
-    <Body width="70" height="15" density="11" />
+    <Body width="70" height="15" density="11" waterdragcoefficient="1"/>
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="true">
       <Attack structuredamage="0" targetforce="2">
@@ -381,8 +395,8 @@
         <Affliction identifier="stun" strength="6" />
       </Attack>
       <StatusEffect type="OnImpact" target="This">
-        <Sound file="Content/Items/Weapons/TaserHit1.ogg" type="OnUse" range="3000" selectionmode="Random" />
-        <Sound file="Content/Items/Weapons/TaserHit2.ogg" type="OnUse" range="3000" />
+        <Sound file="Content/Items/Weapons/TaserHit1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="Content/Items/Weapons/TaserHit2.ogg" type="OnUse" range="1500" />
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -392,7 +406,7 @@
       </StatusEffect>
     </Projectile>
   </Item>
-  <Item name="" identifier="riotshield" category="Equipment" tags="smallitem" health="300" impactsoundtag="impact_metal_light" cargocontaineridentifier="metalcrate" damagedbyprojectiles="true" scale="1" allowasextracargo="true">
+  <Item name="" identifier="riotshield" category="Equipment" tags="mediumitem" health="150" impactsoundtag="impact_metal_light" cargocontaineridentifier="metalcrate" damagedbyprojectiles="true" scale="1" allowasextracargo="true">
     <PreferredContainer primary="armcab" secondary="secarmcab"/>
     <Price baseprice="360" sold="true" minleveldifficulty="50" >
       <Price storeidentifier="merchantoutpost" multiplier="1.4" />
@@ -412,7 +426,7 @@
     </Fabricate>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="640,320,64,64" />
     <Sprite texture="riotgear.png" sourcerect="31,54,27,147" origin="0.5,0.5" depth="0.55" />
-    <Body width="40" height="145" density="30" />
+    <Body width="40" height="145" density="20" />
     <Holdable slots="RightHand+LeftHand" aimpos="60,-30" holdpos="45,-30" handle1="-15,-10" handle2="-15,10" controlpose="true" blocksplayers="true" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" setvalue="true" />
       <StatusEffect type="OnBroken" target="This">

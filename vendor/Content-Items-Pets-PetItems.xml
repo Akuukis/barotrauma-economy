@@ -1,18 +1,18 @@
 <Items>
-  <Item name="" identifier="poop" nameidentifier="poop" Tags="smallitem" maxstacksize="8" hideinmenus="true" health="50" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6">
+  <Item name="" identifier="poop" nameidentifier="poop" Tags="smallitem" maxstacksize="8" hideinmenus="true" health="20" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6">
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="387,15,53,41" origin="0.5,0.5" />
     <Deconstruct time="10">
       <Item identifier="carbon" />
     </Deconstruct>
     <!-- rectangular body to prevent the poop from rolling -->
-    <Body width="53" height="41" density="8" />
-    <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Body width="53" height="41" density="9" />
+    <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" />
       <StatusEffect type="OnFire" target="This" Condition="-50.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
         <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" shockwave="false" decal="fruitsplatter_brown" decalsize="1.0" />
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="185,122,87,255" />
-        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+        <Sound file="Content/Sounds/Damage/Gore6.ogg" range="500" />
         <Remove />
       </StatusEffect>
     </Throwable>
@@ -27,7 +27,7 @@
       <Price storeidentifier="merchantmine"/>
     </Price>
     <Body width="34" height="53" density="20" />
-    <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnBroken" target="This">
         <Remove />
       </StatusEffect>
@@ -44,12 +44,12 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,64,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/idcard.png" depth="0.5" sourcerect="0,0,16,16" />
-    <Body width="16" height="12" density="20" />
+    <Body width="16" height="12" density="10.5" />
     <NameTag />
     <Holdable slots="Any,RightHand,LeftHand,Card" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
 
-  <Item identifier="mucusball" Tags="smallitem" maxstacksize="8" hideinmenus="true" health="50" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6" cargocontaineridentifier="metalcrate">
+  <Item identifier="mucusball" Tags="smallitem" maxstacksize="8" hideinmenus="true" health="20" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6" cargocontaineridentifier="metalcrate">
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.2" sourcerect="330,11,42,44" origin="0.5,0.5" />
     <Price baseprice="1" sold="false" canbespecial="false" />
     <Deconstruct time="10">
@@ -57,8 +57,8 @@
       <Item identifier="paralyxis" />
       <Item identifier="calcium" />
     </Deconstruct>
-    <Body width="53" height="41" density="20" />
-    <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+    <Body width="53" height="41" density="15" />
+    <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" />
       <StatusEffect type="OnFire" target="This" Condition="-50.0" />
       <StatusEffect type="OnBroken" target="This" Condition="-100.0">
@@ -66,18 +66,18 @@
           <!--effect here-->
         </Explosion>
         <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="128,0,0,255" />
-        <Sound file="Content/Sounds/Damage/Gore3.ogg" range="800" />
+        <Sound file="Content/Sounds/Damage/Gore3.ogg" range="500" />
         <Remove />
       </StatusEffect>
     </Throwable>
   </Item>
-  <Item identifier="chitin" Tags="smallitem" maxstacksize="8" hideinmenus="true" health="50" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6" cargocontaineridentifier="metalcrate">
+  <Item identifier="chitin" Tags="smallitem" maxstacksize="8" hideinmenus="true" health="20" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6" cargocontaineridentifier="metalcrate">
     <Sprite texture="Content/Characters/Pets/pets.png" depth="0.2" sourcerect="330,265,52,44" origin="0.5,0.5" />
     <Price baseprice="1" sold="false" canbespecial="false" />
     <Deconstruct time="10">
       <Item identifier="carbon" />
     </Deconstruct>
-    <Body width="53" height="41" density="20" />
+    <Body width="53" height="41" density="15" />
     <Holdable slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect" />
   </Item>
   <Item name="" identifier="chitinhelmet" category="Equipment" tags="smallitem,clothing" impactsoundtag="impact_metal_heavy" scale="0.4" cargocontaineridentifier="metalcrate">
@@ -98,7 +98,7 @@
     </Fabricate>
     <Sprite texture="Content/Characters/Pets/pets.png" sourcerect="386,260,62,58" depth="0.6" origin="0.5,0.5" />
     <InventoryIcon texture="Content/Characters/Pets/pets.png" sourcerect="453,258,56,56" origin="0.5,0.5" />
-    <Body radius="30" density="50" />
+    <Body radius="30" density="20" />
     <Wearable slots="Any,Head" armorvalue="20.0" msg="ItemMsgPickUpSelect">
       <damagemodifier afflictionidentifiers="blunttrauma,lacerations,gunshotwound" armorsector="0.0,360.0" damagemultiplier="0.4" damagesound="LimbArmor" deflectprojectiles="true" />
       <damagemodifier afflictionidentifiers="bitewounds" armorsector="0.0,360.0" damagemultiplier="0.6" damagesound="LimbArmor" deflectprojectiles="true" />

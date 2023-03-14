@@ -31,10 +31,9 @@
     <SuitableTreatment type="burn" suitability="30" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="310,33,26,42" depth="0.6" origin="0.5,0.5" />
-    <Body width="25" height="40" density="10.01" />
+    <Body width="25" height="40" density="10.05" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <!--TODO: too low skill requirement -> onfailure almost never triggers-->
-      <RequiredSkill identifier="medical" level="10" />
+      <RequiredSkill identifier="medical" level="40" />
       <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
         <Sound file="Content/Items/Medical/Bandage1.ogg" range="500" />
         <Sound file="Content/Items/Medical/Bandage2.ogg" range="500" />
@@ -52,6 +51,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="40" />
   </Bandage>
   <!-- Name: Plastiseal -->
   <!-- Description: A synthetic skin with hemostatic properties, able to quickly seal most wounds. -->
@@ -77,7 +77,7 @@
     <SuitableTreatment type="bleeding" suitability="50" />
     <SuitableTreatment type="burn" suitability="50" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="22" />
+      <RequiredSkill identifier="medical" level="25" />
       <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
         <Sound file="Content/Items/Medical/Bandage1.ogg" range="500" />
         <Sound file="Content/Items/Medical/Bandage2.ogg" range="500" />
@@ -95,6 +95,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="25" />
   </Plastiseal>
   <!-- Name: Antibiotic Glue -->
   <!-- Description: An antibiotic glue with hemostatic properties. Seals bleeding wounds almost immediately and treats burns very effectively. Use with care as it may cause mobile 
@@ -121,7 +122,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="0,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="312,8,63,22" depth="0.6" origin="0.5,0.5" />
-    <Body width="60" height="20" density="10.2" />
+    <Body width="60" height="20" density="12" />
     <SuitableTreatment type="bleeding" suitability="100" />
     <SuitableTreatment type="burn" suitability="100" />
     <SuitableTreatment type="damage" suitability="-25" />
@@ -147,6 +148,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="55" />
   </AntibioticGlue>
   <!-- Name: Morphine -->
   <!-- Description: A powerful opiate for treating pain associated with internal injuries, but will cause shortness of breath and eventual dependency with overuse. -->
@@ -183,15 +185,15 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="0,0,37,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="30" />
+      <RequiredSkill identifier="medical" level="40" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="10">
         <ReduceAffliction type="damage" amount="5" />
         <ReduceAffliction type="burn" amount="0.1" />
-        <Affliction identifier="oxygenlow" amount="2" />
+        <Affliction identifier="oxygenlow" amount="2" /> 
         <Affliction identifier="opiateaddiction" amount="0.5" />
         <Affliction identifier="opiateoverdose" amount="1.0" />
         <ReduceAffliction identifier="opiatewithdrawal" amount="3.0" />
@@ -221,6 +223,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </Morphine>
   <!-- Name: Fentanyl -->
   <!-- Description: A powerful opiate for treating pain associated with internal injuries, but will cause shortness of breath and eventual dependency with overuse. -->
@@ -254,7 +257,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="37,0,38,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="72" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -292,6 +295,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="72" />
   </Fentanyl>
 
   <!-- Name: Pomegrenade Extract -->
@@ -323,9 +327,9 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="0,384,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="228,380,64,64" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="20" />
+      <RequiredSkill identifier="medical" level="25" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="1">
@@ -359,6 +363,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="25" />
   </pomegrenadeextract>
   <!-- Name: Saline -->
   <!-- Description: A sodium chloride infusion mildly useful in the treatment of blood loss. -->
@@ -385,9 +390,9 @@
     <SuitableTreatment type="bloodloss" suitability="30" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="0,261,83,46" depth="0.6" origin="0.5,0.5" />
-    <Body width="80" height="45" density="10.2" />
+    <Body width="80" height="45" density="11" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
-      <RequiredSkill identifier="medical" level="10" />
+      <RequiredSkill identifier="medical" level="40" />
       <StatusEffect tags="medical" type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
@@ -403,6 +408,7 @@
       </StatusEffect>
     </Holdable>
     <AiTarget sightrange="1000" static="true" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </Saline>
   <!-- Name: Blood Pack -->
   <!-- Description: A pack of blood substitute for the treatment of blood loss. -->
@@ -416,6 +422,7 @@
     <PreferredContainer secondary="medcontainer"/>
     <Price baseprice="240">
       <Price storeidentifier="merchantmedical" multiplier="0.9"/>
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2"/>
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" amount="2" >
       <RequiredSkill identifier="medical" level="31" />
@@ -430,9 +437,9 @@
     <SuitableTreatment type="bloodloss" suitability="120" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="1,217,82,44" depth="0.6" origin="0.5,0.5" />
-    <Body width="80" height="42" density="10.2" />
+    <Body width="80" height="42" density="11" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
-      <RequiredSkill identifier="medical" level="35" />
+      <RequiredSkill identifier="medical" level="40" />
       <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
@@ -448,6 +455,7 @@
       </StatusEffect>
     </Holdable>
     <AiTarget sightrange="1000" static="true" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </BloodPack>
   <!-- Name: Deusizine -->
   <!-- Description: A highly potent stimulant effective in the treatment of internal damage, oxygen deprivation and, to a lesser extent, blood loss. Produces mild burns as a side 
@@ -478,7 +486,7 @@
     <SuitableTreatment identifier="oxygenlow" suitability="45" />
     <SuitableTreatment type="bloodloss" suitability="30" />
     <SuitableTreatment type="burn" suitability="-25" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="72" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -512,6 +520,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="72" />
   </Deusizine>
   <!-- Name: Liquid Oxygenite -->
   <!-- Description: A mildly toxic solution that slowly releases oxygen into the bloodstream when injected. Avoid dropping. -->
@@ -532,7 +541,7 @@
     <SuitableTreatment identifier="oxygenlow" suitability="99" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="187,138,38,71" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="72" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -546,8 +555,9 @@
         <ReduceAffliction identifier="oxygenlow" amount="1.65" />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" AllowWhenBroken="true">
-        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="5000" selectionmode="All" />
-        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall1.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" range="3000" />
+        <sound file="Content/Items/Weapons/ExplosionSmall3.ogg" range="3000" />
         <Explosion range="200.0" ballastfloradamage="50" structuredamage="10" levelwalldamage="50" itemdamage="250" force="5">
           <Affliction identifier="burn" strength="50" />
           <Affliction identifier="stun" strength="1.5" />
@@ -570,6 +580,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="72" />
   </LiquidOxygenite>
   <!-- Name: Calyxanide -->
   <!-- An antiparasitic drug used in the treatment of husk parasite infections. Might require higher dosage to cure the infection at later stages. -->
@@ -587,6 +598,9 @@
       <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="5" />
       <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="5" />
       <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="7" />
+      <Price storeidentifier="merchanthusk" minavailable="3" maxavailable="5">
+        <Reputation faction="huskcult" min="30"/>
+      </Price>
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" >
       <RequiredSkill identifier="medical" level="22" />
@@ -601,7 +615,7 @@
     <SuitableTreatment identifier="huskinfection" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="897,449,63,63" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="223,69,38,70" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="38" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -640,6 +654,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="38" />
   </Calyxanide>
   <!-- Name: Haloperidol -->
   <!-- A strong antipsychotic drug. -->
@@ -672,7 +687,7 @@
     <SuitableTreatment identifier="psychosis" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="37,138,38,71" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="37" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -702,6 +717,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="37" />
   </Haloperidol>
   <!-- Name: Naloxone -->
   <!-- An opioid antagonist for the treatment of opiate-based withdrawal and overdose. -->
@@ -728,7 +744,7 @@
     <SuitableTreatment identifier="opiateoverdose" suitability="60" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,448,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="186,0,38,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="39" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -761,6 +777,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="39" />
   </Naloxone>
   <!-- Name: Morbusine Antidote -->
   <!-- An antidote for acute morbusine poisoning. -->
@@ -779,6 +796,7 @@
       <Price storeidentifier="merchantmilitary"/>
       <Price storeidentifier="merchantmine"/>
       <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="2"/>
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2"/>
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" >
       <RequiredSkill identifier="medical" level="20" />
@@ -791,7 +809,7 @@
     <SuitableTreatment identifier="morbusinepoisoning" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="64,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="190,378,37,70" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="40"/>
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -819,6 +837,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </MorbusineAntidote>
   <!-- Name: Cyanide Antidote -->
   <!-- An antidote for acute cyanide poisoning. -->
@@ -837,6 +856,7 @@
       <Price storeidentifier="merchantmilitary"/>
       <Price storeidentifier="merchantmine"/>
       <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="2"/>
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2"/>
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" >
       <RequiredSkill identifier="medical" level="26" />
@@ -849,7 +869,7 @@
     <SuitableTreatment identifier="cyanidepoisoning" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="192,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="153,306,36,71" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="40"/>
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -877,6 +897,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </CyanideAntidote>
   <!-- Name: Sufforin Antidote -->
   <!-- An antidote for acute sufforin poisoning. -->
@@ -895,6 +916,7 @@
       <Price storeidentifier="merchantmilitary"/>
       <Price storeidentifier="merchantmine"/>
       <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="2"/>
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2"/>
     </Price>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="30" >
       <RequiredSkill identifier="medical" level="24" />
@@ -907,7 +929,7 @@
     <SuitableTreatment identifier="sufforinpoisoning" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="75,68,38,70" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="40"/>
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -935,6 +957,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </SufforinAntidote>
   <!-- Name: Deliriumine Antidote -->
   <!-- An antidote for acute deliriumine poisoning. -->
@@ -965,7 +988,7 @@
     <SuitableTreatment identifier="deliriuminepoisoning" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,703,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="225,210,37,70" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="40"/>
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -993,6 +1016,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="40" />
   </DeliriumineAntidote>
   <!-- Name: AntiRad -->
   <!-- Slows down cellular degradation caused by radiation. -->
@@ -1022,9 +1046,9 @@
     <SuitableTreatment identifier="radiationsickness" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="149,142,37,67" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="5" />
+      <RequiredSkill identifier="medical" level="25" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="1.0">
@@ -1050,6 +1074,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="25" />
   </AntiRad>
   <!-- Name: Paralysis Antidote -->
   <!-- An antidote for paralysis. -->
@@ -1080,7 +1105,7 @@
     <SuitableTreatment identifier="paralysis" suitability="100" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="150,210,39,69" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="64" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -1110,6 +1135,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="64" />
   </ParalysisAntidote>
   <!-- ********************************************************************************************* -->
   <!-- ******************************Ingredients & Base Chems*************************************** -->
@@ -1131,7 +1157,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="772,771,52,59" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="465,452,47,60" depth="0.6" origin="0.5,0.5" />
-    <Body width="45" height="60" density="10.2" />
+    <Body width="45" height="60" density="11" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
       <!-- Remove the item when fully used -->
       <StatusEffect type="OnBroken" target="This">
@@ -1163,9 +1189,9 @@
     <SuitableTreatment identifier="opiatewithdrawal" suitability="15" />
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="512,768,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="406,452,29,58" depth="0.6" origin="0.5,0.5" />
-    <Body width="35" height="55" density="10.2" />
+    <Body width="35" height="55" density="15" />
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="15" />
+      <RequiredSkill identifier="medical" level="60" />
       <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
@@ -1190,6 +1216,7 @@
         <Remove />
       </StatusEffect>
     </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="60" />
   </Opium>
   <!-- Name: Broad-spectrum Antibiotics -->
   <!-- A mild antibiotic that acts against a wide range of disease-causing bacteria, though with the side effect of internal damage. Used as an ingredient in many medical compounds. -->
@@ -1205,13 +1232,14 @@
       <Price storeidentifier="merchantmilitary" sold="false" multiplier="1.1" />
       <Price storeidentifier="merchantmine" sold="false" multiplier="1.1" />
       <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="10" />
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2"/>
     </Price>
     <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="60" fabricationlimitmin="5" fabricationlimitmax="10"/>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="263,142,36,68" depth="0.6" origin="0.5,0.5" />
     <SuitableTreatment type="damage" suitability="-33" />
     <SuitableTreatment identifier="huskinfection" suitability="30" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <RequiredSkill identifier="medical" level="25" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
@@ -1253,6 +1281,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="25" />
   </Antibiotics>
   <!-- Name: Stabilozine -->
   <!-- *************************************************************************************************************************************************************************** -->
@@ -1271,9 +1300,9 @@
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="384,640,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="112,139,37,70" depth="0.6" origin="0.5,0.5" />
     <SuitableTreatment type="poison" suitability="10" />
-    <Body width="35" height="65" density="10.2" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-      <RequiredSkill identifier="medical" level="20" />
+      <RequiredSkill identifier="medical" level="25" />
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="30">
@@ -1299,6 +1328,7 @@
       </StatusEffect>
     </MeleeWeapon>
     <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="25" />
   </Stabilozine>
   <!-- Name: Adrenaline -->
   <!-- A naturally occurring hormone. Useful for crafting. -->
@@ -1317,7 +1347,7 @@
     </Price>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="384,768,64,64" origin="0.5,0.5" />
     <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="379,452,27,58" depth="0.6" origin="0.5,0.5" />
-    <Body width="25" height="55" density="10.2" />
+    <Body width="25" height="55" density="10.2" waterdragcoefficient="1"/>
     <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
       <StatusEffect type="OnSuccess" target="UseTarget">
@@ -1368,7 +1398,7 @@
     </Deconstruct>
     <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="704,704,64,64" origin="0.5,0.5" />
     <Sprite texture="Medicines.png" sourcerect="383,5,33,87" depth="0.6" origin="0.5,0.5" />
-    <Body width="30" height="80" density="10.2" />
+    <Body width="30" height="80" density="11" waterdragcoefficient="1" />
     <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect">
       <!-- TODO: too low skill requirement, never triggers-->
       <RequiredSkill identifier="medical" level="5" />
