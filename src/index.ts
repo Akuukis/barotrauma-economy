@@ -490,8 +490,12 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                     let deconstructValue = 0
                     for(const [id, amount] of Object.entries(recipe.deconstruct.parts)) {
                         const partItem = ITEMS.find((item) => item.id === id)
-                        if(!partItem && !id.includes('genetic')) console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
-                        deconstructValue += amount * (partItem?.value || 0)
+                        if(!partItem && !id.includes('genetic')) {
+                            console.warn(`Missing definition for item with id "${id}" for "${item.id}", skipping..`)
+                            continue
+                        }
+                        deconstructValue += amount * (partItem?.value ?? 0)
+                        // deconstructValue += amount * Math.min(partItem?.value ?? 0, partItem?.price ?? 0)
                     }
                     deconstructValue -= hassle
 
@@ -516,8 +520,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                         let sumValue = 0
                         for(const [id, partAmount] of Object.entries(fab.parts)) {
                             const partItem = ITEMS.find((item) => item.id === id)
-                            if(!partItem) console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
-                            sumValue += partAmount/producedAmount * (partItem?.value || 0)
+                            if(!partItem) {
+                                console.warn(`Missing item "${id}" for fabricating "${recipeItem.id}", skipping..`)
+                                continue
+                            }
+                            sumValue += partAmount/producedAmount * partItem.value
+                            // sumValue += partAmount/producedAmount * Math.min(partItem.value ?? 0, partItem.price ?? 0)
+
                         }
                         sumValue += hassle
 
