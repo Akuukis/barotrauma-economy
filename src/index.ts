@@ -37,6 +37,7 @@ interface ItemFE extends Item {
     _nextValue: number
     shopSuggestion: ShopSuggestion
     suggestion: Suggestion
+    rarity: number
 }
 
 interface DisplayNode extends d3.SimulationNodeDatum {
@@ -114,6 +115,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
             _nextValue: item.price / 4,
             suggestion: Suggestion.Sell,
             shopSuggestion: ShopSuggestion.Sell,
+            rarity: 10 / Object.values(item.stores).reduce((sum, store) => sum + (store.sold ? 1 : 0) + (store.minavailable ?? 0), 0.1)
         }))
         // .filter((item) => !item.id.endsWith('wire') || item.id === 'wire')
         // .filter((item) => !item.id.endsWith('component'))
@@ -348,10 +350,9 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                                     .call(addSubLine, item, amount/producedAmount)
                             }
                             if(hassle) {
-                                const hasslePerResult = hassle * Object.values(fab.parts)[0]
-                                sum += hasslePerResult
+                                sum += hassle
                                 more.append("div")
-                                    .text(`${formatValue(hasslePerResult)}v: hassle`)
+                                    .text(`${formatValue(hassle)}v: hassle`)
                             }
                             more.append('hr')
                                 .style('width', '2em')
@@ -403,10 +404,9 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                         .call(addSubLine, item, amount/producedAmount)
                 }
                 if(hassle) {
-                    const hasslePerResult = hassle * Object.values(fab.parts)[0]
-                    sum += hasslePerResult
+                    sum += hassle
                     info.append("div")
-                        .text(`${formatValue(hasslePerResult)}v: hassle`)
+                        .text(`${formatValue(hassle)}v: hassle`)
                 }
                 info.append('hr')
                     .style('width', '2em')
@@ -483,7 +483,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
         for(let i = 0; i < n; i++) {
             for(const item of ITEMS) {
                 const consume = localStorage.getItem(`consume-${item.id}`) !== null
-                let bestValue = item._nextValue
+                let bestValue = item.baseValue
 
                 const recipe = RECIPES.find((recipe) => recipe.result === item.id)
                 if(recipe?.deconstruct) {
@@ -518,6 +518,7 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                         }
 
                         let sumValue = 0
+                        let sumOrdinariness = 0
                         for(const [id, partAmount] of Object.entries(fab.parts)) {
                             const partItem = ITEMS.find((item) => item.id === id)
                             if(!partItem) {
@@ -525,12 +526,13 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                                 continue
                             }
                             sumValue += partAmount/producedAmount * partItem.value
+                            sumOrdinariness += partAmount/producedAmount * partItem.rarity
                             // sumValue += partAmount/producedAmount * Math.min(partItem.value ?? 0, partItem.price ?? 0)
 
                         }
                         sumValue += hassle
 
-                        const fabricationValue = (item.value || 0) * (recipeItem.value / sumValue)
+                        const fabricationValue = (item.value || 0) + (recipeItem.value - sumValue) * (item.rarity / sumOrdinariness)
                         if(bestValue < fabricationValue) {
                             bestValue = fabricationValue
                             item.suggestion = Suggestion.Fabricate
@@ -551,8 +553,8 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
                 if(item.value <= hassle) item.shopSuggestion = ShopSuggestion.Trash
                 else if(item.value <= item.price / 4) item.shopSuggestion = ShopSuggestion.Sell
                 else if(item.value <= item.price / 2) item.shopSuggestion = ShopSuggestion.SellPremium
-                else if(item.value >= item.price) item.shopSuggestion = ShopSuggestion.Buy
-                else if(item.value >= item.price / 2) item.shopSuggestion = ShopSuggestion.BuyDiscounted
+                else if(item.value >= item.price && item.rarity < 100) item.shopSuggestion = ShopSuggestion.Buy
+                else if(item.value >= item.price / 2 && item.rarity < 100) item.shopSuggestion = ShopSuggestion.BuyDiscounted
                 else item.shopSuggestion = ShopSuggestion.Hold
             }
         }
@@ -562,28 +564,32 @@ const addSubLine = (node: d3.Selection<any, any, any, any>, item: ItemFE, amount
 
         const suggestionNodes = Object.values(Suggestion).map((suggestion) => ({
             label: suggestion,
-            amount: ITEMS.filter((item) => item.suggestion.includes(suggestion)).length,
+            amount: ITEMS.filter((item) => item.suggestion === suggestion).length,
         })).concat({label: '' as Suggestion, amount: Infinity})
             .sort((a, b) => b.amount - a.amount)
-        d3.select('#suggestion')
+        const $suggestion = d3.select('#suggestion')
             .selectAll('option')
             .data(suggestionNodes)
-            .enter()
+        $suggestion.enter()
             .append('option')
             .attr('value', d => d.label)
+            .text(d => d.label ? `${d.label} (${d.amount})` : '')
+        $suggestion
             .text(d => d.label ? `${d.label} (${d.amount})` : '')
 
         const shoppingNodes = Object.values(ShopSuggestion).map((shopping) => ({
             label: shopping,
-            amount: ITEMS.filter((item) => item.shopSuggestion.includes(shopping)).length,
+            amount: ITEMS.filter((item) => item.shopSuggestion === shopping).length,
         })).concat({label: '' as ShopSuggestion, amount: Infinity})
             .sort((a, b) => (a.label as string) === '' ? -1 : (b.label as string) === '' ? 1 : 0)
-        d3.select('#shopping')
+        const $shopping = d3.select('#shopping')
             .selectAll('option')
             .data(shoppingNodes)
-            .enter()
+        $shopping.enter()
             .append('option')
             .attr('value', d => d.label)
+            .text(d => d.label ? `${d.label} (${d.amount})` : '')
+        $shopping
             .text(d => d.label ? `${d.label} (${d.amount})` : '')
     }
 
